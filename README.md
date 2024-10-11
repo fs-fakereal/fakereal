@@ -13,6 +13,7 @@ source ./.venv/bin/activate
 # windows
 source ./.venv/bin/activate.ps1
 
+# install all the python package dependencies
 pip install -r requirements.txt
 
 # if on a terminal, run this to turn off virtual environment.
