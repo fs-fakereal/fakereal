@@ -11,7 +11,7 @@ python -m venv .venv
 source ./.venv/bin/activate
 
 # windows
-source ./.venv/bin/activate.ps1
+. ./.venv/bin/activate.ps1
 
 # install all the python package dependencies
 pip install -r requirements.txt
