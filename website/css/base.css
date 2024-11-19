@@ -1,0 +1,10 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(210, 219, 205);
+  color: rgb(95, 84, 80);
+
+  font-family: serif;
+}
