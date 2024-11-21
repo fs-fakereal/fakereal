@@ -1,18 +1,67 @@
-html {
-  height: 100%;
-}
-
+/* General Styles */
 body {
-  background-color: rgb(210, 219, 205);
-  color: rgb(95, 84, 80);
-
-  font-family: serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(210, 219, 205); /* Integrating your background color */
+  color: rgb(95, 84, 80); /* Integrating your text color */
 }
 
+/* Heading Styles */
 h1 {
+  text-align: center;
   color: #333;
+  margin-top: 20px; /* Adds some spacing above the heading */
 }
 
+/* Paragraph Styles */
 p {
-  color: #555;
+  text-align: center;
+  color: #555; /* Matches your paragraph color */
+  margin: 10px 20px; /* Adds some spacing for a cleaner layout */
+}
+
+/* Navigation Bar Styles */
+nav {
+  background-color: #8D9181;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 14px 20px;
+  display: block;
+  font-weight: bold; /* Makes the links stand out */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column; /* Stacks the links vertically on smaller screens */
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
 }
