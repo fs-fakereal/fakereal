@@ -3,8 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: rgb(210, 219, 205); /* Integrating your background color */
-  color: rgb(95, 84, 80); /* Integrating your text color */
+  background-color: rgb(210, 219, 205); 
+  color: rgb(95, 84, 80); 
 }
 
 /* Heading Styles */
@@ -17,7 +17,7 @@ h1 {
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: #555; /* Matches your paragraph color */
+  color: #555; /* Matches paragraph color */
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
@@ -33,11 +33,20 @@ nav {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Ensures spacing for the title */
+  align-items: center; /* Vertically centers the items */
+}
+
+.navbar .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFD700; /* Distinct gold color for the title */
+  margin-left: 20px; /* Adds space to the left of the title */
+  text-transform: uppercase; /* Makes the title all caps */
 }
 
 .navbar li {
-  margin: 0 15px;
+  margin: 0 8px;
 }
 
 .navbar a {
@@ -54,6 +63,18 @@ nav {
   border-radius: 4px;
 }
 
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #8D9181; /* Dark footer background */
+  color: white; /* Light text for contrast */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .navbar {
@@ -63,5 +84,9 @@ nav {
 
   .navbar li {
     margin: 10px 0;
+  }
+
+  .navbar .title {
+    margin-left: 0; /* Centers the title on smaller screens */
   }
 }
