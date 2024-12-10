@@ -1,6 +1,30 @@
 .img-size {
-    max-width: 50%;
+    max-width: 30%;
     max-height: 25%;
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 30px;
+}
+
+.examples {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.exampleOne {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.examplesTwo {
+    text-align: center;
+    margin-left: 100px;
+    padding-bottom: 10px;
+}
+
+.exampleTwo {
+    display: flex;
+    margin-left: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
