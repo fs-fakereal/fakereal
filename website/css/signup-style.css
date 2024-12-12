@@ -1,18 +1,18 @@
 /* General Reset */
-body, html {
+/* body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-  }
+  } */
   
   /* Navigation Bar */
-  .navbar {
+  /* .navbar {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: #8D9181; /* Dark footer background */
-    overflow: hidden;
+    background-color: #8D9181; Dark footer background */
+    /* overflow: hidden;
     display: flex;
     align-items: center;
   }
@@ -34,7 +34,7 @@ body, html {
   
   .title {
     font-weight: bold;
-  }
+  } */
   
   /* Centering the Signup Form */
   .signup-container {
