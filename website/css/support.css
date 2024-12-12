@@ -1,0 +1,15 @@
+.support {
+    background-color: rgb(241, 245, 242);
+    padding: 20px;
+    margin: 50px;
+    border-radius: 25px;
+
+    h1 {
+        text-align: left;
+        font-size: 15px;
+    }
+
+    h2 {
+        margin: 0px;
+    }
+}
