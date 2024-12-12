@@ -8,6 +8,11 @@
 .examples {
     text-align: center;
     padding-bottom: 10px;
+
+    h2 {
+        text-align: left;
+        margin-left: 35px;
+    }
 }
 
 .exampleOne {
@@ -20,6 +25,12 @@
     text-align: center;
     margin-left: 100px;
     padding-bottom: 10px;
+    /* background-color: #8e9186; */
+
+    h2 {
+        text-align: left;
+        margin-left: 45px;
+    }
 }
 
 .exampleTwo {

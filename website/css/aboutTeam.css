@@ -24,3 +24,28 @@
     margin-top: 80px;
     margin-right: 25px;
 }
+
+.img-size {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 20px;
+    margin: 30px 30px 25px 50px;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.team {
+    h1 {
+        text-align: left;
+        margin-left: 50px;
+        color: #69443c; 
+    }
+
+    margin-top: 100px;
+    background-color: rgb(241, 245, 242);
+    padding-top: 10px;
+}
