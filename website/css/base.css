@@ -65,6 +65,7 @@ nav {
 .navbar a:hover {
   background-color: #575757;
   border-radius: 4px;
+  color: #ac8a81; 
 }
 
 /* Footer Styles */
