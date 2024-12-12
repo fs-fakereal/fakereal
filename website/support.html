@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sign Up - Fake Real</title>
+    <title>Support - Fake Real</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/base.css">
@@ -24,6 +24,23 @@
     <div class="support">
       <h1>"Penny for your thought?"</h1>  
       <h2>Need any support? Or have any feedback? Let us know!</h2>
+    </div>
+
+    <div class="support-box">
+      <form action="support.php" method="post" class="support-form">
+        <input type="text" id="comment" name="comment" required>
+        <br><br>
+
+        <div class="send-submit">
+          <div class="email-box">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+          </div>
+          <br><br>
+    
+          <button type="submit">Send</button>
+        </div>
+      </form>
     </div>
 
     <!-- Footer -->
