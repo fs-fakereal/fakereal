@@ -1,0 +1,47 @@
+.support {
+    h1 {
+        text-align: left;
+        font-size: 15px;
+        color: #000000; 
+        /* font-family: sans-serif; */
+        font-weight: bold;
+        margin-right: 25px;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin: 0px;
+    }
+    
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 80px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.support-box {
+    background-color: rgb(241, 245, 242);
+    padding: 20px;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-right: 25px;
+    margin-left: 25px;
+    border-radius: 10px;
+}
+
+#send-submit {
+    display: flex;
+    flex-direction: row;
+}
+
+#comment {
+    height: 100%;
+    width: 100%;
+}
+
+#email-box {
+    margin-left: 10px;
+}
+
