@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login - Fake Real</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/upload.css">
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+        <li class="title"><a href="index.html">Fake Real</a></li>
+        <li><a href="home-page.html">Home</a></li>
+        <li><a href="about-deep-fake.html">DeepFake Information</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+
+    <!-- Upload Image -->
+    <div class="upload-section">
+      <h1>Upload an Image</h1>  
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="upload-box">
+          <label for="image">Choose an Image:</label>
+          <input type="file" id="image" name="image" accept="image/*" required onchange="previewImage()">
+        </div>
+        <br>
+        <div id="preview-box" class="preview-box">
+          <p>No image selected</p>
+        </div>
+        <br>
+        <div class="send-submit">
+          <button type="submit">Upload</button>
+        </div>
+      </form>
+      <div id="message"></div>
+    </div>
+      
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function previewImage() {
+        const fileInput = document.getElementById('image');
+        const previewBox = document.getElementById('preview-box');
+        const file = fileInput.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = 'Image Preview';
+            img.style.maxWidth = '100%';  // You can adjust this for better styling
+            previewBox.innerHTML = '';  // Clear the "No image selected" text
+            previewBox.appendChild(img);
+          };
+
+          reader.readAsDataURL(file);
+        } else {
+          previewBox.innerHTML = '<p>No image selected</p>';
+        }
+      }
+    </script>
+  </body>
+</html>
