@@ -19,8 +19,8 @@ h1 {
 /* Paragraph Styles */
 p {
   text-align: center;
-  /* color: rgb(36, 34, 30); Matches paragraph color */
-  color: #D0CBBF;
+  color: rgb(36, 34, 30); 
+  /* color: #D0CBBF; */
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
@@ -79,6 +79,10 @@ footer {
   bottom: 0;
   width: 100%;
   font-size: 14px;
+
+  p {
+    color: #D0CBBF;
+  }
 }
 
 /* Responsive Design */
