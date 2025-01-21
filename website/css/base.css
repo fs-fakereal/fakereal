@@ -5,8 +5,8 @@ body {
   margin: 0;
   padding: 0;
   /* background-color: rgb(210, 219, 205); */
-  background-color: #cdcfc0; 
-  color: #69443c; 
+  background-color: #FFF8ED; 
+  color: black; 
 }
 
 /* Heading Styles */
@@ -26,7 +26,7 @@ p {
 /* Navigation Bar Styles */
 nav {
   /* background-color: #8D9181; */
-  background-color: #8e9186;
+  background-color: #FFF8ED;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
 }
