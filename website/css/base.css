@@ -75,6 +75,21 @@ nav {
   color: #bbb1a4;
 }
 
+.navbar button {
+  border-radius: 10px;
+  color: #825c42;
+
+  a {
+    background-color: none;
+    color: rgb(36, 34, 30);
+  }
+
+  a:hover {
+    background-color: #e1d8cc;
+    color: #575342;
+  }
+}
+
 /* Footer Styles */
 footer {
   text-align: center;
