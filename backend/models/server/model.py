@@ -1,15 +1,14 @@
+import configparser
 import json
 import os
 import sys
 
 import requests
-from dotenv import dotenv_values, load_dotenv
+config = configparser.ConfigParser()
+config.read('config.ini')
 
-load_dotenv()
-
-# NOTE(liam): add these vars in via some env file.
-api_user = os.getenv("MODEL_USER")
-api_secret = os.getenv("MODEL_KEY")
+api_user = config['Model']['user']
+api_secret = config['Model']['secret']
 
 params = {
     'models' : 'genai',

@@ -3,4 +3,5 @@
 .envrc.cache
 .venv
 .env
+config.ini
 psql-connect.sh
