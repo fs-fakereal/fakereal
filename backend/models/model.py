@@ -1,19 +1,16 @@
 import configparser
 import json
-import os
 import sys
 
 import requests
+
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-api_user = config['Model']['user']
-api_secret = config['Model']['secret']
-
 params = {
     'models' : 'genai',
-    'api_user': api_user,
-    'api_secret': api_secret
+    'api_user': config['Model']['user'],
+    'api_secret': config['Model']['secret']
 }
 
 def check_media(path_to_file: str):
