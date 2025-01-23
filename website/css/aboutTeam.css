@@ -43,11 +43,21 @@
     h1 {
         text-align: left;
         margin-left: 50px;
-        color: #000000;
+        color: rgb(36, 34, 30);
     }
 
     margin-top: 100px;
-    background-color: rgb(241, 245, 242);
+    background-color: #797454;
     padding-top: 10px;
 }
 
+.members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin-left: 25px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}

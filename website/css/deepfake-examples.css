@@ -1,0 +1,39 @@
+.deepfake-examples {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.title-examples {
+    h2 {
+        text-align: left;
+        margin-left: 35px;
+    }
+}
+
+.example-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.example {
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    h4 {
+        margin: 10px 0px 0px 0px;
+        padding: 0px;
+    }
+
+    p {
+        margin: 0px;
+        padding: 0px;
+    }
+}
