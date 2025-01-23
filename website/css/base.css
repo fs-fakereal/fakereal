@@ -47,7 +47,7 @@ nav {
 .navbar .title {
   font-size: 20px;
   font-weight: bold;
-  color: #FFD700; /* Distinct gold color for the title */
+  color: #825c42;
   margin-left: 20px; /* Adds space to the left of the title */
   text-transform: uppercase; /* Makes the title all caps */
 }
@@ -67,24 +67,23 @@ nav {
 }
 
 .navbar a:hover {
-  background-color: rgb(36, 34, 40);
+  background-color: rgb(36, 34, 30);
   border-radius: 10px;
-  color: #A3A095;
+  color: #bbb1a4;
 }
 
 /* Footer Styles */
 footer {
   text-align: center;
   padding: 10px 20px;
-  background-color: #3D5D52;
-  color: white; 
+  background-color: #575342;
   position: fixed;
   bottom: 0;
   width: 100%;
   font-size: 14px;
 
   p {
-    color: #d3b8a6;
+    color: #bbb1a4;
   }
 }
 
