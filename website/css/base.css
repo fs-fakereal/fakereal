@@ -5,29 +5,32 @@ body {
   margin: 0;
   padding: 0;
   /* background-color: #F4E5CC; */
-  background-color: #A3A095;
-  color: black; 
+  background-color: #797454;
+  /* color: rgb(36, 34, 30);  */
+  color: #e1d8cc; 
 }
 
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: #333;
+  /* color: rgb(36, 34, 30); */
+  color: #e1d8cc;
   margin-top: 20px; /* Adds some spacing above the heading */
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: rgb(36, 34, 30); 
-  /* color: #D0CBBF; */
+  /* color: rgb(36, 34, 30);  */
+  color: #e1d8cc;
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
 /* Navigation Bar Styles */
 nav {
-  background-color: #3C3C3C;
+  /* background-color: #3C3C3C; */
   /* background-color: #90955C; */
+  background-color: #575342;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(36, 34, 30, 0.1); /* Adds a subtle shadow for depth */
 }
@@ -55,7 +58,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: #D0CBBF;
+  color: #e1d8cc;
   /* color: rgb(36, 34, 30); */
   padding: 14px 20px;
   display: block;
@@ -73,15 +76,15 @@ nav {
 footer {
   text-align: center;
   padding: 10px 20px;
-  background-color: #3C3C3C;
-  color: white; /* Light text for contrast */
+  background-color: #3D5D52;
+  color: white; 
   position: fixed;
   bottom: 0;
   width: 100%;
   font-size: 14px;
 
   p {
-    color: #D0CBBF;
+    color: #d3b8a6;
   }
 }
 
