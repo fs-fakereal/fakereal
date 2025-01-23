@@ -4,36 +4,40 @@ body {
   font-family: serif;
   margin: 0;
   padding: 0;
-  /* background-color: rgb(210, 219, 205); */
-  background-color: #cdcfc0; 
-  color: #69443c; 
+  /* background-color: #F4E5CC; */
+  background-color: #797454;
+  /* color: rgb(36, 34, 30);  */
+  color: #e1d8cc; 
 }
 
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: #333;
+  /* color: rgb(36, 34, 30); */
+  color: #e1d8cc;
   margin-top: 20px; /* Adds some spacing above the heading */
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: #555; /* Matches paragraph color */
+  /* color: rgb(36, 34, 30);  */
+  color: #e1d8cc;
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
 /* Navigation Bar Styles */
 nav {
-  /* background-color: #8D9181; */
-  background-color: #8e9186;
+  /* background-color: #3C3C3C; */
+  /* background-color: #90955C; */
+  background-color: #575342;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  box-shadow: 0 4px 6px rgba(36, 34, 30, 0.1); /* Adds a subtle shadow for depth */
 }
 
 .navbar {
   list-style: none;
-  margin: 0;
+  margin: 5px;
   padding: 0;
   display: flex;
   justify-content: space-between; /* Ensures spacing for the title */
@@ -43,7 +47,7 @@ nav {
 .navbar .title {
   font-size: 20px;
   font-weight: bold;
-  color: #FFD700; /* Distinct gold color for the title */
+  color: #825c42;
   margin-left: 20px; /* Adds space to the left of the title */
   text-transform: uppercase; /* Makes the title all caps */
 }
@@ -54,8 +58,8 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  /* color: white; */
-  color: #69443c;
+  color: #e1d8cc;
+  /* color: rgb(36, 34, 30); */
   padding: 14px 20px;
   display: block;
   font-weight: bold; /* Makes the links stand out */
@@ -63,21 +67,24 @@ nav {
 }
 
 .navbar a:hover {
-  background-color: #575757;
-  border-radius: 4px;
-  color: #ac8a81; 
+  background-color: rgb(36, 34, 30);
+  border-radius: 10px;
+  color: #bbb1a4;
 }
 
 /* Footer Styles */
 footer {
   text-align: center;
   padding: 10px 20px;
-  background-color: #8D9181; /* Dark footer background */
-  color: white; /* Light text for contrast */
+  background-color: #575342;
   position: fixed;
   bottom: 0;
   width: 100%;
   font-size: 14px;
+
+  p {
+    color: #bbb1a4;
+  }
 }
 
 /* Responsive Design */

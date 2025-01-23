@@ -12,11 +12,11 @@ app = FastAPI()
 
 @app.get('/')
 def main():
-    return { 'message': 'hi' }
+    return { 'message': 'Initialized.' }
 
 @app.post('/predict')
 def predict(data):
-    pass
+    return { 'message': 'Predict Called.' }
 
 if __name__ == '__main__':
     try:

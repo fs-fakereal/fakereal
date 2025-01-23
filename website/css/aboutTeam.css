@@ -17,6 +17,7 @@
         margin: 0px;
         margin-right: 25px;
         font-size: 15px;
+        color: #000000;
     }
 
     text-align: left;
@@ -42,10 +43,11 @@
     h1 {
         text-align: left;
         margin-left: 50px;
-        color: #69443c; 
+        color: #000000;
     }
 
     margin-top: 100px;
     background-color: rgb(241, 245, 242);
     padding-top: 10px;
 }
+
