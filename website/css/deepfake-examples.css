@@ -4,6 +4,9 @@
     padding-bottom: 10px;
 
     background-color: rgb(185, 180, 173);
+
+    display: flex;
+    flex-direction: column;
 }
 
 .title-examples {
