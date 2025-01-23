@@ -2,4 +2,5 @@
 .direnv
 .envrc.cache
 .venv
+.env
 psql-connect.sh
