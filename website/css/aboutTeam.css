@@ -96,9 +96,17 @@
 .frontend {
     margin: 0px 15px 0px 15px;
     color: white;
+
+    h2 {
+        padding-left: 25px;
+    }
 }
 
 .backend {
     margin: 0px 15px 0px 15px;
     color: white;
+
+    h2 {
+        padding-left: 25px;
+    }
 }
