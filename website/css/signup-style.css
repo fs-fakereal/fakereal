@@ -89,14 +89,4 @@
     background-color: #0056b3;
   }
   
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #8D9181; /* Dark footer background */
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
   
