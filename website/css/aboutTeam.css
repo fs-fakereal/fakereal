@@ -49,16 +49,56 @@
     margin-top: 100px;
     background-color: #797454;
     padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .members {
     color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 
     margin-left: 25px;
     margin-bottom: 0px;
     margin-top: 0px;
-    padding: 0px;
+    align-items: center;
+
+    img {
+        width: 200px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin-top: 5px;
+}
+
+.socials img {
+    width: 35px;
+    margin: 8px 2px 0px 2px;
+}
+
+.all-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.frontend {
+    margin: 0px 15px 0px 15px;
+    color: white;
+}
+
+.backend {
+    margin: 0px 15px 0px 15px;
+    color: white;
 }
