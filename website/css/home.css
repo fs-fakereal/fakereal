@@ -16,4 +16,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    /* background-color: rgb(185, 180, 173); */
+    background-color: #828e73;
+    border-radius: 20px 20px 0px 0px;
+
+    button {
+        margin: 5px;
+        padding: 10px;
+
+        background-color: rgb(100, 90, 78);
+        border-radius: 20px;
+    }   
+
+    button a {
+        text-decoration: none;
+        color: rgb(185, 180, 173);
+    }
 }
