@@ -7,6 +7,10 @@ import requests
 config = configparser.ConfigParser()
 config.read('config.ini')
 
+if not config.has_section('Model'):
+    print("[-] Startup failed: 'config.ini' not found.")
+    exit(1)
+
 params = {
     'models' : 'genai',
     'api_user': config['Model']['user'],
@@ -20,7 +24,6 @@ def check_media(path_to_file: str):
     return json.loads(r.text)
 
 def parse_check(output: dict[str], debug=False) -> (int, int):
-
     proc = {
         'score' : 0,
         'time' : -1,
@@ -67,9 +70,9 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
 if __name__ == "__main__":
 
     if len(sys.argv) > 1:
-        print(parse_check(check_media(sys.argv[1]), False))
+        print(parse_check(check_media(sys.argv[1]), True))
     else:
-        parse_check(check_media("./img.jpg"), True)
+        print(parse_check(check_media("./img.jpg"), True))
 
 """ RESPONSE EXAMPLE
 {
