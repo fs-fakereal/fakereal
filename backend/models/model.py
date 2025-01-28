@@ -71,8 +71,8 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1:
         print(parse_check(check_media(sys.argv[1]), True))
-    else:
-        print(parse_check(check_media("./img.jpg"), True))
+    # else:
+    #     print(parse_check(check_media("./img.jpg"), True))
 
 """ RESPONSE EXAMPLE
 {
