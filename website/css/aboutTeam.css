@@ -42,7 +42,7 @@
 .team {
     /* background-color: #797454; */
     background-color: #828e73;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
 
     padding: 20px 0px 50px 0px;
     margin-bottom: 0px;
