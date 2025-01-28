@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/aboutTeam.css">
+    <link rel="stylesheet" href="css/support.css">
   </head>
 
   <body>
@@ -22,13 +23,12 @@
       </ul>
     </nav>
 
+    <!-- Header/Mission Point -->
     <div class="head">
       <div class="vision">
         <h1>VISION</h1>
         <h2>Be aware and be informed. Be in charge of your safety and life.</h2>
-        <!-- <p>We are a group of Computer Science students in California State University, Long Beach! Concluding our final stretch in our degree,
-          we want to focus
-        </p> -->
+
         <p>At FakeReal, we want to spread awareness about deep fakes and ai generated images.
           We aim in making identifying these images and/or videos easier for everyday people. As technolgy
           progress, so do our lives.
@@ -43,6 +43,7 @@
       <img src="imgs/img-holder.png" alt="holder" class="img-size">
     </div>
 
+    <!-- About Team -->
     <div class="team">
       <h1>Team</h1>
       
@@ -104,6 +105,30 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Support Box -->
+    <div class="support">
+      <h1>"Penny for your thought?"</h1>  
+      <h2>Need any support? Or have any feedback?</h2>
+      <h2>Let us know!</h2>
+    </div>
+
+    <div class="support-box">
+      <form action="support.php" method="post" class="support-form">
+        <input type="text" id="comment" name="comment" required>
+        <br><br>
+
+        <div class="send-submit">
+          <div class="email-box">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+          </div>
+          <br><br>
+    
+          <button type="submit">Send</button>
+        </div>
+      </form>
     </div>
 
     <!-- Footer -->
