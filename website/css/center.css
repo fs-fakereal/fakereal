@@ -6,6 +6,7 @@
   justify-content: center;
   height: calc(100vh - 50px); 
   text-align: center;
+  padding-bottom: 50px; /* Pushes content up slightly */
 }
 
 .login-form {
