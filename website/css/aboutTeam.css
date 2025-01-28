@@ -1,6 +1,5 @@
 .vision {
     text-align: left;
-    margin: 80px 25px 0px 50px;
 
     h1 {
         text-align: left;
@@ -35,22 +34,26 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 80px 25px 0px 50px;
 }
 
+/* Team */
 .team {
     /* background-color: #797454; */
     background-color: #828e73;
     border-radius: 20px 20px 0px 0px;
 
-    padding: 20px 0px 50px 0px;
-    margin-bottom: 0px;
-    margin-top: 90px;
+    padding: 80px 50px 40px 50px;
     text-align: left;
     
+
     h1 {
         text-align: left;
-        margin-left: 50px;
-        color: rgb(36, 34, 30);
+        font-size: 35px;
+        color: #000000; 
+        /* font-family: sans-serif; */
+        font-weight: bold;
+        margin-right: 25px;
     }
 }
 
@@ -60,8 +63,8 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-    margin-left: 25px;
-    margin-bottom: 0px;
+    margin: 25px;
+    /* margin-bottom: 0px; */
     margin-top: 0px;
     align-items: center;
 
@@ -94,20 +97,20 @@
     align-items: center;
 }
 
-.frontend {
-    margin: 0px 15px 0px 15px;
-    color: white;
-
-    h2 {
-        padding-left: 25px;
-    }
+.frontend h2 {
+        text-align: left;
+        font-size: 15px;
+        color: #000000; 
+        /* font-family: sans-serif; */
+        font-weight: bold;
+        margin-right: 25px;
 }
 
-.backend {
-    margin: 0px 15px 0px 15px;
-    color: white;
-
-    h2 {
-        padding-left: 25px;
-    }
+.backend h2 {
+        text-align: left;
+        font-size: 15px;
+        color: #000000; 
+        /* font-family: sans-serif; */
+        font-weight: bold;
+        margin-right: 25px;
 }
