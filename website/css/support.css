@@ -1,6 +1,5 @@
 .support {
     text-align: left;
-    padding: 80px 50px 0px 50px;
 
     h1 {
         text-align: left;
@@ -21,13 +20,13 @@
     background-color: rgb(241, 245, 242);
     padding: 20px;
     text-align: left;
-    margin: 20px 50px 0px 50px;
+    margin: 20px 25px 0px 0px;
     border-radius: 10px;
 }
 
 .support-page {
     background-color: bisque;
-    padding-bottom: 80px 25px 80px 50px;
+    padding: 80px 25px 80px 50px;
 }
 
 #send-submit {
