@@ -13,6 +13,7 @@
     h2 {
         font-size: 30px;
         margin: 0px;
+        color: rgb(100, 90, 78);
     }
 }
 
@@ -26,7 +27,7 @@
 
 .support-page {
     background-color: bisque;
-    padding: 80px 25px 80px 50px;
+    padding: 80px 50px 80px 50px;
 }
 
 #send-submit {
@@ -39,7 +40,14 @@
     width: 100%;
 }
 
-#email-box {
-    margin-left: 10px;
+.email-box label {
+    color: rgb(31, 31, 31);
 }
 
+.send-button {
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+
+    background-color: rgb(100, 90, 78);
+    border-radius: 20px;
+}

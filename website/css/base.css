@@ -4,11 +4,7 @@ body {
   font-family: serif;
   margin: 0;
   padding: 0;
-  /* background-color: #F4E5CC; */
   background-color: #ada49a;
-  /* background-color: #e1d8cc; */
-  /* color: rgb(36, 34, 30);  */
-  /* color: #e1d8cc;  */
   color: #825c42;
 }
 
@@ -16,8 +12,6 @@ body {
 h1 {
   text-align: center;
   color: rgb(36, 34, 30);
-  /* color: #e1d8cc; */
-  /* color: #825c42; */
   margin-top: 20px; /* Adds some spacing above the heading */
 }
 
@@ -25,16 +19,12 @@ h1 {
 p {
   text-align: center;
   color: rgb(36, 34, 30); 
-  /* color: #e1d8cc; */
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
 /* Navigation Bar Styles */
 nav {
-  /* background-color: #3C3C3C; */
-  /* background-color: #90955C; */
   background-color: #3b3d66;
-  /* background-color: #575342; */
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(36, 34, 30, 0.1); /* Adds a subtle shadow for depth */
 }
@@ -62,9 +52,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  /* color: #e1d8cc; */
   color: azure;
-  /* color: rgb(36, 34, 30); */
   padding: 14px 20px;
   display: block;
   font-weight: bold; /* Makes the links stand out */
@@ -96,14 +84,12 @@ nav {
 footer {
   text-align: center;
   padding: 10px 20px;
-  /* background-color: #575342; */
   background-color: #3b3d66;
   bottom: 0;
-  width: 100%;
+  /* width: 100%; */
   font-size: 14px;
 
   p {
-    /* color: #bbb1a4; */
     color: azure;
   }
 }
