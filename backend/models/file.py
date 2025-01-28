@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
+# NOTE(liam): specify site(s) that can connect here.
 origins = [
         "http://localhost:8080",
         "http://localhost"
@@ -26,23 +27,20 @@ def read_hello():
     return {"message": "Hello World!"}
 
 @app.post('/upload')
-async def _file_upload(files: list[UploadFile] = File(...),
-                 # uid: list[str] = Form(...),
+async def _file_upload(file: UploadFile = File(...),
+                 uid: list[str] = Form(...),
                  # userUid: str = Form(...),
                  # url: str = Form(...),
                  ):
-    if not files:
+    if not file:
         return JSONResponse(content={"error": "No files selected"}, status_code=400)
 
-    fileRatings = []
-    for file in files:
-        result = model.parse_check(model.check_media(file.filename))
-        fileRatings.append(result)
+    result = model.parse_check(model.check_media(file.filename))
 
     return JSONResponse(content={
-        "message": "Files uploaded and scanned", "result": fileRatings,
-        # "uid": uid,
+        "result": result,
+        "uid": uid,
         # "userUid": userUid,
         # "url": url
-        })
+        }, status_code=200)
 

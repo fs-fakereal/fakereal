@@ -2,6 +2,8 @@ import configparser
 import json
 import sys
 
+from datetime import datetime
+
 import requests
 
 config = configparser.ConfigParser()
@@ -17,6 +19,28 @@ params = {
     'api_secret': config['Model']['secret']
 }
 
+explanations = {
+    "ok" : [
+        "Looks good.",
+        "No artifacts found.",
+        ],
+    "gen" : [
+        "Artifacts found in certain regions.",
+        "Even a baby could tell it's generated.",
+        ]
+}
+
+def generate_explanation(was_generated: bool = True) -> str:
+    res = ""
+    def to_integer(dt_time):
+        return 10000*dt_time.year + 100*dt_time.month + dt_time.day + dt_time.second
+    if was_generated:
+        res = explanations["gen"][to_integer(datetime.now()) % 2]
+    else:
+        res = explanations["ok"][to_integer(datetime.now()) % 2]
+
+    return res
+
 def check_media(path_to_file: str):
     files = { 'media': open(path_to_file, 'rb') }
     r = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data=params)
@@ -27,7 +51,8 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
     proc = {
         'score' : 0,
         'time' : -1,
-        'error' : None
+        'error' : None,
+        'expl' : "n/a"
     }
     ret = {
         'code' : 0,
@@ -49,6 +74,12 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
                 print(f"[+] '{output['media']['uri']}' ai report: {"likely generated" if ai_score > 0.5 else "not generated"} with {ai_score * 100}% confidence.")
 
             proc['score'] = ai_score
+
+            if ai_score > 0.5:
+                proc['expl'] = generate_explanation(True)
+            else:
+                proc['expl'] = generate_explanation(False)
+
 
         elif output['status'] == "failure":
             error_code = output['error']['code']
