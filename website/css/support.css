@@ -1,4 +1,7 @@
 .support {
+    text-align: left;
+    padding: 80px 50px 0px 50px;
+
     h1 {
         text-align: left;
         font-size: 15px;
@@ -12,23 +15,19 @@
         font-size: 30px;
         margin: 0px;
     }
-    
-    text-align: left;
-    margin-left: 50px;
-    margin-top: 80px;
-    margin-right: 25px;
-    margin-left: 25px;
 }
 
 .support-box {
     background-color: rgb(241, 245, 242);
     padding: 20px;
     text-align: left;
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin: 20px 50px 0px 50px;
     border-radius: 10px;
+}
+
+.support-page {
+    background-color: bisque;
+    padding-bottom: 80px 25px 80px 50px;
 }
 
 #send-submit {
