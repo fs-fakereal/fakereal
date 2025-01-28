@@ -1,14 +1,11 @@
 .head {
-    /* padding-top: 30px; */
     text-align: left;
-    margin-left: 50px;
-    margin-top: 80px;
-    margin-right: 25px;
+    margin: 0px 25px 0px 50px;
+    padding: 80px 25px 80px 25px;
 
     h1 {
         text-align: left;
         font-weight: bold;
-        margin-right: 25px;
 
         font-size: 15px;
         color: #000000; 
@@ -17,7 +14,6 @@
     p{
         text-align: left;
         margin: 0px;
-        margin-right: 25px;
         font-size: 15px;
         color: #000000;
     }
@@ -29,8 +25,7 @@
     justify-content: center;
     align-items: center;
 
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 80px 25px 80px 25px;
 
     /* background-color: rgb(185, 180, 173); */
     background-color: #828e73;
