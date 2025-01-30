@@ -19,14 +19,17 @@ params = {
     'api_secret': config['Model']['secret']
 }
 
+# NOTE(liam): JUST PLACEHOLDER EXPLANATION
 explanations = {
     "ok" : [
         "Looks good.",
         "No artifacts found.",
+        "Likely nothing.",
         ],
     "gen" : [
         "Artifacts found in certain regions.",
         "Even a baby could tell it's generated.",
+        "Something's not right with that image.",
         ]
 }
 
@@ -35,11 +38,12 @@ def generate_explanation(was_generated: bool = True) -> str:
     def to_integer(dt_time):
         return 10000*dt_time.year + 100*dt_time.month + dt_time.day + dt_time.second
     if was_generated:
-        res = explanations["gen"][to_integer(datetime.now()) % 2]
+        res = explanations["gen"][to_integer(datetime.now()) % len(explanations["gen"])]
     else:
-        res = explanations["ok"][to_integer(datetime.now()) % 2]
+        res = explanations["ok"][to_integer(datetime.now()) % len(explanations["ok"])]
 
     return res
+
 
 def check_media(path_to_file: str):
     files = { 'media': open(path_to_file, 'rb') }
@@ -51,7 +55,8 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
     proc = {
         'score' : 0,
         'time' : -1,
-        'error' : None,
+        'error' : None, # ret is passed here.
+        'model' : { 'name': params['models'], 'version': '1.0' },
         'expl' : "n/a"
     }
     ret = {
@@ -74,11 +79,7 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
                 print(f"[+] '{output['media']['uri']}' ai report: {"likely generated" if ai_score > 0.5 else "not generated"} with {ai_score * 100}% confidence.")
 
             proc['score'] = ai_score
-
-            if ai_score > 0.5:
-                proc['expl'] = generate_explanation(True)
-            else:
-                proc['expl'] = generate_explanation(False)
+            proc['expl'] = generate_explanation(was_generated=True if ai_score > 0.5 else False)
 
 
         elif output['status'] == "failure":
@@ -100,6 +101,7 @@ def parse_check(output: dict[str], debug=False) -> (int, int):
 
 if __name__ == "__main__":
 
+    # NOTE(liam): for debugging.
     if len(sys.argv) > 1:
         print(parse_check(check_media(sys.argv[1]), True))
     # else:
