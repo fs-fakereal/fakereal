@@ -6,6 +6,14 @@ body {
   padding: 0;
   background-color: #ada49a;
   color: #825c42;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
 }
 
 /* Heading Styles */
