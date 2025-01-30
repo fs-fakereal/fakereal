@@ -42,54 +42,62 @@
       </div>
 
       <div class="example-list">
-        <div class="example">
-          <img src="imgs/fake.png" alt="fake-img">
-          <h4>Face Swap</h4>
-          <p>Most common method.</p>
-        </div>
-
-        <div class="example">
-          <img src="imgs/fake2.png" alt="fake2-img">
-          <h4>Voice Cloning</h4>
-          <p>Fake audios.</p>
-        </div>
-
-        <div class="example">
-          <img src="imgs/fake2.png" alt="fake2-img">
-          <h4>Lip syncing</h4>
-          <p>Fake audios.</p>
-        </div>
-
-        <div class="example">
-          <img src="imgs/fake2.png" alt="fake2-img">
-          <h4>Synthetic Media</h4>
-          <p>Modified or generated images created</p>
-          <p>by blending multiple forms of media.</p>
-        </div>
-
-        <div class="example">
-          <img src="imgs/fake2.png" alt="fake2-img">
-          <h4>Full-body manipulation</h4>
-          <p>Fake videos or images that modifies </p>
-          <p>just the face but the body as well.</p>
-        </div>
-
-        <div class="example">
-          <img src="imgs/fake2.png" alt="fake2-img">
-          <h4>Text-baesd manipulation</h4>
-          <p>AI generated texts that imitate the</p>
-          <p>writing style of a specific individual.</p>
-        </div>
-
         <!-- Buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <div class="mySlides">
+          <div class="example">
+            <img src="imgs/fake.png" alt="fake-img">
+            <h4>Face Swap</h4>
+            <p>Most common method.</p>
+          </div>
+
+          <div class="example">
+            <img src="imgs/fake2.png" alt="fake2-img">
+            <h4>Voice Cloning</h4>
+            <p>Fake audios.</p>
+          </div>
+
+          <div class="example">
+            <img src="imgs/fake2.png" alt="fake2-img">
+            <h4>Lip syncing</h4>
+            <p>Fake audios.</p>
+          </div>
+        </div>
+
+        <div class="mySlides">
+          <div class="example">
+            <img src="imgs/fake2.png" alt="fake2-img">
+            <h4>Synthetic Media</h4>
+            <p>Modified or generated images created</p>
+            <p>by blending multiple forms of media.</p>
+          </div>
+
+          <div class="example">
+            <img src="imgs/fake2.png" alt="fake2-img">
+            <h4>Full-body manipulation</h4>
+            <p>Fake videos or images that modifies </p>
+            <p>just the face but the body as well.</p>
+          </div>
+
+          <div class="example">
+            <img src="imgs/fake2.png" alt="fake2-img">
+            <h4>Text-baesd manipulation</h4>
+            <p>AI generated texts that imitate the</p>
+            <p>writing style of a specific individual.</p>
+          </div> 
+        </div>
+        
+        <!-- Buttons -->
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
 
       <br>
-
-      <div>
-        
+      
+      <!-- dots/circles -->
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <!-- <span class="dot" onclick="currentSlide(3)"></span> -->
       </div>
     </div>
 
@@ -106,5 +114,7 @@
     <footer>
       <p>&copy; 2024 Fake Real™. All rights reserved.</p>
     </footer>
+
+    <script src="js/carousel.js"></script>
   </body>
 </html>

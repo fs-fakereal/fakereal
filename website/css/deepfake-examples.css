@@ -11,8 +11,12 @@
 }
 
 .title-examples {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     h2 {
-        color: black;
+        color: rgb(185, 180, 173);
         text-align: left;
         margin-left: 35px;
     }
@@ -39,7 +43,8 @@
     padding: 10px 0px 10px 0px;
 
     h4 {
-        color: black;
+        /* color: black; */
+        color: rgb(34, 34, 34);
         margin: 10px 0px 0px 0px;
         padding: 0px;
     }
@@ -51,10 +56,41 @@
 }
 
 /* buttons */
-.prev {
-    color: black;
+.prev, .next {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0px 5px 0px 5px;
 }
 
-.next {
-    color: black;
+.prev:hover, .next:hover {
+    color: rgba(0,0,0,0.5);
+}
+
+/* dots */
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    /* transition: background-color 0.6s ease; */
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* slides */
+.mySlides {
+    display: none;
 }
