@@ -16,7 +16,7 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    
+
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -33,6 +33,6 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex].className += " active";
+    slides[slideIndex-1].style.display = "block flex";
+    dots[slideIndex-1].className += " active";
 }

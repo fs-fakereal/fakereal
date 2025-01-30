@@ -116,13 +116,13 @@
 
       <div class="support-box">
         <form action="support.php" method="post" class="support-form">
-          <input type="text" id="comment" name="comment" required>
+          <input type="text" id="comment" name="comment" placeholder="Type in message..." required>
           <br><br>
 
           <div class="send-submit">
             <div class="email-box">
               <label for="email">Email:</label>
-              <input type="text" id="email" name="email" required>
+              <input type="text" id="email" name="email" placeholder="e.g. gmail, yahoo, .edu" required>
             </div>
             <br><br>
       
@@ -136,5 +136,15 @@
     <footer>
       <p>&copy; 2024 Fake Real™. All rights reserved.</p>
     </footer>
+
+    <script>
+      function autoGrow(comment) {
+        // Reset the height to auto so it can shrink if text is deleted
+        textarea.style.height = 'auto';
+        
+        // Set the height to the scrollHeight, which is the full height of the content
+        textarea.style.height = (textarea.scrollHeight) + 'px';
+      }
+    </script>
   </body>
 </html>
