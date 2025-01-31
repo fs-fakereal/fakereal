@@ -4,8 +4,10 @@ body {
   font-family: serif;
   margin: 0;
   padding: 0;
-  background-color: #ada49a;
-  color: #825c42;
+  /* background-color: #ada49a; */
+  /* color: #825c42; */
+
+  background-color: rgb(249, 247,240);
 
   display: flex;
   flex-direction: column;
@@ -19,20 +21,22 @@ body {
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: rgb(36, 34, 30);
+  color: rgb(74, 73, 71);
   margin-top: 20px; /* Adds some spacing above the heading */
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: rgb(36, 34, 30); 
+  color: rgb(74, 73, 71); 
   margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
 /* Navigation Bar Styles */
 nav {
-  background-color: #3b3d66;
+  /* background-color: #3b3d66; */
+  background-color: rgb(219, 210, 194);
+
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(36, 34, 30, 0.1); /* Adds a subtle shadow for depth */
 }
@@ -60,7 +64,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: azure;
+  color: rgb(74, 73, 71);
   padding: 14px 20px;
   display: block;
   font-weight: bold; /* Makes the links stand out */
