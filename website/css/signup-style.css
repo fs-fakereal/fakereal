@@ -6,7 +6,7 @@
     justify-content: center;
     height: calc(100vh - 100px); /* Adjust for nav and footer height */
     text-align: center;
-    margin-top: -50px;
+    margin-top: 5px;
 
     color: #000000; 
   }
