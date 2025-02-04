@@ -1,36 +1,9 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const { Pool } = require('pg');
-const cors = require('cors');
-const fs = require('fs');
-
-// Create Express app
-const app = express();
-
-// Enable CORS (for front-end access)
-app.use(cors());
-
-// Set up multer storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads'); // Store images in the 'uploads' directory
-  },
-  filename: (req, file, cb) => {
-    const fileExt = path.extname(file.originalname); // Get file extension
-    cb(null, Date.now() + fileExt); // Save file with a unique name (timestamp)
-  }
-});
-
-// Initialize multer upload
-const upload = multer({ storage: storage });
-
 // Set up PostgreSQL connection
 const pool = new Pool({
   user: 'postgres',
-  host: '23.251.147.161', // Replace with your DB host/public IP
-  database: 'fakereal-db', // Your database name
-  password: '05^O@8>E@[}YA~QS', // Your DB password
+  host: 'localhost', // Change this to 'localhost' for local database
+  database: 'fakereal-db',
+  password: '05^O@8>E@[}YA~QS', // Replace with a secure password
   port: 5432, // Default Postgres port
 });
 
@@ -40,7 +13,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     return res.status(400).json({ message: 'No file uploaded' });
   }
 
-  const imagePath = req.file.path; // Get the uploaded file's path
+  const imagePath = `/uploads/${req.file.filename}`; // Use relative path
 
   try {
     // Save image details to PostgreSQL (in the 'images' table)
@@ -61,10 +34,10 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 });
 
 // Serve uploaded images (static route)
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(uploadDir));
 
 // Set up server to listen on port 3000
 const port = 3000;
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`✅ Server running on http://localhost:${port}`);
 });
