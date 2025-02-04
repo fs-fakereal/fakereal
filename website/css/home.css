@@ -1,9 +1,7 @@
 .head {
     text-align: left;
-    /* margin: 0px 25px 0px 50px;
-    padding: 80px 25px 80px 25px; */
-
-    background-image: url("/website/imgs/FakeReal.png");
+    margin: 0px 25px 0px 50px;
+    padding: 80px 25px 80px 25px;
 
     h1 {
         text-align: left;
