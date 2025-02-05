@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/profile-edit.css">
   </head>
 
   <body>
@@ -18,10 +19,25 @@
       </ul>
     </nav>
 
-    <div class="profile ">
-
-      
-
+    <div class="profile">
+      <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required>
+        
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" required>
+        
+        <label for="old-password">Current Password:</label>
+        <input type="password" id="old-password" name="old-password" required>
+        
+        <label for="new-password">New Password:</label>
+        <input type="password" id="new-password" name="new-password" required>
+        
+        <button type="submit">Save Changes</button>
+      </form>
+      <h3>Delete Account</h3>
+      <form action="delete-account.php" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+        <button type="submit" class="delete">Delete </button>
+      </form>
     </div>
 
     <!-- Footer -->
