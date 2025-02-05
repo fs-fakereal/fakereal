@@ -3,7 +3,8 @@
     /* padding: 20px 0px 20px 0px; */
 
     padding: 80px 25px 80px 25px;
-    background-color: rgb(100, 90, 78);
+    /* background-color: rgb(100, 90, 78); */
+    background-color: rgb(179, 168, 155);
     /* border-radius: 20px 20px 0px 0px; */
 
     display: flex;
@@ -16,7 +17,8 @@
     align-items: center;
 
     h2 {
-        color: rgb(185, 180, 173);
+        /* color: rgb(185, 180, 173); */
+        color: black;
         text-align: left;
         margin-left: 35px;
         font-size: 25px;
