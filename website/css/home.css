@@ -1,21 +1,22 @@
 .head {
     text-align: left;
-    margin: 0px 25px 0px 50px;
-    padding: 80px 25px 80px 25px;
 
     h1 {
         text-align: left;
         font-weight: bold;
 
-        font-size: 15px;
+        font-size: 45px;
         color: #000000; 
+            
+        padding: 0px 0px 0px 25px;
     }
     
     p{
         text-align: left;
         margin: 0px;
-        font-size: 15px;
+        font-size: 35px;
         color: #000000;
+        padding: 0px 0px 0px 25px;
     }
 }
 
@@ -39,12 +40,15 @@
         padding: 10px 30px;
         font-size: 20px;
 
-        background-color: rgb(100, 90, 78);
-        border-radius: 40px;
-    }   
+        cursor: pointer;
 
-    button a {
-        text-decoration: none;
+        background-color: rgb(100, 90, 78);
         color: rgb(185, 180, 173);
+        border-radius: 40px;
+    } 
+
+    button:hover {
+        background-color: rgb(61, 55, 47);
+        color: rgb(139, 121, 99);
     }
 }

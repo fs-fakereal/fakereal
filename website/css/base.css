@@ -22,14 +22,12 @@ body {
 h1 {
   text-align: center;
   color: rgb(74, 73, 71);
-  margin-top: 20px; /* Adds some spacing above the heading */
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
   color: rgb(74, 73, 71); 
-  margin: 10px 20px; /* Adds some spacing for a cleaner layout */
 }
 
 /* Navigation Bar Styles */
@@ -92,6 +90,25 @@ nav {
   }
 }
 
+.report-button {
+  a {
+    background-color: rgb(213, 63, 63);
+    border-radius: 30px;
+    
+    color: rgb(255, 219, 219);
+    font-weight: 80;
+    font-size: 14px;
+  }
+
+  a:hover {
+    background-color: rgb(119, 45, 45);
+    color: black;
+
+    border-radius: 30px;
+  }
+}
+
+
 /* Footer Styles */
 footer {
   text-align: center;
@@ -120,4 +137,14 @@ footer {
   .navbar .title {
     margin-left: 0; /* Centers the title on smaller screens */
   }
+}
+
+
+/* Full screen section */
+.fullscreen-section {
+  width: 100%;  /* Set the width to 100% of the viewport width */
+  height: 95dvh; /* Set the height to 100% of the viewport height */
+  margin: 0;     /* Remove any default margin */
+  padding: 0;    /* Remove any default padding */
+  overflow: hidden; /* Prevent scrolling if needed */
 }

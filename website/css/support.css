@@ -26,6 +26,10 @@
     border-radius: 10px;
 }
 
+textarea {
+    background-color: white;
+}
+
 .support-page {
     background-color: bisque;
     padding: 80px 50px 80px 50px;
