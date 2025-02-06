@@ -3,7 +3,7 @@
 
     h1 {
         text-align: left;
-        font-size: 15px;
+        font-size: 1rem;
         color: #000000; 
         /* font-family: sans-serif; */
         font-weight: bold;
@@ -11,7 +11,7 @@
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 2rem;
         margin: 0px;
         color: rgb(100, 90, 78);
     }

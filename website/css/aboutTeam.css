@@ -3,7 +3,7 @@
 
     h1 {
         text-align: left;
-        font-size: 45px;
+        font-size: 3rem;
         color: #000000; 
         /* font-family: sans-serif; */
         font-weight: bold;
@@ -12,7 +12,7 @@
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 2rem;
         color: rgb(100, 90, 78);
         padding: 0px 25px 0px 25px;
     }
@@ -21,7 +21,7 @@
         text-align: left;
         margin: 0px;
         /* margin-right: 25px; */
-        font-size: 20px;
+        font-size: 2rem;
         color: #000000;
         padding: 0px 45px 0px 25px;
     }
@@ -53,7 +53,7 @@
 
     h1 {
         text-align: left;
-        font-size: 35px;
+        font-size: 3rem;
         color: #000000; 
         /* font-family: sans-serif; */
         font-weight: bold;
@@ -103,7 +103,7 @@
 
 .frontend h2 {
         text-align: left;
-        font-size: 15px;
+        font-size: 1rem;
         color: #000000; 
         /* font-family: sans-serif; */
         font-weight: bold;
@@ -112,7 +112,7 @@
 
 .backend h2 {
         text-align: left;
-        font-size: 15px;
+        font-size: 1rem;
         color: #000000; 
         /* font-family: sans-serif; */
         font-weight: bold;
