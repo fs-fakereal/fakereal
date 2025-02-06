@@ -1,7 +1,7 @@
 #!/bin/sh
 
 model_file=model.py
-server_file=file.py
+server_file=file-flask.py
 
 if [ "$1" = "run" ]; then
     source .venv/bin/activate
@@ -17,9 +17,17 @@ fi
 
 if [ "$1" = "serve" ]; then
     source .venv/bin/activate
-    python -m fastapi run $server_file
+    flask --app $server_file run
     deactivate
-    printf "Finished running $1.\n"
+    printf "Finished serving $1 via flask.\n"
+    exit
+fi
+
+if [ "$1" = "debug" ]; then
+    source .venv/bin/activate
+    flask --app $server_file --debug run
+    deactivate
+    printf "Finished serving $1 via flask.\n"
     exit
 fi
 
