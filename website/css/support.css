@@ -12,7 +12,7 @@
 
     h2 {
         font-size: 2rem;
-        margin: 0px;
+        margin: 0;
         color: rgb(100, 90, 78);
     }
 }
@@ -62,7 +62,7 @@ textarea {
     border-radius: 8px;
     min-height: 1lh;
 
-    margin-left: 5px;
+    margin-left: .4rem;
 
     overflow: hidden;
     resize: none;
@@ -71,9 +71,10 @@ textarea {
 }
 
 .send-button {
-    padding: 10px 15px 10px 15px;
+    /* padding: 10px 15px 10px 15px; */
+    padding: .7rem 1.5rem;
     cursor: pointer;
 
     background-color: rgb(137, 125, 110);
-    border-radius: 20px;
+    border-radius: 4rem;
 }
