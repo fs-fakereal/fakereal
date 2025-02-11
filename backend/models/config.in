@@ -1,0 +1,11 @@
+[Model]
+user=534054998
+secret=UanD6pohB2oGhkF6dXaSd5mEco6PWRS3
+
+[Database]
+host=aws-0-us-west-1.pooler.supabase.com
+port=5432
+db=postgres
+user=postgres.daaddobwwwwklobdpxxu
+pass=yzamxmFI0taUB2hW
+
