@@ -1,7 +1,6 @@
 
-
 from db import Base
-from sqlalchemy import Column, String, Float, Integer
+from sqlalchemy import Column, Float, Integer, String
 
 class Result(Base):
     __tablename__ = "results_history"

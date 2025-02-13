@@ -1,20 +1,26 @@
 # NOTE(liam): flask impl of file.py
 
-from sqlalchemy.orm import sessionmaker
-from db import Base, get_connection
+import sys
+# load files in py dir
+sys.path.insert(1, './py')
 
 import hashlib
-import model
 import json
-from typing import Optional
+
+import model
+from db import Base, get_connection
 
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-#---#
+from PIL import Image
+from sqlalchemy.orm import sessionmaker
+
+#--Constants--#
 DEBUG = True
 recent_results = {}
-#---#
+#-------------#
+
 
 app = Flask(__name__)
 cors = CORS(app, resources={
