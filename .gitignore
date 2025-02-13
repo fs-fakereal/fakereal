@@ -6,3 +6,4 @@
 config.ini
 psql-connect.sh
 data/
+__pycache__/
