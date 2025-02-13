@@ -1,12 +1,13 @@
 import configparser
 import json
 import sys
-import db
-
-from result import Result
 from datetime import datetime
 
+import db
+
 import requests
+
+from result import Result
 
 config = configparser.ConfigParser()
 config.read('config.ini')
