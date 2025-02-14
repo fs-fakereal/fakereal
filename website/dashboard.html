@@ -3,120 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Fake Real</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
 <body>
     <div class="sidebar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo" width="40">
+        </div>
         <ul>
-            <li class="menu-item">
-                <i class="fas fa-user"></i>
-                <span class="submenu">Profile
-                    <ul>
-                        <li><a href="#">View Profile</a></li>
-                        <li><a href="#">Edit Profile</a></li>
-                    </ul>
-                </span>
-            </li>
-            <li class="menu-item">
-                <i class="fas fa-upload"></i>
-                <span class="submenu">Upload
-                    <ul>
-                        <li><a href="#">Upload Image</a></li>
-                        <li><a href="#">Upload Video</a></li>
-                    </ul>
-                </span>
-            </li>
-            <li class="menu-item">
-                <i class="fas fa-cog"></i>
-                <span class="submenu">Settings
-                    <ul>
-                        <li><a href="#">Account Settings</a></li>
-                        <li><a href="#">Privacy Settings</a></li>
-                    </ul>
-                </span>
-            </li>
-            <li class="menu-item">
-                <i class="fas fa-sign-out-alt"></i>
-                <span class="submenu"><a href="login-page.html">Logout</a></span>
-            </li>
+            <li><a href="#">Home <span class="description">Dashboard Home</span></a></li>
+            <li><a href="#">Analytics <span class="description">View Analytics</span></a></li>
+            <li><a href="#">Settings <span class="description">Configure Settings</span></a></li>
+            <li><a href="#">Logout <span class="description">Sign Out</span></a></li>
         </ul>
     </div>
-    
-    <div class="content">
-        <h1>Welcome to Your Dashboard</h1>
-        <p>Manage your account, upload content, and adjust settings from here.</p>
+    <div class="main-content" id="main-content">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is the main dashboard area.</p>
     </div>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            transition: margin-left 0.3s;
-        }
-        .sidebar {
-            width: 80px;
-            background: #333;
-            color: white;
-            position: fixed;
-            height: 100vh;
-            transition: width 0.3s;
-            overflow: hidden;
-        }
-        .sidebar:hover {
-            width: 200px;
-        }
-        .sidebar:hover ~ .content {
-            margin-left: 200px;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .menu-item {
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .menu-item i {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-        .submenu {
-            display: none;
-            position: absolute;
-            left: 80px;
-            top: 0;
-            background: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .menu-item:hover .submenu {
-            display: block;
-        }
-        .submenu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .submenu li {
-            padding: 5px 0;
-        }
-        .submenu a {
-            color: white;
-            text-decoration: none;
-        }
-        .content {
-            margin-left: 80px;
-            padding: 20px;
-            flex-grow: 1;
-            transition: margin-left 0.3s;
-        }
-    </style>
+    <script src="js/sidehover.js"></script>
 </body>
 </html>

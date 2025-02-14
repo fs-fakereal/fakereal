@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(249, 247, 240);
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Transition for sliding effect */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 60px; /* Narrow width for the closed sidebar */
+    background-color: rgb(219, 210, 194);
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 6px rgba(36, 34, 30, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+
+.sidebar:hover {
+    width: 250px; /* Wider when hovered */
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: rgb(74, 73, 71);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgb(36, 34, 30);
+    border-radius: 10px;
+    color: #bbb1a4;
+}
+
+/* Hide descriptions by default */
+.sidebar .description {
+    display: none;
+    margin-left: 10px;
+}
+
+/* Show descriptions when sidebar is hovered */
+.sidebar:hover .description {
+    display: inline-block;
+}
+
+/* When sidebar is expanded, apply margin to main content */
+.sidebar.open + .main-content {
+    margin-left: 250px; /* Slide the content to the right when sidebar is open */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
