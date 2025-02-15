@@ -4,18 +4,18 @@
     <title>Login - Fake Real</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/upload.css">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
-        <li class="title"><a href="home-page.html">Fake Real</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="login-page.html">Login/Sign In</a></li>
-        <li><a href="upload.html">Download</a></li>
+        <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li><a href="{{ url_for('upload') }}">Upload</a></li>
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
@@ -45,7 +45,7 @@
       <p>&copy; 2024 Fake Real™. All rights reserved.</p>
     </footer>
 
-    <script src="js/upload-limit.js"></script>
-    <script src="js/upload-media.js"></script>
+    <script src="../static/js/upload-limit.js"></script>
+    <script src="../static/js/upload-media.js"></script>
   </body>
 </html>
