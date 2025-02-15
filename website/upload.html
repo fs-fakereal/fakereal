@@ -20,24 +20,26 @@
       </ul>
     </nav>
 
-    <!-- Upload Image -->
-    <div class="upload-section">
-      <h1>Upload an Image</h1>  
-      <form id="uploadForm" enctype="multipart/form-data">
-        <div class="upload-box">
-          <label for="image">Choose an Image:</label>
-          <input type="file" id="image" name="image" accept="image/*" required onchange="previewImage()">
-        </div>
-        <br>
-        <div id="preview-box" class="preview-box">
-          <p>No image selected</p>
-        </div>
-        <br>
-        <div class="send-submit">
-          <button type="submit">Upload</button>
-        </div>
-      </form>
-      <div id="message"></div>
+    <div class="main-content">
+      <!-- Upload Image -->
+      <div class="upload-section">
+        <h1>Upload an Image</h1>  
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="upload-box">
+            <label for="image">Choose an Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required onchange="previewImage()">
+          </div>
+          <br>
+          <div id="preview-box" class="preview-box">
+            <p>No image selected</p>
+          </div>
+          <br>
+          <div class="send-submit">
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div id="message"></div>
+      </div>
     </div>
       
     <!-- Footer -->
