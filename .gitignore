@@ -8,3 +8,4 @@ psql-connect.sh
 data/
 __pycache__/
 /.flaskenv
+/flaskenv
