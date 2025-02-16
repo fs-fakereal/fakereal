@@ -54,3 +54,31 @@
   .signup-form button:hover {
     background-color: #0056b3;
   }
+
+  /* Password requirements box */
+.password-requirements {
+  width: 250px;  /* Set a fixed width */
+  text-align: left;
+  font-size: 14px;
+  margin-top: 15px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Adds space below the password box */
+}
+
+.password-requirements p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.password-requirements ul {
+  margin-top: 10px;
+}
+
+.password-requirements li {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
