@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const form = document.querySelector('form');
+    const showPasswordCheckbox = document.getElementById('showPassword');
 
     form.addEventListener('submit', function (event) {
         // Prevent form submission if validation fails
@@ -52,4 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // If all validations pass
         return true;
     }
+
+    // Show/Hide Password Feature
+    showPasswordCheckbox.addEventListener('change', function () {
+        const type = this.checked ? 'text' : 'password';
+        passwordInput.type = type;
+        confirmPasswordInput.type = type;
+    });
 });
