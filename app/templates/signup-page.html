@@ -48,7 +48,11 @@
                 {{ form.confirm_password.label }}<br>
                 {{ form.confirm_password(size=32) }}
             </p>
-            <p>{{ form.submit() }} {{ form.submit.label }}</p>
+            <input type="checkbox" id="showPassword"> Show Password <br><br>
+            <p>
+                {{ form.submit() }}<br>
+                <!--{{ form.submit.label }}-->
+            </p>
             <!--<label for="firstName">First Name:</label><br>
     <input type="text" id="firstName" name="firstName" required><br><br>
 
@@ -65,7 +69,17 @@
     <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
 
     <button type="submit">Sign Up</button> -->
-
+            <!-- Password requirements section -->
+            <div class="password-requirements">
+                <p>Password must meet the following requirements:</p>
+                <ul>
+                    <li>At least 8 characters long</li>
+                    <li>At least one uppercase letter (A-Z)</li>
+                    <li>At least one lowercase letter (a-z)</li>
+                    <li>At least one number (0-9)</li>
+                    <li>At least one special character (!@#$%^&*)</li>
+                </ul>
+            </div>
         </form>
       </div>
       

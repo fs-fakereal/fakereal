@@ -36,7 +36,10 @@
               {{ form.password.label }}<br>
               {{ form.password(size=32) }}
           </p>
-          <p>{{ form.submit() }} {{ form.submit.label }}</p>
+          <p>
+              {{ form.submit() }}<br>
+              <!-- {{ form.submit.label }} -->
+          </p>
           <!--<label for="email">Email:</label><br>
     <input type="text" id="email" name="email" required><br><br>
 
