@@ -55,3 +55,15 @@
   background-color: #45a049; /* Darker shade of green when user hover over */
 }
 
+.show-password-container {
+  display: flex;
+  align-items: center; /* Aligns checkbox and label vertically */
+  gap: 8px; /* Adds spacing between checkbox and label */
+  width: 100%; /* Makes it align with input fields */
+  margin-top: -10px; /* Adjust if needed to move closer */
+}
+
+.show-password-container input {
+  width: auto; /* Ensures checkbox does not stretch */
+  top: -100px;
+}
