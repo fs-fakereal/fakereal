@@ -12,4 +12,4 @@ login = LoginManager(app)
 
 from app import routes, models
 
-#fakereal flask app is initialized here
+#fakereal's flask app is initialized using this file

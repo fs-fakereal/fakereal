@@ -10,7 +10,7 @@ import uuid
 
 #models are defined here for backend to database interaction
 #every table used in our database should have a model equivalent here
-#usermixin is for auth
+#usermixin is for authentication purposes
 
 class User(UserMixin, db.Model):    
     __tablename__ = "users"
@@ -21,12 +21,15 @@ class User(UserMixin, db.Model):
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     created_at: so.Mapped[Optional[datetime]] = so.mapped_column(index=True, default=datetime.now())
 
+    #sets the plaintext password given by the user in the form to a hash
     def set_pass(self, password):
         self.password_hash = generate_password_hash(password)
 
+    #checks the password hash in the database with the plaintext password from the user
     def check_pass(self, password):
         return check_password_hash(self.password_hash, password)
     
+    #needed to have a logged in user session
     @login.user_loader
     def load_user(id):
         return db.session.get(User, int(id))

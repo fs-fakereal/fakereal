@@ -1,14 +1,14 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-#config file for variables/settings used by flask
+#this is a config file for variables/settings used by flask
 class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = os.environ['SECRET_KEY']
     #SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL'] <- use during production
-    #hardcoding is only temp, use file with environment variables upon production
+    #use file with environment variables upon production
     USER = os.environ['USER']
     PASSWORD = os.environ['PASSWORD']
     HOST = os.environ['HOST']
