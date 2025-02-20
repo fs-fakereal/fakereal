@@ -4,19 +4,19 @@
     <title>About Us- Fake Real</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/aboutTeam.css">
-    <link rel="stylesheet" href="css/support.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/aboutTeam.css">
+    <link rel="stylesheet" href="../static/css/support.css">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
-        <li class="title"><a href="home-page.html">Fake Real</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="login-page.html">Login/Sign In</a></li>
-        <li><a href="upload.html">Download</a></li>       
+        <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li><a href="{{ url_for('upload') }}">Upload</a></li>       
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
@@ -48,25 +48,25 @@
           <h2>Frontend</h2>
           <div class="list">
             <div class="members">
-              <img src="imgs/profile.png" alt="temp">
+              <img src="../static/imgs/profile.png" alt="temp">
               <h3>Letizia Maukar</h3>
               <p>Project Manager,</p>
               <p>UX and UI Designer</p>
 
               <div class="socials">
-                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="imgs/linkedin.png" alt="letizia's linkedin"></a>
-                <a href="https://github.com/ohmarcie"><img src="imgs/github.png" alt="letizia's github"></a>
+                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="../static/imgs/linkedin.png" alt="letizia's linkedin"></a>
+                <a href="https://github.com/ohmarcie"><img src="../static/imgs/github.png" alt="letizia's github"></a>
               </div>
             </div>
 
             <div class="members">
-              <img src="imgs/profile.png" alt="temp">
+              <img src="../static/imgs/profile.png" alt="temp">
               <h3>Rajesh Reddy</h3>
               <p>UX and UI Designer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/rajesh-reddy-38198628a/"><img src="imgs/linkedin.png" alt="rajesh's linkedin"></a>
-                <a href="https://github.com/Jesh316"><img src="imgs/github.png" alt="rajesh's github"></a>
+                <a href="https://www.linkedin.com/in/rajesh-reddy-38198628a/"><img src="../static/imgs/linkedin.png" alt="rajesh's linkedin"></a>
+                <a href="https://github.com/Jesh316"><img src="../static/imgs/github.png" alt="rajesh's github"></a>
               </div>
             </div>
           </div>
@@ -77,25 +77,25 @@
           <div class="list">
             
             <div class="members">
-              <img src="imgs/profile.png" alt="temp">
+              <img src="../static/imgs/profile.png" alt="temp">
               <h3>Fatima Sarr</h3>
               <p>Quality Tester,</p> 
               <p>Software Developer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="imgs/linkedin.png" alt="fatima's linkedin"></a>
-                <a href="https://github.com/fatima-sr"><img src="imgs/github.png" alt="fatima's github"></a>
+                <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/linkedin.png" alt="fatima's linkedin"></a>
+                <a href="https://github.com/fatima-sr"><img src="../static/imgs/github.png" alt="fatima's github"></a>
               </div>
             </div>
 
             <div class="members">
-              <img src="imgs/profile.png" alt="temp">
+              <img src="../static/imgs/profile.png" alt="temp">
               <h3>Liam Bagabag</h3>
               <p>Software Developer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/lbzfran/"><img src="imgs/linkedin.png" alt="liam's linkedin"></a>
-                <a href="https://github.com/lbzfran"><img src="imgs/github.png" alt="liam's github"></a>
+                <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/linkedin.png" alt="liam's linkedin"></a>
+                <a href="https://github.com/lbzfran"><img src="../static/imgs/github.png" alt="liam's github"></a>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
     <!-- Support Box -->
     <div class="support-page">
       <div class="support">
-        <h1>"Penny for your thought?"</h1>  
+        <h1>"Penny for your thoughts?"</h1>  
         <h2>Need any support? Or have any feedback?</h2>
         <h2>Let us know!</h2>
       </div>
