@@ -116,3 +116,11 @@
 .mySlides {
     display: none;
 }
+
+
+/* adjust base on device screen size */
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+}

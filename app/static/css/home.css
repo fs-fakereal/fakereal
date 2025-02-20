@@ -27,18 +27,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
-    padding: 80px 25px 80px 25px;
+    /* padding: 80px 25px 80px 25px; */
+    padding: 15rem 1rem;
 
-    font-size: 1rem;
+    font-size: 2rem;
 
     background-color: #828e73;
     border-radius: 20px 20px 0px 0px;
 
+    h1 {
+        padding: 0rem 3rem;
+    }
+
     button {
         margin: 5px;
         padding: 10px 30px;
-        font-size: 1rem;
+        font-size: 1.2rem;
 
         cursor: pointer;
 
