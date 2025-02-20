@@ -148,5 +148,5 @@ footer {
   height: 95dvh; /* Set the height to 100% of the viewport height */
   margin: 0;     /* Remove any default margin */
   padding: 0;    /* Remove any default padding */
-  overflow: hidden; /* Prevent scrolling if needed */
+  overflow: hidden; 
 }

@@ -21,7 +21,7 @@
         color: black;
         text-align: left;
         margin-left: 35px;
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 
@@ -47,14 +47,30 @@
 
     h4 {
         /* color: black; */
+        font-size: 1.3rem;
         color: rgb(34, 34, 34);
         margin: 10px 0px 0px 0px;
         padding: 0px;
     }
 
     p {
+        font-size: 1rem;
         margin: 0px;
         padding: 0px 0px 0px 0px;
+    }
+
+    img {
+        object-fit: cover;
+        border-radius: 10px;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    video {
+        object-fit: cover;
+        border-radius: 10px;
+        width: 15rem;
+        height: 15rem;
     }
 }
 
