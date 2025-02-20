@@ -1,28 +1,17 @@
-import configparser
 import json
+import os
 import sys
 from datetime import datetime
 
-import db
-
 import requests
-
-from result import Result
-
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-if not config.has_section('Model'):
-    print("[-] Startup failed: 'config.ini' not found.")
-    exit(1)
+from app.result import Result
 
 params = {
     'models' : 'genai',
-    'api_user': config['Model']['user'],
-    'api_secret': config['Model']['secret']
+    'api_user': os.getenv('MODEL_USER'),
+    'api_secret': os.getenv('MODEL_SECRET')
 }
 
-# NOTE(liam): JUST PLACEHOLDER EXPLANATION
 explanations = {
     "ok" : [
         "Looks good.",
@@ -253,6 +242,12 @@ explanations = {
         ]
 }
 
+# NOTE(liam): JUST PLACEHOLDER EXPLANATION
+
+def file_get_extension(filename):
+    return filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
+
+
 def generate_explanation(was_generated: bool = True) -> str:
     res = ""
     def to_integer(dt_time):
@@ -332,23 +327,3 @@ if __name__ == "__main__":
     # NOTE(liam): for debugging.
     if len(sys.argv) > 1:
         print(parse_check(check_media(sys.argv[1]), True))
-    # else:
-    #     print(parse_check(check_media("./img.jpg"), True))
-
-""" RESPONSE EXAMPLE
-{
-    "status": "success",
-    "request": {
-        "id": "req_0zrbHDeitGYY7wEGncAne",
-        "timestamp": 1491402308.4762,
-        "operations": 1
-    },
-    "type": {
-      "ai_generated": 0.01
-    },
-    "media": {
-        "id": "med_0zrbk8nlp4vwI5WxIqQ4u",
-        "uri": "https://sightengine.com/assets/img/examples/example-prop-c2.jpg"
-    }
-}
-"""
