@@ -12,15 +12,15 @@
             <img src="logo.png" alt="Logo" width="40">
         </div>
         <ul>
-            <li><a href="#">Home <span class="description">Dashboard Home</span></a></li>
-            <li><a href="#">Analytics <span class="description">View Analytics</span></a></li>
-            <li><a href="#">Settings <span class="description">Configure Settings</span></a></li>
-            <li><a href="#">Logout <span class="description">Sign Out</span></a></li>
+            <li><a href="{{ url_for('upload') }}">Upload </a></li>
+            <li><a href="#">Results <span class="description"></span></a></li>
+            <li><a href="{{ url_for('user_edit') }}">Settings </a></li>
+            <li><a href="{{ url_for('logout') }}">Logout </a></li>
         </ul>
     </div>
     <div class="main-content" id="main-content">
-        <h1>Welcome to the Dashboard</h1>
-        <p>This is the main dashboard area.</p>
+        <h1></h1>
+        <p></p>
     </div>
 
     <script src="../static/js/sidehover.js"></script>
