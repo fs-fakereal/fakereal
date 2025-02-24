@@ -97,6 +97,10 @@
 }
 
 /* dots */
+.dots {
+    text-align: center;
+}
+
 .dot {
     cursor: pointer;
     height: 8px;

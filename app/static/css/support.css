@@ -38,10 +38,6 @@ textarea {
 #send-submit {
     display: flex;
     flex-direction: row;
-
-    button::hover {
-        background-color: rgb(179, 172, 163);
-    }
 }
 
 
