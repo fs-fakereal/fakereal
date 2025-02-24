@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import time
 
@@ -18,9 +19,10 @@ from werkzeug.utils import secure_filename
 Session = sessionmaker(bind=db)
 s = Session()
 MODEL_DEBUG_PRINT = True
-DATA_UPLOAD_FOLDER = './data'
+DATA_UPLOAD_FOLDER = 'data'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 recent_results = {}
+JSON_FOLDER = 'static/json'
 #-----------------------#
 
 #this file tells flask where to route the website's traffic
@@ -105,6 +107,28 @@ def dashboard():
 def user_edit():
     return render_template('user-edit.html', title='User Edit')
 
+# NOTE(liam): gets existing news or get a new one if not existing, or if it's
+# been 30 days since the news was created.
+@app.route('/news')
+def get_news():
+    filepath = os.path.join(os.getcwd(), JSON_FOLDER, 'news.json')
+
+    time_created = os.path.getctime(filepath)
+    time_now = time.time()
+
+    # NOTE(liam): approximate 30 days in seconds
+    if (time_now - time_created > 2_592_000):
+
+        # NOTE(liam): make fetch here
+        pass
+
+    with open(filepath, "r") as json_file:
+        res_data = json.load(json_file)
+
+        return res_data
+
+    return None
+
 @app.route('/upload', methods=["POST"])
 def _file_upload():
     if request.method == 'POST':
@@ -130,7 +154,7 @@ def _file_upload():
             with open(bufpath, "rb") as bf:
                 contents = bf.read()
                 hash = hashlib.sha256(contents).hexdigest()
-                filepath = os.path.join(DATA_UPLOAD_FOLDER, f"{hash}.{ext}")
+                filepath = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER, f"{hash}.{ext}")
 
             # TODO(liam): this is definitely not efficient,
             # but it works, so good enough for now.
