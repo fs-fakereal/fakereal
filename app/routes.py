@@ -134,12 +134,7 @@ def get_news():
             if (time_created == 0 or time_now - time_created > 2_592_000):
 
                 # NOTE(liam): make fetch here
-                news_url = f"https://newsapi.org/v2/everything?q=Deepfake&apiKey={os.getenv('NEWS_SECRET')}"
-                news_obj = {
-                    # 'apiKey': f"{os.getenv('NEWS_SECRET')}",
-                    'q':'Deepfake',
-                    'from': '2025-02-01'
-                }
+                news_url = f"https://newsapi.org/v2/everything?q=Deepfake&language=en&apiKey={os.getenv('NEWS_SECRET')}"
 
                 response = requests.get(news_url)
                 dat = response.json()
