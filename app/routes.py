@@ -148,7 +148,6 @@ def get_news():
         except Exception as e:
             print(e)
 
-        print(dat)
         return dat
 
 @app.route('/upload', methods=["POST"])
