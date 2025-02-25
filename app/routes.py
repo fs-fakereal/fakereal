@@ -93,7 +93,7 @@ def scan():
     return render_template('scan-image.html', title='Scan')
 
 #route to the page that allows users to upload
-@app.route('/upload')
+@app.route('/upload', methods=['GET'])
 @login_required
 def upload():
     return render_template('upload.html', title='Upload')
@@ -156,12 +156,9 @@ def get_news():
         print(dat)
         return dat
 
-@app.route('/upload', methods=["GET", "POST"])
+@app.route('/upload', methods=["POST"])
 def _file_upload():
-    if request.method == 'GET':
-        # NOTE(liam): route to webpage
-        pass
-    elif request.method == 'POST':
+    if request.method == 'POST':
         # NOTE(liam): route to post req for upload
         if 'file' not in request.files:
             return {"error": "no file found"}, 400
