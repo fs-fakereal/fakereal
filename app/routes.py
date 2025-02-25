@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, login_required, logout_user
 from app import app
 from app import db
@@ -72,13 +72,13 @@ def scan():
     return render_template('scan-image.html', title='Scan')
 
 #route to the page that allows users to upload
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload')
 @login_required
 def upload():
     return render_template('upload.html', title='Upload')
 
 #route to dashboard
-@app.route('/dashboard', methods=['GET'])
+@app.route('/dashboard')
 @login_required
 def dashboard():
     return render_template('dashboard.html', title='Dashboard')
