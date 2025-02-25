@@ -3,6 +3,8 @@ import json
 import os
 import time
 
+import requests
+
 import sqlalchemy as sa
 
 from app import app, db, mse
@@ -22,7 +24,7 @@ MODEL_DEBUG_PRINT = True
 DATA_UPLOAD_FOLDER = 'data'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 recent_results = {}
-JSON_FOLDER = 'static/json'
+JSON_FOLDER = 'app/static/json'
 #-----------------------#
 
 #this file tells flask where to route the website's traffic
@@ -109,29 +111,57 @@ def user_edit():
 
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
 # been 30 days since the news was created.
-@app.route('/news')
+@app.route('/news', methods=['POST'])
 def get_news():
-    filepath = os.path.join(os.getcwd(), JSON_FOLDER, 'news.json')
-
-    time_created = os.path.getctime(filepath)
-    time_now = time.time()
-
-    # NOTE(liam): approximate 30 days in seconds
-    if (time_now - time_created > 2_592_000):
-
-        # NOTE(liam): make fetch here
-        pass
-
-    with open(filepath, "r") as json_file:
-        res_data = json.load(json_file)
-
-        return res_data
-
-    return None
-
-@app.route('/upload', methods=["POST"])
-def _file_upload():
     if request.method == 'POST':
+        json_folder_dir = os.path.join(os.getcwd(), JSON_FOLDER)
+        filepath = os.path.join(json_folder_dir, 'news.json')
+
+        time_now = time.time()
+        time_created = 0
+
+        dat: dict = {}
+
+        try:
+            if (not os.path.exists(json_folder_dir)):
+                os.makedirs(json_folder_dir, exist_ok = True)
+
+            if (os.path.exists(filepath)):
+                time_created = os.path.getctime(filepath)
+
+            # NOTE(liam): approximate 30 days in seconds
+            if (time_created == 0 or time_now - time_created > 2_592_000):
+
+                # NOTE(liam): make fetch here
+                news_url = f"https://newsapi.org/v2/everything?q=Deepfake&apiKey={os.getenv('NEWS_SECRET')}"
+                news_obj = {
+                    # 'apiKey': f"{os.getenv('NEWS_SECRET')}",
+                    'q':'Deepfake',
+                    'from': '2025-02-01'
+                }
+
+                response = requests.get(news_url)
+                dat = response.json()
+
+                with open(filepath, "w", encoding = 'utf8') as json_file:
+                    json.dump(dat, json_file, ensure_ascii = True)
+
+            else:
+                with open(filepath, "r") as json_file:
+                    dat = json.load(json_file)
+        except Exception as e:
+            print(e)
+
+        print(dat)
+        return dat
+
+@app.route('/upload', methods=["GET", "POST"])
+def _file_upload():
+    if request.method == 'GET':
+        # NOTE(liam): route to webpage
+        pass
+    elif request.method == 'POST':
+        # NOTE(liam): route to post req for upload
         if 'file' not in request.files:
             return {"error": "no file found"}, 400
 
