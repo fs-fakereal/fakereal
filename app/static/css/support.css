@@ -42,14 +42,70 @@ textarea {
 
 
 #comment {
-    min-height: 10lh;
+    min-height: 12lh;
     min-width: 4lh;
     width: 98%;
     overflow: hidden;
     resize: none;
+    
+    font-size: 1rem;
 
     border-radius: 10px;
     padding: 5px;
+}
+
+.email-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem 0rem 0rem;
+
+    textarea {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+
+    margin-left: .4rem;
+
+    overflow: hidden;
+    resize: none;
+    width: 50%;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
+}
+
+.subject-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 0rem;
+
+    textarea {
+        color: rgb(31, 31, 31);
+        border-radius: 8px;
+        min-height: 1.2lh;
+        font-size: 0.9rem;
+
+        margin-left: .4rem;
+
+        overflow: hidden;
+        resize: none;
+        width: 50%;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
 }
 
 .email-box {
@@ -60,7 +116,8 @@ textarea {
     textarea {
     color: rgb(31, 31, 31);
     border-radius: 8px;
-    min-height: 1lh;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
 
     margin-left: .4rem;
 
@@ -68,12 +125,18 @@ textarea {
     resize: none;
     width: 50%;
     }
+
+    label {
+        font-size: 1.2rem;
+    }
 }
 
 .send-button {
     /* padding: 10px 15px 10px 15px; */
-    padding: .7rem 1.5rem;
+    padding: 1rem 1.8rem;
     cursor: pointer;
+
+    font: 1rem sans-serif;
 
     background-color: rgb(137, 125, 110);
     border-radius: 4rem;

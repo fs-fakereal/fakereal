@@ -1,0 +1,112 @@
+/* Footer */
+.footer p{
+    text-align: left;
+}
+
+hr {
+    color: white;
+}
+
+.links {
+    padding: 0rem;
+    margin: 0rem;
+
+    align-items: right;
+}
+
+
+/* For the chrome extension download */
+.download {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    margin: 0rem;
+    padding: 0.8rem 0rem 0.5rem 0rem;
+
+    h1 {
+        color: #ff9b18;
+        font-size: 1rem;
+        text-align: left;
+
+        margin: 0rem;
+        padding: 0rem;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    img {
+        height: 2rem;
+        padding: 0rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+    }
+}
+
+.download-text {
+    display: flex;
+    flex-direction: column;
+    
+    text-align: left;
+
+    margin: 0rem;
+    padding: 0rem;
+}
+
+
+/* For the report a case button */
+.report {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0rem;
+    padding: 0.1rem 0rem 0.8rem 0rem;
+
+    h1 {
+        color: #e90000;
+        font-size: 1rem;
+
+        margin: 0rem;
+        padding: 0rem;
+
+        text-align: left;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    img {
+        height: 2rem;
+        padding: 0rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+    }
+}
+
+.report-text {
+    display: flex;
+    flex-direction: column;
+    
+    text-align: left;
+
+    margin: 0rem;
+    padding: 0rem;
+}
+
+
+/* Constant Footer */
+.important {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

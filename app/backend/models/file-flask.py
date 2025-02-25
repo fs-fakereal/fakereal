@@ -40,12 +40,12 @@ Base.metadata.create_all(bind=db_engine)
 Session = sessionmaker(bind=db_engine)
 s = Session()
 
-def file_get_extension(filename):
-    return filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
-
 @app.route('/')
 def hello():
     return "<h1>Conn Established!</h1>"
+
+def file_get_extension(filename):
+    return filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
 
 @app.route('/upload', methods=["POST"])
 def _file_upload():

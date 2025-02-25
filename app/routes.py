@@ -1,11 +1,29 @@
-from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, login_required, logout_user
-from app import app
-from app import db
-from app.forms import SignupForm
-from app.forms import LoginForm
-from app.models import User
+import hashlib
+import json
+import os
+import time
+
 import sqlalchemy as sa
+
+from app import app, db, mse
+from app.forms import LoginForm, SignupForm
+from app.models import User
+from flask import flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_required, login_user, logout_user
+from sqlalchemy.orm import sessionmaker
+
+from werkzeug.utils import secure_filename
+
+#--Constants for Model--#
+# TODO(liam): session is not working
+Session = sessionmaker(bind=db)
+s = Session()
+MODEL_DEBUG_PRINT = True
+DATA_UPLOAD_FOLDER = 'data'
+DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
+recent_results = {}
+JSON_FOLDER = 'static/json'
+#-----------------------#
 
 #this file tells flask where to route the website's traffic
 #backend routing logic for site urls
@@ -88,3 +106,84 @@ def dashboard():
 @login_required
 def user_edit():
     return render_template('user-edit.html', title='User Edit')
+
+# NOTE(liam): gets existing news or get a new one if not existing, or if it's
+# been 30 days since the news was created.
+@app.route('/news')
+def get_news():
+    filepath = os.path.join(os.getcwd(), JSON_FOLDER, 'news.json')
+
+    time_created = os.path.getctime(filepath)
+    time_now = time.time()
+
+    # NOTE(liam): approximate 30 days in seconds
+    if (time_now - time_created > 2_592_000):
+
+        # NOTE(liam): make fetch here
+        pass
+
+    with open(filepath, "r") as json_file:
+        res_data = json.load(json_file)
+
+        return res_data
+
+    return None
+
+@app.route('/upload', methods=["POST"])
+def _file_upload():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return {"error": "no file found"}, 400
+
+        try:
+            # NOTE(liam): file processing section
+            file = request.files['file']
+            filename = secure_filename(file.filename)
+            ext = mse.file_get_extension(filename)
+
+            if ext not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
+                return {"error": "file extension blocked"}, 400
+
+            # NOTE(liam): saves file temporarily
+            bufpath = os.path.join(DATA_UPLOAD_FOLDER, f"{time.time()}.{ext}")
+            file.save(bufpath)
+
+            # NOTE(liam): file.read() and file.save() is a blocking process,
+            # so basically I can't run either one after the other.
+            # Idk how else to fix this than what I did here.
+            with open(bufpath, "rb") as bf:
+                contents = bf.read()
+                hash = hashlib.sha256(contents).hexdigest()
+                filepath = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER, f"{hash}.{ext}")
+
+            # TODO(liam): this is definitely not efficient,
+            # but it works, so good enough for now.
+            if not (os.path.isfile(filepath)):
+                os.rename(bufpath, filepath)
+            else:
+                os.remove(bufpath)
+
+            result = ""
+            if hash in recent_results.keys():
+                if MODEL_DEBUG_PRINT:
+                    print("INFO: Hash found. Restoring previous result.")
+                result = recent_results[hash]
+            else:
+                if MODEL_DEBUG_PRINT:
+                    print("INFO: Sending image to model.")
+
+                result = mse.parse_check(mse.check_media(filepath))
+                recent_results[hash] = result
+
+            mse.push_results(s, result, hash)
+
+        except Exception as e:
+            print(f"ERROR: {e}")
+            return {"error": f"Error processing file: {str(e)}"}, 500
+
+        finally:
+            if MODEL_DEBUG_PRINT:
+                print("INFO: Finished processing. Returning to client.")
+            file.close()
+
+        return { "hash": hash, "result": result }

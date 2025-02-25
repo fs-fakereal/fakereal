@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/aboutTeam.css">
     <link rel="stylesheet" href="../static/css/support.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
   </head>
 
   <body>
@@ -48,25 +49,25 @@
           <h2>Frontend</h2>
           <div class="list">
             <div class="members">
-              <img src="../static/imgs/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
               <h3>Letizia Maukar</h3>
               <p>Project Manager,</p>
               <p>UX and UI Designer</p>
 
               <div class="socials">
-                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="../static/imgs/linkedin.png" alt="letizia's linkedin"></a>
-                <a href="https://github.com/ohmarcie"><img src="../static/imgs/github.png" alt="letizia's github"></a>
+                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
+                <a href="https://github.com/ohmarcie"><img src="../static/imgs/icons/github.png" alt="letizia's github"></a>
               </div>
             </div>
 
             <div class="members">
-              <img src="../static/imgs/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
               <h3>Rajesh Reddy</h3>
               <p>UX and UI Designer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/rajesh-reddy-38198628a/"><img src="../static/imgs/linkedin.png" alt="rajesh's linkedin"></a>
-                <a href="https://github.com/Jesh316"><img src="../static/imgs/github.png" alt="rajesh's github"></a>
+                <a href="https://www.linkedin.com/in/rajesh-reddy-38198628a/"><img src="../static/imgs/icons/linkedin.png" alt="rajesh's linkedin"></a>
+                <a href="https://github.com/Jesh316"><img src="../static/imgs/icons/github.png" alt="rajesh's github"></a>
               </div>
             </div>
           </div>
@@ -77,25 +78,25 @@
           <div class="list">
             
             <div class="members">
-              <img src="../static/imgs/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
               <h3>Fatima Sarr</h3>
               <p>Quality Tester,</p> 
               <p>Software Developer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/linkedin.png" alt="fatima's linkedin"></a>
-                <a href="https://github.com/fatima-sr"><img src="../static/imgs/github.png" alt="fatima's github"></a>
+                <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/icons/linkedin.png" alt="fatima's linkedin"></a>
+                <a href="https://github.com/fatima-sr"><img src="../static/imgs/icons/github.png" alt="fatima's github"></a>
               </div>
             </div>
 
             <div class="members">
-              <img src="../static/imgs/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
               <h3>Liam Bagabag</h3>
               <p>Software Developer</p>
               
               <div class="socials">
-                <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/linkedin.png" alt="liam's linkedin"></a>
-                <a href="https://github.com/lbzfran"><img src="../static/imgs/github.png" alt="liam's github"></a>
+                <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/icons/linkedin.png" alt="liam's linkedin"></a>
+                <a href="https://github.com/lbzfran"><img src="../static/imgs/icons/github.png" alt="liam's github"></a>
               </div>
             </div>
           </div>
@@ -115,6 +116,22 @@
 
       <div class="support-box">
         <form action="support.php" method="post" class="support-form">
+          <div class="email-details">
+            <div class="user-info">
+              <label for="firstName">First Name:</label>
+              <textarea rows="1" id="firstName" placeholder="e.g. John" required></textarea>
+            </div>
+            <div class="user-info">
+              <label for="lastName">Last Name:</label>
+              <textarea rows="1" id="lastName" placeholder="e.g. Smith" required></textarea>
+            </div>
+          </div>
+          
+          <div class="subject-box">
+            <label for="subject">Subject:</label>
+            <textarea rows="1" id="subject" placeholder="e.g. feedback, support request" required></textarea>
+          </div>
+
           <textarea id="comment" placeholder="Type in message..." required></textarea>
           <br><br>
 
@@ -125,15 +142,41 @@
             </div>
             <br><br>
       
-            <button class="send-button" type="submit">Send</button>
+            <button class="send-button" type="submit">Send Message</button>
           </div>
         </form>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+    <footer class="footer">
+
+      <div class="links">
+        <div class="download">
+          <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+
+          <div class="download-text">
+            <h1>Scan images at real time!</h1>
+            <p>Download our Chrome Extension</p>
+          </div>
+        </div>
+
+        <div class="report">
+          <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+
+          <div class="report-text">
+            <h1>Report a case!</h1>
+            <p>Click here to report a case</p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="important">
+        <p>Supported and developed by CSULB and CSULB students.</p>
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+      </div>
     </footer>
 
     <script>
