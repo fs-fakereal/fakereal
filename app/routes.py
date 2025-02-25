@@ -18,13 +18,14 @@ from werkzeug.utils import secure_filename
 
 #--Constants for Model--#
 # TODO(liam): session is not working
-Session = sessionmaker(bind=db)
-s = Session()
 MODEL_DEBUG_PRINT = True
 DATA_UPLOAD_FOLDER = 'data'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
-recent_results = {}
 JSON_FOLDER = 'app/static/json'
+
+Session = sessionmaker(bind=db)
+s = Session()
+recent_results = {}
 #-----------------------#
 
 #this file tells flask where to route the website's traffic
@@ -111,9 +112,9 @@ def user_edit():
 
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
 # been 30 days since the news was created.
-@app.route('/news', methods=['POST'])
+@app.route('/news', methods=['GET'])
 def get_news():
-    if request.method == 'POST':
+    if request.method == 'GET':
         json_folder_dir = os.path.join(os.getcwd(), JSON_FOLDER)
         filepath = os.path.join(json_folder_dir, 'news.json')
 
