@@ -172,11 +172,16 @@ def _file_upload():
             filename = secure_filename(file.filename)
             ext = mse.file_get_extension(filename)
 
+            data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
+
+            if not os.path.exists(data_dir):
+                os.makedirs(data_dir, exist_ok=True)
+
             if ext not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
                 return {"error": "file extension blocked"}, 400
 
             # NOTE(liam): saves file temporarily
-            bufpath = os.path.join(DATA_UPLOAD_FOLDER, f"{time.time()}.{ext}")
+            bufpath = os.path.join(data_dir, f"{time.time()}.{ext}")
             file.save(bufpath)
 
             # NOTE(liam): file.read() and file.save() is a blocking process,
@@ -185,7 +190,7 @@ def _file_upload():
             with open(bufpath, "rb") as bf:
                 contents = bf.read()
                 hash = hashlib.sha256(contents).hexdigest()
-                filepath = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER, f"{hash}.{ext}")
+                filepath = os.path.join(data_dir, f"{hash}.{ext}")
 
             # TODO(liam): this is definitely not efficient,
             # but it works, so good enough for now.
@@ -206,7 +211,8 @@ def _file_upload():
                 result = mse.parse_check(mse.check_media(filepath))
                 recent_results[hash] = result
 
-            mse.push_results(s, result, hash)
+            # mse.push_results(s, result, hash)
+            # s.flush()
 
         except Exception as e:
             print(f"ERROR: {e}")
