@@ -1,6 +1,73 @@
 .articles {
-    padding: 80px 50px 80px 50px;
+    padding: 2rem 1rem;
     background-color: bisque;
 
     font-size: 1rem;
+}
+
+/* the articles */
+.article-info {
+    display: flex;
+    flex-direction: row;
+
+    padding: 1rem 2rem;
+    
+    a img:hover {
+        opacity: 80%;
+    }
+}
+
+.article p {
+    font-size: 0.9rem;
+    
+    text-align: left;
+}
+
+.article img{
+    height: 18rem;
+    width: 20rem;
+    object-fit: cover;
+
+    border-radius: 0.5rem;
+}
+
+.author-release {
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0rem 1rem 0rem 0.7rem;
+
+    a {
+        color: rgb(35, 35, 35);
+        text-decoration: none;
+
+        margin: 0rem;
+        padding: 0rem;
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 0rem;
+            padding: 0rem;
+        }
+
+        :hover {
+            color: #7c7b82;
+        }
+    }
+}
+
+#show-more {
+    background-color: #ffd786;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
 }
