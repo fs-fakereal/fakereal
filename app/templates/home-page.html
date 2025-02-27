@@ -182,6 +182,10 @@
               // Show the remaining articles when the button is clicked
               const showMoreButton = document.querySelector('#show-more');
               showMoreButton.addEventListener('click', () => {
+                
+                // Hide the "Show More" button after showing all articles
+                showMoreButton.style.display = 'none';
+                
                 // Display the rest of the articles
                 const hiddenArticles = articles.slice(10);
                 hiddenArticles.forEach(article => {

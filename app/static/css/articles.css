@@ -6,10 +6,17 @@
 }
 
 /* the articles */
+.article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .article-info {
     display: flex;
     flex-direction: row;
 
+    width: 40rem;
     padding: 1rem 2rem;
     
     a img:hover {
@@ -27,6 +34,7 @@
     height: 18rem;
     width: 20rem;
     object-fit: cover;
+    opacity: 80%;
 
     border-radius: 0.5rem;
 }
