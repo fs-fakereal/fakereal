@@ -1,11 +1,14 @@
 /* General Styles */
+html {
+  cursor: url('../imgs/mouse1.png'), auto;
+  height: 100%
+}
+
 body {
   /* font-family: Arial, sans-serif; */
   font-family: serif;
   margin: 0;
   padding: 0;
-  /* background-color: #ada49a; */
-  /* color: #825c42; */
 
   background-color: rgb(249, 247,240);
 

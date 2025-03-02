@@ -40,7 +40,6 @@ textarea {
     flex-direction: row;
 }
 
-
 #comment {
     min-height: 12lh;
     min-width: 4lh;
@@ -54,16 +53,21 @@ textarea {
     padding: 5px;
 }
 
+/* email detail box */
 .email-details {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.user-info {
+
+.email-box {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
 
     textarea {
@@ -72,46 +76,27 @@ textarea {
     min-height: 1.2lh;
     font-size: 0.9rem;
 
-    margin-left: .4rem;
+    font: 1rem sans-serif;
 
     overflow: hidden;
     resize: none;
-    width: 50%;
+    width: 100%;
     }
 
     label {
-        font-size: 1.2rem;
+        padding-left: 0.3rem;
+        font-size: 1.1rem;
     }
 }
 
-.subject-box {
+/* user information */
+.user-info-fname {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.5rem 0rem;
-
-    textarea {
-        color: rgb(31, 31, 31);
-        border-radius: 8px;
-        min-height: 1.2lh;
-        font-size: 0.9rem;
-
-        margin-left: .4rem;
-
-        overflow: hidden;
-        resize: none;
-        width: 50%;
-    }
-
-    label {
-        font-size: 1.2rem;
-    }
-}
-
-.email-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 100%;
+    padding: 0.2rem 1rem 0rem 0rem;
 
     textarea {
     color: rgb(31, 31, 31);
@@ -119,20 +104,104 @@ textarea {
     min-height: 1.2lh;
     font-size: 0.9rem;
 
-    margin-left: .4rem;
+    font: 1rem sans-serif;
 
     overflow: hidden;
     resize: none;
-    width: 50%;
+    width: 100%;
     }
 
     label {
-        font-size: 1.2rem;
+        padding-left: 0.3rem;
+        font-size: 1.1rem;
     }
 }
 
+.user-info-lname {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 100%;
+    padding: 0.2rem 0rem 0rem 0rem;
+
+    textarea {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+
+    font: 1rem sans-serif;
+
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    }
+
+    label {
+        padding-left: 0.3rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* subject information */
+.subject-box {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 100%;
+    padding: 0.5rem 1rem 0rem 0rem;
+
+    textarea {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+
+    font: 1rem sans-serif;
+
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    }
+
+    label {
+        padding-left: 0.3rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* message box */
+.message-box {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 100%;
+    padding: 0.5rem 1rem 0rem 0rem;
+
+    textarea {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+
+    font: 1rem sans-serif;
+
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    }
+
+    label {
+        padding-left: 0.3rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* send button */
 .send-button {
-    /* padding: 10px 15px 10px 15px; */
     padding: 1rem 1.8rem;
     cursor: pointer;
 

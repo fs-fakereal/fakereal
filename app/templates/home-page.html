@@ -9,12 +9,18 @@
     <link rel="stylesheet" href="../static/css/home.css">
     <link rel="stylesheet" href="../static/css/articles.css">
     <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
+        <li class="logo" id="anchor"><a href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png"></a></li>
+        <div class="eye-size">
+          <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
+        </div>
+
         <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
@@ -277,5 +283,6 @@
     </footer>
 
     <script src="../static/js/carousel.js"></script>
+    <script src="../static/js/logo-animation.js"></script>
   </body>
 </html>

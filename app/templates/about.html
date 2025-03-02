@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="../static/css/aboutTeam.css">
     <link rel="stylesheet" href="../static/css/support.css">
     <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
-        <li class="logo"><a href="{{ url_for('index') }}"><img src="../static/imgs/logo.png"></a></li>
+        <li class="logo" id="anchor"><a href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png"></a></li>
+        <div class="eye-size">
+          <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
+        </div>
+
         <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
@@ -118,32 +123,35 @@
       <div class="support-box">
         <form action="support.php" method="post" class="support-form">
           <div class="email-details">
-            <div class="user-info">
-              <label for="firstName">First Name:</label>
+            <div class="user-info-fname">
+              <label for="firstName">First Name</label>
               <textarea rows="1" id="firstName" placeholder="e.g. John" required></textarea>
             </div>
-            <div class="user-info">
-              <label for="lastName">Last Name:</label>
+            <div class="user-info-lname">
+              <label for="lastName">Last Name</label>
               <textarea rows="1" id="lastName" placeholder="e.g. Smith" required></textarea>
             </div>
           </div>
+
+          <div class="email-box">
+            <label for="email">Email</label>
+            <textarea rows="1" id="email" placeholder="e.g. gmail, yahoo, edu" required></textarea>
+          </div>
           
           <div class="subject-box">
-            <label for="subject">Subject:</label>
+            <label for="subject">Subject</label>
             <textarea rows="1" id="subject" placeholder="e.g. feedback, support request" required></textarea>
           </div>
 
-          <textarea id="comment" placeholder="Type in message..." required></textarea>
-          <br><br>
+          <div class="message-box">
+            <label for="message">Message</label>
+            <textarea id="comment" placeholder="Type in message..." required></textarea>
+          </div>
+
+          <br>
 
           <div class="send-submit">
-            <div class="email-box">
-              <label for="email">Email:</label>
-              <textarea rows="1" id="email" placeholder="e.g. gmail, yahoo, edu" required></textarea>
-            </div>
-            <br><br>
-      
-            <button class="send-button" type="submit">Send Message</button>
+            <button class="send-button" type="submit">Submit</button>
           </div>
         </form>
       </div>
@@ -208,5 +216,6 @@
         textarea.style.height = (textarea.scrollHeight) + 'px';
       }
     </script>
+    <script src="../static/js/logo-animation.js"></script>
   </body>
 </html>
