@@ -9,3 +9,5 @@ data/
 __pycache__/
 /.flaskenv
 /flaskenv
+sendgrid.env
+sendgrid.env

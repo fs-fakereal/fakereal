@@ -39,6 +39,14 @@
     border-radius: 0.5rem;
 }
 
+.overlay {
+    border-image: 
+    linear-gradient(
+        hsla(0, 0%, 17%, 0.3), 
+        hsla(0, 0%, 7%, 0.3))
+    fill 1;
+}
+
 .author-release {
     display: flex;
     flex: row;

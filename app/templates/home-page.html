@@ -192,7 +192,7 @@
                   articlesUl.innerHTML += 
                   `
                     <div class='article-info'>
-                      <a href='${article.url}'><img src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img"></a>
+                      <a href='${article.url}'><img class='overlay' src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img"></a>
 
                       <div class='content'>
                         <a href='${article.url}'><h3>${article.title}</h3></a>
