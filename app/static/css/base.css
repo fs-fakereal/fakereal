@@ -90,6 +90,19 @@ nav {
   }
 }
 
+.navbar img {
+  width: 4rem;
+
+  padding: 0rem;
+  margin: 0rem;
+
+  :hover {
+    text-decoration: none;
+    background-color: none;
+    color: none;
+  }
+}
+
 .report-button {
   a {
     background-color: rgb(213, 63, 63);
