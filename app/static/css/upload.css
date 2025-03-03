@@ -1,3 +1,4 @@
+/* Upload Section */
 .upload-section {
     margin: 100px auto;
     padding: 40px;
@@ -8,6 +9,7 @@
     text-align: center;
 }
 
+/* Upload Box */
 .upload-box {
     margin: 20px 0;
 }
@@ -20,8 +22,11 @@
 
 .upload-box input[type="file"] {
     padding: 10px;
+    width: 100%; /* Ensure the input takes up the full width */
+    box-sizing: border-box; /* Include padding in the width */
 }
 
+/* Submit Button */
 .send-submit button {
     background-color: #4CAF50;
     color: white;
@@ -30,12 +35,15 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%; /* Make the button full width */
+    margin-top: 20px; /* Add some spacing */
 }
 
 .send-submit button:hover {
     background-color: #45a049;
 }
 
+/* Preview Box */
 .preview-box {
     display: flex;
     align-items: center;
@@ -47,6 +55,12 @@
     overflow: hidden;
     background-color: #f9f9f9;
     box-sizing: border-box; /* Make sure padding doesn't exceed max-width/height */
+    margin-top: 20px; /* Add some spacing */
+}
+
+.preview-box p {
+    margin: 0; /* Remove default margin for the "No image selected" text */
+    color: #888; /* Gray text for placeholder */
 }
 
 .preview-box img {
@@ -54,4 +68,19 @@
     max-height: 100%;
     object-fit: contain; /* Ensures the entire image fits without cropping */
     display: block; /* Remove extra space below the image */
+    border-radius: 4px; /* Optional: Add rounded corners to the image */
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .upload-section {
+        width: 90%; /* Make the upload section responsive */
+        padding: 20px;
+    }
+
+    .preview-box {
+        height: 200px; /* Reduce height for smaller screens */
+    }
 }
