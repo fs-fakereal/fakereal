@@ -1,0 +1,10 @@
+.eye, eye img {
+    position: absolute;
+
+    top: -0.5rem;
+    left: 0.9rem;
+}
+
+.eye-size {
+    height: 100%;
+}
