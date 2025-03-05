@@ -16,6 +16,7 @@ from sqlalchemy.orm import sessionmaker
 
 from werkzeug.utils import secure_filename
 
+
 #--Constants for Model--#
 # TODO(liam): session is not working
 MODEL_DEBUG_PRINT = True
@@ -62,17 +63,33 @@ def login():
 #uses similar methods to the lgoin function
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignupForm()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
+
     form = SignupForm()
     if form.validate_on_submit():
-        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
-        user.set_pass(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('login'))
-    return render_template('signup-page.html', title='Signup', form = form)
+        try:
+            existing_user = User.query.filter_by(email=form.email.data).first()
+            if existing_user:
+                flash('Email already in use. Please use a different email.', 'error')
+            else:
+                user = User(
+                    first_name=form.first_name.data,
+                    last_name=form.last_name.data,
+                    email=form.email.data
+                )
+                user.set_pass(form.password.data)
+                db.session.add(user)
+                db.session.commit()
+                # Pass success message and redirect URL to the template
+                return render_template('signup-page.html', title='Signup', form=form, success_message='Account created successfully! Redirecting to login page...', redirect_url=url_for('login'))
+        except Exception as e:
+            db.session.rollback()
+            flash('An error occurred while creating your account. Please try again.', 'error')
+            app.logger.error(f"Error during signup: {e}")
+
+    return render_template('signup-page.html', title='Signup', form=form)
+
 
 #logs the user out, removing their authentication
 @app.route('/logout')
