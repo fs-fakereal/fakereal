@@ -56,5 +56,3 @@ history = model.fit(x_train, y_train, epochs=eps,
 def plot_validation(val_loss, val_acc):
     pass
 
-
-
