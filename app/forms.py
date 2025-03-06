@@ -26,3 +26,12 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
+
+#the form used by the feedback submission box in the website
+class FeedbackForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    message = StringField('Feedback', validators=[DataRequired()])
+    submit = SubmitField('Submit Feedback')
