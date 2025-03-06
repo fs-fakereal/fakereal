@@ -1,15 +1,14 @@
 import json
 import os
-import sys
 from datetime import datetime
 
 import requests
 from app.result import Result
 
-params = {
+default_model_api_params = {
     'models' : 'genai',
-    'api_user': os.getenv('MODEL_USER'),
-    'api_secret': os.getenv('MODEL_SECRET')
+    'user': os.getenv('MODEL_USER'),
+    'secret': os.getenv('MODEL_SECRET')
 }
 
 explanations = {
@@ -185,100 +184,97 @@ def generate_explanation(was_generated: bool = True) -> str:
 
     return res
 
-
-def check_media(path_to_file: str):
-    files = { 'media': open(path_to_file, 'rb') }
-
-    r = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data=params)
-
-    res = json.loads(r.text)
-    # print(res)
-
-    return res
-
-# determines what model to use, and returns a uniform json ouput.
-def model_pipe(files, params, model_id = 'genai'):
-    res = None
-    if model_id == 'vgg16':
-        pass
-    else:
-        res = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data=params)
-    return res
-
-"""
-model_pipe must output the following format
-status: str
-media: {
-    uri: str
-}
-request: {
-    timestamp: time
-}
-type : {
-    ai_generated: float
-}
-error : {
-     code: int
-     message: str
-}
-"""
-
-
-def parse_check(output: dict[str], debug=False) -> (int, int):
-    proc = {
-        'score' : 0,
-        'time' : -1,
-        'error' : None, # ret is passed here.
-        'model' : { 'name': params['models'], 'version': '1.0' },
-        'expl' : "n/a"
-    }
-    ret = {
-        'code' : 0,
-        'message' : "n/a",
-        'from' : 'internal'
-    }
-
-    if "request" in output.keys():
-        if debug:
-            print(f"[*] Finished in {output['request']['timestamp']}.")
-        proc['time'] = output['request']['timestamp']
-
-
-    if "status" in output.keys():
-        if output['status'] == "success":
-            ai_score = output['type']['ai_generated']
-
-            if debug:
-                print(f"[+] '{output['media']['uri']}' ai report: {"likely generated" if ai_score > 0.5 else "not generated"} with {ai_score * 100}% confidence.")
-
-            proc['score'] = ai_score
-            proc['expl'] = generate_explanation(was_generated=True if ai_score > 0.5 else False)
-
-
-        elif output['status'] == "failure":
-            error_code = output['error']['code']
-            error_msg = output['error']['message']
-
-            if debug:
-                print(f"[-] {output['error']['type'].upper()} with return code {error_code}: {output['error']['message']}.")
-
-            ret['code'] = error_code
-            ret['message'] = error_msg
-            ret['from'] = 'sightengine'
-        else:
-            print(output)
-
-    proc['error'] = ret
-    return proc
-
-
 def push_results(sess, res, hash):
+    # TODO(liam): currently failing
     newResult = Result(hash, res['time'], res['score'], res['expl'], res['error']['from'], res['error']['code'])
     sess.add(newResult)
     sess.commit()
 
-if __name__ == "__main__":
+#-------- new functions --------#
 
-    # NOTE(liam): for debugging.
-    if len(sys.argv) > 1:
-        print(parse_check(check_media(sys.argv[1]), True))
+def prediction(path: str, args: dict) -> dict:
+    if "model_id" not in args.keys():
+        raise ValueError("Missing model_id argument")
+
+    result: dict = {}
+
+    if args['model_id'] in ['inception', 'resnet', 'vgg16']:
+        if "prefer" not in args.keys():
+            raise ValueError("Missing prefer argument")
+        pass
+    else:
+        if "user" not in args.keys() and "secret" not in args.keys():
+            result = call_api_and_predict(path)
+        else:
+            result = call_api_and_predict(path, args)
+
+    return result
+
+def call_api_and_predict(path : str, args : dict = default_model_api_params, debug : bool = False) -> dict:
+    result = {
+        'score' : 0,
+        'time' : -1,
+        'status' : None, # status is passed here.
+        'model' : None,
+        'explanation' : "n/a"
+    }
+    status = {
+        'code' : 0,
+        'message' : "n/a",
+        'from' : 'internal'
+    }
+    model = {
+        'name' : args['models'] if 'models' in args.keys() else args['model_id'],
+        'version' : '1.0'
+    }
+
+    # REQUEST
+    files = { 'media' : open(path, 'rb') }
+
+    req_json = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data={
+        'models' : model['name'],
+        'api_user' : args['user'],
+        'api_secret' : args['secret']
+    })
+
+    res = json.loads(req_json.text)
+
+    # PARSING
+    if "request" in res.keys():
+        if debug:
+            print(f"[*] Finished in {res['request']['timestamp']}.")
+        result['time'] = res['request']['timestamp']
+
+
+    if "status" in res.keys():
+        if res['status'] == "success":
+            ai_score = res['type']['ai_generated']
+
+            if debug:
+                print(f"[+] '{result['media']['uri']}' ai report: {"likely generated" if ai_score > 0.5 else "not generated"} with {ai_score * 100}% confidence.")
+
+            result['score'] = ai_score
+            result['explanation'] = generate_explanation(was_generated=True if ai_score > 0.5 else False)
+
+
+        elif result['status'] == "failure":
+            error_code = res['error']['code']
+            error_msg = res['error']['message']
+
+            if debug:
+                print(f"[-] {result['error']['type'].upper()} with status code {error_code}: {result['error']['message']}.")
+
+            status['code'] = error_code
+            status['message'] = error_msg
+            status['from'] = 'sightengine'
+        else:
+            print(result)
+
+    result['status'] = status
+    result['model'] = model
+    return result
+
+
+def load_model_and_predict(path, args) -> dict:
+    # TODO(liam): add code here
+    pass
