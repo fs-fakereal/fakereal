@@ -37,3 +37,13 @@ class User(UserMixin, db.Model):
     #writes output for debug
     def __repr__(self):
         return '<User: {}>'.format(self.first_name)
+
+class Feedback(db.Model):
+    __tablename__ = "support-feedback"
+    id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True) #consider uuids
+    created_at: so.Mapped[Optional[datetime]] = so.mapped_column(index=True, default=datetime.now())
+    first_name: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
+    last_name: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
+    email: so.Mapped[str] = so.mapped_column(sa.String(100), index=True)
+    subject : so.Mapped[str] = so.mapped_column(sa.String(100), index=True)
+    message: so.Mapped[str] = so.mapped_column(sa.String, index=True)
