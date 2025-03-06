@@ -38,3 +38,4 @@ class FeedbackForm(FlaskForm):
 
 class PasswordChange(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
+    submit = SubmitField('Confirm')
