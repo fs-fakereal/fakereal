@@ -276,5 +276,27 @@ def call_api_and_predict(path : str, args : dict = default_model_api_params, deb
 
 
 def load_model_and_predict(path, args) -> dict:
+    result = {
+        'score' : 0,
+        'time' : -1,
+        'status' : None, # status is passed here.
+        'model' : None,
+        'explanation' : "n/a"
+    }
+    status = {
+        'code' : 0,
+        'message' : "n/a",
+        'from' : 'internal'
+    }
+    model = {
+        'name' : args['model_id'],
+        'version' : ""
+    }
     # TODO(liam): add code here
-    pass
+
+
+
+    result['status'] = status
+    result['model'] = model
+    return result
+
