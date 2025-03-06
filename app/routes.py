@@ -127,6 +127,11 @@ def dashboard():
 def user_edit():
     return render_template('user-edit.html', title='User Edit')
 
+#routes to the forgot password page
+@app.route('/forgot', methods=['GET', 'POST'])
+def forgot_password():
+    return render_template('forgot-password.html', title='Forgot Password', form=form)
+
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
 # been 30 days since the news was created.
 @app.route('/news', methods=['GET'])
