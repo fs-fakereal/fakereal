@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/signup-style.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
   </head>
 
   <body>
@@ -25,6 +26,24 @@
         <h1>Create Your Account</h1>
         <p>Join Fake Real to explore more DeepFakes!</p>
 
+        <!-- Success message section -->
+        {% if success_message %}
+        <div class="alert alert-success" id="success-message">
+        {{ success_message }}
+        </div>
+        {% endif %}
+
+        <!-- Flash messages (for errors) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+         {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                    {{ message }}
+              </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+      
         <form action="" method="POST">
             {{ form.hidden_tag() }}
             <p>
@@ -52,23 +71,7 @@
                 {{ form.submit() }}<br>
                 <!--{{ form.submit.label }}-->
             </p>
-            <!--<label for="firstName">First Name:</label><br>
-    <input type="text" id="firstName" name="firstName" required><br><br>
-
-    <label for="lastName">Last Name:</label><br>
-    <input type="text" id="lastName" name="lastName" required><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" required><br><br>
-
-    <label for="confirmPassword">Confirm Password:</label><br>
-    <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
-
-    <button type="submit">Sign Up</button> -->
-            <!-- Password requirements section -->
+            
             <div class="password-requirements">
                 <p>Password must meet the following requirements:</p>
                 <ul>
@@ -85,9 +88,64 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+    <footer class="footer">
+
+      <div class="upper-half">
+        <div class="fakereal-here">
+          <h1>FakeReal</h1>
+          <p>How far is too far?</p>
+        </div>
+        
+        <div class="details">
+          <h3>Site Links</h3>
+          
+          <p>Contact Us</p>
+          <p>FAQ</p>
+
+          <br>
+
+          <p>Log In</p>
+          <p>Sign Up</p>
+        </div>
+
+        <div class="links">
+          <div class="download">
+            <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+
+            <div class="download-text">
+              <h1>Scan images at real time!</h1>
+              <p>Download our Chrome Extension</p>
+            </div>
+          </div>
+
+          <div class="report">
+            <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+
+            <div class="report-text">
+              <h1>Report a case!</h1>
+              <p>Click here to report a case</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="important">
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+      </div>
     </footer>
+
     <script src="../static/js/restrictions.js"></script>
+    <!-- JavaScript to handle the redirect -->
+   {% if redirect_url %}
+   <script>
+  // Wait for 3 seconds (3000 milliseconds) and then redirect
+  setTimeout(function() {
+    window.location.href = "{{ redirect_url }}";
+  }, 3000);
+</script>
+{% endif %}
   </body>
 </html>

@@ -8,16 +8,21 @@
     <link rel="stylesheet" href="../static/css/aboutTeam.css">
     <link rel="stylesheet" href="../static/css/support.css">
     <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
+        <li class="logo" id="anchor"><a href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png"></a></li>
+        <div class="eye-size">
+          <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
+        </div>
+
         <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li><a href="{{ url_for('upload') }}">Upload</a></li>       
+        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>    
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
@@ -117,32 +122,35 @@
       <div class="support-box">
         <form action="support.php" method="post" class="support-form">
           <div class="email-details">
-            <div class="user-info">
-              <label for="firstName">First Name:</label>
+            <div class="user-info-fname">
+              <label for="firstName">First Name</label>
               <textarea rows="1" id="firstName" placeholder="e.g. John" required></textarea>
             </div>
-            <div class="user-info">
-              <label for="lastName">Last Name:</label>
+            <div class="user-info-lname">
+              <label for="lastName">Last Name</label>
               <textarea rows="1" id="lastName" placeholder="e.g. Smith" required></textarea>
             </div>
           </div>
+
+          <div class="email-box">
+            <label for="email">Email</label>
+            <textarea rows="1" id="email" placeholder="e.g. gmail, yahoo, edu" required></textarea>
+          </div>
           
           <div class="subject-box">
-            <label for="subject">Subject:</label>
+            <label for="subject">Subject</label>
             <textarea rows="1" id="subject" placeholder="e.g. feedback, support request" required></textarea>
           </div>
 
-          <textarea id="comment" placeholder="Type in message..." required></textarea>
-          <br><br>
+          <div class="message-box">
+            <label for="message">Message</label>
+            <textarea id="comment" placeholder="Type in message..." required></textarea>
+          </div>
+
+          <br>
 
           <div class="send-submit">
-            <div class="email-box">
-              <label for="email">Email:</label>
-              <textarea rows="1" id="email" placeholder="e.g. gmail, yahoo, edu" required></textarea>
-            </div>
-            <br><br>
-      
-            <button class="send-button" type="submit">Send Message</button>
+            <button class="send-button" type="submit">Submit</button>
           </div>
         </form>
       </div>
@@ -151,22 +159,41 @@
     <!-- Footer -->
     <footer class="footer">
 
-      <div class="links">
-        <div class="download">
-          <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+      <div class="upper-half">
+        <div class="fakereal-here">
+          <h1>FakeReal</h1>
+          <p>How far is too far?</p>
+        </div>
+        
+        <div class="details">
+          <h3>Site Links</h3>
+          
+          <p>Contact Us</p>
+          <p>FAQ</p>
 
-          <div class="download-text">
-            <h1>Scan images at real time!</h1>
-            <p>Download our Chrome Extension</p>
-          </div>
+          <br>
+
+          <p>Log In</p>
+          <p>Sign Up</p>
         </div>
 
-        <div class="report">
-          <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+        <div class="links">
+          <div class="download">
+            <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
 
-          <div class="report-text">
-            <h1>Report a case!</h1>
-            <p>Click here to report a case</p>
+            <div class="download-text">
+              <h1>Scan images at real time!</h1>
+              <p>Download our Chrome Extension</p>
+            </div>
+          </div>
+
+          <div class="report">
+            <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+
+            <div class="report-text">
+              <h1>Report a case!</h1>
+              <p>Click here to report a case</p>
+            </div>
           </div>
         </div>
       </div>
@@ -174,8 +201,8 @@
       <hr>
 
       <div class="important">
-        <p>Supported and developed by CSULB and CSULB students.</p>
         <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
       </div>
     </footer>
 
@@ -188,5 +215,6 @@
         textarea.style.height = (textarea.scrollHeight) + 'px';
       }
     </script>
+    <script src="../static/js/logo-animation.js"></script>
   </body>
 </html>

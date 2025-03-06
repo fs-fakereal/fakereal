@@ -3,6 +3,8 @@ import json
 import os
 import time
 
+import requests
+
 import sqlalchemy as sa
 
 from app import app, db, mse
@@ -14,15 +16,17 @@ from sqlalchemy.orm import sessionmaker
 
 from werkzeug.utils import secure_filename
 
+
 #--Constants for Model--#
 # TODO(liam): session is not working
-Session = sessionmaker(bind=db)
-s = Session()
 MODEL_DEBUG_PRINT = True
 DATA_UPLOAD_FOLDER = 'data'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
+JSON_FOLDER = 'app/static/json'
+
+Session = sessionmaker(bind=db)
+s = Session()
 recent_results = {}
-JSON_FOLDER = 'static/json'
 #-----------------------#
 
 #this file tells flask where to route the website's traffic
@@ -59,17 +63,33 @@ def login():
 #uses similar methods to the lgoin function
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignupForm()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
+
     form = SignupForm()
     if form.validate_on_submit():
-        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
-        user.set_pass(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('login'))
-    return render_template('signup-page.html', title='Signup', form = form)
+        try:
+            existing_user = User.query.filter_by(email=form.email.data).first()
+            if existing_user:
+                flash('Email already in use. Please use a different email.', 'error')
+            else:
+                user = User(
+                    first_name=form.first_name.data,
+                    last_name=form.last_name.data,
+                    email=form.email.data
+                )
+                user.set_pass(form.password.data)
+                db.session.add(user)
+                db.session.commit()
+                # Pass success message and redirect URL to the template
+                return render_template('signup-page.html', title='Signup', form=form, success_message='Account created successfully! Redirecting to login page...', redirect_url=url_for('login'))
+        except Exception as e:
+            db.session.rollback()
+            flash('An error occurred while creating your account. Please try again.', 'error')
+            app.logger.error(f"Error during signup: {e}")
+
+    return render_template('signup-page.html', title='Signup', form=form)
+
 
 #logs the user out, removing their authentication
 @app.route('/logout')
@@ -90,7 +110,7 @@ def scan():
     return render_template('scan-image.html', title='Scan')
 
 #route to the page that allows users to upload
-@app.route('/upload')
+@app.route('/upload', methods=['GET'])
 @login_required
 def upload():
     return render_template('upload.html', title='Upload')
@@ -109,29 +129,48 @@ def user_edit():
 
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
 # been 30 days since the news was created.
-@app.route('/news')
+@app.route('/news', methods=['GET'])
 def get_news():
-    filepath = os.path.join(os.getcwd(), JSON_FOLDER, 'news.json')
+    if request.method == 'GET':
+        json_folder_dir = os.path.join(os.getcwd(), JSON_FOLDER)
+        filepath = os.path.join(json_folder_dir, 'news.json')
 
-    time_created = os.path.getctime(filepath)
-    time_now = time.time()
+        time_now = time.time()
+        time_created = 0
 
-    # NOTE(liam): approximate 30 days in seconds
-    if (time_now - time_created > 2_592_000):
+        dat: dict = {}
 
-        # NOTE(liam): make fetch here
-        pass
+        try:
+            if (not os.path.exists(json_folder_dir)):
+                os.makedirs(json_folder_dir, exist_ok = True)
 
-    with open(filepath, "r") as json_file:
-        res_data = json.load(json_file)
+            if (os.path.exists(filepath)):
+                time_created = os.path.getctime(filepath)
 
-        return res_data
+            # NOTE(liam): approximate 30 days in seconds
+            if (time_created == 0 or time_now - time_created > 2_592_000):
 
-    return None
+                # NOTE(liam): make fetch here
+                news_url = f"https://newsapi.org/v2/everything?q=Deepfake&language=en&apiKey={os.getenv('NEWS_SECRET')}"
+
+                response = requests.get(news_url)
+                dat = response.json()
+
+                with open(filepath, "w", encoding = 'utf8') as json_file:
+                    json.dump(dat, json_file, ensure_ascii = True)
+
+            else:
+                with open(filepath, "r") as json_file:
+                    dat = json.load(json_file)
+        except Exception as e:
+            print(e)
+
+        return dat
 
 @app.route('/upload', methods=["POST"])
 def _file_upload():
     if request.method == 'POST':
+        # NOTE(liam): route to post req for upload
         if 'file' not in request.files:
             return {"error": "no file found"}, 400
 
@@ -141,11 +180,16 @@ def _file_upload():
             filename = secure_filename(file.filename)
             ext = mse.file_get_extension(filename)
 
+            data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
+
+            if not os.path.exists(data_dir):
+                os.makedirs(data_dir, exist_ok=True)
+
             if ext not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
                 return {"error": "file extension blocked"}, 400
 
             # NOTE(liam): saves file temporarily
-            bufpath = os.path.join(DATA_UPLOAD_FOLDER, f"{time.time()}.{ext}")
+            bufpath = os.path.join(data_dir, f"{time.time()}.{ext}")
             file.save(bufpath)
 
             # NOTE(liam): file.read() and file.save() is a blocking process,
@@ -154,7 +198,7 @@ def _file_upload():
             with open(bufpath, "rb") as bf:
                 contents = bf.read()
                 hash = hashlib.sha256(contents).hexdigest()
-                filepath = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER, f"{hash}.{ext}")
+                filepath = os.path.join(data_dir, f"{hash}.{ext}")
 
             # TODO(liam): this is definitely not efficient,
             # but it works, so good enough for now.
@@ -175,7 +219,8 @@ def _file_upload():
                 result = mse.parse_check(mse.check_media(filepath))
                 recent_results[hash] = result
 
-            mse.push_results(s, result, hash)
+            # mse.push_results(s, result, hash)
+            # s.flush()
 
         except Exception as e:
             print(f"ERROR: {e}")

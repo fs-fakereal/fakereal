@@ -23,25 +23,5 @@ function previewImage() {
     } else {
         previewBox.innerHTML = '<p>No image selected</p>';
     }
-}
 
-// Handle image upload
-document.getElementById("uploadForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("image", document.getElementById("image").files[0]);
-
-    try {
-        const response = await fetch("http://localhost:3000/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await response.json();
-        document.getElementById("message").innerText = result.message || "Upload failed";
-    } catch (error) {
-        console.error("Upload Error:", error);
-        document.getElementById("message").innerText = "Error uploading file";
-    }
-});
+};

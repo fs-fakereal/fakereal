@@ -1,11 +1,14 @@
 /* General Styles */
+html {
+  cursor: url('../imgs/mouse1.png'), auto;
+  height: 100%
+}
+
 body {
   /* font-family: Arial, sans-serif; */
   font-family: serif;
   margin: 0;
   padding: 0;
-  /* background-color: #ada49a; */
-  /* color: #825c42; */
 
   background-color: rgb(249, 247,240);
 
@@ -87,6 +90,19 @@ nav {
   a:hover {
     background-color: #e1d8cc;
     color: #575342;
+  }
+}
+
+.navbar img {
+  width: 4rem;
+
+  padding: 0rem;
+  margin: 0rem;
+
+  :hover {
+    text-decoration: none;
+    background-color: none;
+    color: none;
   }
 }
 
