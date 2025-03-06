@@ -210,3 +210,31 @@ textarea {
     background-color: rgb(137, 125, 110);
     border-radius: 4rem;
 }
+
+/* Counting the owrd limit */
+.counter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+}
+.counter-container:hover {
+    color: #006400;
+}
+.total-container {
+    color: #008000;
+    transition: color 0.3s;
+}
+.total-container:hover {
+    color: #006400;
+}
+.remaining-container {
+    color: #ff0000;
+    transition: color 0.3s;
+}
+.remaining-container.limit-exceeded {
+    color: #f00;
+    animation: shake 0.5s;
+}

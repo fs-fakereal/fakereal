@@ -35,3 +35,7 @@ class FeedbackForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     message = StringField('Feedback', validators=[DataRequired()])
     submit = SubmitField('Submit Feedback')
+
+class PasswordChange(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    submit = SubmitField('Confirm')
