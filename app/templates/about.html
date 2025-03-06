@@ -22,8 +22,7 @@
 
         <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li><a href="{{ url_for('upload') }}">Upload</a></li>       
+        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li> 
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
@@ -145,7 +144,7 @@
 
           <div class="message-box">
             <label for="message">Message</label>
-            <textarea id="comment" placeholder="Type in message..." required></textarea>
+            <textarea id="comment" placeholder="Type in message... Limit 250 words" required></textarea>
           </div>
 
           <br>
