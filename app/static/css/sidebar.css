@@ -25,7 +25,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    overflow-y: auto;
+    overflow-y: auto;     
     transition: width 0.3s ease; /* Smooth transition for width change */
 }
 
