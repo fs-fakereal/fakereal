@@ -185,11 +185,12 @@ def _file_upload():
 
             # TODO(liam): this is definitely not efficient,
             # but it works, so good enough for now.
-            if not (os.path.isfile(filepath)):
-                os.rename(bufpath, filepath)
-            else:
-                os.remove(bufpath)
+            if (os.path.isfile(filepath)):
+                os.remove(filepath)
 
+            os.rename(bufpath, filepath)
+
+            # check existing hash
             result = ""
             if hash in recent_results.keys():
                 if MODEL_DEBUG_PRINT:
@@ -199,7 +200,7 @@ def _file_upload():
                 if MODEL_DEBUG_PRINT:
                     print("INFO: Sending image to model.")
 
-                result = mse.parse_check(mse.check_media(filepath))
+                result = mse.prediction(filepath, { 'model_id' : 'genai' })
                 recent_results[hash] = result
 
             # mse.push_results(s, result, hash)
