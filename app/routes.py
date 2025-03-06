@@ -8,7 +8,7 @@ import requests
 import sqlalchemy as sa
 
 from app import app, db, mse
-from app.forms import LoginForm, SignupForm
+from app.forms import LoginForm, PasswordChange, SignupForm
 from app.models import User
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
@@ -130,6 +130,7 @@ def user_edit():
 #routes to the forgot password page
 @app.route('/forgot', methods=['GET', 'POST'])
 def forgot_password():
+    form = PasswordChange()
     return render_template('forgot-password.html', title='Forgot Password', form=form)
 
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
