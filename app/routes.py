@@ -18,12 +18,12 @@ from werkzeug.utils import secure_filename
 
 
 #--Constants for Model--#
-# TODO(liam): session is not working
 MODEL_DEBUG_PRINT = True
 DATA_UPLOAD_FOLDER = 'data'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 JSON_FOLDER = 'app/static/json'
 
+# TODO(liam): session is not working
 Session = sessionmaker(bind=db)
 s = Session()
 recent_results = {}
