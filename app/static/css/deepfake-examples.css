@@ -28,10 +28,14 @@
 .example-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 
-    align-items: center;
+    margin: 0rem 2rem 0rem 0rem;
+
+    /* align-items: center; */
     justify-content: center;
+
+    transform: translate3d(0,0,0);
+    transform-style: preserve-3d;
 }
 
 .example {

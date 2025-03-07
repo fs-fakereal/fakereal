@@ -1,20 +1,35 @@
 /* General Styles */
 html {
   cursor: url('../imgs/mouse1.png'), auto;
-  height: 100%
+  height: 100%;
 }
 
 body {
-  /* font-family: Arial, sans-serif; */
-  font-family: serif;
+  font-family: "Prosto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   margin: 0;
   padding: 0;
 
-  background-color: rgb(249, 247,240);
+  /* background-color: rgb(249, 247,240); */
+  background-color: #DACBB6;
 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.rubik-glitch-regular {
+  font-family: "Rubik Glitch", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.prosto-one-regular {
+  font-family: "Prosto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .main-content {
@@ -24,7 +39,7 @@ body {
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: rgb(74, 73, 71);
+  color: rgb(60, 60, 60);
 }
 
 /* Paragraph Styles */
@@ -35,11 +50,12 @@ p {
 
 /* Navigation Bar Styles */
 nav {
-  /* background-color: #3b3d66; */
-  background-color: rgb(219, 210, 194);
+  /* background-color: rgb(219, 210, 194); */
+  background-color: #5E7381;
 
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(36, 34, 30, 0.1); /* Adds a subtle shadow for depth */
+  /* box-shadow: 0 4px 6px rgba(169, 148, 107, 0.1); Adds a subtle shadow for depth */
+  box-shadow: 0 4px 6px rgba(122, 81, 81, 0.279); /* Adds a subtle shadow for depth */
 }
 
 .navbar {
@@ -65,7 +81,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: rgb(74, 73, 71);
+  color: rgb(0, 0, 0);
   padding: 14px 20px;
   display: block;
   font-weight: bold; /* Makes the links stand out */
@@ -73,12 +89,12 @@ nav {
 }
 
 .navbar a:hover {
-  background-color: rgb(36, 34, 30);
-  border-radius: 10px;
-  color: #bbb1a4;
+  /* background-color: rgb(36, 34, 30); */
+  /* border-radius: 10px; */
+  color: rgb(74, 74, 74);
 }
 
-.navbar button {
+/* .navbar button {
   border-radius: 10px;
   color: #825c42;
 
@@ -91,7 +107,7 @@ nav {
     background-color: #e1d8cc;
     color: #575342;
   }
-}
+} */
 
 .navbar img {
   width: 4rem;
@@ -108,36 +124,24 @@ nav {
 
 .report-button {
   a {
-    background-color: rgb(213, 63, 63);
+    background-color: rgb(185, 47, 47);
     border-radius: 30px;
     
-    color: rgb(255, 219, 219);
+    color: black;
     font-weight: 80;
     font-size: 1rem;
 
     text-align: center;
+
+    transition: background-color 0.3s ease-in; 
   }
 
   a:hover {
     background-color: rgb(119, 45, 45);
-    color: black;
+    color: rgb(35, 35, 35);
 
     border-radius: 30px;
-  }
-}
-
-
-/* Footer Styles */
-footer {
-  text-align: center;
-  padding: 10px 20px;
-  background-color: #3b3d66;
-  bottom: 0;
-  /* width: 100%; */
-  font-size: 1rem;
-
-  p {
-    color: azure;
+    transition: background-color 0.3s ease-in; 
   }
 }
 

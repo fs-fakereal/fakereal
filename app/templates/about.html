@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="../static/css/support.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
-  </head>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
 
   <body>
     <!-- Navigation Bar -->
@@ -20,7 +24,7 @@
           <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
         </div>
 
-        <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>    
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
@@ -177,7 +181,7 @@
 
       <div class="upper-half">
         <div class="fakereal-here">
-          <h1>FakeReal</h1>
+          <h1 class="rubik-glitch-regular">FakeReal</h1>
           <p>How far is too far?</p>
         </div>
         

@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="../static/css/articles.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
-  </head>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
 
   <body>
     <!-- Navigation Bar -->
@@ -21,7 +25,7 @@
           <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
         </div>
 
-        <li class="title"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
         <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
@@ -48,9 +52,9 @@
       </div>
 
       <div class="example-list">
-        <!-- Buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <div class="mySlides">
+        <!-- Buttons
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
+        <!-- <div class="mySlides"> -->
           <div class="example">
             <img src="../static/imgs/examples/voiceclone.png" alt="fake2-img">
             <h4>Voice Cloning</h4>
@@ -78,9 +82,9 @@
               generate realistic lip motions for animation, games, and film.  This technology saves time and effort in 
               character animation, and its accuracy is continually improving.</p>
           </div>
-        </div>
+        <!-- </div>
 
-        <div class="mySlides">
+        <div class="mySlides"> -->
           <div class="example">
             <img src="../static/imgs/examples/fullbodymanipulation.jpg" alt="fake2-img">
             <h4>Full-body manipulation</h4>
@@ -119,10 +123,10 @@
               plagiarism, the spread of misinformation, and the potential for misuse in 
               creating harmful or misleading content.</p>
           </div> 
-        </div>
+        <!-- </div> -->
         
         <!-- Buttons -->
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
       </div>
 
       <br>
@@ -237,7 +241,7 @@
 
       <div class="upper-half">
         <div class="fakereal-here">
-          <h1>FakeReal</h1>
+          <h1 class="rubik-glitch-regular">FakeReal</h1>
           <p>How far is too far?</p>
         </div>
         
