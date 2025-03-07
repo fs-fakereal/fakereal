@@ -1,6 +1,6 @@
 .articles {
     padding: 2rem 1rem;
-    background-color: bisque;
+    background-color: #DACBB6;
 
     font-size: 1rem;
 }
@@ -16,8 +16,12 @@
     display: flex;
     flex-direction: row;
 
-    width: 40rem;
-    padding: 1rem 2rem;
+    /* width: 40rem; */
+    /* padding: 1rem 2rem; */
+    margin: 0.5rem 1rem;
+
+    border-radius: 2rem;
+    background-color: #5E7381;
     
     a img:hover {
         opacity: 80%;
@@ -36,7 +40,8 @@
     object-fit: cover;
     opacity: 80%;
 
-    border-radius: 0.5rem;
+    border-radius: 2rem;
+    padding: 1rem 1rem;
 }
 
 .overlay {
@@ -60,10 +65,8 @@
     display: flex;
     flex-direction: column;
 
-    padding: 0rem 1rem 0rem 0.7rem;
-
     a {
-        color: rgb(35, 35, 35);
+        color: rgb(0, 0, 0);
         text-decoration: none;
 
         margin: 0rem;
@@ -76,7 +79,8 @@
         }
 
         :hover {
-            color: #7c7b82;
+            transition: color 0.3s ease; /* Smooth hover effect */
+            color: #84a0ad;
         }
     }
 }
