@@ -8,8 +8,8 @@ import requests
 import sqlalchemy as sa
 
 from app import app, db, mse
-from app.forms import LoginForm, PasswordChange, SignupForm
-from app.models import User
+from app.forms import LoginForm, PasswordChange, SignupForm, FeedbackForm
+from app.models import User, Feedback
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
@@ -41,7 +41,18 @@ def index():
 #route to the about page
 @app.route('/about')
 def about():
-    return render_template('about.html', title='About')
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        feedback = Feedback(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            subject=form.subject.data,
+            message=form.message.data
+        )
+        db.session.add(feedback)
+        db.session.commit()
+    return render_template('about.html', title='About', form=form)
 
 #route to the login page
 #uses a form defined in another file, and cross checks the form submission data in the database
