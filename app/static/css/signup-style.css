@@ -41,7 +41,7 @@
         border-radius: 4px;
     }
 
-    .signup-form button {
+    .signup-form button, .signup-form input[type="submit"] {
         width: 100%;
         padding: 10px;
         background-color: #007BFF;
@@ -51,9 +51,9 @@
         cursor: pointer;
     }
 
-        .signup-form button:hover {
-            background-color: #0056b3;
-        }
+    .signup-form button:hover, .signup-form input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
 
 /* Password requirements box */
 .password-requirements {

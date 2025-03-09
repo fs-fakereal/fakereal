@@ -123,31 +123,33 @@
       </div>
 
       <div class="support-box">
-        <form action="support.php" method="post" class="support-form">
+        <form action="" method="post" class="support-form">
           <div class="email-details">
-            <div class="user-info-fname">
-              <label for="firstName">First Name</label>
-              <textarea rows="1" id="firstName" placeholder="e.g. John" required></textarea>
-            </div>
-            <div class="user-info-lname">
-              <label for="lastName">Last Name</label>
-              <textarea rows="1" id="lastName" placeholder="e.g. Smith" required></textarea>
-            </div>
+              <div class="user-info-fname">
+                  <!-- Input form details for support box, data will be sent to database -->
+                  {{ form.hidden_tag() }}
+                  {{ form.first_name.label }}
+                  {{ form.first_name(id="firstName", rows="1", placeholder="e.g. John") }}
+              </div>
+              <div class="user-info-lname">
+                  {{ form.last_name.label }}
+                  {{ form.last_name(id="lastName", rows="1", placeholder="e.g. Smith") }}
+              </div>
           </div>
 
           <div class="email-box">
-            <label for="email">Email</label>
-            <textarea rows="1" id="email" placeholder="e.g. gmail, yahoo, edu" required></textarea>
+              {{ form.email.label }}
+              {{ form.email(id="email", rows="1", placeholder="e.g. gmail, yahoo, edu") }}
           </div>
           
           <div class="subject-box">
-            <label for="subject">Subject</label>
-            <textarea rows="1" id="subject" placeholder="e.g. feedback, support request" required></textarea>
+              {{ form.subject.label }}
+              {{ form.subject(id="subject", rows="1", placeholder="e.g. feedback, support request") }}
           </div>
 
           <div class="message-box">
-            <label for="message">Message</label>
-            <textarea id="comment" placeholder="Type in message... Limit 250 words" required></textarea>
+              {{ form.message.label }}
+              {{ form.message(class="message-box", id="comment", placeholder="Type in message... Limit 250 words") }}
           </div>
 
           <div class="counter-container"> 
@@ -169,7 +171,7 @@
           <br>
 
           <div class="send-submit">
-            <button class="send-button" type="submit">Submit</button>
+              {{ form.submit(class_="send-button", type="submit") }}
           </div>
         </form>
       </div>

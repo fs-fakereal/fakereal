@@ -52,31 +52,31 @@
           {% endif %}
           {% endwith %}
       
-        <form action="" method="POST">
+        <form action="" method="POST" class="signup-container">
             {{ form.hidden_tag() }}
-              <p>
+            <p>
                 {{ form.first_name.label }}<br>
-                {{ form.first_name(size=32) }}
+                {{ form.first_name(size=32, class_="signup-form") }}
             </p>
-              <p>
+            <p>
                 {{ form.last_name.label }}<br>
-                {{ form.last_name(size=32) }}
+                {{ form.last_name(size=32, class_="signup-form") }}
             </p>
-              <p>
+            <p>
                 {{ form.email.label }}<br>
-                {{ form.email(size=32) }}
+                {{ form.email(size=32, class_="signup-form") }}
             </p>
-              <p>
+            <p>
                 {{ form.password.label }}<br>
-                {{ form.password(size=32) }}
+                {{ form.password(size=32, class_="signup-form") }}
             </p>
-              <p>
+            <p>
                 {{ form.confirm_password.label }}<br>
-                {{ form.confirm_password(size=32) }}
+                {{ form.confirm_password(size=32, class_="signup-form") }}
             </p>
             <input type="checkbox" id="showPassword"> Show Password <br><br>
               <p>
-                {{ form.submit() }}<br>
+                {{ form.submit(class_="signup-form") }}<br>
                 <!--{{ form.submit.label }}-->
             </p>
             
