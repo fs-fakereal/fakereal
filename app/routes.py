@@ -8,13 +8,14 @@ import requests
 import sqlalchemy as sa
 
 from app import app, db, mse
-from app.forms import LoginForm, PasswordChange, SignupForm, FeedbackForm
+from app.forms import LoginForm, PasswordChange, SignupForm, FeedbackForm, AccountEditForm
 from app.models import User, Feedback
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
 
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 #--Constants for Model--#
@@ -39,7 +40,7 @@ def index():
     return render_template('home-page.html', title='Home')
 
 #route to the about page
-@app.route('/about')
+@app.route('/about', methods=['GET', 'POST'])
 def about():
     form = FeedbackForm()
     if form.validate_on_submit():
@@ -52,6 +53,8 @@ def about():
         )
         db.session.add(feedback)
         db.session.commit()
+        flash('Your message was submitted!', 'success')
+        return redirect(url_for('about') + '#support')
     return render_template('about.html', title='About', form=form)
 
 #route to the login page
@@ -115,28 +118,67 @@ def result():
     return render_template('result.html', title='Result')
 
 #route to the page that allows users to scan photos
-@app.route('/scan')
+@app.route('/scan', methods=['GET', 'POST'])
 @login_required
 def scan():
     return render_template('scan-image.html', title='Scan')
 
 #route to the page that allows users to upload
-@app.route('/upload', methods=['GET'])
+@app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
     return render_template('upload.html', title='Upload')
 
 #route to dashboard
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
     return render_template('dashboard.html', title='Dashboard')
 
 #routes to the user account detail editing page
-@app.route('/edit')
+@app.route('/edit', methods=['GET', 'POST'])
 @login_required
 def user_edit():
-    return render_template('user-edit.html', title='User Edit')
+    form = AccountEditForm()
+    if form.validate_on_submit():
+        updated = False
+
+        if form.delete_account.data:
+            db.session.delete(current_user)
+            db.session.commit()
+            logout_user()  # Logs the user out
+            flash("Your account has been deleted.", "danger")
+            return redirect(url_for('index'))
+
+        # Update only if field is not empty
+        if form.first_name.data:
+            current_user.first_name = form.first_name.data
+            updated = True
+        if form.last_name.data:
+            current_user.last_name = form.last_name.data
+            updated = True
+        if form.email.data:
+            current_user.email = form.email.data
+            updated = True
+        if form.new_password.data:
+            if not form.old_password.data:
+                flash("You must enter your current password to set a new one.", "warning")
+                return redirect(url_for('user_edit'))
+            # Verify current password
+            if not check_password_hash(current_user.password_hash, form.old_password.data):
+                flash("Incorrect current password.", "danger")
+                return redirect(url_for('user_edit'))
+            # Hash and update new password
+            current_user.password_hash = generate_password_hash(form.new_password.data)
+            updated = True
+        if updated:
+            db.session.commit()
+            flash("Account updated successfully!", "success")
+        else:
+            flash("No changes made.", "info")
+
+        return redirect(url_for('user_edit'))
+    return render_template('user-edit.html', title='User Edit', form=form)
 
 #routes to the forgot password page
 @app.route('/forgot', methods=['GET', 'POST'])

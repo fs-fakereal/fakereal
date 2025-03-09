@@ -11,43 +11,47 @@
 
   <body>
 
-    <div class="profile">
-      <form action="update-profile.php" method="POST">
-          <!-- Entry for each text field -->
-          <div class="form-group">
-              <label for="email">Email:</label>
-              <span class="email-box">user@example.com</span> <!-- Replace dynamically -->
-          </div>
-  
-          <div class="form-group">
-              <label for="first-name">First Name:</label>
-              <input type="text" id="first-name" name="first-name" required>
-          </div>
-  
-          <div class="form-group">
-              <label for="last-name">Last Name:</label>
-              <input type="text" id="last-name" name="last-name" required>
-          </div>
-  
-          <div class="form-group">
-              <label for="old-password">Current Password:</label>
-              <input type="password" id="old-password" name="old-password" required>
-          </div>
-  
-          <div class="form-group">
-              <label for="new-password">New Password:</label>
-              <input type="password" id="new-password" name="new-password" required>
-          </div>
+      <div class="profile">
+          <!-- Flashes status messages, still barebones -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          {% for category, message in messages %}
+          <div class="flash-message {{ category }}">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+          <form action="" method="POST">
+              <!-- Entry for each text field -->
+              <div class="form-group">
+                  {{ form.hidden_tag() }}
+                  {{ form.email.label }}
+                  {{ form.email(class="email-box", placeholder="Enter new email") }}
+              </div>
 
-        
-  
-          <button type="submit">Save Changes</button>
-      </form>
-  
-      <form action="delete-account.php" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
-          <button type="submit" class="delete">Delete Account</button>
-      </form>
-  </div>
+              <div class="form-group">
+                  {{ form.first_name.label }}
+                  {{ form.first_name(id="first-name", type="text", placeholder="First Name") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.last_name.label }}
+                  {{ form.last_name(id="last-name", type="text", placeholder="Last Name") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.old_password.label }}
+                  {{ form.old_password(id="old-password", type="password", placeholder="Current Password") }}
+              </div>
+
+              <div class="form-group">
+                  {{ form.new_password.label }}
+                  {{ form.new_password(id="new-password", type="password", placeholder="New Password") }}
+              </div>
+
+              {{ form.submit(type="submit") }}
+              {{ form.delete_account() }}
+          </form>
+      </div>
   
     <!-- Footer -->
     <footer class="footer">
