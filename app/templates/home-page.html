@@ -20,9 +20,9 @@
     <!-- Navigation Bar -->
     <nav>
       <ul class="navbar">
-        <li class="logo" id="anchor"><a href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png"></a></li>
+        <li class="logo" id="anchor"><a href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
         <div class="eye-size">
-          <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png"></a></li>
+          <li class="eye"><a href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
         </div>
 
         <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
@@ -51,73 +51,75 @@
         <h2>Deep Fake Examples.</h2>
       </div>
 
-      <div class="example-list">
-          <div class="example">
-            <img src="../static/imgs/examples/voiceclone.png" alt="fake2-img">
-            <h4>Voice Cloning</h4>
-            <p>This technology creates a synthetic copy of a person's voice by analyzing 
-              existing recordings.  It has applications in personalized assistants, accessibility 
-              tools, and content creation.  However, it also raises ethical concerns 
-              about misuse and deepfakes.  The technology is constantly improving, focusing on naturalness and safeguards.</p>
-          </div>
+      <div class="example-list-wrapper">
+        <div class="example-list">
+            <div class="example">
+              <img src="../static/imgs/examples/voiceclone.png" alt="fake2-img">
+              <h4>Voice Cloning</h4>
+              <p>This technology creates a synthetic copy of a person's voice by analyzing 
+                existing recordings.  It has applications in personalized assistants, accessibility 
+                tools, and content creation.  However, it also raises ethical concerns 
+                about misuse and deepfakes.  The technology is constantly improving, focusing on naturalness and safeguards.</p>
+            </div>
 
-          <div class="example">
-            <img src="../static/imgs/examples/syntheticmedia.jpg" alt="fake2-img">
-            <h4>Synthetic Media</h4>
-            <p>The use of artificial intelligence to generate or manipulate media content, 
-              such as images, videos, and audio. This includes creating entirely new content 
-              from scratch (like AI-generated art), modifying existing content (like deepfakes), 
-              or enhancing content (like upscaling images).  While offering creative possibilities 
-              and practical applications, synthetic media also raises ethical concerns about 
-              misinformation, manipulation, and misuse.</p>
-          </div>
+            <div class="example">
+              <img src="../static/imgs/examples/syntheticmedia.jpg" alt="fake2-img">
+              <h4>Synthetic Media</h4>
+              <p>The use of artificial intelligence to generate or manipulate media content, 
+                such as images, videos, and audio. This includes creating entirely new content 
+                from scratch (like AI-generated art), modifying existing content (like deepfakes), 
+                or enhancing content (like upscaling images).  While offering creative possibilities 
+                and practical applications, synthetic media also raises ethical concerns about 
+                misinformation, manipulation, and misuse.</p>
+            </div>
 
-          <div class="example">
-            <video><source src="../static/imgs/examples/gooey.ai lipsync.mp4" type="video/mp4"></video>
-            <h4>Lip syncing</h4>
-            <p>This AI automatically synchronizes digital character lip movements with audio.  It analyzes the audio to 
-              generate realistic lip motions for animation, games, and film.  This technology saves time and effort in 
-              character animation, and its accuracy is continually improving.</p>
-          </div>
+            <div class="example">
+              <video><source src="../static/imgs/examples/gooey.ai lipsync.mp4" type="video/mp4"></video>
+              <h4>Lip syncing</h4>
+              <p>This AI automatically synchronizes digital character lip movements with audio.  It analyzes the audio to 
+                generate realistic lip motions for animation, games, and film.  This technology saves time and effort in 
+                character animation, and its accuracy is continually improving.</p>
+            </div>
 
-          <div class="example">
-            <img src="../static/imgs/examples/fullbodymanipulation.jpg" alt="fake2-img">
-            <h4>Full-body manipulation</h4>
-            <p>Fake videos or images that alter or create realistic digital representations of 
-              human bodies in images or videos. This can range from subtle adjustments like changing 
-              posture or body shape to more dramatic alterations like adding or removing limbs, 
-              changing clothing, or creating entirely new digital humans. Applications include virtual 
-              try-on for clothing, creating digital doubles for films, and generating realistic avatars 
-              for virtual worlds. However, this technology also carries ethical concerns regarding body 
-              image issues, the potential for misuse in creating deepfakes, and the blurring of lines 
-              between reality and digitally fabricated content.</p>
-          </div>
+            <div class="example">
+              <img src="../static/imgs/examples/fullbodymanipulation.jpg" alt="fake2-img">
+              <h4>Full-body manipulation</h4>
+              <p>Fake videos or images that alter or create realistic digital representations of 
+                human bodies in images or videos. This can range from subtle adjustments like changing 
+                posture or body shape to more dramatic alterations like adding or removing limbs, 
+                changing clothing, or creating entirely new digital humans. Applications include virtual 
+                try-on for clothing, creating digital doubles for films, and generating realistic avatars 
+                for virtual worlds. However, this technology also carries ethical concerns regarding body 
+                image issues, the potential for misuse in creating deepfakes, and the blurring of lines 
+                between reality and digitally fabricated content.</p>
+            </div>
 
-          <div class="example">
-            <img src="../static/imgs/examples/faceswap.jpg" alt="fake-img">
-            <h4>Face Swap</h4>
-            <p>One of the most common method of technology that uses artificial intelligence to 
-              replace one face in an image or video with another. It analyzes the facial features, 
-              expressions, and lighting of both faces to create a realistic and seamless blend. 
-              This technology has various applications, from entertainment and creative expression 
-              to security and identity verification. However, it also raises ethical concerns regarding 
-              potential misuse, such as creating deepfakes or spreading misinformation.</p>
-          </div>
+            <div class="example">
+              <img src="../static/imgs/examples/faceswap.jpg" alt="fake-img">
+              <h4>Face Swap</h4>
+              <p>One of the most common method of technology that uses artificial intelligence to 
+                replace one face in an image or video with another. It analyzes the facial features, 
+                expressions, and lighting of both faces to create a realistic and seamless blend. 
+                This technology has various applications, from entertainment and creative expression 
+                to security and identity verification. However, it also raises ethical concerns regarding 
+                potential misuse, such as creating deepfakes or spreading misinformation.</p>
+            </div>
 
-          <div class="example">
-            <img src="../static/imgs/examples/textmanipulation.png" alt="fake2-img">
-            <h4>Text-based manipulation</h4>
-            <p>AI generated texts that imitate the writing style of a specific 
-              individuals. This encompasses a range of tasks, from rewriting text 
-              while preserving its meaning and summarizing lengthy documents to 
-              translating between languages and adapting writing style. Furthermore, 
-              it includes the generation of entirely new text, such as articles, 
-              poems, or code. These capabilities find applications in diverse fields 
-              like writing assistance, content creation, and language learning. 
-              However, this technology also presents challenges, raising concerns about 
-              plagiarism, the spread of misinformation, and the potential for misuse in 
-              creating harmful or misleading content.</p>
-          </div> 
+            <div class="example">
+              <img src="../static/imgs/examples/textmanipulation.png" alt="fake2-img">
+              <h4>Text-based manipulation</h4>
+              <p>AI generated texts that imitate the writing style of a specific 
+                individuals. This encompasses a range of tasks, from rewriting text 
+                while preserving its meaning and summarizing lengthy documents to 
+                translating between languages and adapting writing style. Furthermore, 
+                it includes the generation of entirely new text, such as articles, 
+                poems, or code. These capabilities find applications in diverse fields 
+                like writing assistance, content creation, and language learning. 
+                However, this technology also presents challenges, raising concerns about 
+                plagiarism, the spread of misinformation, and the potential for misuse in 
+                creating harmful or misleading content.</p>
+            </div> 
+        </div>
       </div>
       <br>
     </div>

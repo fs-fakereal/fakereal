@@ -217,8 +217,6 @@ def _file_upload():
                 hash = hashlib.sha256(contents).hexdigest()
                 filepath = os.path.join(data_dir, f"{hash}.{ext}")
 
-            # TODO(liam): this is definitely not efficient,
-            # but it works, so good enough for now.
             if (os.path.isfile(filepath)):
                 os.remove(filepath)
 

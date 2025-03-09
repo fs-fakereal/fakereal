@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../static/css/sidebar.css">
+    <link rel="stylesheet" href="../static/css/logo-sidebar.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  
 </head>
+
 <body>
     <div class="sidebar">
-        <div class="logo">
-            <img src="logo.png" alt="Logo" width="40">
-        </div>
+        <li class="logo"><a href="{{ url_for('index') }}"><img src="../static/imgs/logo.png" alt="logo"></a></li>
         <!-- Links to each page -->
         <ul>
             <li><a href="{{ url_for('upload') }}">Upload </a></li>

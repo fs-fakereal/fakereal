@@ -25,17 +25,34 @@
     }
 }
 
+.example-list-wrapper {
+    width: 100%; /* Make sure it takes up the full width */
+    height: auto; 
+    overflow-x: hidden; /* Hide overflow horizontally */
+    position: relative;
+}
+
 .example-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
 
     margin: 0rem 2rem 0rem 0rem;
 
-    /* align-items: center; */
-    justify-content: center;
+    width: auto;
+    height: auto;
 
-    transform: translate3d(0,0,0);
+    /* align-items: center; 
+    justify-content: center; */
+
+    scroll-snap-type: x mandatory; 
+    position: relative;
+
+    transition: transform 0.5s ease-in-out;
+    /* transform: scaleX(0); */
+    /* transform-origin: 0; */
     transform-style: preserve-3d;
+    scroll-behavior: smooth;
 }
 
 .example {
@@ -43,6 +60,8 @@
     flex-direction: column;
     vertical-align: top;
     align-items: center;
+
+    width: max-content;
 
     margin: 0rem 2rem 0rem 2rem;
     padding: 1.5rem 2rem;

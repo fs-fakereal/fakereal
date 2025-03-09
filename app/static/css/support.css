@@ -211,7 +211,7 @@ textarea {
     border-radius: 4rem;
 }
 
-/* Counting the owrd limit */
+/* Counting the word limit */
 .counter-container {
     display: flex;
     justify-content: space-between;
