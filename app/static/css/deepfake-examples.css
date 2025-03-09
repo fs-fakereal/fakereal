@@ -2,7 +2,7 @@
     text-align: center;
     /* padding: 20px 0px 20px 0px; */
 
-    padding: 80px 25px 80px 25px;
+    padding: 80px 0px 80px 25px;
     /* background-color: rgb(100, 90, 78); */
     background-color: rgb(179, 168, 155);
     /* border-radius: 20px 20px 0px 0px; */
@@ -26,10 +26,7 @@
 }
 
 .example-list-wrapper {
-    width: 100%; /* Make sure it takes up the full width */
-    height: auto; 
-    overflow-x: hidden; /* Hide overflow horizontally */
-    position: relative;
+    will-change: transform; 
 }
 
 .example-list {
@@ -39,29 +36,23 @@
 
     margin: 0rem 2rem 0rem 0rem;
 
-    width: auto;
-    height: auto;
+    width: fit-content;
 
-    /* align-items: center; 
-    justify-content: center; */
-
-    scroll-snap-type: x mandatory; 
     position: relative;
-
-    transition: transform 0.5s ease-in-out;
-    /* transform: scaleX(0); */
-    /* transform-origin: 0; */
-    transform-style: preserve-3d;
+    scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
+
+    transform: translateX(0);
 }
 
 .example {
+    /* other styles */
     display: flex;
     flex-direction: column;
     vertical-align: top;
     align-items: center;
 
-    width: max-content;
+    scroll-snap-align: start;
 
     margin: 0rem 2rem 0rem 2rem;
     padding: 1.5rem 2rem;
@@ -84,15 +75,7 @@
         padding: 0px 0px 0px 0px;
     }
 
-    img {
-        object-fit: cover;
-        border-radius: 2rem;
-        width: 25rem;
-        height: 25rem;
-        border-color: rgb(34, 34, 34);
-    }
-
-    video {
+    img, video {
         object-fit: cover;
         border-radius: 2rem;
         width: 25rem;

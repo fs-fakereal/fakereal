@@ -15,7 +15,7 @@ document.addEventListener('mousemove', (e) => {
     console.log(angleDeg)
 
     eyes.forEach(eye => {
-        eye.style.transform = `rotate(${220 + angleDeg}deg)`;
+        eye.style.transform = `rotate(${250 + angleDeg}deg)`;
         // anchor.style.filter = `hue-rotate(${angleDeg}deg)`;
     })
 })

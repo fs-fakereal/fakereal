@@ -1,0 +1,1 @@
+document.body.style.cursor = "url('../imgs/mouse1.png'), default";

@@ -54,7 +54,7 @@
         font-style: normal;
         font-size: 1.2rem;
 
-        cursor: pointer;
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
         transition: background-color font-size 0.3s ease-in; 
         background-color: rgb(100, 90, 78);

@@ -1,5 +1,7 @@
 /* Footer Styles */
 footer {
+    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
+
     text-align: center;
     padding: 10px 20px;
     background-color: #3b3d66;
@@ -8,12 +10,17 @@ footer {
     font-size: 1rem;
   
     p {
+        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
         color: azure;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
+    }
+
+    hr {
+        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
     }
 }
 
@@ -74,6 +81,7 @@ hr {
     }
 
     img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
         height: 2rem;
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
@@ -119,6 +127,7 @@ hr {
     }
 
     img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
         height: 2rem;
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
@@ -145,10 +154,15 @@ hr {
 
     padding: 0.5rem 0rem 0rem 0rem;
     margin: 0rem;
+
+    p {
+        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
+    }
 }
 
 .csulb {
     color: #8c8a9f;
+    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 }
 
 /* extra details */
