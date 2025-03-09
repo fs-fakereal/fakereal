@@ -1,10 +1,11 @@
 /* General Styles */
 html {
-  cursor: url('../imgs/mouse1.png'), auto;
   height: 100%;
 }
 
 body {
+  cursor: url('../imgs/mouse/blue-mouse.png'), auto !important;
+
   font-family: "Prosto One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -22,6 +23,7 @@ body {
   min-height: 100vh;
 }
 
+/* Font Styles */
 .rubik-glitch-regular {
   font-family: "Rubik Glitch", system-ui;
   font-weight: 400;
@@ -34,6 +36,12 @@ body {
   font-style: normal;
 }
 
+/* Custom cursor */
+.cursor {
+  cursor: url('../imgs/mouse.png'), default !important;
+}
+
+/* Adjustment for the footer */
 .main-content {
   flex-grow: 1;
 }
@@ -91,6 +99,8 @@ nav {
 }
 
 .navbar a:hover {
+  cursor: url('../imgs/mouse/white-pointer.png'), default !important;
+  transition: all 0.3s ease;
   /* background-color: rgb(36, 34, 30); */
   /* border-radius: 10px; */
   color: rgb(74, 74, 74);

@@ -12,24 +12,25 @@ async function main() {
     articlesUl.innerHTML += 
     `
       <div class='article-info'>
-        <a href='${article.url}'><img src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img"></a>
+        <img src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img">
 
         <div class='content'>
-          <a href='${article.url}'><h3>${article.title}</h3></a>
+          <div class='source'>
+            <h3>${article.title}</h3>
 
-          <div class='author-release'>
-            <p>${article.author ? article.author.split(',').slice(0, 2).join(',') : "Anonymous"}</p>
-            <p>${article.publishedAt}</p>
-          </div>
-
-          <h4>${article.description}</h4>
-                        
-          <br>
-            <div  class='article-button'>
-              <a href='${article.url}'>
-                <button>Read article</button>
-              </a>
+            <div class='author-release'>
+              <p>${article.author ? article.author.split(',').slice(0, 2).join(',') : "Anonymous"}</p>
+              <p>${article.publishedAt}</p>
             </div>
+
+            <h4>${article.description}</h4>
+          </div>
+          <br>
+          <div  class='article-button'>
+            <a href='${article.url}'>
+              <button>Read article</button>
+            </a>
+          </div>
         </div>
       </div>
     `;
@@ -54,7 +55,7 @@ async function main() {
         articlesUl.innerHTML += 
         `
           <div class='article-info'>
-            <a href='${article.url}'><img class='overlay' src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img"></a>
+            <img src="${article.urlToImage ? article.urlToImage : '/static/imgs/FakeReal.png'}" alt="article-img">
 
             <div class='content'>
               <h3>${article.title}</h3>

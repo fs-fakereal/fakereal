@@ -12,14 +12,22 @@
     flex-wrap: wrap;
 }
 
-.article-button button {
-    border-radius: 5rem;
-    color: black;
-    background-color: white;
+.article-button {
+    button {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+
+        border-radius: 2rem;
+        color: black;
+        background-color: white;
+
+        padding: 1rem 2rem;
+
+        font-weight: bold;
+    }
     
     button:hover {
-        transition: color 0.3s ease; /* Smooth hover effect */
-        color: #84a0ad;
+            transition: color 0.3s ease; /* Smooth hover effect */
+            background-color: #84a0ad;
     }
 }
 
@@ -37,7 +45,6 @@
 
 .article p {
     font-size: 0.9rem;
-    
     text-align: left;
 }
 
@@ -71,6 +78,9 @@
 .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
+    margin: 1.5rem 2rem 1.5rem 0rem;
 
     a {
         color: rgb(0, 0, 0);
@@ -91,5 +101,5 @@
     background-color: #ffd786;
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
-    cursor: pointer;
+    cursor: url('../imgs/mouse/white-pointer.png'), default !important;
 }

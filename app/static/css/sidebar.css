@@ -26,16 +26,19 @@ body {
     left: 0;
     top: 0;
     overflow-y: auto;     
-    transition: width 0.3s ease; /* Smooth transition for width change */
+    transition: width 0.5s ease, padding 0.5s ease; /* Smooth transition for width change */
 }
 
 .sidebar:hover {
-    width: 250px; /* Wider when hovered */
-}
+    width: 10rem; /* Wider when hovered */
+    transition: width 0.5s ease; /* Smooth hover effect */
 
-.sidebar .logo {
-    text-align: center;
-    margin-bottom: 20px;
+    .logo img{
+        height: 10rem;
+        width: 10rem;
+        margin-right: 2rem;
+        transition: width 0.5s ease, height 0.5s ease, margin-right 0.5s ease; /* Smooth hover effect */
+    }
 }
 
 .sidebar ul {
@@ -76,7 +79,7 @@ body {
 
 /* When sidebar is expanded, apply margin to main content */
 .sidebar.open + .main-content {
-    margin-left: 250px; /* Slide the content to the right when sidebar is open */
+    margin-left: 11rem; /* Slide the content to the right when sidebar is open */
 }
 
 /* Responsive Design */

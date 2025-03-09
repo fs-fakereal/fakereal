@@ -1,8 +1,15 @@
 .logo {
     list-style: none;
-    
-    a img {
-    height: 55%;
-    width: 55%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    img {
+        height: 5rem;
+        width: 5rem;
+        margin-right: 2rem;
+        transition: width 0.5s ease, height 0.5s ease, margin-right 0.5s ease; /* Smooth hover effect */
+
+        background-color: transparent; /* Ensure no background color */
+        color: inherit; /* Reset color, as "none" is not a valid value */    
     }
 }
