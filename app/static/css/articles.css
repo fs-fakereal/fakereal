@@ -33,10 +33,6 @@
 
     border-radius: 2rem;
     background-color: #5E7381;
-    
-    a img:hover {
-        opacity: 80%;
-    }
 }
 
 .article p {
@@ -49,19 +45,19 @@
     height: 18rem;
     width: 20rem;
     object-fit: cover;
-    opacity: 80%;
+    /* opacity: 80%; */
 
     border-radius: 2rem;
     padding: 1rem 1rem;
 }
 
-.overlay {
+/* .overlay {
     border-image: 
     linear-gradient(
         hsla(0, 0%, 17%, 0.3), 
         hsla(0, 0%, 7%, 0.3))
     fill 1;
-}
+} */
 
 .author-release {
     display: flex;

@@ -23,6 +23,13 @@ async function main() {
           </div>
 
           <h4>${article.description}</h4>
+                        
+          <br>
+            <div  class='article-button'>
+              <a href='${article.url}'>
+                <button>Read article</button>
+              </a>
+            </div>
         </div>
       </div>
     `;
