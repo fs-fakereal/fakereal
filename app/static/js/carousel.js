@@ -37,18 +37,40 @@
 //     dots[slideIndex-1].className += " active";
 // }
 
-// select the example list
-const wrapper = document.querySelector('.example-list');
+// Select the necessary elements
+const wrapper = document.querySelector('.example-list-wrapper');
+const exampleList = document.querySelector('.example-list');
+const articles = document.querySelector('.articles');
+const footer = document.querySelector('.footer');
 
-window.addEventListener('scroll', ()=> {
-    const scrollPosition = window.scrollY;
+// Get the width of an individual item and the wrapper
+const itemWidth = 220; // Including margin (200px + 2 * 10px)
+const maxScroll = document.body.scrollHeight - window.innerHeight;
 
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
+// Listen for the scroll event
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
 
-    // calculates the percentage of scrolling relative
-    const scrollPercentage = scrollPosition / maxScroll;
+  // Calculate the scroll percentage
+  const scrollPercentage = scrollPosition / maxScroll;
 
-    const translateX = scrollPercentage * 100;
+  // Get the total scroll width of the list
+  const scrollWidth = exampleList.scrollWidth - wrapper.offsetWidth;
 
-    wrapper.style.transform = `translate3d(${translateX}%, 0, 0)`;
-})
+  // Calculate the translateX value based on scroll percentage
+  const translateX = scrollPercentage * scrollWidth;
+
+  // Apply the horizontal translation
+  exampleList.style.transform = `translate3d(${translateX}%, 0, 0)`;
+
+  // Check if the list has scrolled to the end
+  if (scrollPercentage >= 1) {
+    // Show the articles and footer once scrolled to the end
+    articles.style.display = 'block';
+    footer.style.display = 'block';
+  } else {
+    // Hide the articles and footer while scrolling
+    articles.style.display = 'none';
+    footer.style.display = 'none';
+  }
+});

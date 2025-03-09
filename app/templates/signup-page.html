@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/signup-style.css">
     <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,14 +148,16 @@
     </footer>
 
     <script src="../static/js/restrictions.js"></script>
-    <!-- JavaScript to handle the redirect -->
-   {% if redirect_url %}
-   <script>
-  // Wait for 3 seconds (3000 milliseconds) and then redirect
-  setTimeout(function() {
-    window.location.href = "{{ redirect_url }}";
-  }, 3000);
-</script>
-{% endif %}
+      <!-- JavaScript to handle the redirect -->
+    {% if redirect_url %}
+    <script>
+    // Wait for 3 seconds (3000 milliseconds) and then redirect
+    setTimeout(function() {
+      window.location.href = "{{ redirect_url }}";
+    }, 3000);
+  </script>
+  {% endif %}
+
+  <script src="../static/js/logo-animation.js"></script>
   </body>
 </html>

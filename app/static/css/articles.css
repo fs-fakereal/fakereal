@@ -12,6 +12,17 @@
     flex-wrap: wrap;
 }
 
+.article-button button {
+    border-radius: 5rem;
+    color: black;
+    background-color: white;
+    
+    button:hover {
+        transition: color 0.3s ease; /* Smooth hover effect */
+        color: #84a0ad;
+    }
+}
+
 .article-info {
     display: flex;
     flex-direction: row;
@@ -76,11 +87,6 @@
             font-size: 1.8rem;
             margin: 0rem;
             padding: 0rem;
-        }
-
-        :hover {
-            transition: color 0.3s ease; /* Smooth hover effect */
-            color: #84a0ad;
         }
     }
 }

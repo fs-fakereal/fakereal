@@ -1,4 +1,5 @@
 .deepfake-examples {
+    overflow: hidden;
     text-align: center;
     /* padding: 20px 0px 20px 0px; */
 
@@ -28,14 +29,19 @@
 .example-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
 
     margin: 0rem 2rem 0rem 0rem;
 
-    /* align-items: center; */
-    justify-content: center;
+    /* align-items: center; 
+    justify-content: center; */
+    /* scroll-snap-type: x mandatory;  */
+    position: relative;
 
-    transform: translate3d(0,0,0);
+    transition: transform 0.5s ease-in-out;
+    /* transform: translate3d(0,0,0); */
     transform-style: preserve-3d;
+    scroll-behavior: smooth;
 }
 
 .example {
