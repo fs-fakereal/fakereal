@@ -1,8 +1,20 @@
-/* Footer */
-.footer p{
-    text-align: left;
-    margin: 0rem;
-    padding: 0rem;
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #3b3d66;
+    bottom: 0;
+    /* width: 100%; */
+    font-size: 1rem;
+  
+    p {
+        src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
+        font-family: 'Baloo Thambi 2';
+        color: azure;
+        text-align: left;
+        margin: 0rem;
+        padding: 0rem;
+    }
 }
 
 hr {

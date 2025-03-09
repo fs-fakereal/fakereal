@@ -44,7 +44,7 @@ textarea {
     min-height: 12lh;
     min-width: 4lh;
     width: 98%;
-    overflow: hidden;
+    overflow: auto;
     resize: none;
     
     font-size: 1rem;
@@ -70,7 +70,7 @@ textarea {
     width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
 
-    textarea {
+    input {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
@@ -98,7 +98,7 @@ textarea {
     width: 100%;
     padding: 0.2rem 1rem 0rem 0rem;
 
-    textarea {
+    input {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
@@ -125,7 +125,7 @@ textarea {
     width: 100%;
     padding: 0.2rem 0rem 0rem 0rem;
 
-    textarea {
+    input {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
@@ -153,7 +153,7 @@ textarea {
     width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
 
-    textarea {
+    input {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
@@ -181,7 +181,7 @@ textarea {
     width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
 
-    textarea {
+    input {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
@@ -189,7 +189,7 @@ textarea {
 
     font: 1rem sans-serif;
 
-    overflow: hidden;
+    overflow: auto;
     resize: none;
     width: 100%;
     }
@@ -211,7 +211,7 @@ textarea {
     border-radius: 4rem;
 }
 
-/* Counting the owrd limit */
+/* Counting the word limit */
 .counter-container {
     display: flex;
     justify-content: space-between;

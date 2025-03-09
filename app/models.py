@@ -38,6 +38,7 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User: {}>'.format(self.first_name)
 
+#model for the feedback table in the database
 class Feedback(db.Model):
     __tablename__ = "support-feedback"
     id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True) #consider uuids
