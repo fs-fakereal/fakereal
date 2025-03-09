@@ -39,7 +39,7 @@
         box-sizing: border-box; /* Ensures padding does not affect width */
     }
 
-    .login-form button, .login-form input[type="submit"] {
+    .login-form button {
         width: 100%;
         padding: 10px;
         background-color: #4CAF50; /* Button color for log in */
@@ -50,9 +50,9 @@
         box-sizing: border-box;
     }
 
-    .login-form button:hover, .login-form input[type="submit"]:hover {
-        background-color: #45a049; /* Darker shade of green when user hover over */
-    }
+        .login-form button:hover {
+            background-color: #45a049; /* Darker shade of green when user hover over */
+        }
 
 .show-password-container {
     display: flex;
