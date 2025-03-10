@@ -1,7 +1,24 @@
+const stickySections = [...document.querySelectorAll('.deepfake-examples')]
+
+window.addEventListener('scroll', (e) => {
+  for (let i=0; i < stickySections.length; i++){
+    transform(stickySections[i])
+  }
+})
+
+function transform(section){
+  const offsetTop = section.parentElement.offsetTop;
+  const scrollSection = section.querySelector('.example-list');
+  let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+  percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
+  scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`
+}
+
+// Initial javaScript code
 // let slideIndex = 1;
 // showSlides(slideIndex);
 
-const { query } = require("express");
+// const { query } = require("express");
 
 // // next-previous controls
 // function plusSlides(n) {
@@ -38,33 +55,3 @@ const { query } = require("express");
 //     slides[slideIndex-1].style.display = "block flex";
 //     dots[slideIndex-1].className += " active";
 // }
-
-
-// Interactive scrolling
-const wrapper = document.querySelector('.example-list'); // Wrapper of the list
-const articles = document.querySelector('.articles');
-const footer = document.querySelector('.footer');
-
-// Listen for the scroll event, but only act when the section is in view
-window.addEventListener('scroll', () => {
-  for (let i = 0; i < wrapper.children.length; i++) {
-    tranform(wrapper.children[i]);
-  
-    // Check if the list has scrolled to the end
-    if (wrapper.scrollLeft + wrapper.offsetWidth >= wrapper.scrollWidth) {
-      // Hide the articles and footer while scrolling
-      articles.style.display = 'none';
-      footer.s 
-      // Show the articles and footer once scrolled to the end
-      articles.style.display = 'block';
-      footer.style.display = 'block';
-    }
-  }
-});
-
-function tranform(child) {
-  const offsetTop = child.offsetTop;
-  const scrollSection = child.querySelector('.example');
-  let percentage = ((wrapper.scrollLeft - offsetLeft) / wrapper.offsetHeight) * 100;
-  scrollSection.style.transform = `translateX(-${percentage}%)`;
-}

@@ -1,20 +1,31 @@
-.deepfake-examples {
-    text-align: center;
-    /* padding: 20px 0px 20px 0px; */
-
-    padding: 80px 0px 80px 25px;
-    /* background-color: rgb(100, 90, 78); */
+.sticky_parent {
     background-color: rgb(179, 168, 155);
-    /* border-radius: 20px 20px 0px 0px; */
-
-    display: flex;
-    flex-direction: column;
+    height: 500vh;
 }
 
+.deepfake-examples {
+    /* text-align: center; */
+    /* padding: 1rem; */
+    /* display: flex; */
+    /* flex-direction: column; */
+
+    height: 100vh;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+section {
+    height: 100vh;
+}
+
+/* the title of the section */
 .title-examples {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
+    padding-top: 1.75rem;
 
     h2 {
         /* color: rgb(185, 180, 173); */
@@ -25,44 +36,37 @@
     }
 }
 
-.example-list-wrapper {
-    will-change: transform; 
-}
-
+/* the examples listed */
 .example-list {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 500vw;
+    will-change: transform;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 
-    margin: 0rem 2rem 0rem 0rem;
-
-    width: fit-content;
-
-    position: relative;
-    scroll-snap-type: x mandatory; 
-    scroll-behavior: smooth;
-
-    transform: translateX(0);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5vw 0rem 5vw;
 }
 
+/* the individual examples */
 .example {
     /* other styles */
     display: flex;
     flex-direction: column;
-    vertical-align: top;
     align-items: center;
 
-    scroll-snap-align: start;
+    height: 65%; /* adjusts the height of the containers so they are uniform*/
 
     margin: 0rem 2rem 0rem 2rem;
     padding: 1.5rem 2rem;
 
     background-color: #EAC8A6;
-    border-radius: 2rem;
-    border-color: rgb(34, 34, 34);
+    border-radius: 1.5rem;
+    border: 0.2rem solid rgb(34, 34, 34);
 
     h4 {
-        /* color: black; */
         font-size: 1.25rem;
         color: rgb(34, 34, 34);
         margin: 10px 0px 0px 0px;
@@ -77,10 +81,10 @@
 
     img, video {
         object-fit: cover;
-        border-radius: 2rem;
+        border-radius: 1.5rem;
         width: 25rem;
         height: 25rem;
-        border-color: rgb(34, 34, 34);
+        border: 0.2rem solid rgb(34, 34, 34);
     }
 }
 
@@ -134,4 +138,18 @@
     body {
       background-color: lightblue;
     }
+}
+
+/* for the carousel */
+.scroll_section {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 500vw;
+    will-change: transform;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
 }

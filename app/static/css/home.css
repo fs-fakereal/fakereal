@@ -41,6 +41,17 @@
     background-color: #828e73;
     border-radius: 20px 20px 0px 0px;
 
+    a{
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+    }
+
+    a:hover {
+        transition: all 0.3s ease-in; 
+        /* background-color: rgb(61, 55, 47); */
+        color: rgb(139, 121, 99);
+        font-size: 1.1rem;
+    }
+
     h1 {
         padding: 0rem 3rem;
     }
@@ -56,14 +67,14 @@
 
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
-        transition: background-color font-size 0.3s ease-in; 
+        transition: all 0.3s ease-in; 
         background-color: rgb(100, 90, 78);
         color: rgb(185, 180, 173);
         border-radius: 40px;
     } 
 
     button:hover {
-        transition: background-color font-size 0.3s ease-in; 
+        transition: all 0.3s ease-in; 
         background-color: rgb(61, 55, 47);
         color: rgb(139, 121, 99);
         font-size: 1.1rem;
