@@ -70,7 +70,7 @@ section {
         font-size: 1.25rem;
         color: rgb(34, 34, 34);
         margin: 10px 0px 0px 0px;
-        padding: 0px;
+        padding-bottom: 0.5rem;
     }
 
     p {
@@ -83,7 +83,7 @@ section {
         object-fit: cover;
         border-radius: 1.5rem;
         width: 25rem;
-        height: 25rem;
+        height: 22rem;
         border: 0.2rem solid rgb(34, 34, 34);
     }
 }

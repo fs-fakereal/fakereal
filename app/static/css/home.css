@@ -60,6 +60,8 @@
         margin: 0.3rem;
         padding: 1rem 2rem;
 
+        width: 10rem;
+
         font-family: "Prosto One", sans-serif;
         font-weight: 400;
         font-style: normal;
@@ -78,5 +80,6 @@
         background-color: rgb(61, 55, 47);
         color: rgb(139, 121, 99);
         font-size: 1.1rem;
+        width: 9.5rem;
     }
 }

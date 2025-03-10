@@ -30,6 +30,14 @@ textarea {
     background-color: white;
 }
 
+label {
+    cursor: url('../imgs/mouse/blue-mouse.png'), auto;
+}
+
+::placeholder {
+    font-size: 0.8rem;
+}
+
 .support-page {
     background-color: bisque;
     padding: 80px 50px 80px 50px;
@@ -176,7 +184,7 @@ textarea {
 .message-box {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: left top;
     
     width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
@@ -202,21 +210,29 @@ textarea {
 
 /* send button */
 .send-button {
-    padding: 1rem 1.8rem;
-    cursor: pointer;
+    padding: 0.8rem 1.8rem;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
 
     font: 1rem sans-serif;
 
-    background-color: rgb(137, 125, 110);
+    transition: all 0.3s ease-in; 
+    background-color: rgb(100, 90, 78);
+    color: rgb(185, 180, 173);
     border-radius: 4rem;
+}
+
+.send-button :hover {
+    transition: all 0.3s ease-in; 
+    background-color: rgb(61, 55, 47);
+    color: rgb(139, 121, 99);
+    font-size: 1.1rem;
 }
 
 /* Counting the word limit */
 .counter-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-    font-size: 18px;
+    font-size: 0.8rem;
     color: #333;
     transition: color 0.3s;
 }

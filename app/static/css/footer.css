@@ -80,6 +80,10 @@ hr {
         text-align: left;
     }
 
+    a{
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    }
+
     img {
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
         height: 2rem;
@@ -154,6 +158,8 @@ hr {
 
     padding: 0.5rem 0rem 0rem 0rem;
     margin: 0rem;
+
+    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 
     p {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;

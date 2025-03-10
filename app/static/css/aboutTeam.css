@@ -96,6 +96,7 @@
 .socials img {
     width: 35px;
     margin: 8px 2px 0px 2px;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
 .all-list {
