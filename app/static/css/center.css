@@ -9,6 +9,10 @@
     padding-bottom: 50px; /* Pushes content up slightly */
 }
 
+form {
+    cursor: url('../imgs/mouse/blue-mouse.png'), auto;
+}
+
 .login-form {
     max-width: 425px; /* Increase the max-width to make the form box wider */
     width: 100%;
@@ -52,6 +56,7 @@
 
     .login-form button:hover, .login-form input[type="submit"]:hover {
         background-color: #45a049; /* Darker shade of green when user hover over */
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
     }
 
 .show-password-container {

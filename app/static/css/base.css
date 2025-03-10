@@ -1,6 +1,9 @@
 /* General Styles */
 html {
   height: 100%;
+
+  /* stops the bouncy overscrolling behavior */
+  overscroll-behavior: none; 
 }
 
 body {
@@ -38,7 +41,7 @@ body {
 
 /* Custom cursor */
 .cursor {
-  cursor: url('../imgs/mouse.png'), default !important;
+  cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 }
 
 /* Adjustment for the footer */

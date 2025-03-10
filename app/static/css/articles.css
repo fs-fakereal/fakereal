@@ -2,7 +2,10 @@
     padding: 2rem 1rem;
     background-color: #DACBB6;
 
-    font-size: 1rem;
+    h1 {
+        font-size: 3rem;
+        color: black;
+    }
 }
 
 /* the articles */
@@ -49,7 +52,7 @@
 }
 
 .article img{
-    height: 18rem;
+    height: 20rem;
     width: 20rem;
     object-fit: cover;
     /* opacity: 80%; */
