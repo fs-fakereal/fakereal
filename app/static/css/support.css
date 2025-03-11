@@ -78,23 +78,19 @@ label {
     width: 100%;
     padding: 0.5rem 1rem 0rem 0rem;
 
-    input {
-    color: rgb(31, 31, 31);
-    border-radius: 8px;
-    min-height: 1.2lh;
-    font-size: 0.9rem;
-
-    font: 1rem sans-serif;
-
-    overflow: hidden;
-    resize: none;
-    width: 100%;
-    }
-
     label {
         padding-left: 0.3rem;
         font-size: 1.1rem;
     }
+}
+
+.email-text {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+    overflow: hidden;
+    resize: none;
 }
 
 /* user information */
@@ -106,23 +102,19 @@ label {
     width: 100%;
     padding: 0.2rem 1rem 0rem 0rem;
 
-    input {
-    color: rgb(31, 31, 31);
-    border-radius: 8px;
-    min-height: 1.2lh;
-    font-size: 0.9rem;
-
-    font: 1rem sans-serif;
-
-    overflow: hidden;
-    resize: none;
-    width: 100%;
-    }
-
     label {
         padding-left: 0.3rem;
         font-size: 1.1rem;
     }
+}
+
+.first_name {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+    overflow: hidden;
+    resize: none;
 }
 
 .user-info-lname {
@@ -133,23 +125,19 @@ label {
     width: 100%;
     padding: 0.2rem 0rem 0rem 0rem;
 
-    input {
-    color: rgb(31, 31, 31);
-    border-radius: 8px;
-    min-height: 1.2lh;
-    font-size: 0.9rem;
-
-    font: 1rem sans-serif;
-
-    overflow: hidden;
-    resize: none;
-    width: 100%;
-    }
-
     label {
         padding-left: 0.3rem;
         font-size: 1.1rem;
     }
+}
+
+.last_name {
+    color: rgb(31, 31, 31);
+    border-radius: 8px;
+    min-height: 1.2lh;
+    font-size: 0.9rem;
+    overflow: hidden;
+    resize: none;
 }
 
 /* subject information */
@@ -159,20 +147,7 @@ label {
     align-items: left;
     
     width: 100%;
-    padding: 0.5rem 1rem 0rem 0rem;
-
-    input {
-    color: rgb(31, 31, 31);
-    border-radius: 8px;
-    min-height: 1.2lh;
-    font-size: 0.9rem;
-
-    font: 1rem sans-serif;
-
-    overflow: hidden;
-    resize: none;
-    width: 100%;
-    }
+    padding: 0.5rem 0rem 0rem 0rem;
 
     label {
         padding-left: 0.3rem;
@@ -180,32 +155,38 @@ label {
     }
 }
 
-/* message box */
-.message-box {
-    display: flex;
-    flex-direction: column;
-    align-items: left top;
-    
-    width: 100%;
-    padding: 0.5rem 1rem 0rem 0rem;
-
-    input {
+.subject-box-text {
     color: rgb(31, 31, 31);
     border-radius: 8px;
     min-height: 1.2lh;
     font-size: 0.9rem;
-
-    font: 1rem sans-serif;
-
-    overflow: auto;
+    overflow: hidden;
     resize: none;
+}
+
+/* message box */
+.message-box {
+    display: flex;
+    flex-direction: column;
+    
     width: 100%;
-    }
+    padding: 0.5rem 1rem 0rem 0rem;
 
     label {
         padding-left: 0.3rem;
         font-size: 1.1rem;
     }
+}
+
+.message-input {
+    color: rgb(31, 31, 31);
+    font-size: 0.9rem;
+
+    vertical-align: top;
+    line-height: 1.5;
+
+    overflow: auto;
+    resize: none;
 }
 
 /* send button */
@@ -237,20 +218,20 @@ label {
     transition: color 0.3s;
 }
 .counter-container:hover {
-    color: #006400;
+    color: #498049;
 }
 .total-container {
-    color: #008000;
+    color: #498049;
     transition: color 0.3s;
 }
 .total-container:hover {
-    color: #006400;
+    color: #498049;
 }
 .remaining-container {
-    color: #ff0000;
+    color: rgb(192, 90, 90);
     transition: color 0.3s;
 }
 .remaining-container.limit-exceeded {
-    color: #f00;
+    color: rgb(192, 90, 90);
     animation: shake 0.5s;
 }

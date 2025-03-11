@@ -73,6 +73,18 @@ def login():
         return redirect(url_for('dashboard'))
     return render_template('login-page.html', title='Login', form = form)
 
+#route to logged in version of home page
+@app.route('/logged-in/home-page')
+@login_required
+def loggedHomePage():
+    return render_template('logged-in/home-page.html', title='LoggedHome')
+
+#route to logged in version of about page
+@app.route('/logged-in/about')
+@login_required
+def loggedAbout():
+    return render_template('logged-in/about.html', title='LoggedAbout')
+
 #route to the signup page
 #uses similar methods to the lgoin function
 @app.route('/signup', methods=['GET', 'POST'])
@@ -185,6 +197,16 @@ def user_edit():
 def forgot_password():
     form = PasswordChange()
     return render_template('forgot-password.html', title='Forgot Password', form=form)
+
+# routes to the feb-articles
+@app.route('/feb-article')
+def feb_article():
+    return render_template('articles/feb-article-list.html')
+
+# routes to the empty_cab
+@app.route('/empty_cab')
+def empty_cab():
+    return render_template('articles/empty_cab.html')
 
 # NOTE(liam): gets existing news or get a new one if not existing, or if it's
 # been 30 days since the news was created.

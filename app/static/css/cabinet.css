@@ -17,7 +17,7 @@
     flex-direction: column; 
 }
 
-.handle button {
+.handle a button {
     border-radius: 0 0 2rem 2rem;
     background-color: silver;
     border: 0.2rem solid rgb(34, 34, 34);
@@ -39,9 +39,15 @@
     justify-content: center;
 
     border: 1.5rem solid rgb(34, 34, 34);
+    border-radius: 0.2rem;
     background-color: rgb(227, 227, 227);
 
     h1 {
         font-size: 1.5rem;
     }
+}
+
+/* when there are no articles */
+.no-articles {
+    color: black;
 }
