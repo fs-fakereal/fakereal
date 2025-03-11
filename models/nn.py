@@ -20,9 +20,10 @@ from tensorflow.train import latest_checkpoint
 # constants #
 
 model_name = "vgg16"
+img_size = 256 # assume same for both width and height
+batch_size = 16
 
 data_dir = "data"
-img_size = 256 # assume same for both width and height
 
 # assume there is a json file of the same name inside these data subdirs.
 data_user_dir = f"{data_dir}/user"
@@ -30,7 +31,6 @@ data_uniface_dir = f"{data_dir}/uniface"
 
 checkpoint_dir = "checkpoints"
 checkpoint_path = f"{checkpoint_dir}/{model_name}/" + "cp-{epoch:04d}.ckpt"
-batch_size = 16
 
 # DATASET LOADING #
 
@@ -154,6 +154,6 @@ history = model.fit_generator(
 def plot_validation(val_loss, val_acc):
     pass
 
-def model_save(model, name, version):
-    model.save(f"deepfake-{name}-{version}.keras")
+def model_save(model, version):
+    model.save(f"deepfake-{model_name}-{version}.keras")
 
