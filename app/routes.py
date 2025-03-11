@@ -8,19 +8,25 @@ import requests
 import sqlalchemy as sa
 
 from app import app, db, mse
-from app.forms import LoginForm, PasswordChange, SignupForm, FeedbackForm, AccountEditForm
-from app.models import User, Feedback
+from app.forms import (
+    AccountEditForm,
+    FeedbackForm,
+    LoginForm,
+    PasswordChange,
+    SignupForm,
+)
+from app.models import Feedback, User
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from werkzeug.utils import secure_filename
-from werkzeug.security import generate_password_hash, check_password_hash
 
 
 #--Constants for Model--#
 MODEL_DEBUG_PRINT = True
-DATA_UPLOAD_FOLDER = 'data'
+DATA_UPLOAD_FOLDER = 'model/data/user'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 JSON_FOLDER = 'app/static/json'
 
