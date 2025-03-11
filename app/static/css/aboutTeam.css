@@ -109,7 +109,7 @@
 }
 
 .frontend h2 {
-        text-align: left;
+        text-align: center;
         font-size: 1rem;
         color: #000000; 
         /* font-family: sans-serif; */
@@ -118,7 +118,7 @@
 }
 
 .backend h2 {
-        text-align: left;
+        text-align: center;
         font-size: 1rem;
         color: #000000; 
         /* font-family: sans-serif; */
