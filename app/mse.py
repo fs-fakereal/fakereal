@@ -5,6 +5,8 @@ from datetime import datetime
 import requests
 from app.result import Result
 
+from models.loader import model_generate_prediction, model_parse_error
+
 default_model_api_params = {
     'models' : 'genai',
     'user': os.getenv('MODEL_USER'),
@@ -223,16 +225,13 @@ def call_api_and_predict(path : str, args : dict = default_model_api_params, deb
         'message' : "n/a",
         'from' : 'internal'
     }
-    model = {
-        'name' : args['models'] if 'models' in args.keys() else args['model_id'],
-        'version' : '1.0'
-    }
+    model_name: str = args['models'] if 'models' in args.keys() else args['model_id']
 
     # REQUEST
     files = { 'media' : open(path, 'rb') }
 
     req_json = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data={
-        'models' : model['name'],
+        'models' : model_name,
         'api_user' : args['user'],
         'api_secret' : args['secret']
     })
@@ -271,11 +270,11 @@ def call_api_and_predict(path : str, args : dict = default_model_api_params, deb
             print(result)
 
     result['status'] = status
-    result['model'] = model
+    result['model'] = model_name
     return result
 
 
-def load_model_and_predict(path, args) -> dict:
+def load_model_and_predict(path: str, args: dict, debug: bool = False) -> dict:
     result = {
         'score' : 0,
         'time' : -1,
@@ -288,15 +287,18 @@ def load_model_and_predict(path, args) -> dict:
         'message' : "n/a",
         'from' : 'internal'
     }
-    model = {
-        'name' : args['model_id'],
-        'version' : ""
-    }
-    # TODO(liam): add code here
+    model_name : str = args['model_id']
 
+    result['score'], result['code'] = model_generate_prediction(path, model_name)
+    result['time'] = datetime.utcnow().timestamp()
 
+    if result['code'] == 0:
+        result['explanation'] = generate_explanation(was_generated = True if result['score'] > 0.5 else False)
+    else:
+        result['message'] = model_parse_error(result['code'])
+        result['from'] = 'models'
 
     result['status'] = status
-    result['model'] = model
+    result['model'] = model_name
     return result
 

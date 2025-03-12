@@ -11,3 +11,5 @@ __pycache__/
 /.flaskenv
 /flaskenv
 sendgrid.env
+checkpoints
+.ipynb_checkpoints
