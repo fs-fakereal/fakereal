@@ -290,7 +290,7 @@ def load_model_and_predict(path: str, args: dict, debug: bool = False) -> dict:
     model_name : str = args['model_id']
 
     result['score'], result['code'] = model_generate_prediction(path, model_name)
-    result['time'] = datetime.utcnow().timestamp()
+    result['time'] = datetime.now(datetime.timezone.utc)
 
     if result['code'] == 0:
         result['explanation'] = generate_explanation(was_generated = True if result['score'] > 0.5 else False)

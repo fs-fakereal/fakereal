@@ -52,3 +52,9 @@
 .no-articles {
     color: black;
 }
+
+/* files */
+.files {
+    display: flex;
+    flex-direction: row;
+}
