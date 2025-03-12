@@ -1,5 +1,7 @@
 .sticky_parent {
-    background-color: rgb(179, 168, 155);
+    /* background-color: rgb(179, 168, 155); */
+    background-color: #1a2431;
+
     height: 500vh;
 }
 
@@ -29,7 +31,8 @@ section {
 
     h2 {
         /* color: rgb(185, 180, 173); */
-        color: black;
+        /* color: black; */
+        color: #5e7381;
         text-align: left;
         margin-left: 35px;
         font-size: 2rem;
@@ -62,18 +65,21 @@ section {
     margin: 0rem 2rem 0rem 2rem;
     padding: 1.5rem 2rem;
 
-    background-color: #EAC8A6;
+    background-color: #fcf8fc;
     border-radius: 1.5rem;
-    border: 0.2rem solid rgb(34, 34, 34);
+    border: 0.2rem solid #5e7381;
 
     h4 {
         font-size: 1.25rem;
+        /* color: #fcf8fc; */
         color: rgb(34, 34, 34);
         margin: 10px 0px 0px 0px;
         padding-bottom: 0.5rem;
     }
 
     p {
+        color: rgb(34, 34, 34);
+        /* color: #5E7381; */
         font-size: 0.8rem;
         margin: 0px;
         padding: 0px 1rem;
@@ -85,7 +91,7 @@ section {
         border-radius: 1.5rem;
         width: 25rem;
         height: 22rem;
-        border: 0.2rem solid rgb(34, 34, 34);
+        border: 0.2rem solid #5e7381;
     }
 }
 

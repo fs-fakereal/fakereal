@@ -6,7 +6,8 @@
         font-weight: bold;
 
         font-size: 3rem;
-        color: #000000; 
+        /* color: #000000;  */
+        color: #5e7381;
             
         padding: 0px 0px 0px 25px;
     }
@@ -15,7 +16,8 @@
         text-align: left;
         margin: 0px;
         font-size: 2rem;
-        color: #000000;
+        /* color: #000000; */
+        color: #5e7381;
         padding: 0px 0px 0px 25px;
     }
 }
@@ -38,7 +40,8 @@
     font-style: normal;
     font-size: 1.6rem;
 
-    background-color: #828e73;
+    /* background-color: #828e73; */
+    background-color: #980b2d;
     border-radius: 20px 20px 0px 0px;
 
     a{
@@ -54,6 +57,7 @@
 
     h1 {
         padding: 0rem 3rem;
+        color: #fcf8fc;
     }
 
     button {

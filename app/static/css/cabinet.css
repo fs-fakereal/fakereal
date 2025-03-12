@@ -1,5 +1,5 @@
 .cabinet-lid {
-    background-color: rgb(34, 34, 34);
+    background-color: #100906;
     padding: 0.2rem;
 }
 
@@ -7,9 +7,10 @@
     height: 25rem;
 
 
-    background-color: rgb(175, 175, 175);
+    /* background-color: rgb(175, 175, 175); */
+    background-color: #242020;
     padding: 0rem 4rem 2rem 4rem;
-    border: 0.2rem solid rgb(34, 34, 34);
+    border: 0.2rem solid #100906;
     
     display: flex;
     justify-content: space-between;
@@ -19,8 +20,8 @@
 
 .handle a button {
     border-radius: 0 0 2rem 2rem;
-    background-color: silver;
-    border: 0.2rem solid rgb(34, 34, 34);
+    background-color: #221e1e;
+    border: 0.2rem solid rgb(94, 94, 94);
 
     padding: 2.5rem 10rem;
 
@@ -38,9 +39,9 @@
     align-items: center;
     justify-content: center;
 
-    border: 1.5rem solid rgb(34, 34, 34);
+    border: 1.5rem solid #100906;
     border-radius: 0.2rem;
-    background-color: rgb(227, 227, 227);
+    background-color: #fcf8fc;
 
     h1 {
         font-size: 1.5rem;

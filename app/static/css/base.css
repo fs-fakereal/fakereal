@@ -18,9 +18,9 @@ body {
 
   scroll-behavior: smooth;
 
-  /* background-color: rgb(249, 247,240); */
-  /* background-color: #DACBB6; */
-  background-color: rgb(179, 168, 155);
+  /* background-color: rgb(98, 95, 102); */
+  background-color: #1a2431;
+  /* background-color: rgb(179, 168, 155); */
 
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@ nav {
 
   overflow: hidden;
   /* box-shadow: 0 4px 6px rgba(169, 148, 107, 0.1); Adds a subtle shadow for depth */
-  box-shadow: 0 4px 6px rgba(81, 101, 122, 0.279); /* Adds a subtle shadow for depth */
+  box-shadow: 0 4px 6px rgba(64, 86, 108, 0.279); /* Adds a subtle shadow for depth */
 }
 
 .navbar {
@@ -235,7 +235,7 @@ nav {
 }
 
 .ex-scale.active {
-  background-color: #EAC8A6;
+  background-color: #fcf8fc;
   opacity: 1;
   transform: scale(1);
 }
