@@ -5,7 +5,7 @@ from datetime import datetime
 import requests
 from app.result import Result
 
-from models.loader import model_generate_prediction, model_parse_error
+from models.loader import model_generate_prediction, model_get_error
 
 default_model_api_params = {
     'models' : 'genai',
@@ -295,10 +295,9 @@ def load_model_and_predict(path: str, args: dict, debug: bool = False) -> dict:
     if result['code'] == 0:
         result['explanation'] = generate_explanation(was_generated = True if result['score'] > 0.5 else False)
     else:
-        result['message'] = model_parse_error(result['code'])
+        result['message'] = model_get_error()
         result['from'] = 'models'
 
     result['status'] = status
     result['model'] = model_name
     return result
-
