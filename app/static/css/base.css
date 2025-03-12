@@ -19,7 +19,8 @@ body {
   scroll-behavior: smooth;
 
   /* background-color: rgb(249, 247,240); */
-  background-color: #DACBB6;
+  /* background-color: #DACBB6; */
+  background-color: rgb(179, 168, 155);
 
   display: flex;
   flex-direction: column;
@@ -184,4 +185,23 @@ nav {
   margin: 0;     /* Remove any default margin */
   padding: 0;    /* Remove any default padding */
   overflow: hidden; 
+}
+
+
+/* interactive UI design */
+.revealable {
+  position: relative;
+  transform: translateY(10rem);
+  opacity: 0.9;
+  transition: all 1s ease;
+}
+
+.revealable.active {
+  opacity: 1;
+  transform: translateY(-2rem);
+}
+
+.shrink {
+  position: relative;
+  /* transform: scale3d(); */
 }
