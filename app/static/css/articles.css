@@ -2,15 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     /* overflow: scroll; */
 
-    padding: 2rem 1rem;
-    /* background-color: #828e73; */
-    background-color: #dfbe90;
+    padding: 8rem 1rem 3rem 1rem;
+    background-color: #3a3b3f;
+    /* background-color: #dfbe90; */
 
     h1 {
         font-size: 3rem;
         color: black;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        /* max-width: 10rem; */
+        font-size: 1rem;
+        padding: 0rem 2rem 2rem 2rem;
+        margin: 0;
+
+        text-align: center;
     }
 }
 

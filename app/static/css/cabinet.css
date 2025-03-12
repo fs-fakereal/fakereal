@@ -4,8 +4,7 @@
 }
 
 .cabinet {
-    height: 25rem;
-
+    height: 10rem;
 
     /* background-color: rgb(175, 175, 175); */
     background-color: #242020;
@@ -23,28 +22,28 @@
     background-color: #221e1e;
     border: 0.2rem solid rgb(94, 94, 94);
 
-    padding: 2.5rem 10rem;
+    padding: 1.5rem 5rem;
 
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
 .cabinet-label {
-    margin: 5rem 0rem 5rem 0rem;
+    margin: 1rem 0rem;
     padding: 1.5rem 2rem;
 
-    height: 2rem;
-    width: 8rem;
+    height: 1rem;
+    width: 2.5rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: 1.5rem solid #100906;
+    border: .5rem solid #100906;
     border-radius: 0.2rem;
     background-color: #fcf8fc;
 
     h1 {
-        font-size: 1.5rem;
+        font-size: .8rem;
     }
 }
 
@@ -61,5 +60,5 @@
     gap: 2rem;
 
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }

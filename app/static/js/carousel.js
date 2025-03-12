@@ -25,16 +25,22 @@ function transform(section) {
   const offsetTop = section.parentElement.offsetTop;
   const scrollSection = section.querySelector('.example-list');
   
+  // Get the root font size (typically 16px, but can vary)
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  
+  // Get the scrollSection's width in pixels
+  const maxScrollPx = scrollSection.offsetWidth;
+  
+  // Convert the scrollSection width from pixels to rem
+  const maxScrollRem = maxScrollPx / rootFontSize;
+
   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
   
   // Ensure the percentage is capped based on the scrollSection's width
-  const maxScroll = scrollSection.offsetWidth;  // Maximum scroll value = scrollSection width in pixels
-  
-  // If percentage exceeds the scrollSection width, stop it
-  percentage = percentage < 0 ? 0 : (percentage > maxScroll ? maxScroll : percentage);
+  percentage = percentage < 0 ? 0 : (percentage > maxScrollRem ? maxScrollRem : percentage);
 
-  // Apply the transform based on the percentage
-  scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
+  // Apply the transform based on the percentage in rem
+  scrollSection.style.transform = `translate3d(${-(percentage)}rem, 0, 0)`;
 }
 
 

@@ -32,7 +32,7 @@
     flex-wrap: wrap;
 
     /* padding: 80px 25px 80px 25px; */
-    padding: 15rem 1rem;
+    padding: 15rem 1rem 10rem 1rem;
 
 
     font-family: "Prosto One", sans-serif;
@@ -90,4 +90,32 @@
         font-size: 1.1rem;
         width: 9.5rem;
     }
+}
+
+
+.blur {
+    min-width: 4rem;
+    height: 3rem;
+    transform: scale(5);
+
+    filter: blur(8px);
+    /* mix-blend-mode: multiply; */
+    background-color: #1a2431;
+    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.blur-two {
+    min-width: 4rem;
+    height: 3rem;
+    transform: scale(5);
+
+    filter: blur(8px);
+    /* mix-blend-mode: multiply; */
+    background-color: #980b2d;
+    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.blur-into {
+    background-color: #1a2431;
+    height: 10rem;
 }
