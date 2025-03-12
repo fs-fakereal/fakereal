@@ -206,6 +206,8 @@ def prediction(path: str, args: dict) -> dict:
         #     raise ValueError("Missing prefer argument")
         result = load_model_and_predict(path, args)
     else:
+        # model_id is either genai, or does not exist,
+        # so cascade to fallback
         if "user" not in args.keys() and "secret" not in args.keys():
             result = call_api_and_predict(path)
         else:
