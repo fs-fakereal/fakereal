@@ -7,7 +7,7 @@
 config.ini
 psql-connect.sh
 data/
-__pycache__/
+__pycache__
 /.flaskenv
 /flaskenv
 sendgrid.env
