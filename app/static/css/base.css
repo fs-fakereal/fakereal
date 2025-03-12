@@ -198,10 +198,44 @@ nav {
 
 .revealable.active {
   opacity: 1;
-  transform: translateY(-2rem);
+  transform: translateY(0);
 }
 
-.shrink {
-  position: relative;
-  /* transform: scale3d(); */
+.scale {
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: all 1s ease;
+  background-color: transparent;
+}
+
+.scale.active {
+  background-color: transparent;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-scale {
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: all 2s ease;
+  background-color: transparent;
+}
+
+.nav-scale.active {
+  background-color: transparent;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ex-scale {
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: all 2s ease;
+  background-color: transparent;
+}
+
+.ex-scale.active {
+  background-color: #EAC8A6;
+  opacity: 1;
+  transform: scale(1);
 }

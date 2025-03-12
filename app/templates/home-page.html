@@ -24,10 +24,10 @@
         <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
         <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
+        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
+        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
 
@@ -39,20 +39,20 @@
 
     <!-- Log in/Sign Up -->
     <div class="check revealable">
-      <h1>Want to test if your image is deep faked?</h1>
-      <a href="{{ url_for('login') }}"><button>Log In</button></a>
-      <a href="{{ url_for('signup') }}"><button>Sign Up</button></a>
+      <h1 class="scale">Want to test if your image is deep faked?</h1>
+      <a href="{{ url_for('login') }}" class="scale"><button>Log In</button></a>
+      <a href="{{ url_for('signup') }}" class="scale"><button>Sign Up</button></a>
     </div>
 
     <!-- Deepfake examples -->
     <div class="sticky_parent">
       <div class="deepfake-examples">
-        <div class="title-examples">
+        <div class="title-examples scale">
           <h2>Deep Fake Examples.</h2>
         </div>
 
         <div class="example-list">
-          <div class="example">
+          <div class="example ex-scale">
             <img src="../static/imgs/examples/voiceclone.png" alt="fake2-img">
             <h4>Voice Cloning</h4>
             <p>This technology creates a synthetic copy of a person's voice by analyzing 
@@ -61,7 +61,7 @@
               about misuse and deepfakes.  The technology is constantly improving, focusing on naturalness and safeguards.</p>
           </div>
 
-          <div class="example">
+          <div class="example ex-scale">
             <img src="../static/imgs/examples/syntheticmedia.jpg" alt="fake2-img">
             <h4>Synthetic Media</h4>
             <p>The use of artificial intelligence to generate or manipulate media content, 
@@ -72,7 +72,7 @@
               misinformation, manipulation, and misuse.</p>
           </div>
 
-          <div class="example">
+          <div class="example ex-scale">
             <video><source src="../static/imgs/examples/gooey.ai lipsync.mp4" type="video/mp4"></video>
             <h4>Lip syncing</h4>
             <p>This AI automatically synchronizes digital character lip movements with audio.  It analyzes the audio to 
@@ -80,7 +80,7 @@
               character animation, and its accuracy is continually improving.</p>
           </div>
 
-          <div class="example">
+          <div class="example ex-scale">
             <img src="../static/imgs/examples/fullbodymanipulation.jpg" alt="fake2-img">
             <h4>Full-body manipulation</h4>
             <p>Fake videos or images that alter or create realistic digital representations of 
@@ -93,7 +93,7 @@
               between reality and digitally fabricated content.</p>
           </div>
 
-          <div class="example">
+          <div class="example ex-scale">
             <img src="../static/imgs/examples/faceswap.jpg" alt="fake-img">
             <h4>Face Swap</h4>
             <p>One of the most common method of technology that uses artificial intelligence to 
@@ -104,7 +104,7 @@
               potential misuse, such as creating deepfakes or spreading misinformation.</p>
           </div>
 
-          <div class="example">
+          <div class="example ex-scale">
             <img src="../static/imgs/examples/textmanipulation.png" alt="fake2-img">
             <h4>Text-based manipulation</h4>
             <p>AI generated texts that imitate the writing style of a specific 
@@ -176,7 +176,7 @@
       </div>
 
       <!-- Footer -->
-      <footer class="footer">
+      <footer class="footer revealable">
 
         <div class="upper-half">
           <div class="fakereal-here">
