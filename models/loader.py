@@ -16,7 +16,7 @@ def model_generate_prediction(image_path: str, model_name: str = 'vgg16'):
         x_arr = np.expand_dims(x_arr, axis=0)
         x_in = np.vstack([x_arr])
 
-        model = load_model(os.path.join(os.getcwd(), 'shelf', fullname))
+        model = load_model(os.path.join(os.getcwd(), 'output', fullname))
         model.compile(optimizer='adam',
                       loss='binary_crossentropy',
                       metrics=['accuracy'])
@@ -27,6 +27,9 @@ def model_generate_prediction(image_path: str, model_name: str = 'vgg16'):
         print(e)
 
     return prediction
+
+def model_parse_error(error_code: int) -> str:
+    pass
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
