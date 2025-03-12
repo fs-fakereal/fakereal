@@ -6,20 +6,37 @@ window.addEventListener('scroll', (e) => {
   }
 })
 
-function transform(section){
+// function transform(section){
+//   const offsetTop = section.parentElement.offsetTop;
+//   const scrollSection = section.querySelector('.example-list');
+  
+//   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+//   // percentage = percentage < 0 ? 0 : percentage > 340 ? 340 : percentage;
+//   percentage = percentage < 0 ? 0 : percentage > scrollSection.offsetWidth ? scrollSection.offsetWidth : percentage;
+  
+//   // const maxTranslation = scrollSection.offsetWidth - window.innerWidth;
+//   // const translation = -(percentage / 100) * maxTranslation;
+
+//   // scrollSection.style.transform = `translate3d(${translation}px, 0, 0)`
+//   scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
+// }
+
+function transform(section) {
   const offsetTop = section.parentElement.offsetTop;
   const scrollSection = section.querySelector('.example-list');
   
   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-  // percentage = percentage < 0 ? 0 : percentage > 340 ? 340 : percentage;
-  percentage = percentage < 0 ? 0 : percentage > scrollSection.offsetWidth ? scrollSection.offsetWidth : percentage;
   
-  // const maxTranslation = scrollSection.offsetWidth - window.innerWidth;
-  // const translation = -(percentage / 100) * maxTranslation;
+  // Ensure the percentage is capped based on the scrollSection's width
+  const maxScroll = scrollSection.offsetWidth;  // Maximum scroll value = scrollSection width in pixels
+  
+  // If percentage exceeds the scrollSection width, stop it
+  percentage = percentage < 0 ? 0 : (percentage > maxScroll ? maxScroll : percentage);
 
-  // scrollSection.style.transform = `translate3d(${translation}px, 0, 0)`
+  // Apply the transform based on the percentage
   scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
 }
+
 
 // Initial javaScript code
 // let slideIndex = 1;

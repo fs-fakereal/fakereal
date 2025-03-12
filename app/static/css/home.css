@@ -74,15 +74,19 @@
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
         transition: all 0.3s ease-in; 
-        background-color: rgb(100, 90, 78);
-        color: rgb(185, 180, 173);
+        /* background-color: rgb(100, 90, 78); */
+        background-color: #dd3749;
+        /* color: rgb(185, 180, 173); */
+        color: #fcf8fc;
         border-radius: 40px;
     } 
 
     button:hover {
         transition: all 0.3s ease-in; 
-        background-color: rgb(61, 55, 47);
-        color: rgb(139, 121, 99);
+        /* background-color: rgb(61, 55, 47); */
+        background-color: #dfbe90;
+        /* color: rgb(139, 121, 99); */
+        color: #dd3749;
         font-size: 1.1rem;
         width: 9.5rem;
     }

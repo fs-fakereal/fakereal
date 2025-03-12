@@ -24,7 +24,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 /* Font Styles */
@@ -181,7 +181,7 @@ nav {
 /* Full screen section */
 .fullscreen-section {
   width: 100%;  /* Set the width to 100% of the viewport width */
-  height: 95dvh; /* Set the height to 100% of the viewport height */
+  height: 75dvh; /* Set the height to 100% of the viewport height */
   margin: 0;     /* Remove any default margin */
   padding: 0;    /* Remove any default padding */
   overflow: hidden; 

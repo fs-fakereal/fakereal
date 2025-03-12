@@ -2,7 +2,7 @@
     /* background-color: rgb(179, 168, 155); */
     background-color: #1a2431;
 
-    height: 500vh;
+    height: 250vh;
 }
 
 .deepfake-examples {
@@ -36,6 +36,7 @@ section {
         text-align: left;
         margin-left: 35px;
         font-size: 2rem;
+        padding: 0rem 0rem 0rem 2rem;
     }
 }
 
@@ -44,13 +45,13 @@ section {
     position: absolute;
     top: 0;
     height: 100%;
-    /* width: 200vw; */
+    /* width: 100%; */
     will-change: transform;
     display: flex;
 
     justify-content: space-around;
     align-items: center;
-    padding: 1.5rem 0vw 0rem 0vw;
+    padding: 1.5rem 0vw 0rem 2rem;
 }
 
 /* the individual examples */
@@ -141,9 +142,12 @@ section {
 
 
 /* adjust base on device screen size */
-@media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
+@media only screen and (min-width: 600px) {
+    .sticky_parent {
+        /* background-color: rgb(179, 168, 155); */
+        background-color: #1a2431;
+    
+        height: 450vh;
     }
 }
 
