@@ -26,7 +26,7 @@ from werkzeug.utils import secure_filename
 
 #--Constants for Model--#
 MODEL_DEBUG_PRINT = True
-DATA_UPLOAD_FOLDER = 'model/data/user'
+DATA_UPLOAD_FOLDER = 'models/data/user'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 JSON_FOLDER = 'app/static/json'
 
@@ -142,7 +142,7 @@ def scan():
     return render_template('scan-image.html', title='Scan')
 
 #route to the page that allows users to upload
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET'])
 @login_required
 def upload():
     return render_template('upload.html', title='Upload')
@@ -266,6 +266,7 @@ def _file_upload():
             file = request.files['file']
             filename = secure_filename(file.filename)
             ext = mse.file_get_extension(filename)
+            model_id = request.args.get('model', None) or 'vgg16'
 
             data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
 
@@ -279,9 +280,6 @@ def _file_upload():
             bufpath = os.path.join(data_dir, f"{time.time()}.{ext}")
             file.save(bufpath)
 
-            # NOTE(liam): file.read() and file.save() is a blocking process,
-            # so basically I can't run either one after the other.
-            # Idk how else to fix this than what I did here.
             with open(bufpath, "rb") as bf:
                 contents = bf.read()
                 hash = hashlib.sha256(contents).hexdigest()
@@ -298,11 +296,17 @@ def _file_upload():
                 if MODEL_DEBUG_PRINT:
                     print("INFO: Hash found. Restoring previous result.")
                 result = recent_results[hash]
+                if result['model'] != model_id:
+                    if MODEL_DEBUG_PRINT:
+                        print("INFO: Model mismatch. Sending image to model anyways.")
+                    result = mse.prediction(filepath, { 'model_id' : model_id })
+                    recent_results[hash] = result
+
             else:
                 if MODEL_DEBUG_PRINT:
                     print("INFO: Sending image to model.")
 
-                result = mse.prediction(filepath, { 'model_id' : 'genai' })
+                result = mse.prediction(filepath, { 'model_id' : model_id })
                 recent_results[hash] = result
 
             # mse.push_results(s, result, hash)
@@ -310,7 +314,7 @@ def _file_upload():
 
         except Exception as e:
             print(f"ERROR: {e}")
-            return {"error": f"Error processing file: {str(e)}"}, 500
+            return {"error": f"Error processing: {str(e)}"}, 500
 
         finally:
             if MODEL_DEBUG_PRINT:

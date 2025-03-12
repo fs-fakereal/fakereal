@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from datetime import datetime
 
 import requests
@@ -201,9 +202,9 @@ def prediction(path: str, args: dict) -> dict:
     result: dict = {}
 
     if args['model_id'] in ['inception', 'resnet', 'vgg16']:
-        if "prefer" not in args.keys():
-            raise ValueError("Missing prefer argument")
-        pass
+        # if "prefer" not in args.keys():
+        #     raise ValueError("Missing prefer argument")
+        result = load_model_and_predict(path, args)
     else:
         if "user" not in args.keys() and "secret" not in args.keys():
             result = call_api_and_predict(path)
@@ -289,15 +290,16 @@ def load_model_and_predict(path: str, args: dict, debug: bool = False) -> dict:
     }
     model_name : str = args['model_id']
 
-    result['score'], result['code'] = model_generate_prediction(path, model_name)
-    result['time'] = datetime.now(datetime.timezone.utc)
+    result['score'], status['code'] = model_generate_prediction(path, model_name)
+    result['time'] = time.time()
 
-    if result['code'] == 0:
+    if status['code'] == 0:
         result['explanation'] = generate_explanation(was_generated = True if result['score'] > 0.5 else False)
     else:
-        result['message'] = model_get_error()
-        result['from'] = 'models'
+        status['message'] = str(model_get_error())
+        status['from'] = 'models'
 
     result['status'] = status
     result['model'] = model_name
+
     return result
