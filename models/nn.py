@@ -26,8 +26,6 @@ batch_size = 16
 data_dir = "data"
 
 # assume there is a json file of the same name inside these data subdirs.
-data_user_dir = f"{data_dir}/user"
-data_uniface_dir = f"{data_dir}/uniface"
 
 checkpoint_dir = "checkpoints"
 checkpoint_path = f"{checkpoint_dir}/{model_name}/" + "cp-{epoch:04d}.ckpt"
@@ -46,13 +44,12 @@ def data_load(path_to_json: str) -> pd.DataFrame:
 
     return df
 
-frames = [
-    data_load(f"{data_user_dir}/user.json"),
-    data_load(f"{data_uniface_dir}/uniface.json"),
-]
+# overall path of uniface dataset:
+# - DF40_train/uniface/ff/frames                    |> primarily here
+# - DF40/uniface/ff/frames
+# - FaceForensics++/original_sequences/youtube/c23
 
-# TODO(liam): this definitely won't work as is.
-df = pd.concat(frames)
+df: pd.DataFrame = pd.read_csv(f"{data_dir}/uniface-ff.csv")
 
 # DATASET PROCESSING #
 
@@ -70,7 +67,7 @@ val_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_dataframe(
     df,
-    x_col = "filename",
+    x_col = "filepath",
     y_col = "label",
     target_size=(img_size, img_size),
     batch_size=batch_size,
@@ -79,7 +76,7 @@ train_generator = train_datagen.flow_from_dataframe(
 )
 val_generator = val_datagen.flow_from_dataframe(
     df,
-    x_col = "filename",
+    x_col = "filepath",
     y_col = "label",
     target_size=(img_size, img_size),
     batch_size=batch_size,
