@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 
-from models import loader
+# from models import loader
 from app import models, mse, result, routes
 
 

@@ -266,7 +266,7 @@ def _file_upload():
             file = request.files['file']
             filename = secure_filename(file.filename)
             ext = mse.file_get_extension(filename)
-            model_id = request.args.get('model', None) or 'vgg16'
+            model_id = request.args.get('model', None) or 'genai'
 
             data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
 
