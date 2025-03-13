@@ -253,3 +253,8 @@ nav {
   opacity: 1;
   transform: scale(1);
 }
+
+/* for the blurs */
+.blur-parent {
+  overflow-y: hidden;
+}

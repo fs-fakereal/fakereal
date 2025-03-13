@@ -45,7 +45,7 @@
 .team-blur {
     padding-bottom: 2rem;
     height: 2rem;
-    transform: scale(4);
+    transform: scale(2);
 
     filter: blur(9px);
     background-color: #dfbe90;

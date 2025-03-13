@@ -4,7 +4,9 @@
     h1 {
         text-align: left;
         font-size: 1rem;
-        color: #000000; 
+        /* color: #000000;  */
+        color: #fcf8fc;
+        opacity: 50%;
         /* font-family: sans-serif; */
         font-weight: bold;
         margin-right: 25px;
@@ -13,7 +15,8 @@
     h2 {
         font-size: 2rem;
         margin: 0;
-        color: rgb(100, 90, 78);
+        /* color: rgb(100, 90, 78); */
+        color: rgb(179, 168, 155);
     }
 }
 
@@ -39,17 +42,22 @@ label {
 }
 
 .support-blur {
-    overflow: hidden;
     height: 3rem;
-    transform: scale(3);
+    min-width: 2rem;
+    transform: scale(6);
 
-    filter: blur(8px);
-    background-color: bisque;
+    filter: blur(6px);
+    /* background-color: bisque; */
+    background-color: #333;
 }
 
 .support-page {
-    background-color: bisque;
-    padding: 12rem 4rem 5rem 4rem;
+    /* background-color: bisque; */
+    background-color: #333;
+    padding: 0rem 4rem 5rem 4rem;
+
+    position: relative;
+    z-index: 1;
 }
 
 #send-submit {

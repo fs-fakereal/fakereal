@@ -128,3 +128,32 @@
     border-radius: 1rem;
     cursor: url('../imgs/mouse/white-pointer.png'), default !important;
 }
+
+
+/* the exit button */
+.exit a button {
+    border-radius: 3rem;
+    background-color: #fcf8fc;
+
+    p {
+        padding: 0.1rem 1rem;
+        font-weight: bolder;
+        color: black;
+    }
+}
+
+.exit a button:hover {
+    background-color: #ffd786;
+    transform: translateX(-0.2rem);
+
+    p {
+        padding: 0rem 0.9rem;
+        color: #980b2d;
+    }
+}
+
+.exit {
+    display: flex;
+    justify-content: end;
+    padding: 1rem 1rem 0rem 0rem;
+}
