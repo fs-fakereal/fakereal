@@ -11,9 +11,11 @@
 
     h1 {
         font-size: 3rem;
-        color: black;
+        /* color: black; */
+        color: #fcf8fc;
         margin: 0;
         padding: 0;
+        opacity: 50%;
     }
 
     h2 {
@@ -23,6 +25,8 @@
         margin: 0;
 
         text-align: center;
+        color: #fcf8fc;
+        opacity: 50%;
     }
 }
 
