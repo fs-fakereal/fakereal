@@ -41,23 +41,15 @@ label {
     font-size: 0.8rem;
 }
 
-.support-blur {
-    height: 3rem;
-    min-width: 2rem;
-    transform: scale(6);
-
-    filter: blur(6px);
-    /* background-color: bisque; */
+.support-blur-into {
     background-color: #333;
+    height: 15rem;
 }
 
 .support-page {
     /* background-color: bisque; */
     background-color: #333;
-    padding: 0rem 4rem 5rem 4rem;
-
-    position: relative;
-    z-index: 1;
+    padding: 2rem 4rem 5rem 4rem;
 }
 
 #send-submit {

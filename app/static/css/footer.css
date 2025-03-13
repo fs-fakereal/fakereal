@@ -30,17 +30,18 @@
 
     text-align: center;
     padding: 10px 20px;
-    /* background-color: #3b3d66; */
-    background-color: #45425A;
+    background-color: #5E7381;
+    /* background-color: #45425A; */
     bottom: 0;
     /* width: 100%; */
     font-size: 1rem;
-  
+
+
     p {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
-        color: azure;
+        color: black;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
@@ -48,6 +49,7 @@
 
     hr {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
+        color: #1a2431;
     }
 }
 
@@ -65,6 +67,10 @@ hr {
 /* Fakereal dets */
 .fakereal-here h1 {
     color: #8c8a9f;
+}
+
+.fakereal-here2 h1 {
+    color: #1a2431;
 }
 
 
@@ -121,6 +127,43 @@ hr {
     }
 }
 
+.download2 {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    margin: 0rem;
+    padding: 0.8rem 0rem 0.5rem 0rem;
+
+    h1 {
+        color: #e88709;
+        font-size: 1rem;
+        text-align: left;
+
+        margin: 0rem;
+        padding: 0rem;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    a{
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    }
+
+    img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        height: 2rem;
+        padding: 0rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+        filter: brightness(80%);
+    }
+}
+
 .download-text {
     display: flex;
     flex-direction: column;
@@ -168,6 +211,41 @@ hr {
     }
 }
 
+.report2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0rem;
+    padding: 0.1rem 0rem 0.8rem 0rem;
+
+    h1 {
+        color: #bc0000;
+        font-size: 1rem;
+
+        margin: 0rem;
+        padding: 0rem;
+
+        text-align: left;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        height: 2rem;
+        padding: 0rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+        filter: brightness(70%);
+    }
+}
+
 .report-text {
     display: flex;
     flex-direction: column;
@@ -210,4 +288,18 @@ hr {
 
     padding: 0.5rem 0rem 0rem 0rem;
     margin: 0rem;
+}
+
+.details2 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+
+    padding: 0.5rem 0rem 0rem 0rem;
+    margin: 0rem;
+
+    h3 {
+        color: #1a2431;
+    }
 }

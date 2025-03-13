@@ -3,25 +3,29 @@
 
     h1 {
         text-align: left;
-        font-weight: bold;
-
         font-size: 3rem;
-        /* color: #000000;  */
-        color: #5e7381;
-            
-        padding: 0px 0px 0px 25px;
+        color: #5E7381;
+        /* font-family: sans-serif; */
+        font-weight: bold;
+        /* margin-right: 25px; */
+        padding: 40px 25px 0px 25px;
     }
-    
+
+    h2 {
+        font-size: 2rem;
+        color: #fcf8fc;
+        padding: 0px 25px 0px 25px;
+    }
+
     p{
         text-align: left;
         margin: 0px;
+        /* margin-right: 25px; */
         font-size: 2rem;
-        /* color: #000000; */
-        color: #5e7381;
-        padding: 0px 0px 0px 25px;
+        color: #5E7381;
+        padding: 0px 45px 0px 25px;
     }
 }
-
 
 /* Log in and sign up button */
 .check {
@@ -94,13 +98,16 @@
 
 
 .blur {
-    height: 3rem;
+    height: 4rem;
     transform: scale(5);
 
     filter: blur(8px);
-    /* mix-blend-mode: multiply; */
     background-color: #1a2431;
-    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.arti-blur {
+    background-color: #3a3b3f;
+    height: 21rem;
 }
 
 .blur-two {
@@ -108,9 +115,7 @@
     transform: scale(5);
 
     filter: blur(8px);
-    /* mix-blend-mode: multiply; */
     background-color: #980b2d;
-    /* background-color: hsl(238, 29%, 16%); */
 }
 
 .blur-into {

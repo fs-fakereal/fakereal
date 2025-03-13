@@ -43,11 +43,10 @@
 
 /* Team */
 .team-blur {
-    padding-bottom: 2rem;
-    height: 2rem;
-    transform: scale(2);
+    height: 3rem;
+    transform: scale(5);
 
-    filter: blur(9px);
+    filter: blur(8px);
     background-color: #dfbe90;
 }
 
@@ -120,7 +119,7 @@
     flex-wrap: wrap;
     align-items: center;
 
-    padding-bottom: 5rem;
+    /* padding-bottom: 5rem; */
     justify-content: space-evenly;
 }
 

@@ -34,7 +34,7 @@
     <!-- Header -->
     <div class="head fullscreen-section">
       <h1>Fake Real</h1>
-      <p>What's real and what's fake?</p>
+      <h2>What's real and what's fake?</h2>
       <br>
       <p>FakeReal offers deep fake detection for images for free. Either log in or download the
         chrome extension browser. Our services is user friendly, allowing users to upload a file 
@@ -49,8 +49,10 @@
       <a href="{{ url_for('signup') }}" class="scale"><button>Sign Up</button></a>
     </div>
 
-    <div class="blur-two"></div>
-    <div class="blur-into"></div>
+    <div class="blur-parent">
+      <div class="blur-two"></div>
+      <div class="blur-into"></div>
+    </div>
 
     <!-- Deepfake examples -->
     <div class="sticky_parent">
@@ -132,7 +134,10 @@
 
     <section class="revealable">
 
-      <div class="blur"></div>
+      <div class="blur-parent">
+        <div class="blur"></div>
+        <div class="arti-blur"></div>
+      </div>
 
       <!-- Deep fake articles to learn more -->
       <div class="articles">
