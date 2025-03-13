@@ -26,6 +26,25 @@ function reveal() {
 window.addEventListener('scroll', reveal);
 window.addEventListener('load', reveal);
 
+// team scroll
+const revealableTeamContainers = document.querySelectorAll('.revealable-team');
+
+function teamReveal() {
+    for (i=0; i<revealableTeamContainers.length; i++) {
+        let windowHeight = window.innerHeight;
+        let topOfRevealableContainer = revealableTeamContainers[i].getBoundingClientRect().top;
+
+        if (topOfRevealableContainer < windowHeight - animation.revealDistance) {
+            revealableTeamContainers[i].classList.add('active');
+        } else {
+            revealableTeamContainers[i].classList.remove('active');
+        }
+    }
+}
+
+window.addEventListener('scroll', teamReveal);
+window.addEventListener('load', teamReveal);
+
 // for scaling
 const scaleContainers = document.querySelectorAll('.scale');
 

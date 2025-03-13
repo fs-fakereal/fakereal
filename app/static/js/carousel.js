@@ -6,43 +6,20 @@ window.addEventListener('scroll', (e) => {
   }
 })
 
-// function transform(section){
-//   const offsetTop = section.parentElement.offsetTop;
-//   const scrollSection = section.querySelector('.example-list');
-  
-//   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-//   // percentage = percentage < 0 ? 0 : percentage > 340 ? 340 : percentage;
-//   percentage = percentage < 0 ? 0 : percentage > scrollSection.offsetWidth ? scrollSection.offsetWidth : percentage;
-  
-//   // const maxTranslation = scrollSection.offsetWidth - window.innerWidth;
-//   // const translation = -(percentage / 100) * maxTranslation;
-
-//   // scrollSection.style.transform = `translate3d(${translation}px, 0, 0)`
-//   scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
-// }
-
-function transform(section) {
+function transform(section){
   const offsetTop = section.parentElement.offsetTop;
   const scrollSection = section.querySelector('.example-list');
   
-  // Get the root font size (typically 16px, but can vary)
-  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-  
-  // Get the scrollSection's width in pixels
-  const maxScrollPx = scrollSection.offsetWidth;
-  
-  // Convert the scrollSection width from pixels to rem
-  const maxScrollRem = maxScrollPx / rootFontSize;
-
   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+  // percentage = percentage < 0 ? 0 : percentage > 340 ? 340 : percentage;
+  percentage = percentage < 0 ? 0 : percentage > scrollSection.offsetWidth ? scrollSection.offsetWidth : percentage;
   
-  // Ensure the percentage is capped based on the scrollSection's width
-  percentage = percentage < 0 ? 0 : (percentage > maxScrollRem ? maxScrollRem : percentage);
+  // const maxTranslation = scrollSection.offsetWidth - window.innerWidth;
+  // const translation = -(percentage / 100) * maxTranslation;
 
-  // Apply the transform based on the percentage in rem
-  scrollSection.style.transform = `translate3d(${-(percentage)}rem, 0, 0)`;
+  // scrollSection.style.transform = `translate3d(${translation}px, 0, 0)`
+  scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
 }
-
 
 // Initial javaScript code
 // let slideIndex = 1;

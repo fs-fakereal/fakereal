@@ -149,15 +149,17 @@ nav {
 
     text-align: center;
 
-    transition: background-color 0.3s ease-in; 
+    transition: all 0.3s ease-in; 
   }
 
   a:hover {
-    background-color: rgb(119, 45, 45);
-    color: rgb(35, 35, 35);
+    /* background-color: rgb(119, 45, 45);
+    color: rgb(35, 35, 35); */
+    background-color: #dfbe90;
+    color: #dd3749;
 
     border-radius: 30px;
-    transition: background-color 0.3s ease-in; 
+    transition: all 0.3s ease-in; 
   }
 }
 
@@ -198,7 +200,19 @@ nav {
 
 .revealable.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0rem);
+}
+
+.revealable-team {
+  position: relative;
+  transform: translateY(12rem);
+  opacity: 0.9;
+  transition: all 1s ease;
+}
+
+.revealable-team.active {
+  opacity: 1;
+  transform: translateY(6rem);
 }
 
 .scale {
