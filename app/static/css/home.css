@@ -6,7 +6,8 @@
         font-weight: bold;
 
         font-size: 3rem;
-        color: #000000; 
+        /* color: #000000;  */
+        color: #5e7381;
             
         padding: 0px 0px 0px 25px;
     }
@@ -15,7 +16,8 @@
         text-align: left;
         margin: 0px;
         font-size: 2rem;
-        color: #000000;
+        /* color: #000000; */
+        color: #5e7381;
         padding: 0px 0px 0px 25px;
     }
 }
@@ -30,7 +32,7 @@
     flex-wrap: wrap;
 
     /* padding: 80px 25px 80px 25px; */
-    padding: 15rem 1rem;
+    padding: 15rem 1rem 8rem 1rem;
 
 
     font-family: "Prosto One", sans-serif;
@@ -38,7 +40,8 @@
     font-style: normal;
     font-size: 1.6rem;
 
-    background-color: #828e73;
+    /* background-color: #828e73; */
+    background-color: #980b2d;
     border-radius: 20px 20px 0px 0px;
 
     a{
@@ -54,6 +57,7 @@
 
     h1 {
         padding: 0rem 3rem;
+        color: #fcf8fc;
     }
 
     button {
@@ -70,16 +74,46 @@
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
         transition: all 0.3s ease-in; 
-        background-color: rgb(100, 90, 78);
-        color: rgb(185, 180, 173);
+        /* background-color: rgb(100, 90, 78); */
+        background-color: #dd3749;
+        /* color: rgb(185, 180, 173); */
+        color: #fcf8fc;
         border-radius: 40px;
     } 
 
     button:hover {
         transition: all 0.3s ease-in; 
-        background-color: rgb(61, 55, 47);
-        color: rgb(139, 121, 99);
+        /* background-color: rgb(61, 55, 47); */
+        background-color: #dfbe90;
+        /* color: rgb(139, 121, 99); */
+        color: #dd3749;
         font-size: 1.1rem;
         width: 9.5rem;
     }
+}
+
+
+.blur {
+    height: 3rem;
+    transform: scale(5);
+
+    filter: blur(8px);
+    /* mix-blend-mode: multiply; */
+    background-color: #1a2431;
+    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.blur-two {
+    height: 3rem;
+    transform: scale(5);
+
+    filter: blur(8px);
+    /* mix-blend-mode: multiply; */
+    background-color: #980b2d;
+    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.blur-into {
+    background-color: #1a2431;
+    height: 10rem;
 }

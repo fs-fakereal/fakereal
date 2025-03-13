@@ -9,9 +9,16 @@ window.addEventListener('scroll', (e) => {
 function transform(section){
   const offsetTop = section.parentElement.offsetTop;
   const scrollSection = section.querySelector('.example-list');
+  
   let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-  percentage = percentage < 0 ? 0 : percentage > 405 ? 405 : percentage;
-  scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`
+  // percentage = percentage < 0 ? 0 : percentage > 340 ? 340 : percentage;
+  percentage = percentage < 0 ? 0 : percentage > scrollSection.offsetWidth ? scrollSection.offsetWidth : percentage;
+  
+  // const maxTranslation = scrollSection.offsetWidth - window.innerWidth;
+  // const translation = -(percentage / 100) * maxTranslation;
+
+  // scrollSection.style.transform = `translate3d(${translation}px, 0, 0)`
+  scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
 }
 
 // Initial javaScript code

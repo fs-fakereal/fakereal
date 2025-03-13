@@ -20,7 +20,7 @@
 .support-box {
     /* background-color: rgb(241, 245, 242); */
     background-color: rgb(179, 168, 155);
-    padding: 20px;
+    padding: 2rem;
     text-align: left;
     margin: 20px 25px 0px 0px;
     border-radius: 10px;
@@ -38,9 +38,18 @@ label {
     font-size: 0.8rem;
 }
 
+.support-blur {
+    overflow: hidden;
+    height: 3rem;
+    transform: scale(3);
+
+    filter: blur(8px);
+    background-color: bisque;
+}
+
 .support-page {
     background-color: bisque;
-    padding: 80px 50px 80px 50px;
+    padding: 12rem 4rem 5rem 4rem;
 }
 
 #send-submit {

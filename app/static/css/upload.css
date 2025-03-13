@@ -21,6 +21,8 @@
 }
 
 .upload-box input[type="file"] {
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+
     padding: 10px;
     width: 100%; /* Ensure the input takes up the full width */
     box-sizing: border-box; /* Include padding in the width */
@@ -41,6 +43,7 @@
 
 .send-submit button:hover {
     background-color: #45a049;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
 /* Preview Box */
