@@ -43,11 +43,15 @@ recent_results = {}
 @app.route('/home')
 #@login_required
 def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('loggedHomePage'))
     return render_template('home-page.html', title='Home')
 
 #route to the about page
 @app.route('/about', methods=['GET', 'POST'])
 def about():
+    if current_user.is_authenticated:
+        return redirect(url_for('loggedAbout'))
     form = FeedbackForm()
     if form.validate_on_submit():
         feedback = Feedback(
@@ -83,13 +87,26 @@ def login():
 @app.route('/logged-in/home-page')
 @login_required
 def loggedHomePage():
-    return render_template('logged-in/home-page.html', title='LoggedHome')
+    return render_template('logged-in/home-page.html', title='Home')
 
 #route to logged in version of about page
-@app.route('/logged-in/about')
+@app.route('/logged-in/about', methods=['GET', 'POST'])
 @login_required
 def loggedAbout():
-    return render_template('logged-in/about.html', title='LoggedAbout')
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        feedback = Feedback(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            subject=form.subject.data,
+            message=form.message.data
+        )
+        db.session.add(feedback)
+        db.session.commit()
+        flash('Your message was submitted!', 'success')
+        return redirect(url_for('loggedAbout') + '#support')    
+    return render_template('logged-in/about.html', title='About', form=form)
 
 #route to the signup page
 #uses similar methods to the lgoin function
