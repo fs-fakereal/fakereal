@@ -49,7 +49,7 @@
     </div>
 
     <!-- About Team -->
-    <div class="team">
+    <div class="team revealable-team">
       <h1>Meet the Team</h1>
       
       <div class="all-list">
@@ -57,7 +57,7 @@
           <h2>Frontend</h2>
           <div class="list">
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Letizia Maukar</h3>
               <p>Project Manager,</p>
               <p>UX and UI Designer</p>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Rajesh Reddy</h3>
               <p>UX and UI Designer</p>
               
@@ -86,7 +86,7 @@
           <div class="list">
             
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Fatima Sarr</h3>
               <p>Quality Tester,</p> 
               <p>Software Developer</p>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Liam Bagabag</h3>
               <p>Software Developer</p>
               
@@ -111,8 +111,10 @@
         </div>
 
       </div>
-
     </div>
+
+    <div class="team-blur"></div>
+    <!-- <div class="support-blur"></div> -->
 
     <!-- Support Box -->
     <div class="support-page">
@@ -129,27 +131,27 @@
                   <!-- Input form details for support box, data will be sent to database -->
                   {{ form.hidden_tag() }}
                   {{ form.first_name.label }}
-                  {{ form.first_name(id="firstName", rows="1", placeholder="e.g. John") }}
+                  {{ form.first_name(class="first_name", id="firstName", rows="1", placeholder="e.g. John") }}
               </div>
               <div class="user-info-lname">
                   {{ form.last_name.label }}
-                  {{ form.last_name(id="lastName", rows="1", placeholder="e.g. Smith") }}
+                  {{ form.last_name(class="last_name", id="lastName", rows="1", placeholder="e.g. Smith") }}
               </div>
           </div>
 
           <div class="email-box">
               {{ form.email.label }}
-              {{ form.email(id="email", rows="1", placeholder="e.g. gmail, yahoo, edu") }}
+              {{ form.email(class="email-text", id="email", rows="1", placeholder="e.g. gmail, yahoo, edu") }}
           </div>
           
           <div class="subject-box">
               {{ form.subject.label }}
-              {{ form.subject(id="subject", rows="1", placeholder="e.g. feedback, support request") }}
+              {{ form.subject(class="subject-box-text", id="subject", rows="1", placeholder="e.g. feedback, support request") }}
           </div>
 
           <div class="message-box">
               {{ form.message.label }}
-              {{ form.message(class="message-box", id="comment", placeholder="Type in message...") }}
+              {{ form.message(class="message-input", id="comment", placeholder="Type in message...") }}
           </div>
 
           <div class="counter-container"> 
@@ -237,5 +239,7 @@
       }
     </script>
     <script src="../static/js/logo-animation.js"></script>
+    <script src="../static/js/animation.js"></script>
+
   </body>
 </html>

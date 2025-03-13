@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About Us- Fake Real</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/aboutTeam.css">
+    <link rel="stylesheet" href="../static/css/support.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+        <li><a class="logo" href="{{ url_for('loggedHomePage') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
+        <li><a class="eye" href="{{ url_for('loggedHomePage') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+
+        <li class="title rubik-glitch-regular"><a href="{{ url_for('loggedHomePage') }}">Fake Real</a></li>
+        <li><a href="{{ url_for('loggedAbout') }}">About</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Profile</a></li>    
+        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header/Mission Point -->
+    <div class="head fullscreen-section">
+      <div class="vision">
+        <h1>VISION</h1>
+        <h2>Be aware and be informed. <br>Be in charge of your safety and life.</h2>
+
+        <p>
+          FakeReal is dedicated to raising awareness about deepfakes and AI-generated images, 
+          empowering everyday people to easily identify them.  As technology evolves, 
+          so does our need to understand its impact. We offer a free service to detect deepfakes 
+          and AI-generated images, providing clear explanations alongside our results. Our goal 
+          is to simplify deepfake identification and reporting.
+        </p>
+      </div>
+        
+      <!-- <img src="imgs/img-holder.png" alt="holder" class="img-size"> -->
+    </div>
+
+    <!-- About Team -->
+    <div class="team">
+      <h1>Meet the Team</h1>
+      
+      <div class="all-list">
+        <div class="frontend">
+          <h2>Frontend</h2>
+          <div class="list">
+            <div class="members">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <h3>Letizia Maukar</h3>
+              <p>Project Manager,</p>
+              <p>UX and UI Designer</p>
+
+              <div class="socials">
+                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
+                <a href="https://github.com/ohmarcie"><img src="../static/imgs/icons/github.png" alt="letizia's github"></a>
+              </div>
+            </div>
+
+            <div class="members">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <h3>Rajesh Reddy</h3>
+              <p>UX and UI Designer</p>
+              
+              <div class="socials">
+                <a href="https://www.linkedin.com/in/rajesh-reddy-38198628a/"><img src="../static/imgs/icons/linkedin.png" alt="rajesh's linkedin"></a>
+                <a href="https://github.com/Jesh316"><img src="../static/imgs/icons/github.png" alt="rajesh's github"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="backend">
+          <h2>Backend</h2>
+          <div class="list">
+            
+            <div class="members">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <h3>Fatima Sarr</h3>
+              <p>Quality Tester,</p> 
+              <p>Software Developer</p>
+              
+              <div class="socials">
+                <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/icons/linkedin.png" alt="fatima's linkedin"></a>
+                <a href="https://github.com/fatima-sr"><img src="../static/imgs/icons/github.png" alt="fatima's github"></a>
+              </div>
+            </div>
+
+            <div class="members">
+              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <h3>Liam Bagabag</h3>
+              <p>Software Developer</p>
+              
+              <div class="socials">
+                <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/icons/linkedin.png" alt="liam's linkedin"></a>
+                <a href="https://github.com/lbzfran"><img src="../static/imgs/icons/github.png" alt="liam's github"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Support Box -->
+    <div class="support-page">
+      <div class="support">
+        <h1>"Penny for your thoughts?"</h1>  
+        <h2>Need any support? Or have any feedback?</h2>
+        <h2>Let us know!</h2>
+      </div>
+
+      <div class="support-box">
+        <form action="" method="post" class="support-form">
+          <div class="email-details">
+              <div class="user-info-fname">
+                  <!-- Input form details for support box, data will be sent to database -->
+                  {{ form.hidden_tag() }}
+                  {{ form.first_name.label }}
+                  {{ form.first_name(class="first_name", id="firstName", rows="1", placeholder="e.g. John") }}
+              </div>
+              <div class="user-info-lname">
+                  {{ form.last_name.label }}
+                  {{ form.last_name(class="last_name", id="lastName", rows="1", placeholder="e.g. Smith") }}
+              </div>
+          </div>
+
+          <div class="email-box">
+              {{ form.email.label }}
+              {{ form.email(class="email-text", id="email", rows="1", placeholder="e.g. gmail, yahoo, edu") }}
+          </div>
+          
+          <div class="subject-box">
+              {{ form.subject.label }}
+              {{ form.subject(class="subject-box-text", id="subject", rows="1", placeholder="e.g. feedback, support request") }}
+          </div>
+
+          <div class="message-box">
+              {{ form.message.label }}
+              {{ form.message(class="message-input", id="comment", placeholder="Type in message...") }}
+          </div>
+
+          <div class="counter-container"> 
+            <p>Total characters: 
+              <span class="total-container"
+                id="total-container"> 
+                0 
+              </span> 
+            </p> 
+            <p> 
+              Remaining characters: 
+              <span class="remaining-container"
+                id="remaining-container"> 
+                250 
+              </span> 
+            </p> 
+          </div> 
+
+          <br>
+
+          <div class="send-submit">
+              {{ form.submit(class_="send-button", type="submit") }}
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+      <div class="upper-half">
+        <div class="fakereal-here">
+          <h1 class="rubik-glitch-regular">FakeReal</h1>
+          <p>How far is too far?</p>
+        </div>
+        
+        <div class="details">
+          <h3>Site Links</h3>
+          
+          <p>Contact Us</p>
+          <p>FAQ</p>
+
+          <br>
+
+          <p>Log In</p>
+          <p>Sign Up</p>
+        </div>
+
+        <div class="links">
+          <div class="download">
+            <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+
+            <div class="download-text">
+              <h1>Scan images at real time!</h1>
+              <p>Download our Chrome Extension</p>
+            </div>
+          </div>
+
+          <div class="report">
+            <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+
+            <div class="report-text">
+              <h1>Report a case!</h1>
+              <p>Click here to report a case</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="important">
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+      </div>
+    </footer>
+
+    <script>
+      function autoGrow(comment) {
+        // Reset the height to auto so it can shrink if text is deleted
+        textarea.style.height = 'auto';
+        
+        // Set the height to the scrollHeight, which is the full height of the content
+        textarea.style.height = (textarea.scrollHeight) + 'px';
+      }
+    </script>
+    <script src="../static/js/logo-animation.js"></script>
+  </body>
+</html>

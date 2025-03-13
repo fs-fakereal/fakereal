@@ -1,15 +1,15 @@
 .cabinet-lid {
-    background-color: rgb(34, 34, 34);
+    background-color: #100906;
     padding: 0.2rem;
 }
 
 .cabinet {
-    height: 25rem;
+    height: 10rem;
 
-
-    background-color: rgb(175, 175, 175);
+    /* background-color: rgb(175, 175, 175); */
+    background-color: #242020;
     padding: 0rem 4rem 2rem 4rem;
-    border: 0.2rem solid rgb(34, 34, 34);
+    border: 0.2rem solid #100906;
     
     display: flex;
     justify-content: space-between;
@@ -17,31 +17,48 @@
     flex-direction: column; 
 }
 
-.handle button {
+.handle a button {
     border-radius: 0 0 2rem 2rem;
-    background-color: silver;
-    border: 0.2rem solid rgb(34, 34, 34);
+    background-color: #221e1e;
+    border: 0.2rem solid rgb(94, 94, 94);
 
-    padding: 2.5rem 10rem;
+    padding: 1.5rem 5rem;
 
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
 .cabinet-label {
-    margin: 5rem 0rem 5rem 0rem;
+    margin: 1rem 0rem;
     padding: 1.5rem 2rem;
 
-    height: 2rem;
-    width: 8rem;
+    height: 1rem;
+    width: 2.5rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: 1.5rem solid rgb(34, 34, 34);
-    background-color: rgb(227, 227, 227);
+    border: .5rem solid #100906;
+    border-radius: 0.2rem;
+    background-color: #fcf8fc;
 
     h1 {
-        font-size: 1.5rem;
+        font-size: .8rem;
     }
+}
+
+/* when there are no articles */
+.no-articles {
+    color: black;
+}
+
+/* files */
+.files {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    justify-content: center;
+    /* align-items: center; */
 }

@@ -58,6 +58,7 @@ body {
     align-items: center;
     padding: 10px;
     transition: background-color 0.3s ease;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
 .sidebar ul li a:hover {

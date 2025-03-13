@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fake Real</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/logo.css">
+    <link rel="stylesheet" href="../static/css/cabinet.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
+        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+
+        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="no-articles">
+            <h1>Empty</h1>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+    <div class="upper-half">
+        <div class="fakereal-here">
+        <h1 class="rubik-glitch-regular">FakeReal</h1>
+        <p>How far is too far?</p>
+        </div>
+        
+        <div class="details">
+        <h3>Site Links</h3>
+        
+        <p>Contact Us</p>
+        <p>FAQ</p>
+
+        <br>
+
+        <p>Log In</p>
+        <p>Sign Up</p>
+        </div>
+
+        <div class="links">
+        <div class="download">
+            <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+
+            <div class="download-text">
+            <h1>Scan images at real time!</h1>
+            <p>Download our Chrome Extension</p>
+            </div>
+        </div>
+
+        <div class="report">
+            <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+
+            <div class="report-text">
+            <h1>Report a case!</h1>
+            <p>Click here to report a case</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="important">
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+    </div>
+    </footer>
+
+    <script src="../static/js/news-article.js"></script>
+    <script src="''../static/js/mouse.js"></script>
+
+  </body>
+</html>

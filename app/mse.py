@@ -1,9 +1,12 @@
 import json
 import os
+import time
 from datetime import datetime
 
 import requests
 from app.result import Result
+
+from models.loader import model_generate_prediction, model_get_error
 
 default_model_api_params = {
     'models' : 'genai',
@@ -199,10 +202,12 @@ def prediction(path: str, args: dict) -> dict:
     result: dict = {}
 
     if args['model_id'] in ['inception', 'resnet', 'vgg16']:
-        if "prefer" not in args.keys():
-            raise ValueError("Missing prefer argument")
-        pass
+        # if "prefer" not in args.keys():
+        #     raise ValueError("Missing prefer argument")
+        result = load_model_and_predict(path, args)
     else:
+        # model_id is either genai, or does not exist,
+        # so cascade to fallback
         if "user" not in args.keys() and "secret" not in args.keys():
             result = call_api_and_predict(path)
         else:
@@ -223,16 +228,13 @@ def call_api_and_predict(path : str, args : dict = default_model_api_params, deb
         'message' : "n/a",
         'from' : 'internal'
     }
-    model = {
-        'name' : args['models'] if 'models' in args.keys() else args['model_id'],
-        'version' : '1.0'
-    }
+    model_name: str = args['models'] if 'models' in args.keys() else args['model_id']
 
     # REQUEST
     files = { 'media' : open(path, 'rb') }
 
     req_json = requests.post('https://api.sightengine.com/1.0/check.json', files=files, data={
-        'models' : model['name'],
+        'models' : model_name,
         'api_user' : args['user'],
         'api_secret' : args['secret']
     })
@@ -271,11 +273,11 @@ def call_api_and_predict(path : str, args : dict = default_model_api_params, deb
             print(result)
 
     result['status'] = status
-    result['model'] = model
+    result['model'] = model_name
     return result
 
 
-def load_model_and_predict(path, args) -> dict:
+def load_model_and_predict(path: str, args: dict, debug: bool = False) -> dict:
     result = {
         'score' : 0,
         'time' : -1,
@@ -288,15 +290,18 @@ def load_model_and_predict(path, args) -> dict:
         'message' : "n/a",
         'from' : 'internal'
     }
-    model = {
-        'name' : args['model_id'],
-        'version' : ""
-    }
-    # TODO(liam): add code here
+    model_name : str = args['model_id']
 
+    result['score'], status['code'] = model_generate_prediction(path, model_name)
+    result['time'] = time.time()
 
+    if status['code'] == 0:
+        result['explanation'] = generate_explanation(was_generated = True if result['score'] > 0.5 else False)
+    else:
+        status['message'] = str(model_get_error())
+        status['from'] = 'models'
 
     result['status'] = status
-    result['model'] = model
-    return result
+    result['model'] = model_name
 
+    return result
