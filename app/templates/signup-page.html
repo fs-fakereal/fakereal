@@ -21,10 +21,10 @@
         <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
         <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
+        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
+        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
 
@@ -75,12 +75,17 @@
                 {{ form.password.label }}<br>
                 {{ form.password(size=32, class_="signup-form") }}
             </p>
+            
             <p>
                 {{ form.confirm_password.label }}<br>
                 {{ form.confirm_password(size=32, class_="signup-form") }}
             </p>
-            <input type="checkbox" id="showPassword" class="cursor"> Show Password <br><br>
-              <p>
+            
+            <div class="showPass">
+              <input type="checkbox" id="showPassword" class="cursor pass-box"> <p class="display-pass">Show Password </p><br><br>
+            </div>
+
+            <p>
                 {{ form.submit(class_="signup-form cursor") }}<br>
                 <!--{{ form.submit.label }}-->
             </p>
@@ -101,15 +106,15 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-two">
 
       <div class="upper-half">
-        <div class="fakereal-here">
+        <div class="fakereal-here2">
           <h1>FakeReal</h1>
           <p>How far is too far?</p>
         </div>
         
-        <div class="details">
+        <div class="details2">
           <h3>Site Links</h3>
           
           <p>Contact Us</p>
@@ -122,7 +127,7 @@
         </div>
 
         <div class="links">
-          <div class="download">
+          <div class="download2">
             <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
 
             <div class="download-text">
@@ -131,7 +136,7 @@
             </div>
           </div>
 
-          <div class="report">
+          <div class="report2">
             <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
 
             <div class="report-text">
@@ -162,5 +167,7 @@
   {% endif %}
 
   <script src="../static/js/logo-animation.js"></script>
+  <script src="../static/js/animation.js"></script>
+
   </body>
 </html>

@@ -1,4 +1,34 @@
 /* Centering the Login Form */
+.login-page {
+    margin: 3rem 0rem;
+}
+
+.login-header h1, .login-header p{
+    color: #fcf8fc;
+}
+
+.signup-color {
+    color: #fcf8fc;
+}
+
+.under-links {
+    padding: 1rem 0rem;
+}
+
+.link-color {
+    margin: 0.1rem;
+}
+
+.link-color a{
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    color: #dfbe90;
+    /* text-decoration: none; */
+}
+
+.link-color a:hover {
+    color: #998364;
+}
+
 .login-container {
     display: flex;
     flex-direction: column;

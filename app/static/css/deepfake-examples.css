@@ -102,6 +102,12 @@ section {
         transition: all 0.6s ease;
         cursor: url('../imgs/mouse/white-mouse.png'), auto;
     }
+
+    video:hover {
+        filter: grayscale(0%);
+        transition: all 0.6s ease;
+        cursor: url('../imgs/mouse/white-mouse.png'), auto;
+    }
 }
 
 /* buttons */

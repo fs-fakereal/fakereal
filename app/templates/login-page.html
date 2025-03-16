@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
-    <link rel="stylesheet" href="../static/css/center.css">
+    <link rel="stylesheet" href="../static/css/login-style.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
 
@@ -21,51 +21,57 @@
         <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
         <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
+        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
+        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
+        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
+        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
       </ul>
     </nav>
 
     <div class="main-content">
 
-      <h1>Login to Fake Real</h1>
-      <p>Please enter your credentials to access your account.</p>
+      <div class="login-page">
 
-      <!-- Login Form -->
-      <form action="" method="POST" class="login-form">
-          {{ form.hidden_tag() }}
-          <p>
-              {{ form.email.label }}<br>
-              {{ form.email(size=32) }}
-          </p>
-          <p>
-              {{ form.password.label }}<br>
-              {{ form.password(size=32) }}
-          </p>
-          <p>
-              {{ form.submit() }}<br>
-              <!-- {{ form.submit.label }} -->
-          </p>
-      </form>
+        <div class="login-header">
+          <h1>Login to Fake Real</h1>
+          <p>Please enter your credentials to access your account.</p>
+        </div>
 
-      <!-- Link to Sign Up -->
-      <p><a class="cursor" href="{{ url_for('forgot_password') }}">Forgot Password?</a>.</p>
-      <p>Don't have an account? <a class="cursor" href="{{ url_for('signup') }}">Sign up here</a>.</p>
+        <!-- Login Form -->
+        <form action="" method="POST" class="login-form">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+            </p>
+            <p>
+                {{ form.submit() }}<br>
+                <!-- {{ form.submit.label }} -->
+            </p>
+        </form>
 
+        <!-- Link to Sign Up -->
+        <div class="under-links">
+          <p class="link-color"><a href="{{ url_for('forgot_password') }}">Forgot Password?</a></p>
+          <p class="signup-color link-color">Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-two">
 
       <div class="upper-half">
-        <div class="fakereal-here">
+        <div class="fakereal-here2">
           <h1>FakeReal</h1>
           <p>How far is too far?</p>
         </div>
         
-        <div class="details">
+        <div class="details2">
           <h3>Site Links</h3>
           
           <p>Contact Us</p>
@@ -78,7 +84,7 @@
         </div>
 
         <div class="links">
-          <div class="download">
+          <div class="download2">
             <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
 
             <div class="download-text">
@@ -87,7 +93,7 @@
             </div>
           </div>
 
-          <div class="report">
+          <div class="report2">
             <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
 
             <div class="report-text">
@@ -107,6 +113,7 @@
     </footer>
     
     <script src="../static/js/logo-animation.js"></script>
+    <script src="../static/js/animation.js"></script>
 
   </body>
 </html>
