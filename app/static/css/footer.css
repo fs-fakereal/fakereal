@@ -20,6 +20,21 @@
         padding: 0rem;
     }
 
+    p a {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
+        font-family: 'Baloo Thambi 2';
+        color: azure;
+        text-align: left;
+        margin: 0rem;
+        padding: 0rem;
+        text-decoration: none;
+    }
+
+    p a:hover {
+        color: #5E7381;
+    }
+
     hr {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
     }
@@ -36,7 +51,6 @@
     /* width: 100%; */
     font-size: 1rem;
 
-
     p {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
@@ -45,6 +59,17 @@
         text-align: left;
         margin: 0rem;
         padding: 0rem;
+    }
+
+    p a {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
+        font-family: 'Baloo Thambi 2';
+        color: black;
+        text-align: left;
+        margin: 0rem;
+        padding: 0rem;
+        text-decoration: none;
     }
 
     hr {
@@ -125,6 +150,10 @@ hr {
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
     }
+
+    img:hover {
+        filter: contrast(50%);
+    }
 }
 
 .download2 {
@@ -161,6 +190,10 @@ hr {
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
         filter: brightness(80%);
+    }
+
+    img:hover {
+        filter: contrast(50%);
     }
 }
 
@@ -209,6 +242,10 @@ hr {
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
     }
+
+    img:hover {
+        filter: contrast(50%);
+    }
 }
 
 .report2 {
@@ -243,6 +280,10 @@ hr {
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
         filter: brightness(70%);
+    }
+
+    img:hover {
+        filter: contrast(50%);
     }
 }
 
