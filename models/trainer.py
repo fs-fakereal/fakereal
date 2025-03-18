@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import pandas as pd
-from tensorflow.keras.applications import VGG16
+from tensorflow.keras.applications import VGG16, MobileNetV3Small
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.layers import Dense, Dropout, GlobalAveragePooling2D, Input
 from tensorflow.keras.losses import BinaryCrossentropy
@@ -17,140 +17,166 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.train import latest_checkpoint
 
-# constants #
+### constants ###
 
-model_name = "vgg16"
-img_size = 256 # assume same for both width and height
-batch_size = 16
+# LIKELY ONLY CHANGE THESE PARAMETERS #
+# ----------------------------------- #
+model_pretrained = MobileNetV3Small
+model_name = "mobilenetv3small"
+dataset_name = "uniface-ff"
 
-data_dir = "data"
-
-# assume there is a json file of the same name inside these data subdirs.
-
-checkpoint_dir = "checkpoints"
-checkpoint_path = f"{checkpoint_dir}/{model_name}/" + "cp-{epoch:04d}.ckpt"
-
-# DATASET LOADING #
-
-def data_load(path_to_json: str) -> pd.DataFrame:
-    data: dict = {}
-    df: pd.DataFrame = None
-
-    with open(path_to_json, "r") as file:
-        data = json.load(file)
-
-    if data:
-        df = pd.DataFrame(data)
-
-    return df
-
-# overall path of uniface dataset:
-# - DF40_train/uniface/ff/frames                    |> primarily here
-# - DF40/uniface/ff/frames
-# - FaceForensics++/original_sequences/youtube/c23
-
-df: pd.DataFrame = pd.read_csv(f"{data_dir}/uniface-ff.csv")
-
-# DATASET PROCESSING #
-
-train_datagen = ImageDataGenerator(
-    rescale=(1./255),
-    zoom_range=0.2,
-    horizontal_flip=True,
-    vertical_flip=True,
-    brightness_range=[-0.5, 0.5],
-    rotation_range=0.2,
-    shear_range=0.2,
-    fill_mode='nearest'
-)
-val_datagen = ImageDataGenerator(rescale=1./255)
-
-train_generator = train_datagen.flow_from_dataframe(
-    df,
-    x_col = "filepath",
-    y_col = "label",
-    target_size=(img_size, img_size),
-    batch_size=batch_size,
-    class_mode='binary',
-    validate_filenames=True
-)
-val_generator = val_datagen.flow_from_dataframe(
-    df,
-    x_col = "filepath",
-    y_col = "label",
-    target_size=(img_size, img_size),
-    batch_size=batch_size,
-    class_mode='binary',
-    validate_filenames=True
-)
-
-# MODEL PREPARATION #
-
-pretrained_model = VGG16(
-    weights='imagenet',
-    include_top=False,
-    input_shape=(img_size, img_size, 3)
-)
-
-pretrained_model.trainable = False
-
-# technique to "stack" layers, starting with pretrain model's layers
-inputs = Input(shape=(img_size, img_size, 3))
-
-cl = pretrained_model(inputs, training=False)
-
-cl = GlobalAveragePooling2D()(cl)
-cl = Dropout(0.2)(cl)
-# cl = Dense(512, activation='relu')(cl)
-
-# this is the final layer; size must equal desired output size
-outputs = Dense(2, activation='softmax')(cl)
-model = Model(inputs, outputs)
-
-model.summary(show_trainable=True)
-
-# hyperparameters
+# hyperparameters #
 epochs = 10
 learning_rate = 1e-6
+batch_size = 16
+# ----------------------------------- #
 
-# pretrained_model.trainable = True
-# model.summary(show_trainable=True)
+# -------------- FIXED -------------- #
+img_size = 256 # assume same for both width and height
+data_dir = "data"
+# assume there is a json file of the same name inside these data subdirs.
+checkpoint_dir = "checkpoints"
+checkpoint_path = f"{checkpoint_dir}/{model_name}/" + "cp-{epoch:04d}.ckpt"
+# ----------------------------------- #
 
-model.compile(
-    optimizer=Adam(learning_rate),
-    loss=BinaryCrossentropy(from_logits=True),
-    metrics=[BinaryAccuracy()]
-)
+# ------------ FUNCTIONS ------------ #
+def dataLoad(dataset_name: str) -> (pd.DataFrame, pd.DataFrame, ImageDataGenerator, ImageDataGenerator):
+    # DATASET LOADING #
+    # overall path of uniface dataset:
+    # - DF40_train/uniface/ff/frames                    |> primarily here
+    # - DF40/uniface/ff/frames
+    # - FaceForensics++/original_sequences/youtube/c23
+
+  
+    # TODO(liam): it could be possible that this is deallocated
+    # when the function finished, causing an error with the data
+    # generator.
+    df_train: pd.DataFrame = pd.read_csv(f"{data_dir}/{dataset_name}-train.csv")
+    df_val: pd.DataFrame = pd.read_csv(f"{data_dir}/{dataset_name}-test.csv")
+    
+    df_train['label'] = df_train['label'].astype('str')
+    df_val['label'] = df_val['label'].astype('str')
+
+    # DATASET PROCESSING #
+    train_datagen = ImageDataGenerator(
+        rescale=(1./255),
+        zoom_range=[0.5, 1.5],
+        horizontal_flip=True,
+        vertical_flip=True,
+        brightness_range=[-0.5, 0.5],
+        rotation_range=[0.75, 1.25],
+        shear_range=[0.75, 1.25],
+        fill_mode='nearest'
+    )
+    val_datagen = ImageDataGenerator(rescale=1./255)
+
+    train_generator = train_datagen.flow_from_dataframe(
+        df_train,
+        x_col = "filepath",
+        y_col = "label",
+        target_size=(img_size, img_size),
+        batch_size=batch_size,
+        class_mode='binary',
+        validate_filenames=True
+    )
+    val_generator = val_datagen.flow_from_dataframe(
+        df_val,
+        x_col = "filepath",
+        y_col = "label",
+        target_size=(img_size, img_size),
+        batch_size=batch_size,
+        class_mode='binary',
+        validate_filenames=True
+    )
+
+    return df_train, df_val, train_generator, val_generator
+
+# MODEL PREPARATION #
+def modelPrep(base_model: Model):
+    pretrained_model = base_model(
+        weights='imagenet',
+        include_top=False,
+        input_shape=(img_size, img_size, 3)
+    )
+
+    # CAN ADJUST STRUCTURE HERE #
+    pretrained_model.trainable = False
+    # technique to "stack" layers, starting with pretrain model's layers
+    inputs = Input(shape=(img_size, img_size, 3))
+
+    cl = pretrained_model(inputs, training=False)
+
+    cl = GlobalAveragePooling2D()(cl)
+    cl = Dropout(0.2)(cl)
+    # cl = Dense(512, activation='relu')(cl)
+
+    # this is the final layer; size must equal desired output size
+    outputs = Dense(2, activation='softmax')(cl)
+    model = Model(inputs, outputs)
+
+    model.summary(show_trainable=True)
+    # pretrained_model.trainable = True
+    # model.summary(show_trainable=True)
+
+    model.compile(
+        optimizer=Adam(learning_rate),
+        loss=BinaryCrossentropy(from_logits=True),
+        metrics=[BinaryAccuracy()]
+    )
+    return model
 
 # MODEL TRAINING #
+def modelTrain(model, epochs, callbacks: list = []):
 
-checkpoint_callback = ModelCheckpoint(
-    filepath=os.path.join(os.getcwd(), checkpoint_dir, checkpoint_path),
-    save_weights_only=True,
-    save_freq=5 * batch_size,
-    verbose=1
-)
+    #latest = latest_checkpoint(os.path.join(os.path(os.getcwd(), checkpoint_dir)))
+    #model.load_weights(latest)
+    history = model.fit_generator(
+        train_generator,
+        epochs=epochs,
+        steps_per_epoch=(train_generator.samples // train_generator.batch_size),
+        validation_data=val_generator,
+        validation_steps=(val_generator.samples // val_generator.batch_size),
+        callback=callbacks,
+        verbose=1
+    )
 
-latest = latest_checkpoint(os.path.join(os.path(os.getcwd(), checkpoint_dir)))
-model.load_weights(latest)
+def modelSave(model, name):
+    model.save(f"{output_dir}/deepfake-{name}.keras")
 
-history = model.fit_generator(
-    train_generator,
-    epochs=epochs,
-    steps_per_epoch=(2000 // 16),
-    validation_data=val_generator,
-    validation_steps=(800 // 16),
-    callback=[checkpoint_callback],
-    verbose=1
-)
-
-# val_loss, val_accuracy = model.evaluate(x_val, y_val, verbose=2)
-# print(f'Validation Accuracy: {val_accuracy:.4f}')
-# print(f'Validation Loss: {val_loss:.4f}')
-
-def plot_validation(val_loss, val_acc):
+def modelEvaluate(model):
+    val_loss, val_accuracy = model.evaluate(val_generator, verbose=2)
+    # val_loss, val_accuracy = model.evaluate(x_val, y_val, verbose=2)
+    # print(f'Validation Accuracy: {val_accuracy:.4f}')
+    # print(f'Validation Loss: {val_loss:.4f}')
+    
+    # TODO(liam): make some plots; find F1 score maybe
     pass
 
-def model_save(model, version):
-    model.save(f"deepfake-{model_name}-{version}.keras")
 
+if __name__ == '__main__':
+
+    # df's are passed only to ensure they stay alive after function call
+    df_train, df_val, train_datagen, test_datagen = dataLoad(dataset_name)
+
+    # pass the function itself without initializing (fp)
+    modelPrep(model_pretrained)
+
+    latest = latest_checkpoint(os.path.join(os.getcwd(), checkpoint_dir))
+if (latest):
+    model.load_weights(latest)
+
+    callbacks = []
+    callbacks.append(
+        ModelCheckpoint(
+            filepath=os.path.join(os.getcwd(), checkpoint_dir, checkpoint_path),
+            save_weights_only=True,
+            save_freq=5 * batch_size,
+            verbose=1
+        )
+    )
+    
+    modelTrain(model, epochs, callbacks)
+
+    modelEvaluate(model)
+
+    modelSave(model, model_name)
