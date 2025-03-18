@@ -4,23 +4,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     /* min-height: 100vh; */
+
     text-align: center;
     margin-top: 5px;
-    padding: 20px; /* Prevent content from touching edges */
+    padding: 10px; /* Prevent content from touching edges */
     box-sizing: border-box;
     color: #000000;
 }
-
+    .signup-container h1 {
+        color: #fcf8fc;
+    }
+    
     .signup-container p {
-        margin-bottom: 5px; /* Reduces the space below the paragraph */
+        color: #fcf8fc;
+        margin-bottom: 1rem; /* Reduces the space below the paragraph */
     }
 
 .signup-form {
-    max-width: 350px;
+    max-width: 35rem;
     width: 100%;
-    margin: 30px auto 0; /* Add top margin */
-    padding: 20px;
+    margin: 0.4rem auto 0; /* Add top margin */
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -72,6 +78,7 @@
     .password-requirements p {
         margin: 0;
         font-weight: bold;
+        color: black;
     }
 
     .password-requirements ul {
@@ -102,3 +109,19 @@
         list-style-type: none;
         padding: 0;
       }
+
+/* displays pass */
+.showPass {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.display-pass {
+    color: #fcf8fc;
+    opacity: 90%;
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+}

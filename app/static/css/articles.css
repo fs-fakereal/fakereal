@@ -5,7 +5,7 @@
     justify-content: center;
     /* overflow: scroll; */
 
-    padding: 8rem 1rem 3rem 1rem;
+    padding: 1rem 1rem 6rem 1rem;
     background-color: #3a3b3f;
     /* background-color: #dfbe90; */
 
@@ -127,4 +127,65 @@
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
     cursor: url('../imgs/mouse/white-pointer.png'), default !important;
+}
+
+
+/* the exit button */
+.exit a button {
+    border-radius: 3rem;
+    background-color: #fcf8fc;
+
+    p {
+        padding: 0.1rem 1rem;
+        font-weight: bolder;
+        color: black;
+    }
+}
+
+.exit a button:hover {
+    background-color: #ffd786;
+    transform: translateX(-0.2rem);
+
+    p {
+        padding: 0rem 0.9rem;
+        color: #980b2d;
+    }
+}
+
+.exit {
+    display: flex;
+    justify-content: end;
+    padding: 1rem 1rem 0rem 0rem;
+}
+
+.close-button {    
+    border-radius: 3rem;
+    margin: 1.5rem;
+    background-color: #fcf8fc;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+
+    p {
+        padding: 0.1rem 1rem;
+        font-weight: bolder;
+        color: black;
+    }
+}
+
+.close-button:hover {
+    margin: 1.5rem;
+    background-color: #ffd786;
+
+    p {
+        padding: 0.1rem 1rem;
+        color: #980b2d;
+    }
+}
+
+.popup-deco {
+    background-color: #3a3b3f;
+    height: 100vh;
+
+    h1 {
+        color: #fcf8fc;
+    }
 }
