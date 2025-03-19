@@ -140,7 +140,7 @@
       </div>
 
       <!-- Deep fake articles to learn more -->
-      <div class="articles">
+      <div class="articles" id="read-more">
         <h1>Read more.</h1>
 
         <h2>
@@ -163,7 +163,20 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('feb_article') }}"><button></button></a>
+                <a href="{{ url_for('feb_article') }}">
+                  <button class="handle-button"></button>
+                </a>
+
+                <div class="full-screen hidden flex-container-center">
+                  <button class="close-button" onclick=""><p>&#x2715</p></button>
+
+                  <div class="article-list">
+                    <div id="article" class="article">
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+                
               </div>
               <div class="cabinet-label">
                 <h1>Feb 2025</h1>
@@ -305,6 +318,6 @@
     <script src="../static/js/carousel.js"></script>
     <script src="../static/js/logo-animation.js"></script>
     <script src="../static/js/animation.js"></script>
-    <!-- <script src="../static/js/news-article.js"></script> -->
+    <script src="../static/js/news-article.js"></script>
   </body>
 </html>

@@ -48,4 +48,4 @@ def model_get_error() -> str:
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        print("prediction: ", 'true' if model_generate_prediction(sys.argv[1]) == 1 else 'false')
+        print("prediction: ", 'true' if model_generate_prediction(sys.argv[1]) > 0.5 else 'false')

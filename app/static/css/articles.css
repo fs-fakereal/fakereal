@@ -157,3 +157,35 @@
     justify-content: end;
     padding: 1rem 1rem 0rem 0rem;
 }
+
+.close-button {    
+    border-radius: 3rem;
+    margin: 1.5rem;
+    background-color: #fcf8fc;
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+
+    p {
+        padding: 0.1rem 1rem;
+        font-weight: bolder;
+        color: black;
+    }
+}
+
+.close-button:hover {
+    margin: 1.5rem;
+    background-color: #ffd786;
+
+    p {
+        padding: 0.1rem 1rem;
+        color: #980b2d;
+    }
+}
+
+.popup-deco {
+    background-color: #3a3b3f;
+    height: 100vh;
+
+    h1 {
+        color: #fcf8fc;
+    }
+}

@@ -90,3 +90,14 @@ async function getData() {
 
   return data;
 }
+
+// to open and close the articles
+// function openPopup() {
+//   document.querySelector(".hidden").style.display = 'block';
+//   document.body.classList.add('no-scroll');
+// }
+
+// function closePopup() {
+//   document.querySelector(".hidden").style.display = 'none';
+//   document.body.classList.remove('no-scroll');
+// } 
