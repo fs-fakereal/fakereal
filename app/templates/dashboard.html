@@ -15,16 +15,26 @@
 
 <body>
     <div class="sidebar">
-        <!-- Links to each page -->
-        <ul>
-            <li><a class="logo" href="{{ url_for('loggedHomePage') }}"><img src="../static/imgs/logo.png" alt="logo"></a></li>
+        <div class="sidebar-top">
+            <div class="text-w-logo">
+                <a href="{{ url_for('index') }}">Home <img src="../static/imgs/sidebar/home.png" alt="home" class="logos-side"></a>
+            </div>
+            <div class="text-w-logo">
+                <a href="{{ url_for('upload') }}">Upload <img src="../static/imgs/sidebar/upload.png" alt="upload" class="logos-side"></a>
+            </div>
+            <div class="text-w-logo">
+                <a href="{{ url_for('result') }}">Results <img src="../static/imgs/sidebar/check.png" alt="results" class="logos-side"></a>
+            </div>
+            <div class="text-w-logo">
+                <a href="{{ url_for('user_edit') }}">Settings <img src="../static/imgs/sidebar/settings.png" alt="settings" class="logos-side"></a>
+            </div>    
+        </div>
 
-            <li><a href="{{ url_for('upload') }}">Upload </a></li>
-            <li><a href="{{ url_for('result') }}">Results </a></li>
-            <li><a href="{{ url_for('user_edit') }}">Settings </a></li>
-            <li><a href="{{ url_for('logout') }}">Logout </a></li>
-        </ul>
+        <div class="text-w-logout">
+            <a href="{{ url_for('logout') }}">Logout <img src="../static/imgs/sidebar/logout.png" class="logos-side"></a>
+        </div>
     </div>
+
     <div class="main-content" id="main-content">
         <h1></h1>
         <p></p>
