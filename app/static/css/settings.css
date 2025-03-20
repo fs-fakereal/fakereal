@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: flex-start; /* Moves content downward */
+    padding-top: 100px; /* Adds space from the top */
+}
+
+.tiles {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center tiles horizontally */
+    gap: 20px; /* Adds spacing between tiles */
+    width: 100%;
+    max-width: 600px; /* Adjust container width */
+    text-align: center;
+}
+
+.tile {
+    width: 250px; /* Fixed width for uniform size */
+    height: 120px; /* Fixed height for uniform size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; 
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 18px; /* Ensures text is uniform */
+    font-weight: bold;
+}
+
+.tile:hover {
+    background: #e5e7eb;
+}
+
+/* Make tiles stack properly on smaller screens */
+@media (max-width: 600px) {
+    .tiles {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tile {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 300px; /* Prevent excessive stretching */
+    }
+}
