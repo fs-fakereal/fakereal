@@ -2,7 +2,10 @@
 .upload-section {
     margin: 100px auto;
     padding: 40px;
+
     width: 400px;
+    height: 70vh;
+
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,9 +26,11 @@
 .upload-box input[type="file"] {
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
 
-    padding: 10px;
+    padding: 0.5rem 0rem;
     width: 100%; /* Ensure the input takes up the full width */
     box-sizing: border-box; /* Include padding in the width */
+
+    text-align: center;
 }
 
 /* Submit Button */
@@ -53,12 +58,13 @@
     justify-content: center;
     border: 2px dashed #ccc;
     padding: 20px;
+
     max-width: 100%; /* Ensure the box takes up the full width of its container */
-    height: 300px;
+    height: 35vh;
+
     overflow: hidden;
     background-color: #f9f9f9;
     box-sizing: border-box; /* Make sure padding doesn't exceed max-width/height */
-    margin-top: 20px; /* Add some spacing */
 }
 
 .preview-box p {
