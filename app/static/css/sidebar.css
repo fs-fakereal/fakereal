@@ -9,18 +9,23 @@
 
     background-color: #5e7381;
     padding: 1rem 0.5rem;
-    height: 97vh;
+    height: 100vh;
     box-shadow: 2px 0 6px rgba(36, 34, 30, 0.1);
 
-    position: absolute;
-    left: -8rem;
-    top: 0;
+    /* position: static; */
+    /* left: -6rem; */
+    /* top: 0; */
+
+    transform: translateX(-8rem);
+
     overflow-y: auto;     
     transition: all 0.5s ease; /* Smooth transition for width change */
 }
 
 .sidebar:hover {
-    left: 0;
+    /* left: 10rem; */
+    transform: translateX(0rem);
+
     transition: all 0.5s ease; /* Smooth hover effect */
 }
 
@@ -58,7 +63,9 @@
 
 /* When sidebar is expanded, apply margin to main content */
 .sidebar.open + .main-content {
-    margin-left: 12rem; /* Slide the content to the right when sidebar is open */
+    transform: translateX(4rem);
+    /* margin-left: 12rem;  */
+    /* Slide the content to the right when sidebar is open */
 }
 
 /* Responsive Design */
