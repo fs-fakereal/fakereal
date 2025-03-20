@@ -13,3 +13,47 @@
         color: inherit; /* Reset color, as "none" is not a valid value */    
     }
 }
+
+
+/* Logos on the side bar */
+.text-w-logo a {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.text-w-logout a {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0rem;
+
+    position: sticky;
+    bottom: 10rem;
+}
+
+.logos-side {
+    padding: 0rem;
+    margin: 0rem;
+
+    height: 2rem;
+
+    filter: grayscale(100%);
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
