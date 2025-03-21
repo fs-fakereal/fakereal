@@ -4,7 +4,8 @@
     h1 {
         text-align: left;
         font-size: 3rem;
-        color: #5E7381;
+        /* color: #5E7381; */
+        color: #000;
         /* font-family: sans-serif; */
         font-weight: bold;
         /* margin-right: 25px; */
@@ -13,7 +14,8 @@
 
     h2 {
         font-size: 2rem;
-        color: #fcf8fc;
+        /* color: #fcf8fc; */
+        color: #000;
         padding: 0px 25px 0px 25px;
     }
 
@@ -22,7 +24,8 @@
         margin: 0px;
         /* margin-right: 25px; */
         font-size: 2rem;
-        color: #5E7381;
+        color: #000;
+        /* color: #5E7381; */
         padding: 0px 45px 0px 25px;
     }
 }

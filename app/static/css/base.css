@@ -18,9 +18,8 @@ body {
 
   scroll-behavior: smooth;
 
-  /* background-color: rgb(98, 95, 102); */
-  background-color: #1a2431;
-  /* background-color: rgb(179, 168, 155); */
+  /* background-color: #1a2431; */
+  background-color: #647764;
 
   display: flex;
   flex-direction: column;
@@ -53,22 +52,24 @@ body {
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: rgb(60, 60, 60);
+  /* color: rgb(60, 60, 60); */
+  color: #fcf8fc;
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: rgb(74, 73, 71); 
+  /* color: rgb(74, 73, 71);  */
+  color: #fcf8fc;
 }
 
 /* Navigation Bar Styles */
 nav {
-  /* background-color: rgb(219, 210, 194); */
-  background-color: #5e7381;
+  background-color: #878672;
+  /* background-color: #5e7381; */
 
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(52, 57, 65, 0.458); /* Adds a softer, cooler shadow for depth */
+  box-shadow: 0 4px 6px rgba(162, 189, 152, 0.212); /* Adds a softer, cooler shadow for depth */
   /* box-shadow: 0 4px 6px rgba(74, 91, 100, 0.27); Adds a subtle shadow for depth */
 }
 
