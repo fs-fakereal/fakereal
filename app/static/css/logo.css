@@ -1,10 +1,23 @@
-.eye, eye img {
-    position: absolute;
+.eyeball {
+    position: relative;
 
-    top: -0.5rem;
-    left: 1.4rem;
+    bottom: -14rem;
+    left: -1rem;
+
+    transform: rotate(275deg);
+    height: 20vw;
+
+    z-index: 0;
+
+    transition: all 0.2s ease;
 }
 
-.eyeball {
-    height: 100%;
+#anchor {
+    position: relative;
+
+    top: 100%;
+    right: -40%;
+    height: 20vw;
+
+    z-index: 1;
 }

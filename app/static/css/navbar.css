@@ -1,0 +1,92 @@
+/* Navigation Bar Styles */
+nav {
+    background-color: #878672;
+    /* background-color: #5e7381; */
+
+    overflow: hidden;
+    /* box-shadow: 0 4px 6px rgba(162, 189, 152, 0.212); Adds a softer, cooler shadow for depth */
+    /* box-shadow: 0 4px 6px rgba(74, 91, 100, 0.27); Adds a subtle shadow for depth */
+}
+
+.navbar {
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Ensures spacing for the title */
+    align-items: center; /* Vertically centers the items */
+}
+
+.navbar .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #825c42;
+    margin-left: 20px; /* Adds space to the left of the title */
+    text-transform: uppercase; /* Makes the title all caps */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    display: block;
+    font-weight: bold; /* Makes the links stand out */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar a:hover {
+    cursor: url('../imgs/mouse/white-pointer.png'), default !important;
+    transition: all 0.3s ease;
+    /* color: rgb(74, 74, 74); */
+}
+
+.navbar img {
+    width: 4rem;
+
+    padding: 0rem;
+    margin: 0rem;
+
+    :hover {
+    text-decoration: none;
+    background-color: none;
+    color: none;
+    }
+}
+
+.pages {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-hover:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+}
+
+.report-button {
+    background-color: rgb(185, 47, 47);
+    border-radius: 30px;
+    border: rgb(185, 47, 47) 0.2rem solid;
+
+    color: black;
+    font-weight: 80;
+    font-size: 1rem;
+
+    text-align: center;
+    margin-left: 1rem;
+
+    transition: all 0.3s ease-in; 
+}
+
+.report-button:hover {
+    /* background-color: rgb(119, 45, 45);
+    color: rgb(35, 35, 35); */
+    background-color: #dfbe90;
+    color: #dd3749;
+
+    border-radius: 30px;
+    transition: all 0.3s ease-in; 
+}

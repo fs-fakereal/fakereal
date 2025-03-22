@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+
     <link rel="stylesheet" href="../static/css/deepfake-examples.css">
     <link rel="stylesheet" href="../static/css/home.css">
     <link rel="stylesheet" href="../static/css/articles.css">
@@ -15,44 +17,60 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title rubik-glitch-regular">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
-        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages nav-scale">
+          <a href="{{ url_for('about') }}" class="nav-scale nav-hover">About</a>
+          <a href="{{ url_for('login') }}" class="nav-scale nav-hover">Login/Sign Up</a>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Header -->
-    <div class="head fullscreen-section">
-      <h1>Fake Real</h1>
-      <h2>What's real and what's fake?</h2>
-      <br>
-      <p>FakeReal offers deep fake detection for images for free. Either log in or download the
-        chrome extension browser. Our services is user friendly, allowing users to upload a file 
-        to get a multilayer assessment in just a few seconds.
-      </p>
+    <div class="header">
+      <div class="head fullscreen-section">
+        <h1>Fake Real</h1>
+        <h2>What's real and what's fake?</h2>
+        <br>
+        <p>FakeReal offers deep fake detection for images for free. Either log in or download the
+          chrome extension browser below. Our services is user friendly, allowing users to upload a file 
+          to get a multilayer assessment in just a few seconds.
+        </p>
+  
+        <a href="{{ url_for('login') }}"><button type="button" class="login-button">Log in to get started!</button></a> 
+      </div>
 
-      <!-- Log in/Sign Up -->
-      <!-- <div class="check revealable"> -->
-        <!-- <h1 class="scale">Want to test if your image is deep faked?</h1>
-        <a href="{{ url_for('login') }}" class="scale"><button>Log In</button></a> -->
-      <!-- </div> -->
+      <div class="images-stack">
+        <div class="images-stack-top">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img1">
+        </div>
+
+        <div class="images-stack-middle">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img2">
+        </div>
+
+        <div class="images-stack-bottom">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img3">
+        </div>
+
+        <div class="images-stack-logo">
+          <img id="anchor" src="../static/imgs/logo-base.png" alt="logo">
+          <img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo">
+        </div>      
+      </div>
+
     </div>
 
-    <!-- <div class="blur-parent">
-      <div class="blur-two"></div>
-      <div class="blur-into"></div>
-    </div> -->
 
     <!-- Deepfake examples -->
     <div class="sticky_parent">
