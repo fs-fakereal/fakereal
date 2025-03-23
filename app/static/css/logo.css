@@ -21,3 +21,12 @@
 
     z-index: 1;
 }
+
+/* custom eye */
+.eyes {
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+}
