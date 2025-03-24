@@ -19,8 +19,8 @@ body {
 
   scroll-behavior: smooth;
 
-  /* background-color: #1a2431; */
-  background-color: #647764;
+  background-color: #4b5950;
+  /* background-color: #647764; */
 
   display: flex;
   flex-direction: column;
@@ -133,7 +133,6 @@ p {
 
 .nav-scale.active {
   background-color: transparent;
-  opacity: 1;
   transform: scale(1);
 }
 

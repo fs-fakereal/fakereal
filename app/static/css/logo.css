@@ -24,9 +24,39 @@
 
 /* custom eye */
 .eyes {
-    width: 200px;
-    height: 100px;
-    background-color: white;
+    width: 10vw;
+    height: 10vw;
+
+    background-color: #000;
+
     border-radius: 50%;
+    border: #fcf8fc solid 1vw;
+
     position: relative;
+
+    left: 35%;
+    bottom: 5%;
+}
+
+.pupil {
+    width: 5vw;
+    height: 5vw;
+
+    background-color: #fcf8fc;
+
+    border-radius: 50%;
+}
+
+.stick {
+    width: 1.5vw;
+    height: 12vw;
+
+    background-color: #fcf8fc;
+
+    position: relative;
+    
+    left: 60%;
+    bottom: 10%;
+
+    transform: rotate(148deg);
 }

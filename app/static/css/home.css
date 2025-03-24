@@ -2,12 +2,14 @@
 .header {
     margin: 0rem;
     padding: 2rem;
-    background-color: #3a3f3a;
+    /* background-color: #3a3f3a; */
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    height: 100vh;
 }
 
 .head {
@@ -52,13 +54,13 @@
 
     color: black;
     font-weight: 80;
-    font-size: 1rem;
+    font-size: 1.8vw;
 
     text-align: center;
     font-weight: bold;
 
     margin: 2rem 1rem;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
 
     transition: all 0.3s ease-in; 
 }
@@ -77,9 +79,12 @@
 .images-stack {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    
+
+    height: 70vh;
     width: 50%;
+
+    position: relative;
+    bottom: 10%;
 }
 
 .images-stack-top {
@@ -87,50 +92,64 @@
     top: 13%;
     right:-10%;
 
+    object-fit: contain;
+
     img {
-        width: 60%;
+        max-width: 60%;
+        max-height: 100%;
     }
 }
 
-.images-stack-top:hover {
+.images-stack-top img:hover {
     filter: grayscale(100%);
     cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 }
 
 .images-stack-middle {
     position: relative;
-    top: 10%;
+    top: 8%;
     right: -20%;
+
+    object-fit: contain;
 
     img {
         width: 70%;
+        max-height: 100%;
     }
 }
 
-.images-stack-middle:hover {
+.images-stack-middle img:hover {
     filter: grayscale(100%);
     cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 }
 
 .images-stack-bottom {
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 
     position: relative;
-    bottom: -10%;    
+    bottom: 0%;    
+
+    object-fit: contain;
 
     img {
         width: 50%;
+        max-height: 100%;
     }
 }
 
-.images-stack-bottom:hover {
-    filter: grayscale(0%);
+.images-stack-bottom img:hover {
+    filter: grayscale(100%);
     cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 }
 
 .images-stack-logo {
     position: relative;
-    transform: translateY(-90%) translateX(20%);
+    bottom: 5%;
+    left: 30%;
+
+    /* transform: translateY(-90%) translateX(20%); */
+
+    z-index: -1;
 }
 
 

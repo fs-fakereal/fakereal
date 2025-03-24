@@ -67,21 +67,30 @@ window.addEventListener('load', scalable);
 // nav scale
 const navScaleContainers = document.querySelectorAll('.nav-scale');
 
-function navScale() {
-    for (i=0; i<navScaleContainers.length; i++) {
-        let windowHeight = window.innerHeight;
-        let topOfScaleContainer = navScaleContainers[i].getBoundingClientRect().top;
+function navScale(index) {
+    if (index < navScaleContainers.length) {
+        navScaleContainers[index].style.opacity = 1;
+        navScaleContainers[index].classList.add('active');
 
-        if (topOfScaleContainer < windowHeight - animation.revealDistance) {
-            navScaleContainers[i].classList.add('active');
-        } else {
-            navScaleContainers[i].classList.remove('active');
-        }
+        setTimeout(() => {
+            navScale(index + 1);
+        }, 400); 
     }
+    // for (i=0; i<navScaleContainers.length; i++) {
+    //     let windowHeight = window.innerHeight;
+    //     let topOfScaleContainer = navScaleContainers[i].getBoundingClientRect().top;
+
+    //     if (topOfScaleContainer < windowHeight - animation.revealDistance) {
+    //         navScaleContainers[i].classList.add('active');
+    //     } else {
+    //         navScaleContainers[i].classList.remove('active');
+    //     }
+    // }
 }
 
-window.addEventListener('scroll', navScale);
-window.addEventListener('load', navScale);
+// navScale(0);
+// window.addEventListener('scroll', navScale(0));
+window.addEventListener('load', navScale(0));
 
 // examples scale
 const exampleScaleContainers = document.querySelectorAll('.ex-scale');
