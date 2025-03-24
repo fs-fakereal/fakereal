@@ -9,9 +9,11 @@
     justify-content: space-between;
 
     /* background-color: #5e7381; */
-    background-color: #686866;
+    background-color: #878672;
+    /* background-color: #5662f6; */
+
     padding: 1rem 0.5rem;
-    height: 100vh;
+    /* height: 100vh; */
     box-shadow: 2px 0 6px rgba(36, 34, 30, 0.1);
 
     /* position: static; */
@@ -43,7 +45,8 @@
 }
 
 .sidebar a:hover {
-    background-color: rgb(36, 34, 30);
+    /* background-color: rgb(36, 34, 30); */
+    background-color: #262b26;
     border-radius: 10px;
     /* color: #5e7381; */
     color: #fcf8fc;

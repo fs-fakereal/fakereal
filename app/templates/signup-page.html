@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+
     <link rel="stylesheet" href="../static/css/signup-style.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
@@ -12,22 +14,26 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  </head>
+  
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
-        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages nav-scale">
+          <a href="{{ url_for('about') }}" class="nav-scale nav-hover">About</a>
+          <a href="{{ url_for('login') }}" class="nav-scale nav-hover">Log In</a>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="main-content">
 
       <div class="signup-container">
@@ -77,7 +83,9 @@
             </p>
             
             <div class="showPass">
-              <input type="checkbox" id="showPassword" class="cursor pass-box"> <p class="display-pass">Show Password </p><br><br>
+              <input type="checkbox" id="showPassword" class="cursor pass-box">
+              <label for="showPassword" class="display-pass">Show Password </label>
+                <br><br>
             </div>
 
             <p>
