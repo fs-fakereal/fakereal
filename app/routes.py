@@ -172,6 +172,11 @@ def upload():
 def dashboard():
     return render_template('dashboard.html', title='Dashboard')
 
+@app.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    return render_template('settings.html', title = 'Settings')
+
 #routes to the user account detail editing page
 @app.route('/edit', methods=['GET', 'POST'])
 @login_required
