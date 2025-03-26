@@ -36,7 +36,7 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <!-- <div class="main-content"> -->
 
       <div class="signup-container">
         <h1>Create Your Account</h1>
@@ -60,7 +60,7 @@
           {% endif %}
           {% endwith %}
       
-        <form action="" method="POST" class="signup-container">
+        <form action="" method="POST" class="signup-container signup-dets noto-sans-jp-regular">
             {{ form.hidden_tag() }}
             <p>
                 {{ form.first_name.label }}<br>
@@ -91,7 +91,7 @@
             </div>
 
             <p>
-                {{ form.submit(class_="signup-form cursor") }}<br>
+                {{ form.submit(class_="signup-button cursor") }}<br>
                 <!--{{ form.submit.label }}-->
             </p>
             
@@ -108,7 +108,7 @@
         </form>
       </div>
       
-    </div>
+    <!-- </div> -->
 
     <!-- Footer -->
     <footer class="footer">

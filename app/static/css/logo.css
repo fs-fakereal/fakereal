@@ -36,6 +36,7 @@
 
     left: 35%;
     bottom: 5%;
+    z-index: 1;
 }
 
 .pupil {
@@ -45,6 +46,14 @@
     background-color: #fcf8fc;
 
     border-radius: 50%;
+
+    position: relative;
+    left: 35%;
+    
+    transform: rotate(275deg);
+    transition: all 0.2s ease;
+
+    z-index: 0;
 }
 
 .stick {

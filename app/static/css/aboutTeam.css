@@ -12,7 +12,7 @@
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.2rem;
         color: #fcf8fc;
         padding: 0px 25px 0px 25px;
     }
@@ -21,7 +21,7 @@
         text-align: left;
         margin: 0px;
         /* margin-right: 25px; */
-        font-size: 2rem;
+        font-size: 1rem;
         color: #fcf8fc;
         padding: 0px 45px 0px 25px;
     }

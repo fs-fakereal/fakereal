@@ -44,8 +44,7 @@ body {
 
 /* Adjustment for the footer */
 .main-content {
-  height: 80vh;
-  width: 100%;
+  height: 90vh;
   padding:  0 1rem;
 
   display: flex;

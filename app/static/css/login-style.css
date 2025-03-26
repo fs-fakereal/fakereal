@@ -48,7 +48,7 @@ form {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 0.2rem solid #c0b695;
     border-radius: 8px;
     background-color: #f9f9f9;
     display: flex;
@@ -57,6 +57,13 @@ form {
     box-sizing: border-box;
     color: #000000;
 }
+
+    .login-form p {
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+    }
 
     .login-form label {
         display: block;
@@ -74,10 +81,38 @@ form {
         box-sizing: border-box; /* Ensures padding does not affect width */
     }
 
-    .login-form button, .login-form input[type="submit"] {
+    .login-form input[type="submit"] {
         width: 100%;
         padding: 10px;
-        background-color: #4CAF50; /* Button color for log in */
+        background-color: #8f8B91; /* Button color for log in */
+        color: white;
+
+        font-weight: 400;
+        font-size: 1rem;
+
+        border: none;
+        border-radius: 4px;
+        border: #000 0.2rem solid;
+
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out; 
+    }
+
+    .login-form input[type="submit"]:hover {
+        background-color: #535651;
+        border: #c0b695 0.2rem solid;
+        color: #c0b695;
+
+        font-weight: 400;
+    
+        transition: all 0.3s ease-in-out; 
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    }
+
+    .login-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #535651; /* Button color for log in */
         color: white;
         border: none;
         border-radius: 4px;
@@ -85,8 +120,8 @@ form {
         box-sizing: border-box;
     }
 
-    .login-form button:hover, .login-form input[type="submit"]:hover {
-        background-color: #45a049; /* Darker shade of green when user hover over */
+    .login-form button:hover {
+        background-color: #535651; /* Darker shade of green when user hover over */
         cursor: url('../imgs/mouse/white-pointer.png'), auto;
     }
 
