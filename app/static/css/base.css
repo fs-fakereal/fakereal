@@ -44,8 +44,13 @@ body {
 
 /* Adjustment for the footer */
 .main-content {
-  height: 100vh;
+  height: 80vh;
+  width: 100%;
   padding:  0 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   transition: all 0.5s ease-in-out;
 }

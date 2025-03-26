@@ -75,6 +75,18 @@ nav {
     text-decoration-thickness: 0.1rem;
 }
 
+.current-page {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: #000;
+}
+
+.current-nav {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: #000;
+}
+
 .report-button {
     background-color: #8f8B91;
     /* background-color: rgb(185, 47, 47); */
@@ -97,9 +109,9 @@ nav {
     color: rgb(35, 35, 35); */
     /* background-color: #dfbe90; */
     background-color: #4c494f;
-    border: #3f2625 0.2rem solid;
+    border: #c0b695 0.2rem solid;
     /* color: #dd3749; */
-    color: #3f2625;
+    color: #c0b695;
 
     border-radius: 30px;
     transition: all 0.3s ease-in; 

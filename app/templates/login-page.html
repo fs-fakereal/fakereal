@@ -25,9 +25,11 @@
           <a href="{{ url_for('index') }}">Fake Real</a>
         </div>
 
-        <div class="pages nav-scale">
-          <a href="{{ url_for('about') }}" class="nav-scale nav-hover">About</a>
-          <a href="{{ url_for('login') }}" class="nav-scale nav-hover">Log In</a>
+        <div class="pages">
+          <a href="{{ url_for('about') }}" class="nav-hover">About</a>
+          <div class="current-nav">
+            <a href="{{ url_for('login') }}" class="current-page nav-hover">Log In</a>
+          </div>
           <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
         </div>
       </div>
@@ -69,15 +71,15 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer-two">
+    <footer class="footer">
 
       <div class="upper-half">
-        <div class="fakereal-here2">
+        <div class="fakereal-here">
           <h1>FakeReal</h1>
           <p>How far is too far?</p>
         </div>
         
-        <div class="details2">
+        <div class="details">
           <h3>Site Links</h3>
           
           <p><a href="{{ url_for('about') }}">Contact Us</a></p>
@@ -90,7 +92,7 @@
         </div>
 
         <div class="links">
-          <div class="download2">
+          <div class="download">
             <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
 
             <div class="download-text">
@@ -99,7 +101,7 @@
             </div>
           </div>
 
-          <div class="report2">
+          <div class="report">
             <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
 
             <div class="report-text">
