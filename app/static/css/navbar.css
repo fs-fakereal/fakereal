@@ -1,7 +1,10 @@
 /* Navigation Bar Styles */
 nav {
-    background-color: #878672;
-    /* background-color: #5e7381; */
+    /* background-color: #878672; */
+    /* background-color: #5E7381; */
+    background-color: #535651;
+
+    border-bottom: #c0b695 solid 0.2rem;
 
     overflow: hidden;
     /* box-shadow: 0 4px 6px rgba(162, 189, 152, 0.212); Adds a softer, cooler shadow for depth */
@@ -20,7 +23,6 @@ nav {
 .navbar .title {
     font-size: 2rem;
     font-weight: bold;
-    color: #825c42;
     padding-left: 1rem; /* Adds space to the left of the title */
     text-transform: uppercase; /* Makes the title all caps */
 }
@@ -74,9 +76,11 @@ nav {
 }
 
 .report-button {
-    background-color: rgb(185, 47, 47);
+    background-color: #8f8B91;
+    /* background-color: rgb(185, 47, 47); */
     border-radius: 30px;
-    border: rgb(185, 47, 47) 0.2rem solid;
+    border: #000 0.2rem solid;
+    /* border: rgb(185, 47, 47) 0.2rem solid; */
 
     color: black;
     font-weight: 80;
@@ -91,8 +95,11 @@ nav {
 .report-button:hover {
     /* background-color: rgb(119, 45, 45);
     color: rgb(35, 35, 35); */
-    background-color: #dfbe90;
-    color: #dd3749;
+    /* background-color: #dfbe90; */
+    background-color: #4c494f;
+    border: #3f2625 0.2rem solid;
+    /* color: #dd3749; */
+    color: #3f2625;
 
     border-radius: 30px;
     transition: all 0.3s ease-in; 

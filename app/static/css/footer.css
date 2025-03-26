@@ -4,8 +4,13 @@
 
     text-align: center;
     padding: 10px 20px;
+
     /* background-color: #3b3d66; */
-    background-color: #1a2431;
+    /* background-color: #1a2431; */
+    background-color: #535651;
+
+    border-top: #c0b695 solid 0.2rem;
+
     bottom: 0;
     /* width: 100%; */
     font-size: 1rem;
@@ -14,7 +19,7 @@
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
-        color: azure;
+        color: #000;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
@@ -24,7 +29,7 @@
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
-        color: azure;
+        color: #000;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
@@ -32,54 +37,17 @@
     }
 
     p a:hover {
-        color: #5E7381;
+        color: #c0b695;
+        text-decoration: underline;
     }
 
     hr {
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-    }
-}
-
-.footer-two {
-    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-
-    text-align: center;
-    padding: 10px 20px;
-    background-color: #5E7381;
-    /* background-color: #45425A; */
-    bottom: 0;
-    /* width: 100%; */
-    font-size: 1rem;
-
-    p {
-        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-        src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
-        font-family: 'Baloo Thambi 2';
-        color: black;
-        text-align: left;
-        margin: 0rem;
-        padding: 0rem;
-    }
-
-    p a {
-        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
-        src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
-        font-family: 'Baloo Thambi 2';
-        color: black;
-        text-align: left;
-        margin: 0rem;
-        padding: 0rem;
-        text-decoration: none;
-    }
-
-    hr {
-        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-        color: #1a2431;
     }
 }
 
 hr {
-    color: #8c8a9f;
+    color: #c0b695;
 }
 
 .links {
@@ -91,11 +59,7 @@ hr {
 
 /* Fakereal dets */
 .fakereal-here h1 {
-    color: #8c8a9f;
-}
-
-.fakereal-here2 h1 {
-    color: #1a2431;
+    color: #c0b695;
 }
 
 
@@ -109,7 +73,7 @@ hr {
     padding: 0rem 0rem 0.8rem 0rem;
 
     h3 {
-        color: #8c8a9f;
+        color: #c0b695;
         margin: 0rem 0rem 0.2rem 0rem;
     }
 }
@@ -156,7 +120,7 @@ hr {
     }
 }
 
-.download2 {
+/* .download2 {
     display: flex;
     flex-direction: row;
     align-items: right;
@@ -195,7 +159,7 @@ hr {
     img:hover {
         filter: contrast(50%);
     }
-}
+} */
 
 .download-text {
     display: flex;
@@ -248,7 +212,7 @@ hr {
     }
 }
 
-.report2 {
+/* .report2 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -285,7 +249,7 @@ hr {
     img:hover {
         filter: contrast(50%);
     }
-}
+} */
 
 .report-text {
     display: flex;
@@ -331,7 +295,7 @@ hr {
     margin: 0rem;
 }
 
-.details2 {
+/* .details2 {
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -343,4 +307,4 @@ hr {
     h3 {
         color: #1a2431;
     }
-}
+} */
