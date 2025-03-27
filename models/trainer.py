@@ -162,8 +162,8 @@ if __name__ == '__main__':
     modelPrep(model_pretrained)
 
     latest = latest_checkpoint(os.path.join(os.getcwd(), checkpoint_dir))
-if (latest):
-    model.load_weights(latest)
+    if (latest):
+        model.load_weights(latest)
 
     callbacks = []
     callbacks.append(

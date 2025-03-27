@@ -11,8 +11,8 @@
   <body>
     <!-- Upload Image -->
     <div class="upload-section">
-      <h1>Upload an Image</h1>  
-      <form id="uploadForm" enctype="multipart/form-data">
+      <h1>Upload an Image</h1>
+      <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
         <div class="upload-box">
           <label for="image">Choose an Image:</label>
           <input type="file" id="image" name="image" accept="image/*" required onchange="previewImage()">
@@ -32,5 +32,6 @@
     </div>
 
     <script src="../static/js/upload-limit.js"></script>
+    <script src="../static/js/results.js"></script>
   </body>
 </html>
