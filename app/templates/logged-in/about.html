@@ -4,11 +4,13 @@
     <title>About Us- Fake Real</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/base.css">
-    <link rel="stylesheet" href="../static/css/aboutTeam.css">
-    <link rel="stylesheet" href="../static/css/support.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
-    <link rel="stylesheet" href="../static/css/logo.css">
+    <link rel="stylesheet" href="../../static/css/base.css">
+    <link rel="stylesheet" href="../../static/css/navbar.css">
+
+    <link rel="stylesheet" href="../../static/css/aboutTeam.css">
+    <link rel="stylesheet" href="../../static/css/support.css">
+    <link rel="stylesheet" href="../../static/css/footer.css">
+    <link rel="stylesheet" href="../../static/css/logo.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,15 +21,17 @@
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('loggedHomePage') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('loggedHomePage') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('loggedHomePage') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('loggedAbout') }}">About</a></li>
-        <li><a href="{{ url_for('dashboard') }}">Profile</a></li>    
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages">
+          <a href="{{ url_for('about') }}" class="nav-hover">About</a>
+          <a href="{{ url_for('dashboard') }}" class="nav-hover">Profile</a>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Header/Mission Point -->
@@ -49,7 +53,7 @@
     </div>
 
     <!-- About Team -->
-    <div class="team">
+    <div class="team revealable-team">
       <h1>Meet the Team</h1>
       
       <div class="all-list">
@@ -57,19 +61,19 @@
           <h2>Frontend</h2>
           <div class="list">
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Letizia Maukar</h3>
               <p>Project Manager,</p>
               <p>UX and UI Designer</p>
 
               <div class="socials">
-                <a href="www.linkedin.com/in/letizia-maukar-386976187"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
+                <a href="https://www.linkedin.com/in/letizia-maukar-386976187/"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
                 <a href="https://github.com/ohmarcie"><img src="../static/imgs/icons/github.png" alt="letizia's github"></a>
               </div>
             </div>
 
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Rajesh Reddy</h3>
               <p>UX and UI Designer</p>
               
@@ -86,7 +90,7 @@
           <div class="list">
             
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Fatima Sarr</h3>
               <p>Quality Tester,</p> 
               <p>Software Developer</p>
@@ -98,7 +102,7 @@
             </div>
 
             <div class="members">
-              <img src="../static/imgs/icons/profile.png" alt="temp">
+              <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Liam Bagabag</h3>
               <p>Software Developer</p>
               
@@ -111,7 +115,11 @@
         </div>
 
       </div>
+    </div>
 
+    <div class="blur-parent-two">
+      <div class="team-blur"></div>
+      <div class="support-blur-into"></div>
     </div>
 
     <!-- Support Box -->
@@ -189,13 +197,13 @@
         <div class="details">
           <h3>Site Links</h3>
           
-          <p>Contact Us</p>
-          <p>FAQ</p>
+          <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+          <p><a href="{{ url_for('about') }}">FAQ</a></p>
 
           <br>
 
-          <p>Log In</p>
-          <p>Sign Up</p>
+          <p><a href="{{ url_for('login') }}">Log In</a></p>
+          <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
         </div>
 
         <div class="links">
@@ -237,5 +245,7 @@
       }
     </script>
     <script src="../static/js/logo-animation.js"></script>
+    <script src="../static/js/animation.js"></script>
+
   </body>
 </html>

@@ -14,3 +14,4 @@ sendgrid.env
 checkpoints
 .ipynb_checkpoints
 node_modules
+sendgrid.env

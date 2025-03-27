@@ -1,10 +1,71 @@
-.eye, eye img {
-    position: absolute;
+.eyeball {
+    position: relative;
 
-    top: -0.5rem;
-    left: 1.4rem;
+    bottom: -14rem;
+    left: -1rem;
+
+    transform: rotate(275deg);
+    height: 20vw;
+
+    z-index: 0;
+
+    transition: all 0.2s ease;
 }
 
-.eyeball {
-    height: 100%;
+#anchor {
+    position: relative;
+
+    top: 100%;
+    right: -40%;
+    height: 20vw;
+
+    z-index: 1;
+}
+
+/* custom eye */
+.eyes {
+    width: 10vw;
+    height: 10vw;
+
+    background-color: #000;
+
+    border-radius: 50%;
+    border: #fcf8fc solid 1vw;
+
+    position: relative;
+
+    left: 35%;
+    bottom: 5%;
+    z-index: 1;
+}
+
+.pupil {
+    width: 5vw;
+    height: 5vw;
+
+    background-color: #fcf8fc;
+
+    border-radius: 50%;
+
+    position: relative;
+    left: 35%;
+    
+    transform: rotate(275deg);
+    transition: all 0.2s ease;
+
+    z-index: 0;
+}
+
+.stick {
+    width: 1.5vw;
+    height: 12vw;
+
+    background-color: #fcf8fc;
+
+    position: relative;
+    
+    left: 60%;
+    bottom: 10%;
+
+    transform: rotate(148deg);
 }

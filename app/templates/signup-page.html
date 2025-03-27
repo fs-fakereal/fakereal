@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+
     <link rel="stylesheet" href="../static/css/signup-style.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
@@ -12,23 +14,29 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  </head>
+  
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages">
+          <a href="{{ url_for('about') }}" class="nav-hover">About</a>
+          <div class="current-nav">
+            <a href="{{ url_for('login') }}" class="current-page nav-hover">Log In</a>
+          </div>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
-    <div class="main-content">
+    <!-- Main Content -->
+    <!-- <div class="main-content"> -->
 
       <div class="signup-container">
         <h1>Create Your Account</h1>
@@ -52,7 +60,7 @@
           {% endif %}
           {% endwith %}
       
-        <form action="" method="POST" class="signup-container">
+        <form action="" method="POST" class="signup-container signup-dets noto-sans-jp-regular">
             {{ form.hidden_tag() }}
             <p>
                 {{ form.first_name.label }}<br>
@@ -70,13 +78,20 @@
                 {{ form.password.label }}<br>
                 {{ form.password(size=32, class_="signup-form") }}
             </p>
+            
             <p>
                 {{ form.confirm_password.label }}<br>
                 {{ form.confirm_password(size=32, class_="signup-form") }}
             </p>
-            <input type="checkbox" id="showPassword" class="cursor"> Show Password <br><br>
-              <p>
-                {{ form.submit(class_="signup-form cursor") }}<br>
+            
+            <div class="showPass">
+              <input type="checkbox" id="showPassword" class="cursor pass-box">
+              <label for="showPassword" class="display-pass">Show Password </label>
+                <br><br>
+            </div>
+
+            <p>
+                {{ form.submit(class_="signup-button cursor") }}<br>
                 <!--{{ form.submit.label }}-->
             </p>
             
@@ -93,7 +108,7 @@
         </form>
       </div>
       
-    </div>
+    <!-- </div> -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -107,13 +122,13 @@
         <div class="details">
           <h3>Site Links</h3>
           
-          <p>Contact Us</p>
-          <p>FAQ</p>
+          <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+          <p><a href="{{ url_for('about') }}">FAQ</a></p>
 
           <br>
 
-          <p>Log In</p>
-          <p>Sign Up</p>
+          <p><a href="{{ url_for('login') }}">Log In</a></p>
+          <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
         </div>
 
         <div class="links">
@@ -157,5 +172,7 @@
   {% endif %}
 
   <script src="../static/js/logo-animation.js"></script>
+  <script src="../static/js/animation.js"></script>
+
   </body>
 </html>

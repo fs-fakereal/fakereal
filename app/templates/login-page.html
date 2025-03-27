@@ -5,55 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
-    <link rel="stylesheet" href="../static/css/center.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+
+    <link rel="stylesheet" href="../static/css/login-style.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/logo.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages">
+          <a href="{{ url_for('about') }}" class="nav-hover">About</a>
+          <div class="current-nav">
+            <a href="{{ url_for('login') }}" class="current-page nav-hover">Log In</a>
+          </div>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="main-content">
 
-      <h1>Login to Fake Real</h1>
-      <p>Please enter your credentials to access your account.</p>
+      <div class="login-page">
 
-      <!-- Login Form -->
-      <form action="" method="POST" class="login-form">
-          {{ form.hidden_tag() }}
-          <p>
-              {{ form.email.label }}<br>
-              {{ form.email(size=32) }}
-          </p>
-          <p>
-              {{ form.password.label }}<br>
-              {{ form.password(size=32) }}
-          </p>
-          <p>
-              {{ form.submit() }}<br>
-              <!-- {{ form.submit.label }} -->
-          </p>
-      </form>
+        <div class="login-header">
+          <h1>Login to Fake Real</h1>
+          <p>Please enter your credentials to access your account.</p>
+        </div>
 
-      <!-- Link to Sign Up -->
-      <p><a class="cursor" href="{{ url_for('forgot_password') }}">Forgot Password?</a>.</p>
-      <p>Don't have an account? <a class="cursor" href="{{ url_for('signup') }}">Sign up here</a>.</p>
+        <!-- Login Form -->
+        <form action="" method="POST" class="login-form">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+            </p>
+            <p>
+                {{ form.submit() }}<br>
+                <!-- {{ form.submit.label }} -->
+            </p>
+        </form>
 
+        <!-- Link to Sign Up -->
+        <div class="under-links">
+          <p class="link-color"><a href="{{ url_for('forgot_password') }}">Forgot Password?</a></p>
+          <p class="signup-color link-color">Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
@@ -68,13 +82,13 @@
         <div class="details">
           <h3>Site Links</h3>
           
-          <p>Contact Us</p>
-          <p>FAQ</p>
+          <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+          <p><a href="{{ url_for('about') }}">FAQ</a></p>
 
           <br>
 
-          <p>Log In</p>
-          <p>Sign Up</p>
+          <p><a href="{{ url_for('login') }}">Log In</a></p>
+          <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
         </div>
 
         <div class="links">
@@ -107,6 +121,7 @@
     </footer>
     
     <script src="../static/js/logo-animation.js"></script>
+    <script src="../static/js/animation.js"></script>
 
   </body>
 </html>

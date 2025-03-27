@@ -4,8 +4,13 @@
 
     text-align: center;
     padding: 10px 20px;
+
     /* background-color: #3b3d66; */
-    background-color: #1a2431;
+    /* background-color: #1a2431; */
+    background-color: #535651;
+
+    border-top: #c0b695 solid 0.2rem;
+
     bottom: 0;
     /* width: 100%; */
     font-size: 1rem;
@@ -14,36 +19,26 @@
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
-        color: azure;
+        color: #000;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
     }
 
-    hr {
-        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-    }
-}
-
-.footer-two {
-    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
-
-    text-align: center;
-    padding: 10px 20px;
-    /* background-color: #3b3d66; */
-    background-color: #45425A;
-    bottom: 0;
-    /* width: 100%; */
-    font-size: 1rem;
-  
-    p {
-        cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
+    p a {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
         src: url(https://fonts.gstatic.com/s/baloothambi2/v17/cY9cfjeOW0NHpmOQXranrbDyu7hPDpKBZQ.woff2) format('woff2');
         font-family: 'Baloo Thambi 2';
-        color: azure;
+        color: #000;
         text-align: left;
         margin: 0rem;
         padding: 0rem;
+        text-decoration: none;
+    }
+
+    p a:hover {
+        color: #c0b695;
+        text-decoration: underline;
     }
 
     hr {
@@ -52,7 +47,7 @@
 }
 
 hr {
-    color: #8c8a9f;
+    color: #c0b695;
 }
 
 .links {
@@ -64,8 +59,24 @@ hr {
 
 /* Fakereal dets */
 .fakereal-here h1 {
-    color: #8c8a9f;
+    color: #c0b695;
+    font-size: 3rem;
+
+    text-align: left;
+    padding: 0rem 0.5rem;
+    margin: 0rem;
 }
+
+.fakereal-here p {
+    color: #c0b695;
+    font-size: 1.2rem;
+    font-style: italic;
+
+    text-align: left;
+    padding: 0rem 0.5rem 1rem 0.5rem;
+    margin: 0rem;
+}
+
 
 
 /* upper half of the footer */
@@ -78,7 +89,7 @@ hr {
     padding: 0rem 0rem 0.8rem 0rem;
 
     h3 {
-        color: #8c8a9f;
+        color: #c0b695;
         margin: 0rem 0rem 0.2rem 0rem;
     }
 }
@@ -90,10 +101,77 @@ hr {
     flex-direction: row;
     align-items: right;
     margin: 0rem;
-    padding: 0.8rem 0rem 0.5rem 0rem;
+    /* padding: 0.8rem 0rem 0.5rem 0rem; */
+    padding: 0.5rem 1rem;
+
+    background-color: #262528;
+    border: #ff9b18 0.1rem solid;
+    border-radius: 2rem;
 
     h1 {
         color: #ff9b18;
+        font-size: 0.8rem;
+        text-align: left;
+
+        margin: 0rem;
+        padding: 0rem;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.6rem;
+        text-align: left;
+
+        color: #fcf8fc;
+
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    }
+
+    a{
+        cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    }
+
+    img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        height: 1.5rem;
+        padding: 0.2rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+    }
+
+    /* img:hover {
+        filter: contrast(50%);
+    } */
+}
+
+.download:hover {
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    background-color: #4c494f;
+    border: #8f8b91 solid 0.1rem;
+
+    h1 {
+        color: #ac8675;
+    }
+
+    p {
+        color: #8f8b91;
+    }
+        
+    img {
+        filter: contrast(30%);
+    }
+}
+
+/* .download2 {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    margin: 0rem;
+    padding: 0.8rem 0rem 0.5rem 0rem;
+
+    h1 {
+        color: #e88709;
         font-size: 1rem;
         text-align: left;
 
@@ -118,8 +196,13 @@ hr {
         height: 2rem;
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
+        filter: brightness(80%);
     }
-}
+
+    img:hover {
+        filter: contrast(50%);
+    }
+} */
 
 .download-text {
     display: flex;
@@ -139,11 +222,75 @@ hr {
     flex-direction: row;
     align-items: center;
 
+    /* margin: 0rem; */
+    /* padding: 0.1rem 0rem 0.8rem 0rem; */
+    margin: 0.5rem 0rem 0rem 0rem;
+    padding: 0.5rem 1rem;
+
+    background-color: #262528;
+    border: #e90000 0.1rem solid;
+    border-radius: 2rem;
+
+    h1 {
+        color: #e90000;
+        font-size: 0.8rem;
+
+        margin: 0rem;
+        padding: 0rem;
+
+        text-align: left;
+    }
+
+    p {
+        margin: 0rem;
+        padding: 0rem;
+
+        font-size: 0.6rem;
+        text-align: left;
+
+        color: #fcf8fc;
+    }
+
+    img {
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+        height: 1.5rem;
+        padding: 0rem 0.8rem 0rem 0.1rem;
+        margin: 0rem;
+    }
+
+    /* img:hover {
+        filter: contrast(50%);
+    } */
+}
+
+.report:hover {
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
+    background-color: #4c494f;
+    border: #3e2424 solid 0.1rem;
+
+    h1 {
+        color: #3e2424;
+    }
+
+    p {
+        color: #8f8b91;
+    }
+        
+    img {
+        filter: contrast(30%);
+    }
+}
+
+/* .report2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     margin: 0rem;
     padding: 0.1rem 0rem 0.8rem 0rem;
 
     h1 {
-        color: #e90000;
+        color: #bc0000;
         font-size: 1rem;
 
         margin: 0rem;
@@ -165,8 +312,13 @@ hr {
         height: 2rem;
         padding: 0rem 0.8rem 0rem 0.1rem;
         margin: 0rem;
+        filter: brightness(70%);
     }
-}
+
+    img:hover {
+        filter: contrast(50%);
+    }
+} */
 
 .report-text {
     display: flex;
@@ -211,3 +363,17 @@ hr {
     padding: 0.5rem 0rem 0rem 0rem;
     margin: 0rem;
 }
+
+/* .details2 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+
+    padding: 0.5rem 0rem 0rem 0rem;
+    margin: 0rem;
+
+    h3 {
+        color: #1a2431;
+    }
+} */

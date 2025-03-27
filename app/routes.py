@@ -110,7 +110,7 @@ def loggedAbout():
     return render_template('logged-in/about.html', title='About', form=form)
 
 #route to the signup page
-#uses similar methods to the lgoin function
+#uses similar methods to the login function
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
@@ -120,8 +120,10 @@ def signup():
     if form.validate_on_submit():
         try:
             existing_user = User.query.filter_by(email=form.email.data).first()
+            #Checks here if email is already in use. If it is throws an error
             if existing_user:
                 flash('Email already in use. Please use a different email.', 'error')
+            #If email is not in use goes here. User will be able to create an account
             else:
                 user = User(
                     first_name=form.first_name.data,

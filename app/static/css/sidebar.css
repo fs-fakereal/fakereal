@@ -1,70 +1,63 @@
-/* General Styles */
-body {
-    font-family: serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(249, 247, 240);
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-}
-
-.main-content {
-    flex-grow: 1;
-    padding: 20px;
-    transition: margin-left 0.3s ease; /* Transition for sliding effect */
-}
-
 /* Sidebar Styles */
 .sidebar {
-    width: 60px; /* Narrow width for the closed sidebar */
-    background-color: rgb(219, 210, 194);
-    padding: 1rem;
-    height: 100vh;
+
+    /* width: 60px; Narrow width for the closed sidebar */
+    width: 11rem; /* Wider when hovered */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #c0b695;
+    /* background-color: #878672; */
+
+    padding: 1rem 0.5rem;
+    /* height: 100vh; */
     box-shadow: 2px 0 6px rgba(36, 34, 30, 0.1);
-    position: fixed;
-    left: 0;
-    top: 0;
+
+    /* position: static; */
+    /* left: -6rem; */
+    /* top: 0; */
+
+    transform: translateX(-8rem);
+
     overflow-y: auto;     
-    transition: width 0.5s ease, padding 0.5s ease; /* Smooth transition for width change */
+    transition: all 0.5s ease-in-out 0s; /* Smooth transition for width change */
 }
 
 .sidebar:hover {
-    width: 10rem; /* Wider when hovered */
-    transition: width 0.5s ease; /* Smooth hover effect */
+    /* left: 10rem; */
+    transform: translateX(0rem);
 
-    .logo img{
-        height: 10rem;
-        width: 10rem;
-        margin-right: 2rem;
-        transition: width 0.5s ease, height 0.5s ease, margin-right 0.5s ease; /* Smooth hover effect */
-    }
+    transition: all 0.5s ease-in-out; /* Smooth hover effect */
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 15px 0;
-}
-
-.sidebar ul li a {
+.sidebar a {
     text-decoration: none;
-    color: rgb(74, 73, 71);
+    color: black;
+    border-radius: 10px;
     font-weight: bold;
     display: flex;
     align-items: center;
     padding: 10px;
-    transition: background-color 0.3s ease;
+    transition: all 0.5s ease-in-out;
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
+
+    img {    
+        transition: all 0.5s ease-in-out;
+    }
 }
 
-.sidebar ul li a:hover {
-    background-color: rgb(36, 34, 30);
-    border-radius: 10px;
-    color: #bbb1a4;
+.sidebar a:hover {
+    /* background-color: rgb(36, 34, 30); */
+    background-color: #262b26;
+    /* border-radius: 10px; */
+    /* color: #5e7381; */
+    color: #fcf8fc;
+
+    img {
+        filter: invert();
+    }
 }
 
 /* Hide descriptions by default */
@@ -80,7 +73,12 @@ body {
 
 /* When sidebar is expanded, apply margin to main content */
 .sidebar.open + .main-content {
-    margin-left: 11rem; /* Slide the content to the right when sidebar is open */
+    /* transform: scale(0.8rem); */
+    transform: translateX(8rem);
+
+    /* transition: all 0.5s ease-in-out; */
+    /* margin-left: 12rem;  */
+    /* Slide the content to the right when sidebar is open */
 }
 
 /* Responsive Design */

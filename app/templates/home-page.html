@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+
     <link rel="stylesheet" href="../static/css/deepfake-examples.css">
     <link rel="stylesheet" href="../static/css/home.css">
     <link rel="stylesheet" href="../static/css/articles.css">
@@ -15,42 +17,68 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav>
-      <ul class="navbar">
-        <li><a class="logo" href="{{ url_for('index') }}"><img id="anchor" src="../static/imgs/logo-base.png" alt="logo"></a></li>
-        <li><a class="eye" href="{{ url_for('index') }}"><img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"></a></li>
+      <div class="navbar">
+        <div class="title current-page">
+          <a href="{{ url_for('index') }}">Fake Real</a>
+        </div>
 
-        <li class="title rubik-glitch-regular nav-scale"><a href="{{ url_for('index') }}">Fake Real</a></li>
-        <li class="nav-scale"><a href="{{ url_for('about') }}">About</a></li>
-        <li class="nav-scale"><a href="{{ url_for('login') }}">Login/Sign Up</a></li>
-        <li class="report-button nav-scale"><a href="https://www.ic3.gov/">Report a case!</a></li>
-      </ul>
+        <div class="pages nav-scale">
+          <a href="{{ url_for('about') }}" class="nav-scale nav-hover">About</a>
+          <a href="{{ url_for('login') }}" class="nav-scale nav-hover">Log In</a>
+          <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Header -->
-    <div class="head fullscreen-section">
-      <h1>Fake Real</h1>
-      <p>What's real and what's fake?</p>
-      <br>
-      <p>FakeReal offers deep fake detection for images for free. Either log in or download the
-        chrome extension browser. Our services is user friendly, allowing users to upload a file 
-        to get a multilayer assessment in just a few seconds.
-      </p>
+    <div class="header">
+      <div class="head fullscreen-section">
+        <h1>Fake Real</h1>
+        <h2>What's real and what's fake?</h2>
+        <br>
+        <p>FakeReal offers deep fake detection for images for free. Either log in or download the
+          chrome extension browser below. Our services is user friendly, allowing users to upload a file 
+          to get a multilayer assessment in just a few seconds.
+        </p>
+  
+        <a href="{{ url_for('login') }}"><button type="button" class="login-button">Log in to get started!</button></a> 
+      </div>
+
+      <div class="images-stack">
+        <div class="images-stack-top">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img1">
+        </div>
+
+        <div class="images-stack-middle">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img2">
+        </div>
+
+        <div class="images-stack-bottom">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img3">
+        </div>
+
+        <div class="images-stack-logo">
+          <div class="eyes" id="eyes">
+            <div class="pupil">
+              <!--  -->
+            </div>
+          </div>
+          <div class="stick">
+            <!--  -->
+          </div>
+          <!-- <img id="anchor" src="../static/imgs/logo-base.png" alt="logo">
+          <img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"> -->
+        </div>      
+      </div>
+
     </div>
 
-    <!-- Log in/Sign Up -->
-    <div class="check revealable">
-      <h1 class="scale">Want to test if your image is deep faked?</h1>
-      <a href="{{ url_for('login') }}" class="scale"><button>Log In</button></a>
-      <a href="{{ url_for('signup') }}" class="scale"><button>Sign Up</button></a>
-    </div>
-
-    <div class="blur-two"></div>
-    <div class="blur-into"></div>
 
     <!-- Deepfake examples -->
     <div class="sticky_parent">
@@ -132,10 +160,13 @@
 
     <section class="revealable">
 
-      <div class="blur"></div>
+      <div class="blur-parent">
+        <div class="blur"></div>
+        <div class="arti-blur"></div>
+      </div>
 
       <!-- Deep fake articles to learn more -->
-      <div class="articles">
+      <div class="articles" id="read-more">
         <h1>Read more.</h1>
 
         <h2>
@@ -158,7 +189,20 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('feb_article') }}"><button></button></a>
+                <a href="{{ url_for('feb_article') }}">
+                  <button type="button" class="handle-button">_</button>
+                </a>
+
+                <div class="full-screen hidden flex-container-center">
+                  <button class="close-button" onclick=""><p>&#x2715</p></button>
+
+                  <div class="article-list">
+                    <div id="article" class="article">
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+                
               </div>
               <div class="cabinet-label">
                 <h1>Feb 2025</h1>
@@ -169,7 +213,7 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('empty_cab') }}"><button></button></a>
+                <a href="{{ url_for('empty_cab') }}"><button>_</button></a>
               </div>
               <div class="cabinet-label">
                 <h1>....</h1>
@@ -180,7 +224,7 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('empty_cab') }}"><button></button></a>
+                <a href="{{ url_for('empty_cab') }}"><button>_</button></a>
               </div>
               <div class="cabinet-label">
                 <h1>...</h1>
@@ -205,7 +249,7 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('empty_cab') }}"><button></button></a>
+                <a href="{{ url_for('empty_cab') }}"><button>_</button></a>
               </div>
               <div class="cabinet-label">
                 <h1>...</h1>
@@ -216,7 +260,7 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('empty_cab') }}"><button></button></a>
+                <a href="{{ url_for('empty_cab') }}"><button>_</button></a>
               </div>
               <div class="cabinet-label">
                 <h1>....</h1>
@@ -227,7 +271,7 @@
                 <!--  -->
               </div>
               <div class="handle">
-                <a href="{{ url_for('empty_cab') }}"><button></button></a>
+                <a href="{{ url_for('empty_cab') }}"><button>_</button></a>
               </div>
               <div class="cabinet-label">
                 <h1>...</h1>
@@ -249,40 +293,40 @@
 
         <div class="upper-half">
           <div class="fakereal-here">
-            <h1 class="rubik-glitch-regular">FakeReal</h1>
-            <p>How far is too far?</p>
+            <h1>FakeReal</h1>
+            <p>Our mission to bringing AI<br> detection to the general public.</p>
+
+            <div class="links">
+              <div class="download">
+                <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
+  
+                <div class="download-text">
+                  <h1>Scan images at real time!</h1>
+                  <p>Download our Chrome Extension</p>
+                </div>
+              </div>
+  
+              <div class="report">
+                <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+  
+                <div class="report-text">
+                  <h1>Report a case!</h1>
+                  <p>Click here to report a case</p>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div class="details">
             <h3>Site Links</h3>
             
-            <p>Contact Us</p>
-            <p>FAQ</p>
-
+            <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+            <p><a href="{{ url_for('about') }}">FAQ</a></p>
+  
             <br>
-
-            <p>Log In</p>
-            <p>Sign Up</p>
-          </div>
-
-          <div class="links">
-            <div class="download">
-              <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
-
-              <div class="download-text">
-                <h1>Scan images at real time!</h1>
-                <p>Download our Chrome Extension</p>
-              </div>
-            </div>
-
-            <div class="report">
-              <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
-
-              <div class="report-text">
-                <h1>Report a case!</h1>
-                <p>Click here to report a case</p>
-              </div>
-            </div>
+  
+            <p><a href="{{ url_for('login') }}">Log In</a></p>
+            <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
           </div>
         </div>
 
@@ -300,6 +344,6 @@
     <script src="../static/js/carousel.js"></script>
     <script src="../static/js/logo-animation.js"></script>
     <script src="../static/js/animation.js"></script>
-    <!-- <script src="../static/js/news-article.js"></script> -->
+    <script src="../static/js/news-article.js"></script>
   </body>
 </html>

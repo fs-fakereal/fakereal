@@ -7,9 +7,10 @@ html {
 }
 
 body {
-  cursor: url('../imgs/mouse/blue-mouse.png'), auto !important;
+  cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 
-  font-family: "Prosto One", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 
@@ -18,9 +19,10 @@ body {
 
   scroll-behavior: smooth;
 
-  /* background-color: rgb(98, 95, 102); */
-  background-color: #1a2431;
-  /* background-color: rgb(179, 168, 155); */
+  background-color: rgb(34, 34, 34);
+  /* background-color: #475661; */
+  /* background-color: #4b5950; */
+  /* background-color: #647764; */
 
   display: flex;
   flex-direction: column;
@@ -28,14 +30,9 @@ body {
 }
 
 /* Font Styles */
-.rubik-glitch-regular {
-  font-family: "Rubik Glitch", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.prosto-one-regular {
-  font-family: "Prosto One", sans-serif;
+.noto-sans-jp-regular {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
@@ -47,120 +44,28 @@ body {
 
 /* Adjustment for the footer */
 .main-content {
-  flex-grow: 1;
+  height: 90vh;
+  padding:  0 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.5s ease-in-out;
 }
 
 /* Heading Styles */
 h1 {
   text-align: center;
-  color: rgb(60, 60, 60);
+  /* color: rgb(60, 60, 60); */
+  color: #fcf8fc;
 }
 
 /* Paragraph Styles */
 p {
   text-align: center;
-  color: rgb(74, 73, 71); 
-}
-
-/* Navigation Bar Styles */
-nav {
-  /* background-color: rgb(219, 210, 194); */
-  background-color: #5E7381;
-
-  overflow: hidden;
-  /* box-shadow: 0 4px 6px rgba(169, 148, 107, 0.1); Adds a subtle shadow for depth */
-  box-shadow: 0 4px 6px rgba(64, 86, 108, 0.279); /* Adds a subtle shadow for depth */
-}
-
-.navbar {
-  list-style: none;
-  margin: 5px;
-  padding: 0;
-  display: flex;
-  justify-content: space-between; /* Ensures spacing for the title */
-  align-items: center; /* Vertically centers the items */
-}
-
-.navbar .title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #825c42;
-  margin-left: 20px; /* Adds space to the left of the title */
-  text-transform: uppercase; /* Makes the title all caps */
-}
-
-.navbar li {
-  margin: 0 8px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding: 14px 20px;
-  display: block;
-  font-weight: bold; /* Makes the links stand out */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-}
-
-.navbar a:hover {
-  cursor: url('../imgs/mouse/white-pointer.png'), default !important;
-  transition: all 0.3s ease;
-  /* background-color: rgb(36, 34, 30); */
-  /* border-radius: 10px; */
-  color: rgb(74, 74, 74);
-}
-
-/* .navbar button {
-  border-radius: 10px;
-  color: #825c42;
-
-  a {
-    background-color: none;
-    color: rgb(36, 34, 30);
-  }
-
-  a:hover {
-    background-color: #e1d8cc;
-    color: #575342;
-  }
-} */
-
-.navbar img {
-  width: 4rem;
-
-  padding: 0rem;
-  margin: 0rem;
-
-  :hover {
-    text-decoration: none;
-    background-color: none;
-    color: none;
-  }
-}
-
-.report-button {
-  a {
-    background-color: rgb(185, 47, 47);
-    border-radius: 30px;
-    
-    color: black;
-    font-weight: 80;
-    font-size: 1rem;
-
-    text-align: center;
-
-    transition: all 0.3s ease-in; 
-  }
-
-  a:hover {
-    /* background-color: rgb(119, 45, 45);
-    color: rgb(35, 35, 35); */
-    background-color: #dfbe90;
-    color: #dd3749;
-
-    border-radius: 30px;
-    transition: all 0.3s ease-in; 
-  }
+  /* color: rgb(74, 73, 71);  */
+  color: #fcf8fc;
 }
 
 /* Responsive Design */
@@ -237,7 +142,6 @@ nav {
 
 .nav-scale.active {
   background-color: transparent;
-  opacity: 1;
   transform: scale(1);
 }
 
@@ -256,5 +160,15 @@ nav {
 
 /* for the blurs */
 .blur-parent {
-  overflow-y: hidden;
+  overflow: hidden;
+  position: relative;
+
+  height: 20rem;
+}
+
+.blur-parent-two {
+  overflow: hidden;
+  position: relative;
+
+  height: 18rem;
 }

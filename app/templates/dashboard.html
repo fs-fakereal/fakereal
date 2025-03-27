@@ -6,30 +6,61 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../static/css/sidebar.css">
     <link rel="stylesheet" href="../static/css/logo-sidebar.css">
+    <link rel="stylesheet" href="../static/css/dashboard-base.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Glitch&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="sidebar">
-        <!-- Links to each page -->
-        <ul>
-            <li><a class="logo" href="{{ url_for('loggedHomePage') }}"><img src="../static/imgs/logo.png" alt="logo"></a></li>
+    <div class="webpage-design">
+        <div class="top">
+            <div class="webnav">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>   
+        </div>
 
-            <li><a href="{{ url_for('upload') }}">Upload </a></li>
-            <li><a href="{{ url_for('result') }}">Results </a></li>
-            <li><a href="{{ url_for('user_edit') }}">Settings </a></li>
-            <li><a href="{{ url_for('logout') }}">Logout </a></li>
-        </ul>
-    </div>
-    <div class="main-content" id="main-content">
-        <h1></h1>
-        <p></p>
-    </div>
+        <div class="space">
+            <!--  -->
+        </div> 
 
+        <div class="middle">
+            <div class="sidebar">
+                <div class="sidebar-top">
+                    <div class="text-w-logo">
+                        <a href="{{ url_for('index') }}">Home <img src="../static/imgs/sidebar/home.png" alt="home" class="logos-side"></a>
+                    </div>
+                    <div class="text-w-logo">
+                        <a href="{{ url_for('upload') }}">Upload <img src="../static/imgs/sidebar/upload.png" alt="upload" class="logos-side"></a>
+                    </div>
+                    <div class="text-w-logo">
+                        <a href="{{ url_for('result') }}">Results <img src="../static/imgs/sidebar/check.png" alt="results" class="logos-side"></a>
+                    </div>
+                    <div class="text-w-logo">
+                        <a href="{{ url_for('user_edit') }}">Settings <img src="../static/imgs/sidebar/settings.png" alt="settings" class="logos-side"></a>
+                    </div>    
+                </div>
+        
+                <div class="text-w-logout">
+                    <a href="{{ url_for('logout') }}">Logout <img src="../static/imgs/sidebar/logout.png" alt="logout" class="logos-side"></a>
+                </div>
+            </div>
+            
+            <div class="main-content" id="main-content">
+                <h1></h1>
+                <p></p>
+            </div>        
+        
+        </div>
+
+        <div class="space">
+            <!--  -->
+        </div> 
+    </div>
     <script src="../static/js/sidehover.js"></script>
 </body>
 </html>

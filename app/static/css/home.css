@@ -1,106 +1,174 @@
+/* Header */
+.header {
+    margin: 0rem;
+    padding: 2rem;
+    /* background-color: #3a3f3a; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100vh;
+}
+
 .head {
     text-align: left;
+    width: 50%;
 
     h1 {
         text-align: left;
+        font-size: 3.2vw;
+        /* color: #5E7381; */
+        color: #fcf8fc;
+        /* font-family: sans-serif; */
         font-weight: bold;
-
-        font-size: 3rem;
-        /* color: #000000;  */
-        color: #5e7381;
-            
-        padding: 0px 0px 0px 25px;
+        /* margin-right: 25px; */
+        padding: 40px 25px 0px 25px;
     }
-    
+
+    h2 {
+        font-size: 2.2vw;
+        /* color: #fcf8fc; */
+        color: #fcf8fc;
+        padding: 0px 25px 0px 25px;
+    }
+
     p{
         text-align: left;
         margin: 0px;
-        font-size: 2rem;
-        /* color: #000000; */
-        color: #5e7381;
-        padding: 0px 0px 0px 25px;
+        /* margin-right: 25px; */
+        font-size: 1.8vw;
+        color: #fcf8fc;
+        /* color: #5E7381; */
+        padding: 0px 45px 0px 25px;
     }
 }
 
+.login-button {
+    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
-/* Log in and sign up button */
-.check {
+    background-color: #535651;
+    /* background-color: rgb(185, 47, 47); */
+    border-radius: 30px;
+    border: #000 0.2rem solid;
+
+    color: black;
+    font-weight: 80;
+    font-size: 1rem;
+
+    text-align: center;
+    font-weight: bold;
+
+    margin: 2rem 1rem;
+    padding: 0.8rem 1.5rem;
+
+    transition: all 0.5s ease-in-out; 
+}
+
+.login-button:hover {
+    /* background-color: rgb(119, 45, 45);
+    color: rgb(35, 35, 35); */
+    /* background-color: #3f2625; */
+    border: #c0b695 0.2rem solid;
+    color: #c0b695;
+
+    border-radius: 30px;
+    transition: all 0.5s ease-in-out; 
+}
+
+/* Image Stack */
+.images-stack {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 
-    /* padding: 80px 25px 80px 25px; */
-    padding: 15rem 1rem 8rem 1rem;
+    height: 70vh;
+    width: 50%;
 
+    overflow: hidden;
 
-    font-family: "Prosto One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.6rem;
+    position: relative;
+    bottom: 10%;
+}
 
-    /* background-color: #828e73; */
-    background-color: #980b2d;
-    border-radius: 20px 20px 0px 0px;
+.images-stack-top {
+    position: relative;
+    top: 13%;
+    right:-10%;
 
-    a{
-        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
-    }
+    object-fit: contain;
 
-    a:hover {
-        transition: all 0.3s ease-in; 
-        /* background-color: rgb(61, 55, 47); */
-        color: rgb(139, 121, 99);
-        font-size: 1.1rem;
-    }
-
-    h1 {
-        padding: 0rem 3rem;
-        color: #fcf8fc;
-    }
-
-    button {
-        margin: 0.3rem;
-        padding: 1rem 2rem;
-
-        width: 10rem;
-
-        font-family: "Prosto One", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1.2rem;
-
-        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
-
-        transition: all 0.3s ease-in; 
-        /* background-color: rgb(100, 90, 78); */
-        background-color: #dd3749;
-        /* color: rgb(185, 180, 173); */
-        color: #fcf8fc;
-        border-radius: 40px;
-    } 
-
-    button:hover {
-        transition: all 0.3s ease-in; 
-        /* background-color: rgb(61, 55, 47); */
-        background-color: #dfbe90;
-        /* color: rgb(139, 121, 99); */
-        color: #dd3749;
-        font-size: 1.1rem;
-        width: 9.5rem;
+    img {
+        max-width: 60%;
+        max-height: 100%;
     }
 }
 
+.images-stack-top img:hover {
+    filter: grayscale(100%);
+    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+}
 
+.images-stack-middle {
+    position: relative;
+    top: 8%;
+    right: -20%;
+
+    object-fit: contain;
+
+    img {
+        width: 70%;
+        max-height: 100%;
+    }
+}
+
+.images-stack-middle img:hover {
+    filter: grayscale(100%);
+    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+}
+
+.images-stack-bottom {
+    /* filter: grayscale(100%); */
+
+    position: relative;
+    bottom: 0%;    
+
+    object-fit: contain;
+
+    img {
+        width: 50%;
+        max-height: 100%;
+    }
+}
+
+.images-stack-bottom img:hover {
+    filter: grayscale(100%);
+    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+}
+
+.images-stack-logo {
+    position: relative;
+    bottom: 5%;
+    left: 30%;
+
+    /* transform: translateY(-90%) translateX(20%); */
+
+    z-index: -1;
+}
+
+
+/* Blur */
 .blur {
-    height: 3rem;
+    height: 4rem;
     transform: scale(5);
 
     filter: blur(8px);
-    /* mix-blend-mode: multiply; */
     background-color: #1a2431;
-    /* background-color: hsl(238, 29%, 16%); */
+}
+
+.arti-blur {
+    background-color: #3a3b3f;
+    height: 21rem;
 }
 
 .blur-two {
@@ -108,9 +176,7 @@
     transform: scale(5);
 
     filter: blur(8px);
-    /* mix-blend-mode: multiply; */
     background-color: #980b2d;
-    /* background-color: hsl(238, 29%, 16%); */
 }
 
 .blur-into {
