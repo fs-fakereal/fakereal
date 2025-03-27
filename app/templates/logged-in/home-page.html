@@ -37,55 +37,48 @@
     </nav>
 
     <!-- Header -->
-    <div class="head fullscreen-section">
-      <h1>Fake Real</h1>
-      <h2>What's real and what's fake?</h2>
-      <br>
-      <p>FakeReal offers deep fake detection for images for free. Either log in or download the
-        chrome extension browser. Our services is user friendly, allowing users to upload a file 
-        to get a multilayer assessment in just a few seconds.
-      </p>
+    <div class="header">
+      <div class="head fullscreen-section">
+        <h1>Fake Real</h1>
+        <h2>What's real and what's fake?</h2>
+        <br>
+        <p>FakeReal offers deep fake detection for images for free. Either log in or download the
+          chrome extension browser. Our services is user friendly, allowing users to upload a file 
+          to get a multilayer assessment in just a few seconds.
+        </p>
 
-      <a href="{{ url_for('dashboard') }}"><button type="button" class="login-button">Upload now!</button></a> 
-    </div>
-
-    <div class="images-stack">
-      <div class="images-stack-top">
-        <img src="../static/imgs/holder.png" alt="stack-img" class="img1">
+        <a href="{{ url_for('dashboard') }}"><button type="button" class="login-button">Upload now!</button></a> 
       </div>
 
-      <div class="images-stack-middle">
-        <img src="../static/imgs/holder.png" alt="stack-img" class="img2">
-      </div>
 
-      <div class="images-stack-bottom">
-        <img src="../static/imgs/holder.png" alt="stack-img" class="img3">
-      </div>
+      <div class="images-stack">
+        <div class="images-stack-top">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img1">
+        </div>
 
-      <div class="images-stack-logo">
-        <div class="eyes">
-          <div class="pupil">
+        <div class="images-stack-middle">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img2">
+        </div>
+
+        <div class="images-stack-bottom">
+          <img src="../static/imgs/holder.png" alt="stack-img" class="img3">
+        </div>
+
+        <div class="images-stack-logo">
+          <div class="eyes" id="eyes">
+            <div class="pupil">
+              <!--  -->
+            </div>
+          </div>
+          <div class="stick">
             <!--  -->
           </div>
-        </div>
-        <div class="stick">
-          <!--  -->
-        </div>
-        <!-- <img id="anchor" src="../static/imgs/logo-base.png" alt="logo">
-        <img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"> -->
-      </div>      
+          <!-- <img id="anchor" src="../static/imgs/logo-base.png" alt="logo">
+          <img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"> -->
+        </div>      
+      </div>
     </div>
-
-    <!-- Log in/Sign Up -->
-    <div class="check revealable">
-      <h1 class="scale">Want to test if your image is deep faked?</h1>
-      <a href="{{ url_for('upload') }}" class="scale"><button>Upload Here</button></a>
-    </div>
-
-    <div class="blur-parent">
-      <div class="blur-two"></div>
-      <div class="blur-into"></div>
-    </div>
+  </div>
 
     <!-- Deepfake examples -->
     <div class="sticky_parent">
