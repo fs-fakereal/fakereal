@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Optional, Length
 import sqlalchemy as sa
@@ -54,3 +55,8 @@ class AccountEditForm(FlaskForm):
         "class": "delete",
         "onclick": "return confirm('Are you sure you want to delete your account? This action is irreversible!');"
     })
+
+#form for user uploaded images
+class uploadImage(FlaskForm):
+    file = FileField('File', FileRequired, FileAllowed(['jpg', 'png'], 'JPG or PNG images only.'))
+    submit = SubmitField('Submit')
