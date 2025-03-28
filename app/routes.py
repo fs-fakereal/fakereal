@@ -14,6 +14,7 @@ from app.forms import (
     LoginForm,
     PasswordChange,
     SignupForm,
+    uploadImage
 )
 from app.models import Feedback, User
 from flask import flash, redirect, render_template, request, url_for
