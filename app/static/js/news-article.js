@@ -27,7 +27,7 @@ async function main() {
             <h4>${article.description}</h4>
           </div>
           <br>
-          <div  class='article-button'>
+          <div class='article-button'>
             <a href='${article.url}'>
               <button>Read article</button>
             </a>
