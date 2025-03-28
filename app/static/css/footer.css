@@ -57,7 +57,8 @@ hr {
 
     justify-content: left;
 
-    max-width: 50%;
+    max-width: 15rem;
+    width: auto;
 }
 
 .fakereal-here h1 {
@@ -355,7 +356,11 @@ hr {
     cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 
     p {
-        color: #c0b695;
+        margin: 0rem;
+        padding: 0rem;
+        
+        color: #383838;
+        font-size: 0.8rem;
         cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
     }
 }
