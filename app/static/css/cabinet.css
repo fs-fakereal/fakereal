@@ -1,6 +1,10 @@
 .cabinet-lid {
     background-color: #100906;
     padding: 0.2rem;
+
+    hr {
+        color: #242020;
+    }
 }
 
 .cabinet {
