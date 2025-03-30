@@ -97,7 +97,7 @@
         height: 2rem;
         width: 2rem;
 
-        border-radius: 5rem;
+        border-radius: 1rem;
 
         background-color: #767676;
         border: #000 0.2rem solid;
@@ -106,7 +106,7 @@
     }
 
     button:hover {
-        background-color: #000;
+        background-color: rgb(34, 34, 34);
         border: #767676 0.2rem solid;
         color: #767676;
     }
@@ -115,7 +115,7 @@
 /* Speech bubble */
 .speech-bubble {
     position: relative;
-    background: #1b1c18;
+    background: #353730;
     border-radius: .4em;
 
     /* box-shadow: #1b1c18 0.5rem 0.5rem; */
@@ -130,7 +130,7 @@
     width: 0;
     height: 0;
     border: 11px solid transparent;
-    border-bottom-color: #1b1c18;
+    border-bottom-color: #353730;
     border-top: 0;
     border-left: 0;
     margin-left: -5.5px;
@@ -254,5 +254,5 @@
 
 /* Team picks */
 #team-picks p {
-    color: #000;
+    color: #fcf8fc;
 }
