@@ -1,12 +1,17 @@
 /* Upload Section */
 .upload-section {
     /* margin: 100px auto; */
-    padding: 40px;
+    padding: 4rem;
+
+    position: relative;
+    top: 0;
+    right: 3rem;
+    bottom: 0;
 
     width: 50vw;
-    height: 50vh;
+    /* height: 50vh; */
     
-    height: auto;
+    /* height: auto; */
 
     background-color: white;
     border-radius: 8px;
@@ -25,6 +30,8 @@
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+
+    cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 }
 
 .upload-box input[type="file"] {

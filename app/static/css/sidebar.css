@@ -8,9 +8,8 @@
     flex-direction: column;
     justify-content: space-between;
 
-    /* background-color: #5e7381; */
-    background-color: #878672;
-    /* background-color: #5662f6; */
+    background-color: #c0b695;
+    /* background-color: #878672; */
 
     padding: 1rem 0.5rem;
     /* height: 100vh; */
@@ -23,31 +22,36 @@
     transform: translateX(-8rem);
 
     overflow-y: auto;     
-    transition: all 0.5s ease; /* Smooth transition for width change */
+    transition: all 0.5s ease-in-out 0s; /* Smooth transition for width change */
 }
 
 .sidebar:hover {
     /* left: 10rem; */
     transform: translateX(0rem);
 
-    transition: all 0.5s ease; /* Smooth hover effect */
+    transition: all 0.5s ease-in-out; /* Smooth hover effect */
 }
 
 .sidebar a {
     text-decoration: none;
     color: black;
+    border-radius: 10px;
     font-weight: bold;
     display: flex;
     align-items: center;
     padding: 10px;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease-in-out;
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
+
+    img {    
+        transition: all 0.5s ease-in-out;
+    }
 }
 
 .sidebar a:hover {
     /* background-color: rgb(36, 34, 30); */
     background-color: #262b26;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     /* color: #5e7381; */
     color: #fcf8fc;
 
@@ -69,7 +73,10 @@
 
 /* When sidebar is expanded, apply margin to main content */
 .sidebar.open + .main-content {
-    transform: translateX(4rem);
+    /* transform: scale(0.8rem); */
+    transform: translateX(8rem);
+
+    /* transition: all 0.5s ease-in-out; */
     /* margin-left: 12rem;  */
     /* Slide the content to the right when sidebar is open */
 }

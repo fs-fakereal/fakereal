@@ -8,9 +8,11 @@
     /* min-height: 100vh; */
 
     text-align: center;
-    margin-top: 5px;
-    padding: 10px; /* Prevent content from touching edges */
+    margin: 2rem 0rem;
+    padding: 1rem; /* Prevent content from touching edges */
     box-sizing: border-box;
+
+    /* background-color: #8f8B91; */
     color: #000000;
 }
     .signup-container h1 {
@@ -19,7 +21,7 @@
     
     .signup-container p {
         color: #fcf8fc;
-        margin-bottom: 1rem; /* Reduces the space below the paragraph */
+        margin-bottom: 0rem; /* Reduces the space below the paragraph */
     }
 
 .signup-form {
@@ -31,6 +33,8 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     box-sizing: border-box;
+
+    cursor: url('../imgs/mouse/white-pointer.png'), auto;
 }
 
     .signup-form label {
@@ -43,33 +47,69 @@
         width: 100%;
         padding: 8px;
         margin-bottom: 15px;
-        border: 1px solid #ccc;
+        border: 1px solid #000;
         border-radius: 4px;
     }
 
-    .signup-form button, .signup-form input[type="submit"] {
+    /* .signup-form input[type="submit"] {
         width: 100%;
         padding: 10px;
         background-color: #007BFF;
         color: white;
         border: none;
         border-radius: 4px;
-        cursor: pointer;
+    } */
+
+    .signup-form:hover {
+        background-color: #8f8B91;
+        color: white;
     }
 
-    .signup-form button:hover, .signup-form input[type="submit"]:hover {
-        background-color: #0056b3;
+    .signup-button {
+        background-color: #8f8B91;
+        border-radius: 2rem;
+        border: #000 0.2rem solid;
+    
+        color: black;
+        font-weight: 80;
+        font-size: 1rem;
+    
+        text-align: center;
+        padding: 0.5rem 1.8rem;
+        margin-left: 1rem;
+    
+        transition: all 0.3s ease-in; 
     }
+
+    .signup-button:hover {
+        background-color: #000;
+        border: #c0b695 0.2rem solid;
+        color: #c0b695;
+    
+        transition: all 0.3s ease-in; 
+    }
+
+.signup-dets {
+    background-color: #535651;
+    border: #f9f9f9 0.2rem solid;
+
+    padding: 0rem 2rem;
+    border-radius: 1rem;
+
+    p {
+        color: #fcf8fc;
+    }
+}
 
 /* Password requirements box */
 .password-requirements {
-    width: 250px; /* Set a fixed width */
+    width: 35vw; /* Set a fixed width */
     text-align: left;
     font-size: 14px;
     margin-top: 15px;
     background-color: #f9f9f9;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 0.1rem solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
     margin-bottom: 20px; /* Adds space below the password box */
@@ -122,6 +162,7 @@
 .display-pass {
     color: #fcf8fc;
     opacity: 90%;
-    padding-left: 0.5rem;
+    padding: 0.5rem 0rem;
+    margin: 0.4rem;
     font-size: 0.9rem;
 }

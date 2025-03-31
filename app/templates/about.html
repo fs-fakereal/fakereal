@@ -26,9 +26,11 @@
           <a href="{{ url_for('index') }}">Fake Real</a>
         </div>
 
-        <div class="pages nav-scale">
-          <a href="{{ url_for('about') }}" class="nav-scale nav-hover">About</a>
-          <a href="{{ url_for('login') }}" class="nav-scale nav-hover">Log In</a>
+        <div class="pages">
+          <div class="current-nav">
+            <a href="{{ url_for('about') }}" class="current-page nav-hover">About</a>
+          </div>
+          <a href="{{ url_for('login') }}" class="nav-hover">Log In</a>
           <a href="https://www.ic3.gov/" class="report-button">Report a case!</a>
         </div>
       </div>
@@ -63,8 +65,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Letizia Maukar</h3>
-              <p>Project Manager,</p>
-              <p>UX and UI Designer</p>
+              <p>Project Manager,<br>UX and UI Designer</p>
 
               <div class="socials">
                 <a href="https://www.linkedin.com/in/letizia-maukar-386976187/"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
@@ -92,8 +93,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Fatima Sarr</h3>
-              <p>Quality Tester,</p> 
-              <p>Software Developer</p>
+              <p>Quality Tester,<br>Software Developer</p>
               
               <div class="socials">
                 <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/icons/linkedin.png" alt="fatima's linkedin"></a>
@@ -104,7 +104,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Liam Bagabag</h3>
-              <p>Software Developer</p>
+              <p>Software Developer,<br>ML/AI Engineer</p>
               
               <div class="socials">
                 <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/icons/linkedin.png" alt="liam's linkedin"></a>

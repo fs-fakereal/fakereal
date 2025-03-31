@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  cursor: url('../imgs/mouse/blue-mouse.png'), auto !important;
+  cursor: url('../imgs/mouse/white-mouse.png'), auto !important;
 
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -19,7 +19,9 @@ body {
 
   scroll-behavior: smooth;
 
-  background-color: #4b5950;
+  background-color: rgb(34, 34, 34);
+  /* background-color: #475661; */
+  /* background-color: #4b5950; */
   /* background-color: #647764; */
 
   display: flex;
@@ -42,7 +44,14 @@ body {
 
 /* Adjustment for the footer */
 .main-content {
-  flex-grow: 1;
+  height: 90vh;
+  padding:  0 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.5s ease-in-out;
 }
 
 /* Heading Styles */

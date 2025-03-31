@@ -1,8 +1,8 @@
-const anchor = document.getElementById('anchor')
+const anchor = document.getElementById('eyes')
 const rekt = anchor.getBoundingClientRect();
 const anchorX = rekt.left + rekt.width / 2;
 const anchorY = rekt.top + rekt.height / 2;
-const eyes = document.querySelectorAll('.eyeball')
+const eyes = document.querySelectorAll('.pupil')
 
 document.addEventListener('mousemove', (e) => {
     console.log(e)
@@ -15,7 +15,7 @@ document.addEventListener('mousemove', (e) => {
     console.log(angleDeg)
 
     eyes.forEach(eye => {
-        eye.style.transform = `rotate(${285 + angleDeg}deg)`;
+        eye.style.transform = `rotate(${25 + angleDeg}deg)`;
 
     //     if (angleDeg >= -180 && angleDeg <= 20) {
     //         eye.style.transform += ' translateX(0.4rem) translateY(-0.8rem)';
