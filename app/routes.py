@@ -173,10 +173,22 @@ def upload():
 def dashboard():
     return render_template('dashboard.html', title='Dashboard')
 
+#route to settings
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
     return render_template('settings.html', title = 'Settings')
+
+# routes to privacy page
+@app.route('/privacy')
+@login_required
+def privacy():
+    return render_template('privacy.html', title = 'privacy')
+
+@app.route('/theme')
+@login_required
+def theme():
+    return render_template('theme.html', title = 'theme')
 
 #routes to the user account detail editing page
 @app.route('/edit', methods=['GET', 'POST'])
