@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/settings.css">
     <title>Settings</title>
 </head>
 <body>
+     <!-- Tiles with link to each page -->
     <div class="tiles">
-        <a href="{{ url_for('user_edit') }}">
+        <a href="{{ url_for('user_edit') }}" class="tile-link" id="edit-account-link">
             <div class="tile">Edit Account</div>
         </a>
         
-        <div class="tile" onclick="location.href='/change-theme'">Change Theme</div>
-        <div class="tile" onclick="location.href='/information'">Information</div>
+        <a href="{{ url_for('privacy') }}" class="tile-link" id="privacy-link">
+            <div class="tile">Privacy Information</div>
+        </a>
+
+        <a href="{{ url_for('theme') }}" class="tile-link" id="change-theme-link">
+            <div class="tile">Change Theme</div>
+        </a>
+        
     </div>
+
+    <!-- Placeholder for dynamic content -->
+    <div id="content-placeholder"></div>
+
+    <script src="../static/js/settings.js"></script>
 </body>
 </html>

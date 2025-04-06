@@ -1,26 +1,26 @@
-.articles {
+/* .articles {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     /* overflow: scroll; */
-
+/* 
     padding: 1rem 1rem 6rem 1rem;
-    background-color: #3a3b3f;
+    background-color: #3a3b3f; */
     /* background-color: #dfbe90; */
 
-    h1 {
-        font-size: 3rem;
+    /* h1 {
+        font-size: 3rem; */
         /* color: black; */
-        color: #fcf8fc;
+        /* color: #fcf8fc;
         margin: 0;
         padding: 0;
         opacity: 50%;
     }
 
-    h2 {
+    h2 { */
         /* max-width: 10rem; */
-        font-size: 1rem;
+        /* font-size: 1rem;
         padding: 0rem 2rem 2rem 2rem;
         margin: 0;
 
@@ -28,31 +28,46 @@
         color: #fcf8fc;
         opacity: 50%;
     }
-}
+} */
 
 /* the articles */
 .article {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
 }
 
-.article-button {
+.article-button a {
     button {
         cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
-        border-radius: 2rem;
+        border-radius: 1rem;
         color: black;
-        background-color: white;
+        background-color: #dfbe90;
 
         padding: 1rem 2rem;
+        width: 100%;
 
         font-weight: bold;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.3s ease; /* Smooth hover effect */
     }
     
     button:hover {
-            transition: color 0.3s ease; /* Smooth hover effect */
-            background-color: #84a0ad;
+            transition: all 0.3s ease; /* Smooth hover effect */
+            background-color: #515651;
+            border: #fcf8fc 0.2rem solid;
+            color: #fcf8fc;
     }
 }
 
@@ -60,22 +75,23 @@
     display: flex;
     flex-direction: row;
 
-    /* width: 40rem; */
+    width: 60vw;
     /* padding: 1rem 2rem; */
     margin: 0.5rem 1rem;
 
     border-radius: 2rem;
-    background-color: #5E7381;
+    background-color: #fcf8fc;
+    border: #000 0.2rem solid;
 }
 
-.article p {
+.article-info p {
     font-size: 0.9rem;
     text-align: left;
 }
 
-.article img{
-    height: 20rem;
-    width: 20rem;
+.article-info img{
+    height: 5rem;
+    width: 5rem;
     object-fit: cover;
     /* opacity: 80%; */
 
@@ -98,6 +114,10 @@
 
     margin: 0rem;
     padding: 0rem;
+
+    p {    
+        color: #000;
+    }
 }
 
 .content {
@@ -105,7 +125,7 @@
     flex-direction: column;
     justify-content: space-between;
     
-    margin: 1.5rem 2rem 1.5rem 0rem;
+    margin: 0rem 2rem 1.5rem 0rem;
 
     a {
         color: rgb(0, 0, 0);
@@ -122,6 +142,16 @@
     }
 }
 
+.source {
+    h3 {
+        margin: 0.5rem 0rem;
+    }
+
+    h4 {
+        margin: 0rem 0rem 0.5rem 0rem;
+    }
+}
+
 #show-more {
     background-color: #ffd786;
     padding: 0.5rem 1.5rem;
@@ -132,31 +162,41 @@
 
 /* the exit button */
 .exit a button {
-    border-radius: 3rem;
-    background-color: #fcf8fc;
+    background-color: #8f8B91;
+    /* background-color: rgb(185, 47, 47); */
+    border-radius: 30px;
+    border: #000 0.2rem solid;
+    /* border: rgb(185, 47, 47) 0.2rem solid; */
 
-    p {
-        padding: 0.1rem 1rem;
-        font-weight: bolder;
-        color: black;
-    }
+    color: black;
+    font-weight: 80;
+    font-size: 1rem;
+
+    text-align: center;
+    margin: 1rem;
+    padding: 0.5rem 0.8rem;
+
+    transition: all 0.3s ease-in; 
 }
 
 .exit a button:hover {
-    background-color: #ffd786;
-    transform: translateX(-0.2rem);
+    /* background-color: rgb(119, 45, 45);
+    color: rgb(35, 35, 35); */
+    /* background-color: #dfbe90; */
+    background-color: #4c494f;
+    border: #c0b695 0.2rem solid;
+    /* color: #dd3749; */
+    color: #c0b695;
 
-    p {
-        padding: 0rem 0.9rem;
-        color: #980b2d;
-    }
+    border-radius: 30px;
+    transition: all 0.3s ease-in; 
 }
 
-.exit {
+/* .exit {
     display: flex;
     justify-content: end;
     padding: 1rem 1rem 0rem 0rem;
-}
+} */
 
 .close-button {    
     border-radius: 3rem;
@@ -183,7 +223,6 @@
 
 .popup-deco {
     background-color: #3a3b3f;
-    height: 100vh;
 
     h1 {
         color: #fcf8fc;

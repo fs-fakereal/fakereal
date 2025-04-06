@@ -1,6 +1,10 @@
 .cabinet-lid {
     background-color: #100906;
     padding: 0.2rem;
+
+    hr {
+        color: #242020;
+    }
 }
 
 .cabinet {
@@ -20,6 +24,7 @@
 .handle a button {
     border-radius: 0 0 2rem 2rem;
     background-color: #221e1e;
+    color: transparent;
     border: 0.2rem solid rgb(94, 94, 94);
 
     padding: 1.5rem 5rem;

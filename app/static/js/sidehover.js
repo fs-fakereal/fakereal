@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.remove("open");
     });
 
-    // Function to load content dynamically
-    function loadPage(url) {
+    // Function to load content dynamically without full page reload
+    function loadPage(url, updateHistory = true) {
         if (url === "/logout") {
-            window.location.href = url; // Force full page reload for logout
+            window.location.href = url; // Full reload for logout
             return;
         }
 
@@ -26,22 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 document.getElementById("main-content").innerHTML = data;
+
+                // Update browser URL without reloading the page
+                if (updateHistory) {
+                    history.pushState({ path: url }, "", url);
+                }
             })
             .catch(error => console.error("Error loading content:", error));
     }
 
-    // Load "Upload" as the default page
-    loadPage("/upload"); // Ensure "/upload" is correct in your Flask routes
+    // Load default page (Upload) when page first loads
+    loadPage("/upload");
 
-    // Handle Sidebar Link Clicks
-    document.querySelectorAll(".sidebar ul li a").forEach(link => {
+    // Handle sidebar link clicks
+    document.querySelectorAll(".sidebar .text-w-logo a, .sidebar .text-w-logout a").forEach(link => {
         link.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent full page refresh
+            event.preventDefault(); // Prevent full page reload
             const url = this.getAttribute("href");
 
             if (url && url !== "#") {
                 loadPage(url);
             }
         });
+    });
+
+    // Handle browser back/forward navigation
+    window.addEventListener("popstate", function (event) {
+        if (event.state && event.state.path) {
+            loadPage(event.state.path, false); // Load content without pushing state
+        }
     });
 });
