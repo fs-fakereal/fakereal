@@ -5,6 +5,7 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Op
 import sqlalchemy as sa
 from app import db
 from app.models import User
+from wtforms.widgets import TextArea
 
 #the form used by the signup function in the routes file
 class SignupForm(FlaskForm):
@@ -30,11 +31,11 @@ class LoginForm(FlaskForm):
 
 #the form used by the feedback submission box in the website
 class FeedbackForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    subject = StringField('Subject', validators=[DataRequired()])
-    message = StringField('Message', validators=[DataRequired()])
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=50)], widget=TextArea())
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=50)], widget=TextArea())
+    email = StringField('Email', validators=[DataRequired(), Length(max=100)], widget=TextArea())
+    subject = StringField('Subject', validators=[DataRequired(), Length(max=50)], widget=TextArea())
+    message = StringField('Message', validators=[DataRequired(), Length(max=245)], widget=TextArea())
     submit = SubmitField('Submit')
 
 #form used in the forgot password page's functionality

@@ -34,7 +34,7 @@ textarea {
 }
 
 label {
-    cursor: url('../imgs/mouse/blue-mouse.png'), auto;
+    cursor: url('../imgs/mouse/white-mouse.png'), auto;
 }
 
 ::placeholder {
@@ -58,13 +58,11 @@ label {
 }
 
 #comment {
-    min-height: 12lh;
+    min-height: 6lh;
     min-width: 4lh;
-    width: 98%;
-    overflow: auto;
     resize: none;
-    
-    font-size: 1rem;
+
+    font-size: 0.9rem;
 
     border-radius: 10px;
     padding: 5px;
@@ -189,13 +187,6 @@ label {
 
 .message-input {
     color: rgb(31, 31, 31);
-    font-size: 0.9rem;
-
-    vertical-align: top;
-    line-height: 1.5;
-
-    overflow: auto;
-    resize: none;
 }
 
 /* send button */
@@ -209,20 +200,21 @@ label {
     background-color: rgb(100, 90, 78);
     color: rgb(185, 180, 173);
     border-radius: 4rem;
+    border-color: rgb(185, 180, 173) solid 1rem;
 }
 
-.send-button :hover {
+.send-button:hover {
     transition: all 0.3s ease-in; 
     background-color: rgb(61, 55, 47);
     color: rgb(139, 121, 99);
-    font-size: 1.1rem;
+    border-color: rgb(61, 55, 47) solid 1rem;
 }
 
 /* Counting the word limit */
 .counter-container {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: #333;
     transition: color 0.3s;
 }

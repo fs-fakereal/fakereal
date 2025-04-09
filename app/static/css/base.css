@@ -42,6 +42,10 @@ body {
   cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 }
 
+.cursor-click {
+  cursor: url('../imgs/mouse/white-pointer.png'), auto;
+}
+
 /* Adjustment for the footer */
 .main-content {
   height: 90vh;
