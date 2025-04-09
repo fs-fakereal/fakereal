@@ -1,16 +1,33 @@
 
+import logging
 import os
 import sys
 
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ["GRPC_VERBOSITY"] = "ERROR"
+os.environ["GLOG_minloglevel"] = "2"
 
 import numpy as np
+from tensorflow.keras.config import disable_interactive_logging
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
+log_dir: str = "log"
 model_output_dir: str = "models/output"
 model_error_message: str = ""
 img_size = 256
+
+
+# logging
+disable_interactive_logging()
+log = logging.getLogger('tensorflow')
+log.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh = logging.FileHandler(os.path.join(os.getcwd(), log_dir, 'tensorflow.log'))
+fh.setLevel(logging.DEBUG)
+fh.setFormatter(formatter)
+log.addHandler(fh)
 
 def model_generate_prediction(image_path: str, model_name: str = 'vgg16'):
     global model_error_message
