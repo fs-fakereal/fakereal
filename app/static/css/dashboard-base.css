@@ -88,6 +88,8 @@ body {
 
     /* padding-top: 0.7vh; */
     padding-right: 0.5rem;
+
+    z-index: 1;
 }
 
 .webnav {
@@ -96,6 +98,8 @@ body {
 
     justify-content: center;
     align-items: center;
+
+    z-index: 1;
 
     span {
     margin: 0rem 0.5rem;
@@ -110,6 +114,8 @@ body {
 
     width: 100%;
     padding: 1.5vh;
+
+    z-index: 1;
 }
 
 .middle {

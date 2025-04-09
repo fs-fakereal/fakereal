@@ -102,11 +102,13 @@ hr {
 
 
 /* For the chrome extension download */
-.download {
+.download a {
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: center;
+
+    text-decoration: none;
 
     margin: 0rem;
     /* padding: 0.8rem 0rem 0.5rem 0rem; */
@@ -153,7 +155,7 @@ hr {
     } */
 }
 
-.download:hover {
+.download a:hover {
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
     background-color: #4c494f;
     border: #8f8b91 solid 0.1rem;
@@ -225,11 +227,13 @@ hr {
 
 
 /* For the report a case button */
-.report {
+.report a {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    text-decoration: none;
 
     /* margin: 0rem; */
     /* padding: 0.1rem 0rem 0.8rem 0rem; */
@@ -272,7 +276,7 @@ hr {
     } */
 }
 
-.report:hover {
+.report a:hover {
     cursor: url('../imgs/mouse/white-pointer.png'), auto;
     background-color: #4c494f;
     border: #3e2424 solid 0.1rem;

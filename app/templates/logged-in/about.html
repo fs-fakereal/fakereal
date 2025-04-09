@@ -171,7 +171,7 @@
               Remaining characters: 
               <span class="remaining-container"
                 id="remaining-container"> 
-                250 
+                245 
               </span> 
             </p> 
           </div> 
@@ -185,55 +185,72 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+      <!-- Footer -->
+      <footer class="footer">
 
-      <div class="upper-half">
-        <div class="fakereal-here">
-          <h1 class="rubik-glitch-regular">FakeReal</h1>
-          <p>How far is too far?</p>
-        </div>
-        
-        <div class="details">
-          <h3>Site Links</h3>
-          
-          <p><a href="{{ url_for('about') }}">Contact Us</a></p>
-          <p><a href="{{ url_for('about') }}">FAQ</a></p>
+        <div class="upper-half">
+          <div class="fakereal-here">
+            <h1>FakeReal</h1>
+            <p>Our mission to bringing AI detection to the general public.</p>
 
-          <br>
-
-          <p><a href="{{ url_for('login') }}">Log In</a></p>
-          <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
-        </div>
-
-        <div class="links">
-          <div class="download">
-            <a href="holder"><img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension"></a>
-
-            <div class="download-text">
-              <h1>Scan images at real time!</h1>
-              <p>Download our Chrome Extension</p>
+            <div class="links">
+              <div class="download">
+                <a href="holder">
+                  <img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension">
+  
+                  <div class="download-text">
+                    <h1>Scan images at real time!</h1>
+                    <p>Download our Chrome Extension</p>
+                  </div>
+                </a>
+              </div>
+  
+              <div class="report">
+                <a href="https://www.ic3.gov/">
+                  <img src="../static/imgs/icons/alert.png" alt="report">
+  
+                  <div class="report-text">
+                    <h1>Report a case!</h1>
+                    <p>Click here to report a case</p>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="report">
-            <a href="https://www.ic3.gov/"><img src="../static/imgs/icons/alert.png" alt="report" href="https://www.ic3.gov/"></a>
+          <div class="links-collection">
+            <div class="details">
+              <h3>Navigation</h3>
+              
+              <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+              <p><a href="{{ url_for('about') }}">FAQ</a></p>
+    
+              <br>
+    
+              <p><a href="{{ url_for('login') }}">Log In</a></p>
+              <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
+            </div>  
 
-            <div class="report-text">
-              <h1>Report a case!</h1>
-              <p>Click here to report a case</p>
+            <div class="contact-us">
+              <h3>Get in touch</h3>
+
+              <p>&#9993; fakere.41@gmail.com</p>
+              <p><i>&#xf279;</i> Cal State Univeristy, Long Beach</p>
+            </div>
+
+            <div class="downloads">
+              
             </div>
           </div>
         </div>
-      </div>
 
-      <hr>
+        <hr>
 
-      <div class="important">
-        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
-        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
-      </div>
-    </footer>
+        <div class="important">
+          <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+          <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+        </div>
+      </footer>
 
     <script>
       function autoGrow(comment) {
@@ -244,8 +261,9 @@
         textarea.style.height = (textarea.scrollHeight) + 'px';
       }
     </script>
-    <script src="../static/js/logo-animation.js"></script>
-    <script src="../static/js/animation.js"></script>
+    <script src="../../static/js/logo-animation.js"></script>
+    <script src="../../static/js/animation.js"></script>
+    <script src="../../static/js/word-count.js"></script>
 
   </body>
 </html>

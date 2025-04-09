@@ -201,11 +201,10 @@ def prediction(path: str, args: dict) -> dict:
 
     result: dict = {}
 
-    if args['model_id'] in ['inception', 'resnet', 'vgg16']:
+    if args['model_id'] in ['mobilenetv3small', 'vgg16']:
         # if "prefer" not in args.keys():
         #     raise ValueError("Missing prefer argument")
-        # result = load_model_and_predict(path, args)
-        pass
+        result = load_model_and_predict(path, args)
     else:
         # model_id is either genai, or does not exist,
         # so cascade to fallback

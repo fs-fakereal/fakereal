@@ -1,54 +1,60 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    justify-content: flex-start; /* Moves content downward */
-    padding-top: 100px; /* Adds space from the top */
+/* settings.css */
+
+.settings-page {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .tiles {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center tiles horizontally */
-    gap: 20px; /* Adds spacing between tiles */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
     width: 100%;
-    max-width: 600px; /* Adjust container width */
     text-align: center;
+    
+}
+
+.tile-link {
+    text-decoration: none; /* Ensures no underline by default */
+    color: black; /* Set text color to black (or any color you prefer) */
 }
 
 .tile {
-    width: 250px; /* Fixed width for uniform size */
-    height: 120px; /* Fixed height for uniform size */
+    width: 250px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px; 
+    padding: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background 0.3s;
-    font-size: 18px; /* Ensures text is uniform */
+    transition: background 0.3s, text-decoration 0.3s;
+    font-size: 18px;
     font-weight: bold;
+    text-decoration: none; /* Ensures no underline by default */
 }
 
-.tile:hover {
+.tile-link:hover .tile {
     background: #e5e7eb;
+    text-decoration: underline; /* Underline on hover for the tile text */
 }
 
-/* Make tiles stack properly on smaller screens */
+.tile-link:visited { 
+    color: black; /* Set visited link color to black to avoid purple color */
+}
+
 @media (max-width: 600px) {
     .tiles {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .tile {
-        width: 100%; /* Full width on smaller screens */
-        max-width: 300px; /* Prevent excessive stretching */
+        width: 100%;
+        max-width: 300px;
     }
 }

@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
 
-    height: 100vh;
+    height: auto;
 }
 
 .head {
@@ -182,4 +182,35 @@
 .blur-into {
     background-color: #1a2431;
     height: 10rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .head {
+        width: 100%;  /* Make the header text content take full width */
+    }
+
+    .head h1, .head h2, .head p {
+        font-size: 4vw;  /* Make font sizes responsive */
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+
+    .images-stack {
+        width: 100%;
+        height: auto;
+    }
+
+    .images-stack-top img, .images-stack-middle img, .images-stack-bottom img {
+        max-width: 100%;
+        width: 100%;
+    }
 }
