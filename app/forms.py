@@ -57,6 +57,6 @@ class AccountEditForm(FlaskForm):
     })
 
 #form for user uploaded images
-class uploadImage(FlaskForm):
-    file = FileField('File', FileRequired, FileAllowed(['jpg', 'png'], 'JPG or PNG images only.'))
+class UploadImage(FlaskForm):
+    file = FileField('File', validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'], 'JPG or PNG images only.')])
     submit = SubmitField('Submit')

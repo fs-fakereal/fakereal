@@ -13,7 +13,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 
 from models import loader
-from app import models, mse, result, routes
+from app import models, mse, routes, result
 
 
 #fakereal's flask app is initialized using this file
