@@ -12,7 +12,7 @@ import uuid
 #every table used in our database should have a model equivalent here
 #usermixin is for authentication purposes
 
-class User(UserMixin, db.Model):    
+class User(UserMixin, db.Model):
     __tablename__ = "users"
     id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True) #consider uuids
     first_name: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
@@ -28,7 +28,7 @@ class User(UserMixin, db.Model):
     #checks the password hash in the database with the plaintext password from the user
     def check_pass(self, password):
         return check_password_hash(self.password_hash, password)
-    
+
     #needed to have a logged in user session
     @login.user_loader
     def load_user(id):
@@ -48,3 +48,33 @@ class Feedback(db.Model):
     email: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
     subject : so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
     message: so.Mapped[str] = so.mapped_column(sa.String(245), index=True)
+
+
+class Result(db.Model):
+    __tablename__ = "results_history"
+
+    user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("users.id"))
+
+    media_hash: so.Mapped[str] = so.mapped_column(sa.String, primary_key=True)
+    generation_time: so.Mapped[str] = so.mapped_column(sa.String, default=datetime.now(), primary_key=True)
+    score: so.Mapped[str] = so.mapped_column(sa.String, nullable=False)
+    msg: so.Mapped[Optional[str]] = so.mapped_column(sa.String)
+
+    retcode: so.Mapped[int] = so.mapped_column(sa.Integer)
+    retfrom: so.Mapped[str] = so.mapped_column(sa.String)
+
+    def __init__(self, media_hash, gen_time, score, msg, ret_from, ret_code = 0, user_id = 0):
+        self.media_hash      = media_hash
+        self.generation_time = gen_time
+        self.score           = score
+        self.msg             = msg
+        self.retcode         = ret_code
+        self.retfrom         = ret_from
+        self.user_id         = user_id
+
+    def __str__(self):
+        ret_str = f"Hash: {self.media_hash} created: {self.generation_time}. Score: {self.score}"
+        if self.user_id:
+            ret_str += f"\nUser: {user_id}"
+
+        return ret_str
