@@ -100,14 +100,3 @@
 
 
 
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-    .upload-section {
-        width: 90%; /* Make the upload section responsive */
-        padding: 20px;
-    }
-
-    .preview-box {
-        height: 200px; /* Reduce height for smaller screens */
-    }
-}

@@ -156,11 +156,7 @@ def result():
     return render_template('result.html', title='Result')
 
 #route to the page that allows users to scan photos
-@app.route('/scan', methods=['GET', 'POST'])
-@login_required
-def scan():
-    form = UploadImage()
-    return render_template('scan.html', title='Scan', form = form)
+
 
 #routes to the results history page
 @app.route('/result/<hash>')
@@ -172,11 +168,11 @@ def result_page(hash):
         return render_template('upload.html', title='Upload')
     return render_template('scan_result.html', result=result, hash=hash, title='Scan Result')
 
-#route to the page that allows users to upload
 @app.route('/upload', methods=['GET'])
 @login_required
 def upload():
-    return render_template('upload.html', title='Upload')
+    form = UploadImage()
+    return render_template('upload.html', title='Upload', form = form)
 
 #route to dashboard
 @app.route('/dashboard', methods=['GET', 'POST'])

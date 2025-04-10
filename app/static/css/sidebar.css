@@ -81,14 +81,4 @@
     /* Slide the content to the right when sidebar is open */
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .main-content {
-        margin-left: 0;
-    }
-}
+

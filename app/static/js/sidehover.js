@@ -27,12 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 document.getElementById("main-content").innerHTML = data;
 
+                // Run JavaScript from the dynamically loaded content
+                runScriptsInContent(data);
+
                 // Update browser URL without reloading the page
                 if (updateHistory) {
                     history.pushState({ path: url }, "", url);
                 }
             })
             .catch(error => console.error("Error loading content:", error));
+    }
+
+    // Function to execute scripts from the loaded content
+    function runScriptsInContent(content) {
+        const scripts = new DOMParser().parseFromString(content, 'text/html').querySelectorAll('script');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript); // Append the script to the document to execute it
+        });
     }
 
     // Load default page (Upload) when page first loads
