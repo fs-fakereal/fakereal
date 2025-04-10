@@ -7,6 +7,8 @@ from app import db
 from app.models import User
 from wtforms.widgets import TextArea
 
+from email_validator import validate_email, EmailNotValidError
+
 #the form used by the signup function in the routes file
 class SignupForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()])
@@ -37,6 +39,15 @@ class FeedbackForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired(), Length(max=50)], widget=TextArea())
     message = StringField('Message', validators=[DataRequired(), Length(max=245)], widget=TextArea())
     submit = SubmitField('Submit')
+
+    #checks if the email is valid
+    def validate_email(self, email):
+        try:
+            emailinfo = validate_email(email, check_deliverability=False)
+            email = emailinfo.normalized
+        except EmailNotValidError as e:
+            raise ValidationError(e)
+         
 
 #form used in the forgot password page's functionality
 class PasswordChange(FlaskForm):

@@ -411,6 +411,8 @@ hr {
     
     gap: 2rem;
     padding: 1rem 4rem;
+
+    overflow: hidden;
 }
 
 /* contact us */

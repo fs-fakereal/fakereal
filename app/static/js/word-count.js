@@ -9,10 +9,6 @@ let configureButton = document.getElementById("configure-button");
 
 let modal = document.getElementById("myModal"); 
 
-let closeButton = document.getElementsByClassName("close")[0]; 
-
-let applyButton = document.getElementById("apply-limit-button"); 
-
 let newLimitInput = document.getElementById("new-limit"); 
 
 let maxLength = 245; 
@@ -51,31 +47,6 @@ configureButton.addEventListener(
 	() => { 
 		newLimitInput.value = maxLength; 
 		modal.style.display = "block"; 
-	} 
-); 
-
-closeButton.addEventListener( 
-	"click", 
-	() => { 
-		modal.style.display = "none"; 
-	} 
-); 
-
-applyButton.addEventListener( 
-	"click", 
-	() => { 
-		const newLimit = parseInt( 
-			newLimitInput.value, 
-			10 
-		); 
-		if (!isNaN(newLimit)) { 
-			maxLength = newLimit; 
-			modal.style.display = 
-				"none"; 
-
-			area.maxLength = maxLength; 
-			updateCount(); 
-		} 
 	} 
 ); 
 
