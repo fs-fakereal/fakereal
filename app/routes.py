@@ -14,9 +14,9 @@ from app.forms import (
     LoginForm,
     PasswordChange,
     SignupForm,
-    uploadImage
+    UploadImage
 )
-from app.models import Feedback, User
+from app.models import Feedback, User, ScanResult
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
@@ -149,8 +149,8 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-#routes to the scan results page
-@app.route('/result')
+#routes to the results history page
+@app.route('/result_history')
 @login_required
 def result():
     return render_template('result.html', title='Result')
@@ -159,7 +159,18 @@ def result():
 @app.route('/scan', methods=['GET', 'POST'])
 @login_required
 def scan():
-    return render_template('scan-image.html', title='Scan')
+    form = UploadImage()
+    return render_template('scan.html', title='Scan', form = form)
+
+#routes to the results history page
+@app.route('/result/<hash>')
+@login_required
+def result_page(hash):
+    result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
+    if not result:
+        #return "Result not found", 404
+        return render_template('upload.html', title='Upload')
+    return render_template('scan_result.html', result=result, hash=hash, title='Scan Result')
 
 #route to the page that allows users to upload
 @app.route('/upload', methods=['GET'])
@@ -356,6 +367,21 @@ def _file_upload():
         finally:
             if MODEL_DEBUG_PRINT:
                 print("INFO: Finished processing. Returning to client.")
+                print(f"hash: {hash}, result: {result}")
             file.close()
 
-        return { "hash": hash, "result": result }
+            final_result = ScanResult(
+                hash=hash,
+                time=result['time'],
+                explanation=result['explanation'],
+                model=result['model'],
+                score=result['score'],
+                status_message=result['status']['message'],
+                status_code=result['status']['code'],
+                status_from=result['status']['from']
+            )
+            db.session.add(final_result)
+            db.session.commit()
+
+        #return { "hash": hash, "result": result }
+        return redirect(url_for('result_page', hash=hash))

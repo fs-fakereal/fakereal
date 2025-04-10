@@ -45,6 +45,20 @@ class Feedback(db.Model):
     created_at: so.Mapped[Optional[datetime]] = so.mapped_column(index=True, default=datetime.now())
     first_name: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
     last_name: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
-    email: so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
-    subject : so.Mapped[str] = so.mapped_column(sa.String(50), index=True)
-    message: so.Mapped[str] = so.mapped_column(sa.String(245), index=True)
+    email: so.Mapped[str] = so.mapped_column(sa.String(100), index=True)
+    subject : so.Mapped[str] = so.mapped_column(sa.String(100), index=True)
+    message: so.Mapped[str] = so.mapped_column(sa.String, index=True)
+
+class ScanResult(db.Model):
+    __tablename__ = "scan_results"
+    #__table_args__ = {'extend_existing': True}
+    #id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True)
+    hash: so.Mapped[str] = so.mapped_column("hash_id", sa.String(64), primary_key=True, unique=True, index=True, nullable=False)
+    time: so.Mapped[float] = so.mapped_column("time_gen", sa.Float, primary_key=True, nullable=False)
+    explanation: so.Mapped[str] = so.mapped_column(sa.Text, nullable=False)
+    model: so.Mapped[str] = so.mapped_column(sa.String(50), nullable=False)
+    score: so.Mapped[float] = so.mapped_column(sa.Float, nullable=False)
+    status_message: so.Mapped[str] = so.mapped_column("message", sa.String(255), nullable=False)
+    status_code: so.Mapped[int] = so.mapped_column("return_code", sa.Integer, nullable=False)
+    status_from: so.Mapped[str] = so.mapped_column("return_from", sa.String(50), nullable=False)
+
