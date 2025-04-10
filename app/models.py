@@ -63,11 +63,11 @@ class ScanResult(db.Model):
     status_from: so.Mapped[str] = so.mapped_column("return_from", sa.String(50), nullable=False)
     user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("users.id"))
 
-    def __init__(self, hash, time, expl, model_name, score, status_message, status_from, status_code = 0, user_id = 0):
+    def __init__(self, hash, time, explanation, model, score, status_message, status_from, status_code = 0, user_id = 0):
         self.hash = hash
         self.time = time
-        self.explanation = expl
-        self.model = model_name
+        self.explanation = explanation
+        self.model = model
         self.score = score
         self.status_message = status_message
         self.status_from = status_from
