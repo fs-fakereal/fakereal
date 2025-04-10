@@ -61,31 +61,21 @@ class ScanResult(db.Model):
     status_message: so.Mapped[str] = so.mapped_column("message", sa.String(255), nullable=False)
     status_code: so.Mapped[int] = so.mapped_column("return_code", sa.Integer, nullable=False)
     status_from: so.Mapped[str] = so.mapped_column("return_from", sa.String(50), nullable=False)
-
-class Result(db.Model):
-    __tablename__ = "results_history"
-
     user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("users.id"))
 
-    media_hash: so.Mapped[str] = so.mapped_column(sa.String, primary_key=True)
-    generation_time: so.Mapped[str] = so.mapped_column(sa.String, default=datetime.now(), primary_key=True)
-    score: so.Mapped[str] = so.mapped_column(sa.String, nullable=False)
-    msg: so.Mapped[Optional[str]] = so.mapped_column(sa.String)
-
-    retcode: so.Mapped[int] = so.mapped_column(sa.Integer)
-    retfrom: so.Mapped[str] = so.mapped_column(sa.String)
-
-    def __init__(self, media_hash, gen_time, score, msg, ret_from, ret_code = 0, user_id = 0):
-        self.media_hash      = media_hash
-        self.generation_time = gen_time
-        self.score           = score
-        self.msg             = msg
-        self.retcode         = ret_code
-        self.retfrom         = ret_from
-        self.user_id         = user_id
+    def __init__(self, hash, time, expl, model_name, score, status_message, status_from, status_code = 0, user_id = 0):
+        self.hash = hash
+        self.time = time
+        self.explanation = expl
+        self.model = model_name
+        self.score = score
+        self.status_message = status_message
+        self.status_from = status_from
+        self.status_code = status_code
+        self.user_id = user_id
 
     def __str__(self):
-        ret_str = f"Hash: {self.media_hash} created: {self.generation_time}. Score: {self.score}"
+        ret_str = f"Hash: {self.hash} created: {self.time}. Score: {self.score}"
         if self.user_id:
             ret_str += f"\nUser: {self.user_id}"
 
