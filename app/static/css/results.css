@@ -1,6 +1,6 @@
 .results-section {
-    padding: 2rem 10rem;
-    width: 15rem;
+    padding: 1rem 8rem;
+    width: 15vw;
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.1);
@@ -9,6 +9,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.verdict p {
+    color: #000;
 }
 
 /* Image Box */
@@ -31,7 +35,12 @@
 }
 
 .main-content-results {
-    padding: 0rem 0rem 0rem 8rem;
+    /* padding: 10rem 0rem 0rem 3rem; */
+
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    gap: 2rem;
 }
   
 
@@ -79,7 +88,7 @@
 
 /* Previous img data */
 .previous-img-data {
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #f9f9f9;
     border: #f9f9f9 0.1rem solid;
     border-radius: 2rem;

@@ -10,6 +10,14 @@ async function main() {
 
   // Loop through the visible articles and add them to the DOM
   visibleArticles.forEach(article => {
+
+    const publishedDate = new Date(article.publishedAt);
+    const formattedDate = publishedDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
     articlesUl.innerHTML += 
     `
       <div class='article-info'>
@@ -20,8 +28,8 @@ async function main() {
             <h3>${article.title}</h3>
 
             <div class='author-release'>
-              <p>${article.author ? article.author.split(',').slice(0, 2).join(',') : "Anonymous"}</p>
-              <p>${article.publishedAt}</p>
+              <p>${article.author ? article.author.split(',').slice(0, 2).join(',') : article.source.name}</p>
+              <p>${formattedDate}</p>
             </div>
 
             <h4>${article.description}</h4>

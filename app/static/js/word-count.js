@@ -1,43 +1,35 @@
 // Word count for the support-feedback box
-let area = 
-	document.getElementById("textarea"); 
-let totalChar = document.getElementById( 
-	"total-container"
-); 
-let remChar = document.getElementById( 
-	"remaining-container"
-); 
-let configureButton = 
-	document.getElementById( 
-		"configure-button"
-	); 
-let modal = 
-	document.getElementById("myModal"); 
-let closeButton = 
-	document.getElementsByClassName( 
-		"close"
-	)[0]; 
-let applyButton = 
-	document.getElementById( 
-		"apply-limit-button"
-	); 
-let newLimitInput = 
-	document.getElementById( 
-		"new-limit"
-	); 
-let maxLength = 50; 
+let area = document.getElementById("comment"); 
+
+let totalChar = document.getElementById("total-container"); 
+
+let remChar = document.getElementById("remaining-container"); 
+
+let configureButton = document.getElementById("configure-button"); 
+
+let modal = document.getElementById("myModal"); 
+
+let closeButton = document.getElementsByClassName("close")[0]; 
+
+let applyButton = document.getElementById("apply-limit-button"); 
+
+let newLimitInput = document.getElementById("new-limit"); 
+
+let maxLength = 245; 
+
 updateCount(); 
+
 area.addEventListener("input", () => { 
 	updateCount(); 
 }); 
+
 area.addEventListener( 
 	"keydown", 
 	(event) => { 
 		let textLength = 
 			area.value.length; 
 		if ( 
-			textLength >= maxLength && 
-			event.key !== "Backspace"
+			textLength >= maxLength && event.key !== "Backspace"
 		) { 
 			event.preventDefault(); 
 			remChar.classList.add( 
@@ -53,6 +45,7 @@ area.addEventListener(
 		} 
 	} 
 ); 
+
 configureButton.addEventListener( 
 	"click", 
 	() => { 
@@ -60,12 +53,14 @@ configureButton.addEventListener(
 		modal.style.display = "block"; 
 	} 
 ); 
+
 closeButton.addEventListener( 
 	"click", 
 	() => { 
 		modal.style.display = "none"; 
 	} 
 ); 
+
 applyButton.addEventListener( 
 	"click", 
 	() => { 
@@ -83,6 +78,7 @@ applyButton.addEventListener(
 		} 
 	} 
 ); 
+
 window.addEventListener( 
 	"click", 
 	(event) => { 
@@ -92,6 +88,7 @@ window.addEventListener(
 		} 
 	} 
 ); 
+
 function updateCount() { 
 	let length = area.value.length; 
 	totalChar.textContent = length; 

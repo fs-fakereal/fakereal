@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import pandas as pd
-from tensorflow.keras.applications import VGG16, MobileNetV3Small
+from tensorflow.keras.applications import MobileNetV3Small, VGG16
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.layers import Dense, Dropout, GlobalAveragePooling2D, Input
 from tensorflow.keras.losses import BinaryCrossentropy
@@ -34,6 +34,7 @@ batch_size = 16
 # -------------- FIXED -------------- #
 img_size = 256 # assume same for both width and height
 data_dir = "data"
+output_dir = "output"
 # assume there is a json file of the same name inside these data subdirs.
 checkpoint_dir = "checkpoints"
 checkpoint_path = f"{checkpoint_dir}/{model_name}/" + "cp-{epoch:04d}.ckpt"
@@ -47,13 +48,13 @@ def dataLoad(dataset_name: str) -> (pd.DataFrame, pd.DataFrame, ImageDataGenerat
     # - DF40/uniface/ff/frames
     # - FaceForensics++/original_sequences/youtube/c23
 
-  
+
     # TODO(liam): it could be possible that this is deallocated
     # when the function finished, causing an error with the data
     # generator.
     df_train: pd.DataFrame = pd.read_csv(f"{data_dir}/{dataset_name}-train.csv")
     df_val: pd.DataFrame = pd.read_csv(f"{data_dir}/{dataset_name}-test.csv")
-    
+
     df_train['label'] = df_train['label'].astype('str')
     df_val['label'] = df_val['label'].astype('str')
 
@@ -126,29 +127,31 @@ def modelPrep(base_model: Model):
     return model
 
 # MODEL TRAINING #
-def modelTrain(model, epochs, callbacks: list = []):
+def modelTrain(model, train_gen, val_gen, epochs, callbacks: list = []):
 
     #latest = latest_checkpoint(os.path.join(os.path(os.getcwd(), checkpoint_dir)))
     #model.load_weights(latest)
     history = model.fit_generator(
-        train_generator,
+        train_gen,
         epochs=epochs,
-        steps_per_epoch=(train_generator.samples // train_generator.batch_size),
-        validation_data=val_generator,
-        validation_steps=(val_generator.samples // val_generator.batch_size),
+        steps_per_epoch=(train_gen.samples // train_gen.batch_size),
+        validation_data=val_gen,
+        validation_steps=(val_gen.samples // val_gen.batch_size),
         callback=callbacks,
         verbose=1
     )
 
+    return history
+
 def modelSave(model, name):
     model.save(f"{output_dir}/deepfake-{name}.keras")
 
-def modelEvaluate(model):
-    val_loss, val_accuracy = model.evaluate(val_generator, verbose=2)
+def modelEvaluate(model, val_gen):
+    val_loss, val_accuracy = model.evaluate(val_gen, verbose=2)
     # val_loss, val_accuracy = model.evaluate(x_val, y_val, verbose=2)
     # print(f'Validation Accuracy: {val_accuracy:.4f}')
     # print(f'Validation Loss: {val_loss:.4f}')
-    
+
     # TODO(liam): make some plots; find F1 score maybe
     pass
 
@@ -159,7 +162,7 @@ if __name__ == '__main__':
     df_train, df_val, train_datagen, test_datagen = dataLoad(dataset_name)
 
     # pass the function itself without initializing (fp)
-    modelPrep(model_pretrained)
+    model = modelPrep(model_pretrained)
 
     latest = latest_checkpoint(os.path.join(os.getcwd(), checkpoint_dir))
     if (latest):
@@ -174,9 +177,9 @@ if __name__ == '__main__':
             verbose=1
         )
     )
-    
+
     modelTrain(model, epochs, callbacks)
 
-    modelEvaluate(model)
+    modelEvaluate(model, test_datagen)
 
     modelSave(model, model_name)
