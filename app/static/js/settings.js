@@ -16,18 +16,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Function to dynamically load the content
 function loadContent(url) {
-    // Fetch the content for the clicked link's URL
     fetch(url)
-        .then(response => response.text())  // Get the HTML content as text
+        .then(response => response.text())
         .then(data => {
-            // Get the placeholder div where content will be injected
             const contentPlaceholder = document.getElementById('content-placeholder');
-            // Insert the fetched content into the placeholder
             contentPlaceholder.innerHTML = data;
+
+            // Execute any <script> tags manually
+            const scripts = contentPlaceholder.querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                if (script.src) {
+                    // External script
+                    newScript.src = script.src;
+                } else {
+                    // Inline script
+                    newScript.textContent = script.textContent;
+                }
+                document.body.appendChild(newScript); // Or append to contentPlaceholder
+            });
         })
         .catch(error => {
             console.error("Error fetching the content:", error);
         });
 }
+

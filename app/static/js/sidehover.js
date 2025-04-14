@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to load content dynamically without full page reload
     function loadPage(url, updateHistory = true) {
-        if (url === "/logout") {
-            window.location.href = url; // Full reload for logout
+        if (url === "/logout" || url === "/" || url === "/home") {
+            window.location.href = url;
             return;
         }
 
@@ -62,6 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Handle internal link clicks in dynamically loaded content
+document.getElementById("main-content").addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (link && link.getAttribute("href") && !link.getAttribute("href").startsWith("#") && !link.getAttribute("target")) {
+        event.preventDefault();
+        const url = link.getAttribute("href");
+        loadPage(url);
+    }
+});
+
 
     // Handle browser back/forward navigation
     window.addEventListener("popstate", function (event) {
