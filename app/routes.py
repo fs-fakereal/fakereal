@@ -347,6 +347,8 @@ def _file_upload():
                     result = mse.prediction(filepath, { 'model_id' : model_id })
                     recent_results[hash] = result
             else:
+                # TODO(liam): fix querying existing hash;
+                # reference previously used query (above)
                 queried_result = sess.query(ScanResult).filter(ScanResult.hash == hash).first()
 
                 # hash exists in db
