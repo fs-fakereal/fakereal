@@ -48,7 +48,7 @@ def model_generate_prediction(image_path: str, model_name: str = 'vgg16'):
                       metrics=['accuracy'])
 
         prediction = model.predict(x_in)
-        prediction = round(prediction[0][0].astype(float), 3)
+        prediction = round(prediction[0][0].astype(float), 3).item()
     except Exception as e:
         model_error_message = e
         error_code = 1
