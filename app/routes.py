@@ -14,9 +14,9 @@ from app.forms import (
     LoginForm,
     PasswordChange,
     SignupForm,
-    UploadImage
+    UploadImage,
 )
-from app.models import Feedback, User, ScanResult
+from app.models import Feedback, ScanResult, User
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
@@ -106,7 +106,7 @@ def loggedAbout():
         db.session.add(feedback)
         db.session.commit()
         flash('Your message was submitted!', 'success')
-        return redirect(url_for('loggedAbout') + '#support')    
+        return redirect(url_for('loggedAbout') + '#support')
     return render_template('logged-in/about.html', title='About', form=form)
 
 #route to the signup page
@@ -301,6 +301,7 @@ def get_news():
 @app.route('/upload', methods=["POST"])
 def _file_upload():
     if request.method == 'POST':
+        sess = db.session
         # NOTE(liam): route to post req for upload
         if 'file' not in request.files:
             return {"error": "no file found"}, 400
@@ -335,22 +336,39 @@ def _file_upload():
             os.rename(bufpath, filepath)
 
             # check existing hash
-            result = ""
+            result = {}
             if hash in recent_results.keys():
                 if MODEL_DEBUG_PRINT:
-                    print("INFO: Hash found. Restoring previous result.")
+                    print("INFO: Hash found locally. Restoring previous result.")
                 result = recent_results[hash]
                 if result['model'] != model_id:
                     if MODEL_DEBUG_PRINT:
                         print("INFO: Model mismatch. Sending image to model anyways.")
                     result = mse.prediction(filepath, { 'model_id' : model_id })
                     recent_results[hash] = result
-
             else:
-                if MODEL_DEBUG_PRINT:
-                    print("INFO: Sending image to model.")
+                queried_result = sess.query(ScanResult).filter(ScanResult.hash == hash).first()
 
-                result = mse.prediction(filepath, { 'model_id' : model_id })
+                # hash exists in db
+                if queried_result:
+                    if MODEL_DEBUG_PRINT:
+                        print("INFO: Hash found in database. Restoring previous result.")
+                    result = {
+                        c.name: getattr(queried_result, c.name) for c in ScanResult.__table__.columns
+                        if c.name not in ['status_message', 'status_code', 'status_from']
+                    }
+                    status = {
+                        'message': queried_result['status_message'],
+                        'code': queried_result['status_code'],
+                        'from': queried_result['status_from'],
+                    }
+                    result['status'] = status
+
+                else:
+                    if MODEL_DEBUG_PRINT:
+                        print("INFO: Sending image to model.")
+                    result = mse.prediction(filepath, { 'model_id' : model_id })
+
                 recent_results[hash] = result
 
             # mse.push_results(s, result, hash)
@@ -376,8 +394,8 @@ def _file_upload():
                 status_code=result['status']['code'],
                 status_from=result['status']['from']
             )
-            db.session.add(final_result)
-            db.session.commit()
+            sess.add(final_result)
+            sess.commit()
 
         #return { "hash": hash, "result": result }
         return redirect(url_for('result_page', hash=hash))
