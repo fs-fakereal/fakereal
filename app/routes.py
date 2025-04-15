@@ -371,6 +371,8 @@ def _file_upload():
 
                 recent_results[hash] = result
 
+            print(f"validate result: {result}")
+
             # mse.push_results(s, result, hash)
             # s.flush()
 

@@ -58,9 +58,9 @@ class ScanResult(db.Model):
     explanation: so.Mapped[str] = so.mapped_column(sa.Text, nullable=False)
     model: so.Mapped[str] = so.mapped_column(sa.String(50), nullable=False)
     score: so.Mapped[float] = so.mapped_column(sa.Float, nullable=False)
-    status_message: so.Mapped[str] = so.mapped_column("message", sa.String(255), nullable=False)
-    status_code: so.Mapped[int] = so.mapped_column("return_code", sa.Integer, nullable=False)
-    status_from: so.Mapped[str] = so.mapped_column("return_from", sa.String(50), nullable=False)
+    status_message: so.Mapped[str] = so.mapped_column("status_message", sa.String(255), nullable=False)
+    status_code: so.Mapped[int] = so.mapped_column("status_code", sa.Integer, nullable=False)
+    status_from: so.Mapped[str] = so.mapped_column("status_from", sa.String(50), nullable=False)
     user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("users.id"))
 
     def __init__(self, hash, time, explanation, model, score, status_message, status_from, status_code = 0, user_id = 0):
