@@ -4,7 +4,6 @@ import time
 from datetime import datetime
 
 import requests
-from app.result import Result
 
 from models.loader import model_generate_prediction, model_get_error
 
@@ -186,12 +185,6 @@ def generate_explanation(was_generated: bool = True) -> str:
         res = explanations["ok"][to_integer(datetime.now()) % len(explanations["ok"])]
 
     return res
-
-def push_results(sess, res, hash):
-    # TODO(liam): currently failing
-    newResult = Result(hash, res['time'], res['score'], res['expl'], res['error']['from'], res['error']['code'])
-    sess.add(newResult)
-    sess.commit()
 
 #-------- new functions --------#
 
