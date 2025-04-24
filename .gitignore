@@ -15,5 +15,4 @@ checkpoints
 .ipynb_checkpoints
 node_modules
 sendgrid.env
-sendgrid.env
-sendgrid.env
+log/*

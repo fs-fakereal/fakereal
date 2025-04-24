@@ -10,18 +10,6 @@ function previewImage() {
             previewBox.innerHTML = '<p>No image selected</p>';
             return;
         }
-
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = 'Image Preview';
-            previewBox.innerHTML = '';  
-            previewBox.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    } else {
-        previewBox.innerHTML = '<p>No image selected</p>';
     }
 
 };

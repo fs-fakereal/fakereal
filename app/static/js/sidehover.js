@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to load content dynamically without full page reload
     function loadPage(url, updateHistory = true) {
-        if (url === "/logout") {
-            window.location.href = url; // Full reload for logout
+        if (url === "/logout" || url === "/" || url === "/home") {
+            window.location.href = url;
             return;
         }
 
@@ -27,12 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 document.getElementById("main-content").innerHTML = data;
 
+                // Run JavaScript from the dynamically loaded content
+                runScriptsInContent(data);
+
                 // Update browser URL without reloading the page
                 if (updateHistory) {
                     history.pushState({ path: url }, "", url);
                 }
             })
             .catch(error => console.error("Error loading content:", error));
+    }
+
+    // Function to execute scripts from the loaded content
+    function runScriptsInContent(content) {
+        const scripts = new DOMParser().parseFromString(content, 'text/html').querySelectorAll('script');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript); // Append the script to the document to execute it
+        });
     }
 
     // Load default page (Upload) when page first loads
@@ -49,6 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Handle internal link clicks in dynamically loaded content
+document.getElementById("main-content").addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (link && link.getAttribute("href") && !link.getAttribute("href").startsWith("#") && !link.getAttribute("target")) {
+        event.preventDefault();
+        const url = link.getAttribute("href");
+        loadPage(url);
+    }
+});
+
 
     // Handle browser back/forward navigation
     window.addEventListener("popstate", function (event) {

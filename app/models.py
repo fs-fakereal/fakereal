@@ -53,14 +53,14 @@ class ScanResult(db.Model):
     __tablename__ = "scan_results"
     #__table_args__ = {'extend_existing': True}
     #id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True)
-    hash: so.Mapped[str] = so.mapped_column("hash_id", sa.String(64), primary_key=True, unique=True, index=True, nullable=False)
-    time: so.Mapped[float] = so.mapped_column("time_gen", sa.Float, primary_key=True, nullable=False)
+    hash: so.Mapped[str] = so.mapped_column("hash", sa.String(64), primary_key=True, unique=True, index=True, nullable=False)
+    time: so.Mapped[float] = so.mapped_column("time", sa.Float, primary_key=True, nullable=False)
     explanation: so.Mapped[str] = so.mapped_column(sa.Text, nullable=False)
     model: so.Mapped[str] = so.mapped_column(sa.String(50), nullable=False)
     score: so.Mapped[float] = so.mapped_column(sa.Float, nullable=False)
-    status_message: so.Mapped[str] = so.mapped_column("message", sa.String(255), nullable=False)
-    status_code: so.Mapped[int] = so.mapped_column("return_code", sa.Integer, nullable=False)
-    status_from: so.Mapped[str] = so.mapped_column("return_from", sa.String(50), nullable=False)
+    status_message: so.Mapped[str] = so.mapped_column("status_message", sa.String(255), nullable=False)
+    status_code: so.Mapped[int] = so.mapped_column("status_code", sa.Integer, nullable=False)
+    status_from: so.Mapped[str] = so.mapped_column("status_from", sa.String(50), nullable=False)
     user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("users.id"))
 
     def __init__(self, hash, time, explanation, model, score, status_message, status_from, status_code = 0, user_id = 0):

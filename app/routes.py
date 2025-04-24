@@ -1,5 +1,6 @@
 import hashlib
 import json
+import logging
 import os
 import time
 
@@ -14,9 +15,9 @@ from app.forms import (
     LoginForm,
     PasswordChange,
     SignupForm,
-    UploadImage
+    UploadImage,
 )
-from app.models import Feedback, User, ScanResult
+from app.models import Feedback, ScanResult, User
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy.orm import sessionmaker
@@ -26,14 +27,17 @@ from werkzeug.utils import secure_filename
 
 
 #--Constants for Model--#
-MODEL_DEBUG_PRINT = True
 DATA_UPLOAD_FOLDER = 'models/data/user'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 JSON_FOLDER = 'app/static/json'
+SERVER_LOG_PATH = 'log/server.txt'
 
 # TODO(liam): session is not working
 Session = sessionmaker(bind=db)
 s = Session()
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename=SERVER_LOG_PATH, format='%(name)s | %(asctime)s | %(levelname)s: %(message)s', datefmt="%m/%d/%Y %I:%M:%S %p", encoding='utf8', level=logging.DEBUG)
+
 recent_results = {}
 #-----------------------#
 
@@ -106,7 +110,7 @@ def loggedAbout():
         db.session.add(feedback)
         db.session.commit()
         flash('Your message was submitted!', 'success')
-        return redirect(url_for('loggedAbout') + '#support')    
+        return redirect(url_for('loggedAbout') + '#support')
     return render_template('logged-in/about.html', title='About', form=form)
 
 #route to the signup page
@@ -156,11 +160,7 @@ def result():
     return render_template('result.html', title='Result')
 
 #route to the page that allows users to scan photos
-@app.route('/scan', methods=['GET', 'POST'])
-@login_required
-def scan():
-    form = UploadImage()
-    return render_template('scan.html', title='Scan', form = form)
+
 
 #routes to the results history page
 @app.route('/result/<hash>')
@@ -172,11 +172,11 @@ def result_page(hash):
         return render_template('upload.html', title='Upload')
     return render_template('scan_result.html', result=result, hash=hash, title='Scan Result')
 
-#route to the page that allows users to upload
 @app.route('/upload', methods=['GET'])
 @login_required
 def upload():
-    return render_template('upload.html', title='Upload')
+    form = UploadImage()
+    return render_template('upload.html', title='Upload', form = form)
 
 #route to dashboard
 @app.route('/dashboard', methods=['GET', 'POST'])
@@ -285,9 +285,8 @@ def get_news():
             # NOTE(liam): approximate 30 days in seconds
             if (time_created == 0 or time_now - time_created > 2_592_000):
 
-                # NOTE(liam): make fetch here
                 news_url = f"https://newsapi.org/v2/everything?q=Deepfake&language=en&apiKey={os.getenv('NEWS_SECRET')}"
-
+                logging.info("fetching news data from News API.")
                 response = requests.get(news_url)
                 dat = response.json()
 
@@ -298,15 +297,17 @@ def get_news():
                 with open(filepath, "r") as json_file:
                     dat = json.load(json_file)
         except Exception as e:
-            print(e)
+            logger.error(f"{e}")
 
         return dat
 
 @app.route('/upload', methods=["POST"])
 def _file_upload():
     if request.method == 'POST':
+        sess = db.session
         # NOTE(liam): route to post req for upload
         if 'file' not in request.files:
+            logger.error("File not received.")
             return {"error": "no file found"}, 400
 
         try:
@@ -314,7 +315,7 @@ def _file_upload():
             file = request.files['file']
             filename = secure_filename(file.filename)
             ext = mse.file_get_extension(filename)
-            model_id = request.args.get('model', None) or 'genai'
+            model_id = request.args.get('model', None) or 'vgg16'
 
             data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
 
@@ -322,6 +323,7 @@ def _file_upload():
                 os.makedirs(data_dir, exist_ok=True)
 
             if ext not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
+                logger.error(f"File extension is invalid: '{ext}'.")
                 return {"error": "file extension blocked"}, 400
 
             # NOTE(liam): saves file temporarily
@@ -333,55 +335,79 @@ def _file_upload():
                 hash = hashlib.sha256(contents).hexdigest()
                 filepath = os.path.join(data_dir, f"{hash}.{ext}")
 
+            logger.info(f"Received {hash}.")
+
             if (os.path.isfile(filepath)):
                 os.remove(filepath)
 
             os.rename(bufpath, filepath)
 
-            # check existing hash
-            result = ""
+            # NOTE(liam): check existing hash
+            save_results: bool = True
+            result = {}
             if hash in recent_results.keys():
-                if MODEL_DEBUG_PRINT:
-                    print("INFO: Hash found. Restoring previous result.")
+                logger.debug("Hash found locally. Restoring previous result.")
+
                 result = recent_results[hash]
+
                 if result['model'] != model_id:
-                    if MODEL_DEBUG_PRINT:
-                        print("INFO: Model mismatch. Sending image to model anyways.")
+                    logger.debug("Model mismatch. Sending image to model anyways.")
                     result = mse.prediction(filepath, { 'model_id' : model_id })
                     recent_results[hash] = result
-
+                else:
+                    save_results = False
             else:
-                if MODEL_DEBUG_PRINT:
-                    print("INFO: Sending image to model.")
+                queried_result = sess.query(ScanResult).filter(ScanResult.hash == hash).first()
 
-                result = mse.prediction(filepath, { 'model_id' : model_id })
+                # hash exists in db
+                if queried_result:
+                    save_results = False
+                    logger.debug("Hash found in database. Restoring previous result.")
+                    result = {
+                        c.name: getattr(queried_result, c.name) for c in ScanResult.__table__.columns
+                        if c.name not in ['status_message', 'status_code', 'status_from']
+                    }
+                    status = {
+                        'message': queried_result.status_message,
+                        'code': queried_result.status_code,
+                        'from': queried_result.status_from,
+                    }
+                    result['status'] = status
+
+                    if result['model'] != model_id:
+                        logger.debug("Model mismatch. Sending image to model anyways.")
+                        result = mse.prediction(filepath, { 'model_id' : model_id })
+                        recent_results[hash] = result
+                    else:
+                       save_results = False
+                else:
+                    logger.debug("Sending image to model.")
+                    result = mse.prediction(filepath, { 'model_id' : model_id })
+
                 recent_results[hash] = result
 
-            # mse.push_results(s, result, hash)
-            # s.flush()
-
+            logger.debug(f"Validating result: {result}")
         except Exception as e:
-            print(f"ERROR: {e}")
+            logger.error(f"{e}")
             return {"error": f"Error processing: {str(e)}"}, 500
 
         finally:
-            if MODEL_DEBUG_PRINT:
-                print("INFO: Finished processing. Returning to client.")
-                print(f"hash: {hash}, result: {result}")
+            logger.info("Finished processing. Returning to client.")
+            logger.debug(f"hash: {hash}, result: {result}")
             file.close()
 
-            final_result = ScanResult(
-                hash=hash,
-                time=result['time'],
-                explanation=result['explanation'],
-                model=result['model'],
-                score=result['score'],
-                status_message=result['status']['message'],
-                status_code=result['status']['code'],
-                status_from=result['status']['from']
-            )
-            db.session.add(final_result)
-            db.session.commit()
+            if save_results:
+                final_result = ScanResult(
+                    hash=hash,
+                    time=result['time'],
+                    explanation=result['explanation'],
+                    model=result['model'],
+                    score=result['score'],
+                    status_message=result['status']['message'],
+                    status_code=result['status']['code'],
+                    status_from=result['status']['from']
+                )
+                sess.add(final_result)
+                sess.commit()
 
-        #return { "hash": hash, "result": result }
         return redirect(url_for('result_page', hash=hash))
