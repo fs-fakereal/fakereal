@@ -54,7 +54,7 @@ class ScanResult(db.Model):
     #__table_args__ = {'extend_existing': True}
     #id: so.Mapped[Optional[int]] = so.mapped_column(primary_key=True)
     hash: so.Mapped[str] = so.mapped_column("hash", sa.String(64), primary_key=True, unique=True, index=True, nullable=False)
-    time: so.Mapped[float] = so.mapped_column("time", sa.Float, primary_key=True, nullable=False)
+    time: so.Mapped[float] = so.mapped_column("time", sa.Float, nullable=False)
     explanation: so.Mapped[str] = so.mapped_column(sa.Text, nullable=False)
     model: so.Mapped[str] = so.mapped_column(sa.String(50), nullable=False)
     score: so.Mapped[float] = so.mapped_column(sa.Float, nullable=False)

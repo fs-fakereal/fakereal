@@ -9,7 +9,7 @@ body {
 
 .content.privacy-policy {
     width: 100%;
-    max-width: 1200px; /* Shrunk to fit better inside dashboard */
+    max-width: 1000px; /* Shrunk to fit better inside dashboard */
     margin: 20px auto; /* Center it inside the main-content area */
     background-color: #fff;
     padding: 16px 24px; /* Reduced padding */

@@ -81,4 +81,14 @@
     /* Slide the content to the right when sidebar is open */
 }
 
+/* In your main dashboard stylesheet */
+.dark-mode {
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #222;
+}
 
