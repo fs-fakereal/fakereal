@@ -13,7 +13,7 @@
     <h1>Result for {{ hash }}</h1>
     <p>{{ result.explanation }}</p>
     <p>Score: {{ result.score }}</p>
-    <img src="{{ url_for('static', filename='imgs/uploads/' + image) }}" class="scanned_image">
+    <img src="{{ url_for('static', filename='imgs/uploads/' + image) }}" class="scanned_image" alt="tested-img">
 
     <script src="../static/js/results.js"></script>
     <script src="../static/js/upload-limit.js"></script>

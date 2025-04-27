@@ -1,6 +1,7 @@
 .results-section {
     padding: 1rem 8rem;
-    width: 15vw;
+    width: 20rem;
+
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.1);
@@ -42,7 +43,11 @@
     height: 60vh;
     gap: 2rem;
 }
-  
+
+.scanned_image {
+    height: 20rem;
+}
+
 
 /* filter the images */
 .filter-photos {

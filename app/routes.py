@@ -177,7 +177,8 @@ def result_page(hash):
     if not result:
         #return "Result not found", 404
         return render_template('upload.html', title='Upload')
-    return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
+    # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
+    return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
 
 @app.route('/upload', methods=['GET'])
 @login_required
