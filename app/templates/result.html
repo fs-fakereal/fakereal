@@ -17,18 +17,19 @@
         <br>
         <!-- Previews the Image -->
         <div id="image-box" class="image-box">
-          <p>No image selected</p>
+          <img src="{{ url_for('static', filename='imgs/uploads/' + image) }}" class="scanned_image" alt="tested-img">
         </div>
         <br>
         <!-- Result -->
         <div class="verdict">
+          <p>Score: {{ result.score }}</p>
           <p>True.False.</p>
         </div>
         <br>
       </div>
 
       <!-- Previous Data -->
-      <div class="filter-photos">
+      <!-- <div class="filter-photos">
         <h3>Filter:</h3>
         <div class="fake-real">
           <p>---</p>
@@ -41,7 +42,7 @@
           <p>By Month</p>
           <p>By Year</p>
         </div>
-      </div>
+      </div> -->
 
       <!-- images list -->
        <div class="previous-img-data">
