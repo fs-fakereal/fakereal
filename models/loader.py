@@ -13,18 +13,17 @@ from tensorflow.keras.config import disable_interactive_logging
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
-log_dir: str = "log"
+model_log_path: str = "log/model.log"
 model_output_dir: str = "models/output"
 model_error_message: str = ""
 img_size = 256
 
-
-# logging
+#--logging--#
 disable_interactive_logging()
-log = logging.getLogger('tensorflow')
+log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-fh = logging.FileHandler(os.path.join(os.getcwd(), log_dir, 'tensorflow.log'))
+formatter = logging.Formatter('%(name)s | %(asctime)s | %(levelname)s | %(message)s')
+fh = logging.FileHandler(model_log_path)
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 log.addHandler(fh)
