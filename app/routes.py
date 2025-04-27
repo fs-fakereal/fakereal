@@ -3,10 +3,9 @@ import json
 import logging
 import os
 import time
-
 import requests
-
 import sqlalchemy as sa
+import shutil
 
 from app import app, db, mse
 from app.forms import (
@@ -166,11 +165,12 @@ def result():
 @app.route('/result/<hash>')
 @login_required
 def result_page(hash):
+    img = request.args.get('img')
     result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
     if not result:
         #return "Result not found", 404
         return render_template('upload.html', title='Upload')
-    return render_template('scan_result.html', result=result, hash=hash, title='Scan Result')
+    return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
 
 @app.route('/upload', methods=['GET'])
 @login_required
@@ -342,6 +342,11 @@ def _file_upload():
 
             os.rename(bufpath, filepath)
 
+            static_folder = os.path.join(os.getcwd(), 'app', 'static', 'imgs', 'uploads')
+            os.makedirs(static_folder, exist_ok=True)
+            static_filepath = os.path.join(static_folder, f"{hash}.{ext}")
+            shutil.copy(filepath, static_filepath)
+
             # NOTE(liam): check existing hash
             save_results: bool = True
             result = {}
@@ -410,4 +415,4 @@ def _file_upload():
                 sess.add(final_result)
                 sess.commit()
 
-        return redirect(url_for('result_page', hash=hash))
+        return redirect(url_for('result_page', hash=hash, img=f"{hash}.{ext}"))

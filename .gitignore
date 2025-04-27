@@ -16,3 +16,4 @@ checkpoints
 node_modules
 sendgrid.env
 log/*
+/app/static/imgs/uploads
