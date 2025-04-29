@@ -63,8 +63,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Letizia Maukar</h3>
-              <p>Project Manager,</p>
-              <p>UX and UI Designer</p>
+              <p>Project Manager,<br>UX and UI Designer</p>
 
               <div class="socials">
                 <a href="https://www.linkedin.com/in/letizia-maukar-386976187/"><img src="../static/imgs/icons/linkedin.png" alt="letizia's linkedin"></a>
@@ -92,8 +91,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Fatima Sarr</h3>
-              <p>Quality Tester,</p> 
-              <p>Software Developer</p>
+              <p>Quality Tester,<br>Software Developer</p>
               
               <div class="socials">
                 <a href="https://www.linkedin.com/in/fatima-sarr-6ab3aa190/"><img src="../static/imgs/icons/linkedin.png" alt="fatima's linkedin"></a>
@@ -104,7 +102,7 @@
             <div class="members">
               <img src="../static/imgs/icons/profile.png" alt="temp" class="profile-img">
               <h3>Liam Bagabag</h3>
-              <p>Software Developer</p>
+              <p>Software Developer,<br>ML/AI Engineer</p>
               
               <div class="socials">
                 <a href="https://www.linkedin.com/in/lbzfran/"><img src="../static/imgs/icons/linkedin.png" alt="liam's linkedin"></a>
@@ -131,6 +129,24 @@
       </div>
 
       <div class="support-box">
+        <!-- Success message section -->
+        {% if success_message %}
+        <div class="alert alert-success" id="success-message">
+        {{ success_message }}
+        </div>
+        {% endif %}
+
+        <!-- Flash messages (for errors) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                    {{ message }}
+              </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
         <form action="" method="post" class="support-form">
           <div class="email-details">
               <div class="user-info-fname">
@@ -171,99 +187,91 @@
               Remaining characters: 
               <span class="remaining-container"
                 id="remaining-container"> 
-                245 
+                245
               </span> 
             </p> 
           </div> 
 
-          <br>
+          <!-- <br> -->
 
           <div class="send-submit">
-              {{ form.submit(class_="send-button", type="submit") }}
+              {{ form.submit(class="send-button", id="configure-button", type="submit") }}
           </div>
         </form>
       </div>
     </div>
 
-      <!-- Footer -->
-      <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
 
-        <div class="upper-half">
-          <div class="fakereal-here">
-            <h1>FakeReal</h1>
-            <p>Our mission to bringing AI detection to the general public.</p>
+      <div class="upper-half">
+        <div class="fakereal-here">
+          <h1>FakeReal</h1>
+          <p>Our mission to bringing AI detection to the general public.</p>
 
-            <div class="links">
-              <div class="download">
-                <a href="holder">
-                  <img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension">
-  
-                  <div class="download-text">
-                    <h1>Scan images at real time!</h1>
-                    <p>Download our Chrome Extension</p>
-                  </div>
-                </a>
-              </div>
-  
-              <div class="report">
-                <a href="https://www.ic3.gov/">
-                  <img src="../static/imgs/icons/alert.png" alt="report">
-  
-                  <div class="report-text">
-                    <h1>Report a case!</h1>
-                    <p>Click here to report a case</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          <div class="links">
+            <div class="download">
+              <a href="holder">
+                <img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension">
 
-          <div class="links-collection">
-            <div class="details">
-              <h3>Navigation</h3>
-              
-              <p><a href="{{ url_for('about') }}">Contact Us</a></p>
-              <p><a href="{{ url_for('about') }}">FAQ</a></p>
-    
-              <br>
-    
-              <p><a href="{{ url_for('login') }}">Log In</a></p>
-              <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
-            </div>  
-
-            <div class="contact-us">
-              <h3>Get in touch</h3>
-
-              <p>&#9993; fakere.41@gmail.com</p>
-              <p><i>&#xf279;</i> Cal State Univeristy, Long Beach</p>
+                <div class="download-text">
+                  <h1>Scan images at real time!</h1>
+                  <p>Download our Chrome Extension</p>
+                </div>
+              </a>
             </div>
 
-            <div class="downloads">
-              
+            <div class="report">
+              <a href="https://www.ic3.gov/">
+                <img src="../static/imgs/icons/alert.png" alt="report">
+
+                <div class="report-text">
+                  <h1>Report a case!</h1>
+                  <p>Click here to report a case</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
-        <hr>
+        <div class="links-collection">
+          <div class="details">
+            <h3>Navigation</h3>
+            
+            <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+            <p><a href="{{ url_for('about') }}">FAQ</a></p>
+  
+            <br>
+  
+            <p><a href="{{ url_for('login') }}">Log In</a></p>
+            <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
+          </div>  
 
-        <div class="important">
-          <p>&copy; 2024 Fake Real™. All rights reserved.</p>
-          <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+          <div class="contact-us">
+            <h3>Get in touch</h3>
+
+            <p>&#9993; fakere.41@gmail.com</p>
+            <p><i>&#xf279;</i> Cal State Univeristy, Long Beach</p>
+          </div>
+
+          <div class="downloads">
+            
+          </div>
         </div>
-      </footer>
+      </div>
 
-    <script>
-      function autoGrow(comment) {
-        // Reset the height to auto so it can shrink if text is deleted
-        textarea.style.height = 'auto';
-        
-        // Set the height to the scrollHeight, which is the full height of the content
-        textarea.style.height = (textarea.scrollHeight) + 'px';
-      }
-    </script>
+      <hr>
+
+      <div class="important">
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+      </div>
+    </footer>
+
     <script src="../../static/js/logo-animation.js"></script>
     <script src="../../static/js/animation.js"></script>
     <script src="../../static/js/word-count.js"></script>
+    <script src="../../static/js/success-submit.js"></script>
 
   </body>
 </html>

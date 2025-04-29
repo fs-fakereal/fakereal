@@ -38,11 +38,21 @@
     /* padding: 10rem 0rem 0rem 3rem; */
 
     display: flex;
-    flex-direction: row;
-    height: 60vh;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem 0rem;
+    /* height: 10vh; */
     gap: 2rem;
 }
   
+.pics-history {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 /* filter the images */
 .filter-photos {
