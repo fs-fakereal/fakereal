@@ -169,8 +169,6 @@ explanations = {
         ]
 }
 
-# NOTE(liam): JUST PLACEHOLDER EXPLANATION
-
 def file_get_extension(filename):
     return filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
 

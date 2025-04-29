@@ -330,7 +330,7 @@ def _file_upload():
             if not os.path.exists(data_dir):
                 os.makedirs(data_dir, exist_ok=True)
 
-            if ext not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
+            if ext.lower() not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
                 logger.error(f"File extension is invalid: '{ext}'.")
                 return {"error": "file extension blocked"}, 400
 
