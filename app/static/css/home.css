@@ -97,34 +97,76 @@
     right:-10%;
 
     object-fit: contain;
+    height: 25rem;
 
     img {
         max-width: 60%;
         max-height: 100%;
+        
+        cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
     }
 }
 
-.images-stack-top img:hover {
-    filter: grayscale(100%);
-    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+.images-stack-top:hover{
+    .img1 {
+        opacity: 0.3;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .label-real {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 25rem;
+        opacity: 0.6;
+        transition: 0.5s ease;
+        background-color: green;
+    }
+
+    .label-text {
+        padding: 5rem 2rem 5rem 2rem;
+    }
 }
 
 .images-stack-middle {
     position: relative;
     top: 8%;
-    right: -20%;
+    right: -40%;
 
     object-fit: contain;
+    height: 25rem;
 
     img {
-        width: 70%;
+        /* width: 70%; */
         max-height: 100%;
     }
 }
 
-.images-stack-middle img:hover {
-    filter: grayscale(100%);
-    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+.images-stack-middle:hover {
+    .img2 {
+        opacity: 0.3;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .label-fake1 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 25rem;
+        opacity: 0.6;
+        transition: 0.5s ease;
+        background-color: red;
+    }
+
+    .label-text {
+        padding: 5rem 2rem 5rem 2rem;
+    }
 }
 
 .images-stack-bottom {
@@ -132,18 +174,92 @@
 
     position: relative;
     bottom: 0%;    
+    right: -20%;
 
     object-fit: contain;
+    height: 15rem;
+
+    cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
 
     img {
-        width: 50%;
+        /* width: 50%; */
         max-height: 100%;
     }
 }
 
-.images-stack-bottom img:hover {
-    filter: grayscale(100%);
+.images-stack-bottom:hover {
+    .img3 {
+        opacity: 0.3;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .label-fake {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 15rem;
+        opacity: 0.6;
+        transition: 0.5s ease;
+        background-color: red;
+    }
+
+    .label-text {
+        padding: 5rem 2rem 5rem 2rem;
+    }
+}
+
+.label-real {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 25rem;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: green;
+    
     cursor: url('../imgs/mouse/white-pointer.png'), auto !important;
+}
+
+.label-fake1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 25rem;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: red;
+}
+
+.label-fake {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 15rem;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: red;
+}
+
+.label-text {
+    color: black;
+    font-weight: bolder;
+    font-size: 2rem;
+
+    transition: color 0.5s ease-in-out;
+    
+    padding: 5rem 2rem 5rem 2rem;
 }
 
 .images-stack-logo {

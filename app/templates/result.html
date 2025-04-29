@@ -17,41 +17,62 @@
         <br>
         <!-- Previews the Image -->
         <div id="image-box" class="image-box">
-          <p>No image selected</p>
+          <img src="{{ url_for('static', filename='imgs/uploads/' + image) }}" class="scanned_image" alt="tested-img">
         </div>
         <br>
+
         <!-- Result -->
-        <div class="verdict">
-          <p>True.False.</p>
+        <div class="verdict" id="img-verdict">
+          <!-- <p>Scanned to be {{ result.score }}</p> -->
+
+          <script>     
+            const imgScore = {{ result.score }};
+            const numScore = Math.round(imgScore * 100);
+
+            const verdict = document.querySelector('#img-verdict');
+
+            // verdict.innerHTML = `${imgScore}`;
+            if (imgScore <= 0) {
+              verdict.innerHTML += `
+                <p>Scanned to be ${numScore}% to be AI-generateed.</p>
+                <p>Final Verdict: This is not an AI-generateed image.</p>
+              `;
+            }
+            if (imgScore > 0) {
+              verdict.innerHTML += `
+                <p>Scanned to be ${numScore} percent to be AI-generateed.</p>
+                <p>Final Verdict: This is an AI-generateed image.</p>
+              `;
+            }
+          </script>
         </div>
+
         <br>
       </div>
 
-      <div class="pics-history">
-        <!-- Previous Data -->
-        <div class="filter-photos">
-          <h3>Filter:</h3>
-          <div class="fake-real">
-            <p>---</p>
-            <p>Ai-generated</p>
-            <p>Non Ai-generated</p>
-          </div>
-
-          <div class="by-dates">
-            <p>---</p>
-            <p>By Month</p>
-            <p>By Year</p>
-          </div>
-        </div>
+      <!-- Previous Data -->
+      <!-- <div class="filter-photos">
+        <h3>Filter:</h3>
+        <div class="fake-real">
+          <p>---</p>
+          <p>Ai-generated</p>
+          <p>Non Ai-generated</p>
+        </div> -->
 
         <!-- images list -->
-        <div class="previous-img-data">
+        <!-- <div class="previous-img-data">
             <p>No image have been tested :[</p>
         </div>
-      </div>
+      </div> -->
+
+      <!-- images list -->
+       <!-- <div class="previous-img-data">
+          <p>No image have been tested :[</p>
+       </div> -->
     </div>
 
     <script src="../static/js/results.js"></script>
     <script src="../static/js/upload-limit.js"></script>
+    <script src="../static/js/results-outcome.js"></script>
   </body>
 </html>

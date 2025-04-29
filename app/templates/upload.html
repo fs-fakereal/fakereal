@@ -17,8 +17,15 @@
                 {{ form.file.label }} <br />
                 {{ form.file(id="file",accept=".jpg,.jpeg,.png",type="file") }}<br />
                 <div id="preview-box" class="preview-box">
-                    <img id="preview" src="#" alt="Image Preview" style="max-width: 300px; display: none;" /><br><br>
+                    <img id="preview" src="#" alt="Image Preview" style="max-width: 900px; display: none;" /><br><br>
                 </div>
+                <!-- Checkbox to send to AI model -->
+                <div class="checkbox-section">
+                    <label for="send_to_ai">
+                        <input type="checkbox" name="send_to_ai" id="send_to_ai">
+                        Send to AI Model
+                    </label>
+                </div><br>                
                 {{ form.submit() }}
             </form>
             <script>
@@ -36,5 +43,13 @@
 
         <script src="../static/js/upload-limit.js"></script>
         <script src="../static/js/results.js"></script>
+        <script>
+            document.getElementById('send_to_ai').addEventListener('change', function() {
+                if (this.checked) {
+                    alert("By sending this image to the AI model, you agree that it will be used to train and improve AI capabilities.");
+                }
+            });
+        </script>
+        
     </body>
 </html>

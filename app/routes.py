@@ -2,10 +2,10 @@ import hashlib
 import json
 import logging
 import os
+import shutil
 import time
 
 import requests
-
 import sqlalchemy as sa
 
 from app import app, db, mse
@@ -30,15 +30,21 @@ from werkzeug.utils import secure_filename
 DATA_UPLOAD_FOLDER = 'models/data/user'
 DATA_UPLOAD_EXTENSIONS_WHITELIST = { 'png', 'jpg', 'jpeg' }
 JSON_FOLDER = 'app/static/json'
-SERVER_LOG_PATH = 'log/server.txt'
+SERVER_LOG_PATH = 'log/server.log'
 
-# TODO(liam): session is not working
-Session = sessionmaker(bind=db)
-s = Session()
-logger = logging.getLogger(__name__)
-logging.basicConfig(filename=SERVER_LOG_PATH, format='%(name)s | %(asctime)s | %(levelname)s: %(message)s', datefmt="%m/%d/%Y %I:%M:%S %p", encoding='utf8', level=logging.DEBUG)
-
+#--global mutable--#
 recent_results = {}
+
+#--setup--#
+logger = logging.getLogger(__name__)
+
+logger.setLevel(logging.DEBUG)
+
+logFileFormatter = logging.Formatter('%(name)s | %(asctime)s | %(levelname)s: %(message)s', datefmt="%m/%d/%Y %I:%M:%S %p")
+
+logFileHandler = logging.FileHandler(SERVER_LOG_PATH)
+logFileHandler.setFormatter(logFileFormatter)
+logger.addHandler(logFileHandler)
 #-----------------------#
 
 #this file tells flask where to route the website's traffic
@@ -166,11 +172,13 @@ def result():
 @app.route('/result/<hash>')
 @login_required
 def result_page(hash):
+    img = request.args.get('img')
     result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
     if not result:
         #return "Result not found", 404
         return render_template('upload.html', title='Upload')
-    return render_template('scan_result.html', result=result, hash=hash, title='Scan Result')
+    # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
+    return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
 
 @app.route('/upload', methods=['GET'])
 @login_required
@@ -342,6 +350,11 @@ def _file_upload():
 
             os.rename(bufpath, filepath)
 
+            static_folder = os.path.join(os.getcwd(), 'app', 'static', 'imgs', 'uploads')
+            os.makedirs(static_folder, exist_ok=True)
+            static_filepath = os.path.join(static_folder, f"{hash}.{ext}")
+            shutil.copy(filepath, static_filepath)
+
             # NOTE(liam): check existing hash
             save_results: bool = True
             result = {}
@@ -410,4 +423,4 @@ def _file_upload():
                 sess.add(final_result)
                 sess.commit()
 
-        return redirect(url_for('result_page', hash=hash))
+        return redirect(url_for('result_page', hash=hash, img=f"{hash}.{ext}"))

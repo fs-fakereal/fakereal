@@ -1,6 +1,7 @@
 .results-section {
     padding: 1rem 8rem;
-    width: 15vw;
+    width: 20rem;
+
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.1);
@@ -47,12 +48,20 @@
     /* height: 10vh; */
     gap: 2rem;
 }
+<<<<<<< HEAD
   
 .pics-history {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
+=======
+
+.scanned_image {
+    height: 20rem;
+}
+
+>>>>>>> 1ee85fffd24b9776960e708f3feff25a08d05e5d
 
 /* filter the images */
 .filter-photos {
