@@ -350,6 +350,7 @@ def _file_upload():
 
             os.rename(bufpath, filepath)
 
+            #saves file to static so flask can detect/use within website
             static_folder = os.path.join(os.getcwd(), 'app', 'static', 'imgs', 'uploads')
             os.makedirs(static_folder, exist_ok=True)
             static_filepath = os.path.join(static_folder, f"{hash}.{ext}")
@@ -424,3 +425,127 @@ def _file_upload():
                 sess.commit()
 
         return redirect(url_for('result_page', hash=hash, img=f"{hash}.{ext}"))
+
+#similar route to upload, but this one is used for the extension - fatima
+@app.route('/upload_ext', methods=["POST"])
+def _ext_upload():
+    if request.method == 'POST':
+        sess = db.session
+        # NOTE(liam): route to post req for upload
+        if 'file' not in request.files:
+            logger.error("File not received.")
+            return {"error": "no file found"}, 400
+
+        try:
+            # NOTE(liam): file processing section
+            file = request.files['file']
+            filename = secure_filename(file.filename)
+            ext = mse.file_get_extension(filename)
+            model_id = request.args.get('model', None) or 'vgg16'
+
+            data_dir = os.path.join(os.getcwd(), DATA_UPLOAD_FOLDER)
+
+            if not os.path.exists(data_dir):
+                os.makedirs(data_dir, exist_ok=True)
+
+            if ext.lower() not in DATA_UPLOAD_EXTENSIONS_WHITELIST:
+                logger.error(f"File extension is invalid: '{ext}'.")
+                return {"error": "file extension blocked"}, 400
+
+            # NOTE(liam): saves file temporarily
+            bufpath = os.path.join(data_dir, f"{time.time()}.{ext}")
+            file.save(bufpath)
+
+            with open(bufpath, "rb") as bf:
+                contents = bf.read()
+                hash = hashlib.sha256(contents).hexdigest()
+                filepath = os.path.join(data_dir, f"{hash}.{ext}")
+
+            logger.info(f"Received {hash}.")
+
+            if (os.path.isfile(filepath)):
+                os.remove(filepath)
+
+            os.rename(bufpath, filepath)
+
+            #saves file to static so flask can detect/use within website
+            static_folder = os.path.join(os.getcwd(), 'app', 'static', 'imgs', 'uploads')
+            os.makedirs(static_folder, exist_ok=True)
+            static_filepath = os.path.join(static_folder, f"{hash}.{ext}")
+            shutil.copy(filepath, static_filepath)
+
+            # NOTE(liam): check existing hash
+            save_results: bool = True
+            result = {}
+            if hash in recent_results.keys():
+                logger.debug("Hash found locally. Restoring previous result.")
+
+                result = recent_results[hash]
+
+                if result['model'] != model_id:
+                    logger.debug("Model mismatch. Sending image to model anyways.")
+                    result = mse.prediction(filepath, { 'model_id' : model_id })
+                    recent_results[hash] = result
+                else:
+                    save_results = False
+            else:
+                queried_result = sess.query(ScanResult).filter(ScanResult.hash == hash).first()
+
+                # hash exists in db
+                if queried_result:
+                    save_results = False
+                    logger.debug("Hash found in database. Restoring previous result.")
+                    result = {
+                        c.name: getattr(queried_result, c.name) for c in ScanResult.__table__.columns
+                        if c.name not in ['status_message', 'status_code', 'status_from']
+                    }
+                    status = {
+                        'message': queried_result.status_message,
+                        'code': queried_result.status_code,
+                        'from': queried_result.status_from,
+                    }
+                    result['status'] = status
+
+                    if result['model'] != model_id:
+                        logger.debug("Model mismatch. Sending image to model anyways.")
+                        result = mse.prediction(filepath, { 'model_id' : model_id })
+                        recent_results[hash] = result
+                    else:
+                       save_results = False
+                else:
+                    logger.debug("Sending image to model.")
+                    result = mse.prediction(filepath, { 'model_id' : model_id })
+
+                recent_results[hash] = result
+
+            logger.debug(f"Validating result: {result}")
+        except Exception as e:
+            logger.error(f"{e}")
+            return {"error": f"Error processing: {str(e)}"}, 500
+
+        finally:
+            logger.info("Finished processing. Returning to client.")
+            logger.debug(f"hash: {hash}, result: {result}")
+            file.close()
+
+            ext_response = {
+                "hash": hash,
+                "explanation": result['explanation'],
+                "score": result['score'],
+            }
+
+            if save_results:
+                final_result = ScanResult(
+                    hash=hash,
+                    time=result['time'],
+                    explanation=result['explanation'],
+                    model=result['model'],
+                    score=result['score'],
+                    status_message=result['status']['message'],
+                    status_code=result['status']['code'],
+                    status_from=result['status']['from']
+                )
+                sess.add(final_result)
+                sess.commit()
+
+        return json.dumps(ext_response)
