@@ -9,7 +9,7 @@ os.environ["GRPC_VERBOSITY"] = "ERROR"
 os.environ["GLOG_minloglevel"] = "2"
 
 import numpy as np
-from tensorflow.keras.config import disable_interactive_logging
+# from tensorflow.keras.config import disable_interactive_logging
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
@@ -19,7 +19,7 @@ model_error_message: str = ""
 img_size = 256
 
 #--logging--#
-disable_interactive_logging()
+# disable_interactive_logging()
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(name)s | %(asctime)s | %(levelname)s | %(message)s')
@@ -32,7 +32,7 @@ def model_generate_prediction(image_path: str, model_name: str = 'vgg16'):
     global model_error_message
     fullname = f"deepfake-{model_name}.keras"
 
-    prediction = 0
+    prediction = 0.0
     error_code = 0
 
     try:
@@ -64,4 +64,4 @@ def model_get_error() -> str:
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        print("prediction:", model_generate_prediction(sys.argv[1]))
+        print("prediction:", model_generate_prediction(sys.argv[1], sys.argv[2]))
