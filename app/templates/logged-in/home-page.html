@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="../../static/css/base.css">
     <link rel="stylesheet" href="../../static/css/navbar.css">
 
+    <link rel="stylesheet" href="../static/css/logo-sidebar.css">
+    <link rel="stylesheet" href="../static/css/sidebar.css">
+
     <link rel="stylesheet" href="../../static/css/deepfake-examples.css">
     <link rel="stylesheet" href="../../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/news-articles.css">
     <link rel="stylesheet" href="../../static/css/articles.css">
     <link rel="stylesheet" href="../../static/css/footer.css">
     <link rel="stylesheet" href="../../static/css/logo.css">
@@ -52,30 +56,25 @@
 
       <div class="images-stack">
         <div class="images-stack-top">
-          <img src="../static/imgs/holder.png" alt="stack-img" class="img1">
+          <img src="../static/imgs/home-page/criminalMinds.jpg" alt="stack-img" class="img1">
+          <div class="label-real">
+            <div class="label-text">Not Ai-generated</div>
+          </div>
         </div>
 
         <div class="images-stack-middle">
-          <img src="../static/imgs/holder.png" alt="stack-img" class="img2">
+          <img src="../static/imgs/home-page/security.png" alt="stack-img" class="img2">
+          <div class="label-fake1">
+            <div class="label-text">Ai-generated</div>
+          </div>
         </div>
 
         <div class="images-stack-bottom">
-          <img src="../static/imgs/holder.png" alt="stack-img" class="img3">
+          <img src="../static/imgs/home-page/girlAI.png" alt="stack-img" class="img3">
+          <div class="label-fake">
+            <div class="label-text">Ai-generated</div>
+          </div>
         </div>
-
-        <div class="images-stack-logo">
-          <div class="eyes" id="eyes">
-            <div class="pupil">
-              <!--  -->
-            </div>
-          </div>
-          <div class="stick">
-            <!--  -->
-          </div>
-          <!-- <img id="anchor" src="../static/imgs/logo-base.png" alt="logo">
-          <img class="eyeball" src="../static/imgs/logo-eye.png" alt="logo"> -->
-        </div>      
-      </div>
 
     </div>
 
@@ -233,79 +232,84 @@
 
       </div>
 
-      <!-- Footer -->
-      <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
 
-        <div class="upper-half">
-          <div class="fakereal-here">
-            <h1>FakeReal</h1>
-            <p>Our mission to bringing AI detection to the general public.</p>
+      <div class="upper-half">
+        <div class="fakereal-here">
+          <h1>FakeReal</h1>
+          <p>Our mission to bringing AI detection to the general public.</p>
 
-            <div class="links">
-              <div class="download">
-                <a href="holder">
-                  <img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension">
-  
-                  <div class="download-text">
-                    <h1>Scan images at real time!</h1>
-                    <p>Download our Chrome Extension</p>
-                  </div>
-                </a>
-              </div>
-  
-              <div class="report">
-                <a href="https://www.ic3.gov/">
-                  <img src="../static/imgs/icons/alert.png" alt="report">
-  
-                  <div class="report-text">
-                    <h1>Report a case!</h1>
-                    <p>Click here to report a case</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          <div class="links">
+            <div class="download">
+              <a href="holder">
+                <img src="../static/imgs/icons/chrome_extension.png" alt="chrome extension">
 
-          <div class="links-collection">
-            <div class="details">
-              <h3>Navigation</h3>
-              
-              <p><a href="{{ url_for('about') }}">Contact Us</a></p>
-              <p><a href="{{ url_for('about') }}">FAQ</a></p>
-    
-              <br>
-    
-              <p><a href="{{ url_for('login') }}">Log In</a></p>
-              <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
-            </div>  
-
-            <div class="contact-us">
-              <h3>Get in touch</h3>
-
-              <p>&#9993; fakere.41@gmail.com</p>
-              <p><i>&#xf279;</i> Cal State Univeristy, Long Beach</p>
+                <div class="download-text">
+                  <h1>Scan images at real time!</h1>
+                  <p>Download our Chrome Extension</p>
+                </div>
+              </a>
             </div>
 
-            <div class="downloads">
-              
+            <div class="report">
+              <a href="https://www.ic3.gov/">
+                <img src="../static/imgs/icons/alert.png" alt="report">
+
+                <div class="report-text">
+                  <h1>Report a case!</h1>
+                  <p>Click here to report a case</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
-        <hr>
+        <div class="links-collection">
+          <div class="details">
+            <h3>Navigation</h3>
+            
+            <p><a href="{{ url_for('about') }}">Contact Us</a></p>
+            <p><a href="{{ url_for('about') }}">FAQ</a></p>
+  
+            <br>
+  
+            <p><a href="{{ url_for('login') }}">Log In</a></p>
+            <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
+          </div>  
 
-        <div class="important">
-          <p>&copy; 2024 Fake Real™. All rights reserved.</p>
-          <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+          <div class="contact-us">
+            <h3>Get in touch</h3>
+
+            <p>&#9993; fakere.41@gmail.com</p>
+            <p>
+              <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science">
+              <i>&#xf279;</i> Cal State Univeristy, Long Beach
+              </a>
+            </p>
+          </div>
+
+          <div class="downloads">
+            
+          </div>
         </div>
-      </footer>
+      </div>
+
+      <hr>
+
+      <div class="important">
+        <p>&copy; 2024 Fake Real™. All rights reserved.</p>
+        <p class="csulb">Supported and developed by CSULB and CSULB students.</p>
+      </div>
+    </footer>
 
     </section>
     
-    <script src="''../static/js/mouse.js"></script>
-    <script src="../static/js/carousel.js"></script>
-    <script src="../static/js/logo-animation.js"></script>
-    <script src="../static/js/animation.js"></script>
-    <script src="../static/js/news-article.js"></script>
+    <script src="../../static/js/mouse.js"></script>
+    <script src="../../static/js/carousel.js"></script>
+    <script src="../../static/js/logo-animation.js"></script>
+    <script src="../../static/js/animation.js"></script>
+    <script src="../../static/js/news-article.js"></script>
+    <script src="../../static/js/open-files.js"></script>
   </body>
 </html>

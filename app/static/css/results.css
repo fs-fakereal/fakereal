@@ -1,5 +1,5 @@
 .results-section {
-    padding: 1rem 8rem;
+    padding: 2rem 8rem;
     width: 20rem;
 
     background-color: white;
@@ -10,6 +10,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.results-download {
+    width: 20rem;
+
+    h2 {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 0rem;
+    }
+}
+
+.company-stampmark {
+    font-style: italic;
+    color: grey;
+    margin: 0rem;
+    padding: 0rem;
 }
 
 .verdict p {
@@ -48,20 +64,16 @@
     /* height: 10vh; */
     gap: 2rem;
 }
-<<<<<<< HEAD
   
-.pics-history {
+/* .pics-history {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-=======
+} */
 
 .scanned_image {
-    height: 20rem;
+    width: 30rem;
 }
-
->>>>>>> 1ee85fffd24b9776960e708f3feff25a08d05e5d
 
 /* filter the images */
 .filter-photos {
@@ -117,4 +129,10 @@
     p {
         color: #000;
     }
+}
+
+/* button download section */
+.buttons-download {
+    display: flex;
+    justify-content: center;
 }
