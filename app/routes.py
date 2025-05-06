@@ -160,10 +160,17 @@ def logout():
     return redirect(url_for('login'))
 
 #routes to the results history page
-@app.route('/result_history')
+@app.route('/result/')
 @login_required
 def result():
-    return render_template('result.html', title='Result')
+    # return render_template('result.html', title='Result')
+    # img = request.args.get('img')
+    # result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
+    # if not result:
+        #return "Result not found", 404
+        return render_template('result.html', title='Result')
+    # # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
+    # return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
 
 #route to the page that allows users to scan photos
 
