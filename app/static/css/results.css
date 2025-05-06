@@ -1,8 +1,4 @@
 .results-section {
-<<<<<<< HEAD
-    padding: 2rem 8rem;
-    width: 20rem;
-=======
     /* padding: 1rem 8rem; */
     /* width: 20rem; */
     /* width: 100%; */
@@ -12,7 +8,6 @@
     right: 3rem;
     bottom: 0;
     width: 50vw;
->>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
 
     background-color: white;
     border-radius: 8px;
@@ -82,20 +77,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-<<<<<<< HEAD
-} */
-=======
-}
->>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
+}*/
 
 .scanned_image {
     width: 30rem;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
 /* filter the images */
 .filter-photos {
     background-color: #ccc;

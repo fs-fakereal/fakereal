@@ -93,7 +93,7 @@
 
 .images-stack-top {
     position: relative;
-    top: 13%;
+    /* top: 13%; */
     right:-10%;
 
     object-fit: contain;
@@ -136,7 +136,7 @@
 
 .images-stack-middle {
     position: relative;
-    top: -8%;
+    top: -20%;
     right: -55%;
 
     object-fit: contain;
@@ -180,7 +180,7 @@
     /* filter: grayscale(100%); */
 
     position: relative;
-    bottom: 20%;    
+    bottom: 35%;    
     right: -20%;
 
     object-fit: contain;
