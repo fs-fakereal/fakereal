@@ -1,9 +1,21 @@
 .results-section {
+<<<<<<< HEAD
     padding: 2rem 8rem;
     width: 20rem;
+=======
+    /* padding: 1rem 8rem; */
+    /* width: 20rem; */
+    /* width: 100%; */
+    padding: 4rem;
+    position: relative;
+    top: 0;
+    right: 3rem;
+    bottom: 0;
+    width: 50vw;
+>>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
 
     background-color: white;
-    border-radius: 1rem;
+    border-radius: 8px;
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.1);
     text-align: center;
 
@@ -62,19 +74,28 @@
 
     padding: 3rem 0rem;
     /* height: 10vh; */
-    gap: 2rem;
+    /* gap: 2rem; */
+    padding: 2rem;
 }
   
 /* .pics-history {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
 
 .scanned_image {
     width: 30rem;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 002b528e81542fd9b89b16d6fbea46fa17fd8132
 /* filter the images */
 .filter-photos {
     background-color: #ccc;
@@ -120,7 +141,7 @@
 /* Previous img data */
 .previous-img-data {
     /* height: 100vh; */
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     border: #f9f9f9 0.1rem solid;
     border-radius: 2rem;
     padding: 0.5rem 0.8rem;
