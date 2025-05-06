@@ -160,30 +160,49 @@ def logout():
     return redirect(url_for('login'))
 
 #routes to the results history page
-@app.route('/result/')
-@login_required
-def result():
-    # return render_template('result.html', title='Result')
-    # img = request.args.get('img')
-    # result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
-    # if not result:
-        #return "Result not found", 404
-        return render_template('result.html', title='Result')
-    # # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
-    # return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
+# @app.route('/result/')
+# @login_required
+# def result():
+#     # return render_template('result.html', title='Result')
+#     # img = request.args.get('img')
+#     # result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
+#     # if not result:
+#         #return "Result not found", 404
+#         return render_template('result.html', title='Result')
+#     # # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
+#     # return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
+
+#route to results
+# @app.route('/result/', methods=['GET', 'POST'])
+# @app.route('/result/<hash>')
+# @login_required
+# def result(hash=None):
+#     # return render_template('results-none.html', title = 'Results')
+#     if hash is not None:
+#         img = request.args.get('img')
+#         result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
+#         return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
+#     if hash is None:
+#         #return "Result not found", 404
+#         return render_template('results-none.html', title='Results None')
+#     # img = request.args.get('img')
+#     # result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
+#     # return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
 
 #route to the page that allows users to scan photos
 
 
 #routes to the results history page
-@app.route('/result/<hash>')
+@app.route('/result/', methods=['GET', 'POST'])
+@app.route('/result/<hash>', methods=['GET', 'POST'])
 @login_required
-def result_page(hash):
+def result_page(hash=None):
     img = request.args.get('img')
     result = db.session.scalar(sa.select(ScanResult).where(ScanResult.hash == hash))
     if not result:
         #return "Result not found", 404
-        return render_template('upload.html', title='Upload')
+        # return render_template('upload.html', title='Upload')
+        return render_template('results-none.html', title='Results None')
     # return render_template('scan_result.html', result=result, hash=hash, image=img, title='Scan Result')
     return render_template('result.html', result=result, hash=hash, image=img, title='Scan Result')
 
@@ -431,6 +450,7 @@ def _file_upload():
                 sess.add(final_result)
                 sess.commit()
 
+        # return redirect(url_for('result', hash=hash, img=f"{hash}.{ext}"))
         return redirect(url_for('result_page', hash=hash, img=f"{hash}.{ext}"))
 
 #similar route to upload, but this one is used for the extension - fatima
