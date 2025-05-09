@@ -73,6 +73,30 @@ document.getElementById("main-content").addEventListener("click", function (even
     }
 });
 
+document.addEventListener("submit", function (event) {
+    const form = event.target;
+    if (form.id === "UploadImage") {
+        event.preventDefault(); // Stop the full-page reload
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("main-content").innerHTML = data;
+            runScriptsInContent(data); // Run any <script> tags in the response
+            history.pushState({ path: form.action }, "", form.action);
+        })
+        .catch(error => {
+            console.error("Upload failed:", error);
+            alert("There was an error uploading the image.");
+        });
+    }
+});
+
 
     // Handle browser back/forward navigation
     window.addEventListener("popstate", function (event) {

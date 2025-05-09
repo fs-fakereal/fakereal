@@ -13,3 +13,24 @@ function previewImage() {
     }
 
 };
+
+document.addEventListener("submit", function (event) {
+    const form = event.target;
+    if (form.id === "upload-form") {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("main-content").innerHTML = data;
+            runScriptsInContent(data); // run any <script> tags in returned HTML
+            history.pushState({ path: form.action }, "", form.action);
+        })
+        .catch(error => console.error("Upload failed:", error));
+    }
+});

@@ -561,18 +561,4 @@ def _ext_upload():
                 "score": result['score'],
             }
 
-            if save_results:
-                final_result = ScanResult(
-                    hash=hash,
-                    time=result['time'],
-                    explanation=result['explanation'],
-                    model=result['model'],
-                    score=result['score'],
-                    status_message=result['status']['message'],
-                    status_code=result['status']['code'],
-                    status_from=result['status']['from']
-                )
-                sess.add(final_result)
-                sess.commit()
-
         return json.dumps(ext_response)
