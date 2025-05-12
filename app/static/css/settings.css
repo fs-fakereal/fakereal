@@ -13,14 +13,15 @@
     gap: 20px;
     width: 100%;
     text-align: center;
-    
 }
 
-.tile-link {
-    text-decoration: none; /* Ensures no underline by default */
-    color: black; /* Set text color to black (or any color you prefer) */
+/* Make ALL links (including edit-account) look the same */
+.tile-link, .edit-account-link {
+    text-decoration: none; /* No underline by default */
+    color: black; /* Ensures text stays black (no purple) */
 }
 
+/* Style for ALL tiles */
 .tile {
     width: 250px;
     height: 120px;
@@ -28,31 +29,34 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: white;
+    background: white; /* Same white background */
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background 0.3s, text-decoration 0.3s;
+    transition: text-decoration 0.2s ease; /* Smooth underline effect */
     font-size: 18px;
     font-weight: bold;
-    text-decoration: none; /* Ensures no underline by default */
 }
 
-.tile-link:hover .tile {
-    background: #e5e7eb;
-    text-decoration: underline; /* Underline on hover for the tile text */
+/* Hover effect: ONLY UNDERLINE (no background change) */
+.tile-link:hover .tile,
+.edit-account-link:hover .tile {
+    text-decoration: underline; /* Underline on hover */
+    background: white; /* Keep background white (optional, but ensures no change) */
 }
 
-.tile-link:visited { 
-    color: black; /* Set visited link color to black to avoid purple color */
+/* Prevent visited links from turning purple */
+.tile-link:visited,
+.edit-account-link:visited {
+    color: black;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 600px) {
     .tiles {
         flex-direction: column;
         align-items: center;
     }
-
     .tile {
         width: 100%;
         max-width: 300px;

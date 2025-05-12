@@ -31,7 +31,7 @@
   margin-bottom: 5px;
 }
 
-/* Style input fields */
+/* Style all input fields (including submit buttons) */
 .profile input {
   width: 100%;
   padding: 10px;
@@ -41,48 +41,59 @@
   box-sizing: border-box;
 }
 
-/* Style non-editable email display */
-.profile .email-box {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  background-color: #f9f9f9; /* Light gray to indicate it's non-editable */
-  color: #333;
-  box-sizing: border-box;
+/* Style text input fields specifically */
+.profile input[type="text"],
+.profile input[type="password"],
+.profile input[type="email"] {
+  background-color: white;
 }
 
-/* Style buttons */
-.profile button {
+/* Style non-editable email display */
+.profile .email-box {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Style submit button */
+.profile input[type="submit"] {
   margin-top: 20px;
   padding: 12px;
-  width: 100%;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-.profile button:hover {
+.profile input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-/* Delete account button */
-.profile button.delete {
+/* Style delete button specifically */
+.profile #delete_account {
+  margin-top: 10px;
   background-color: #dc3545;
+  color: white;
 }
 
-.profile button.delete:hover {
+.profile #delete_account:hover {
   background-color: #c82333;
 }
 
-/* Footer styling */
-footer {
-  text-align: center;
-  margin-top: 30px;
-  color: #666;
-  font-size: 14px;
+/* Flash messages */
+.flash-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.flash-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
 }
