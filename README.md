@@ -1,7 +1,7 @@
 
 # FakeReal
-FakeReal is an extension and website for the public to detect and inform themselves about
-deep fakes.
+FakeReal is an **extension/addon** and **web service** for the public to detect and inform themselves 
+about deep fakes.
 
 Deep fakes are a relatively new concept and have been growing every day. Deep fakes
 generate fake videos, photos, and audios. This development makes it possible for individuals to
@@ -57,3 +57,14 @@ Navigate to the root directory and activate your virtual environment, then run t
 flask run
 ```
 The project will now be running on http://localhost:5000.
+
+### To run Browser extension:
+Go to google and in the top right click the three dots. Then go to extensions and click manage extensions. 
+
+Once in extension screen click load unpack and in the FakeReal files locate:
+
+Chrome-Extension-BoilerPlate
+
+Select the folder and now the FakeReal extension will be in your extension list
+
+You can then open a new web window and click the extension icon and tab the FakeReal extension to view and run.
