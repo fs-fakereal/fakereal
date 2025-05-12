@@ -45,7 +45,7 @@ pip install -r requirements.txt
 A .flaskenv is required to be accessible in the root directory to run the server.
 
 Either use the provided .flaskenv, or provide the required environment variables for
-(A template has been provided for convenience within the root directory):
+the following (note: a template has been provided for convenience within the root directory):
 - PostgresSQL
 - News API
 - GenAI API
