@@ -51,7 +51,7 @@ Either use the provided .flaskenv, or provide the required environment variables
 - GenAI API
 
 
-### To run the site
+### To run the site:
 Navigate to the root directory and activate your virtual environment, then run this command:
 ```sh
 flask run
