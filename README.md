@@ -1,8 +1,15 @@
+# 🕵️‍♂️ FakeReal
 
-# FakeReal
-FakeReal is an **extension/addon** and **web service** for the public to detect and inform themselves 
-about deep fakes.
+**FakeReal** is a browser extension and web service that helps the public **detect and learn about deep fakes**.  
 
+Deep fakes are synthetic videos, photos, and audio that impersonate real people. While most deep fake detection tools are built for companies or locked behind paywalls, **FakeReal makes detection more accessible to everyone**.  
+
+Our platform provides:
+- 🔍 **Deep fake identification** through a web application  
+- 🌐 **Browser extension** for real-time detection  
+- 📚 **Educational resources** to help users understand deep fakes  
+
+## Our purpose
 Deep fakes are a relatively new concept and have been growing every day. Deep fakes
 generate fake videos, photos, and audios. This development makes it possible for individuals to
 not only develop fake materials of a person, but to impersonate a person. Other deep fake
@@ -68,3 +75,4 @@ Chrome-Extension-BoilerPlate
 Select the folder and now the FakeReal extension will be in your extension list
 
 You can then open a new web window and click the extension icon and tab the FakeReal extension to view and run.
+
